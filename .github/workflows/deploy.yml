@@ -1,4 +1,4 @@
-name: Deploy to Vercel
+name: Deploy to Cloudflare
 
 on:
   push:
@@ -14,11 +14,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
-      - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v25
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod'
+          node-version: 22
+          cache: "pnpm"
+
+      - run: pnpm install --frozen-lockfile --strict-peer-dependencies
+
+      - name: Deploy to Cloudflare Workers
+        run: pnpm cf:deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

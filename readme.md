@@ -29,7 +29,8 @@ This repository powers [techempower.org](https://techempower.org) — a Next.js 
 |-------|-----------|
 | Framework | [Next.js](https://nextjs.org/) (Pages Router, SSR) |
 | CMS | [Notion](https://notion.so) via [react-notion-x](https://github.com/NotionX/react-notion-x) |
-| Hosting | [Vercel](https://vercel.com) |
+| Hosting | [Cloudflare Workers](https://workers.cloudflare.com/) via [OpenNext](https://opennext.js.org/cloudflare) |
+| Incremental cache | [Cloudflare R2](https://developers.cloudflare.com/r2/) (bucket: `techempower-cache`) |
 | Styling | CSS Modules + global CSS custom properties |
 | Fonts | Fraunces (display), DM Sans (body) |
 | Analytics | Google Analytics, Fathom (optional), PostHog (optional) |
@@ -104,25 +105,56 @@ site.config.ts    Notion page IDs, navigation, site metadata
 | Command | Description |
 |---------|-------------|
 | `pnpm dev` | Start local dev server |
-| `pnpm build` | Production build |
+| `pnpm build` | Production build (Next.js) |
 | `pnpm start` | Serve production build locally |
 | `pnpm format` | Format code with Prettier |
-| `pnpm deploy` | Deploy to Vercel |
+| `pnpm cf:build` | Build the OpenNext Cloudflare worker bundle |
+| `pnpm cf:preview` | Preview the worker locally via miniflare |
+| `pnpm cf:deploy` | Deploy to Cloudflare Workers (requires env secrets) |
+| `pnpm deploy:local` | Deploy with secrets pulled from Bitwarden (see [Deployment](#deployment)) |
 
 ## Deployment
 
-The site deploys to **Vercel**. Push to `master` to trigger automatic deployment.
+The site deploys to **Cloudflare Workers** via [OpenNext](https://opennext.js.org/cloudflare). Push to `master` to trigger automatic deployment through [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml).
 
-Manual deploy:
+### GitHub Actions (auto-deploy)
+
+Requires two repository secrets:
+
+- `CLOUDFLARE_API_TOKEN` — scoped to `Workers Scripts: Edit` (account), `Workers R2 Storage Bucket Item Write` on `techempower-cache`, and `Workers Routes: Edit` on the `techempower.org` zone.
+- `CLOUDFLARE_ACCOUNT_ID`
+
+### Manual deploy from a developer machine
+
+Secrets live in a Bitwarden secure note named `techempower cloudflare api`:
+
+- `notes` field → `CLOUDFLARE_API_TOKEN`
+- custom field `id` → `CLOUDFLARE_ACCOUNT_ID`
+
+Unlock the vault once per shell, then run:
+
 ```bash
-npx vercel --prod --yes
+export BW_SESSION=$(bw unlock --raw)
+pnpm deploy:local
 ```
 
-SSR pages include CDN caching headers (`s-maxage=3600, stale-while-revalidate=86400`) for fast subsequent loads.
+[`scripts/deploy.sh`](./scripts/deploy.sh) reads both values from Bitwarden, exports them, and runs `pnpm cf:deploy`. Requires `bw` and `jq` on PATH.
+
+### Prerequisite: R2 bucket
+
+The incremental cache binding points at an R2 bucket that must exist in the target account:
+
+```bash
+npx wrangler r2 bucket create techempower-cache
+```
+
+### Caching
+
+SSR pages include CDN caching headers (`s-maxage=3600, stale-while-revalidate=86400`). The Next.js incremental cache is backed by R2 (see [`open-next.config.ts`](./open-next.config.ts) and the `r2_buckets` binding in [`wrangler.jsonc`](./wrangler.jsonc)).
 
 ## Environment Variables
 
-Set these in your Vercel project settings or in a local `.env` file:
+App-level variables (set in a local `.env` file for development, or via `wrangler secret put` / Cloudflare dashboard for production):
 
 | Variable | Required | Description |
 |----------|----------|-------------|
@@ -131,6 +163,13 @@ Set these in your Vercel project settings or in a local `.env` file:
 | `NEXT_PUBLIC_POSTHOG_ID` | No | PostHog project API key |
 | `REDIS_HOST` | No | Redis host for preview image caching |
 | `REDIS_PASSWORD` | No | Redis password |
+
+Deploy-time variables (GitHub Actions secrets / local shell):
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `CLOUDFLARE_API_TOKEN` | Yes | Token with Workers Scripts Edit + R2 bucket write + Workers Routes Edit |
+| `CLOUDFLARE_ACCOUNT_ID` | Yes | Cloudflare account ID |
 
 ## Contributing
 

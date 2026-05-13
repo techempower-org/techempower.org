@@ -13,7 +13,7 @@ A Next.js site that renders content from Notion as a CMS, using react-notion-x. 
 
 - **Framework:** Next.js (Pages Router, SSR), React 19
 - **CMS:** Notion via react-notion-x
-- **Hosting:** Vercel (auto-deploy on push to `master`)
+- **Hosting:** Cloudflare Workers via OpenNext (auto-deploy on push to `master`)
 - **Styling:** CSS Modules + global CSS custom properties (warm earth-tone design system)
 - **Fonts:** Fraunces (display), DM Sans (body)
 - **Package manager:** pnpm (Node >= 20)
@@ -26,8 +26,32 @@ pnpm install          # install deps (runs patch-package postinstall)
 pnpm dev              # dev server at localhost:3000
 pnpm build            # production build
 pnpm start            # serve production build
-npx vercel --prod --yes   # manual deploy to Vercel
+pnpm cf:build         # build OpenNext Cloudflare worker bundle
+pnpm cf:preview       # preview worker locally via miniflare
+pnpm cf:deploy        # manual deploy (requires CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID in env)
+pnpm deploy:local     # manual deploy with secrets pulled from Bitwarden (see Deploying)
 ```
+
+## Deploying
+
+CI auto-deploys on push to `master` via `.github/workflows/deploy.yml` using the
+`CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` GitHub Actions secrets.
+
+For a manual deploy from a local machine, secrets live in Bitwarden:
+
+- Item: `techempower cloudflare api` (secure note)
+- `notes` field → `CLOUDFLARE_API_TOKEN`
+- custom field `id` → `CLOUDFLARE_ACCOUNT_ID`
+
+Unlock the vault once per shell, then run the helper script:
+
+```bash
+export BW_SESSION=$(bw unlock --raw)
+pnpm deploy:local
+```
+
+`scripts/deploy.sh` reads both values from Bitwarden, exports them, and runs
+`pnpm cf:deploy`. Requires `bw` and `jq` on PATH.
 
 ## Key Files
 

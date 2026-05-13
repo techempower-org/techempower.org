@@ -16,10 +16,12 @@
   "observability": {
     "enabled": true
   },
-  "kv_namespaces": [
+  "r2_buckets": [
     {
-      "binding": "NEXT_INC_CACHE_KV",
-      "id": "77055535c51e442193e5dad69ceb5075"
+      // Bucket must be pre-created in the Cloudflare account before deploy:
+      //   npx wrangler r2 bucket create techempower-cache
+      "binding": "NEXT_INC_CACHE_R2_BUCKET",
+      "bucket_name": "techempower-cache"
     }
   ],
   "r2_buckets": [
