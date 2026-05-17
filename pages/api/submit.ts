@@ -355,50 +355,63 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST')
-    return badRequest(res, 'Method not allowed.', 405)
+  // Catch-all so the client always gets a JSON error body, even for an
+  // uncaught exception below. Without this Next.js renders an HTML 500 page
+  // and the frontend just shows the generic fallback.
+  try {
+    if (req.method !== 'POST') {
+      res.setHeader('Allow', 'POST')
+      return badRequest(res, 'Method not allowed.', 405)
+    }
+
+    // Next.js parses JSON automatically when Content-Type is application/json.
+    // Reject anything else early so we can keep error paths short.
+    const ct = req.headers['content-type'] || ''
+    if (!ct.includes('application/json')) {
+      return badRequest(res, 'Expected application/json.', 415)
+    }
+
+    const validation = validate(req.body)
+    if (!validation.ok) {
+      return badRequest(res, validation.error, 422)
+    }
+    const data = validation.data
+
+    const ip = getClientIp(req)
+    const ipHash = await sha256Hex(ip)
+
+    const turnstileOk = await verifyTurnstile(data.turnstileToken, ip)
+    if (!turnstileOk) {
+      return badRequest(
+        res,
+        'Captcha check failed — please refresh and try again.',
+        403
+      )
+    }
+
+    const rl = await checkAndIncrementRateLimit(ipHash)
+    if (!rl.ok) {
+      res.setHeader('Retry-After', String(rl.remainingSeconds))
+      return badRequest(
+        res,
+        'You have reached the daily submission limit. Please try again tomorrow.',
+        429
+      )
+    }
+
+    const created = await createSubmissionPage(data, ipHash)
+    if (!created.ok) {
+      return res.status(500).json({ ok: false, error: created.error })
+    }
+
+    return res.status(200).json({ ok: true, id: created.id })
+  } catch (err) {
+    // Log the real error to Worker logs; return an opaque shape to the client.
+    console.error('[submit] uncaught exception', err)
+    return res.status(500).json({
+      ok: false,
+      error: 'Unexpected server error. Please try again.',
+      debug: err instanceof Error ? err.message : String(err)
+    })
   }
-
-  // Next.js parses JSON automatically when Content-Type is application/json.
-  // Reject anything else early so we can keep error paths short.
-  const ct = req.headers['content-type'] || ''
-  if (!ct.includes('application/json')) {
-    return badRequest(res, 'Expected application/json.', 415)
-  }
-
-  const validation = validate(req.body)
-  if (!validation.ok) {
-    return badRequest(res, validation.error, 422)
-  }
-  const data = validation.data
-
-  const ip = getClientIp(req)
-  const ipHash = await sha256Hex(ip)
-
-  const turnstileOk = await verifyTurnstile(data.turnstileToken, ip)
-  if (!turnstileOk) {
-    return badRequest(
-      res,
-      'Captcha check failed — please refresh and try again.',
-      403
-    )
-  }
-
-  const rl = await checkAndIncrementRateLimit(ipHash)
-  if (!rl.ok) {
-    res.setHeader('Retry-After', String(rl.remainingSeconds))
-    return badRequest(
-      res,
-      'You have reached the daily submission limit. Please try again tomorrow.',
-      429
-    )
-  }
-
-  const created = await createSubmissionPage(data, ipHash)
-  if (!created.ok) {
-    return res.status(500).json({ ok: false, error: created.error })
-  }
-
-  return res.status(200).json({ ok: true, id: created.id })
 }
