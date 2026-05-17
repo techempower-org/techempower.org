@@ -1,10 +1,12 @@
+import Link from 'next/link'
+
 import type * as types from '@/lib/types'
 
 import { PageHead } from './PageHead'
 import styles from './styles.module.css'
 
-export function Page404({ site, pageId, error }: types.PageProps) {
-  const title = site?.name || 'Notion Page Not Found'
+export function Page404({ site }: types.PageProps) {
+  const title = `Page not found — ${site?.name || 'TechEmpower'}`
 
   return (
     <>
@@ -12,24 +14,29 @@ export function Page404({ site, pageId, error }: types.PageProps) {
 
       <div className={styles.container}>
         <main className={styles.main}>
-          <h1>Notion Page Not Found</h1>
+          <h1>Page not found</h1>
 
-          {error ? (
-            <p>{error.message}</p>
-          ) : (
-            pageId && (
-              <p>
-                Make sure that Notion page &quot;{pageId}&quot; is publicly
-                accessible.
-              </p>
-            )
-          )}
+          <p>
+            We couldn&rsquo;t find that page. It may have been moved, or the
+            link might be old. Try one of these:
+          </p>
 
-          <img
-            src='/404.png'
-            alt='404 Not Found'
-            className={styles.errorImage}
-          />
+          <ul className={styles.errorLinks}>
+            <li>
+              <Link href='/'>Home</Link>
+            </li>
+            <li>
+              <Link href='/resources'>Search free programs</Link>
+            </li>
+            <li>
+              <Link href='/about'>About TechEmpower</Link>
+            </li>
+          </ul>
+
+          <p>
+            Still stuck? Call <strong>2-1-1</strong> from any phone for free
+            help finding food, housing, healthcare, and other local resources.
+          </p>
         </main>
       </div>
     </>
