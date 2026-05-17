@@ -39,7 +39,7 @@ export default siteConfig({
     '/guides/free-internet': 'bb5e537b083a417eb90ed9e984128c71',
     '/guides/ev-incentives': '758054e1a2ec4c1aa077202ffedec710',
     '/guides/ebt-balance': '272a4ee69520804fa68ad8c110af49f6',
-    '/guides/ebt-spending': '16f7018ad93542652b2b16c44464b1c3',
+    '/guides/ebt-spending': '16f7018ad9354265a2b216c44464b1c3',
     '/guides/findhelp': '992742a61e2e472b9b4a149f7aa74539',
     '/guides/password-manager': '99b0ab9c7cce428e8c86e3143752aa1c',
     '/guides/free-cell-service': '7519ef16d7b74519acd9b8262a7beb84',
