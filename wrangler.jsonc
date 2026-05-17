@@ -16,9 +16,6 @@
   "observability": {
     "enabled": true
   },
-  "limits": {
-    "cpu_ms": 50000
-  },
   "r2_buckets": [
     {
       // Bucket must be pre-created in the Cloudflare account before deploy:
