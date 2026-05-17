@@ -23,9 +23,11 @@ html {
   --te-warm-100: #fef3c7;
   --te-warm-200: #fde68a;
 
-  /* Primary: teal-green (trustworthy, fresh, positive) */
-  --te-teal-700: #0f766e;
-  --te-teal-600: #0d9488;
+  /* Primary: teal-green (trustworthy, fresh, positive)
+     teal-700/600 darkened from #0f766e/#0d9488 to clear WCAG AA contrast
+     on white backgrounds for active filter chips + CTAs */
+  --te-teal-700: #0b5e5a;
+  --te-teal-600: #0f766e;
   --te-teal-500: #14b8a6;
   --te-teal-100: #ccfbf1;
   --te-teal-50: #f0fdfa;
