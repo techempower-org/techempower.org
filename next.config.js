@@ -33,7 +33,7 @@ const cspDirectives = [
   // placeholders) + Notion's CDN + Twitter media + Unsplash + S3 bucket
   // used by Notion + Google Analytics tracking pixels + our R2 cover
   // bucket.
-  "img-src 'self' data: blob: https://www.notion.so https://notion.so https://*.notion.so https://images.unsplash.com https://abs.twimg.com https://pbs.twimg.com https://s3.us-west-2.amazonaws.com https://*.amazonaws.com https://www.google-analytics.com https://www.googletagmanager.com https://pub-f94e62ffd9ac4b6888afd6948c4ccb5e.r2.dev",
+  "img-src 'self' data: blob: https://www.notion.so https://notion.so https://*.notion.so https://*.notionusercontent.com https://images.unsplash.com https://abs.twimg.com https://pbs.twimg.com https://s3.us-west-2.amazonaws.com https://*.amazonaws.com https://www.google-analytics.com https://www.googletagmanager.com https://pub-f94e62ffd9ac4b6888afd6948c4ccb5e.r2.dev",
   // XHR / fetch endpoints: analytics ingest, Notion proxies, R2, Formspree.
   "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://stats.g.doubleclick.net https://app.posthog.com https://*.posthog.com https://cdn.usefathom.com https://*.usefathom.com https://api.notion.com https://www.notion.so https://*.notion.so https://formspree.io https://pub-f94e62ffd9ac4b6888afd6948c4ccb5e.r2.dev",
   // Media (audio/video) — Notion blocks can embed both.
