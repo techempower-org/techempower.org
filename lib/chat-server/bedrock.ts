@@ -153,6 +153,37 @@ interface SigV4Input {
   secretAccessKey: string
 }
 
+// Module-scope cache of the derived signing key. AWS SigV4 chains 4 HMACs
+// (secret → date → region → service → aws4_request) to produce the key
+// that signs each request. The key changes only when (date, region, service)
+// change — typically once per UTC day. Caching it skips 4 HMAC operations
+// per request, the heaviest chunk of CPU in the chat hot path.
+//
+// CF Workers reuse isolates across requests within minutes, so this cache
+// has real hit-rate. Cold isolates re-derive on first call.
+let kSigningCache: {
+  key: string
+  value: Uint8Array
+} | null = null
+
+async function getSigningKey(
+  secretAccessKey: string,
+  dateStamp: string,
+  region: string,
+  service: string
+): Promise<Uint8Array> {
+  const cacheKey = `${dateStamp}|${region}|${service}|${secretAccessKey.slice(-6)}`
+  if (kSigningCache && kSigningCache.key === cacheKey) {
+    return kSigningCache.value
+  }
+  const kDate = await hmac(`AWS4${secretAccessKey}`, dateStamp)
+  const kRegion = await hmac(kDate, region)
+  const kService = await hmac(kRegion, service)
+  const kSigning = await hmac(kService, 'aws4_request')
+  kSigningCache = { key: cacheKey, value: kSigning }
+  return kSigning
+}
+
 async function sigv4Sign(
   input: SigV4Input
 ): Promise<{ headers: Record<string, string> }> {
@@ -192,10 +223,12 @@ async function sigv4Sign(
     await sha256Hex(canonicalRequest)
   ].join('\n')
 
-  const kDate = await hmac(`AWS4${input.secretAccessKey}`, dateStamp)
-  const kRegion = await hmac(kDate, input.region)
-  const kService = await hmac(kRegion, input.service)
-  const kSigning = await hmac(kService, 'aws4_request')
+  const kSigning = await getSigningKey(
+    input.secretAccessKey,
+    dateStamp,
+    input.region,
+    input.service
+  )
   const signature = bufToHex(await hmac(kSigning, stringToSign))
 
   const authorization = `AWS4-HMAC-SHA256 Credential=${input.accessKeyId}/${credentialScope}, SignedHeaders=${signedHeaders}, Signature=${signature}`
