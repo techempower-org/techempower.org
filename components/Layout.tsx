@@ -25,9 +25,13 @@ export function Layout({ children }: LayoutProps) {
 
       <Header />
 
-      <div id='main-content' className={styles.main}>
+      {/* Semantic <main> is required so axe-core/AT recognize the page
+          content as a landmark; previously a <div> caused notion-page-cover
+          (rendered as the first child of NotionRenderer) to be flagged as
+          'outside any landmark region'. */}
+      <main id='main-content' className={styles.main}>
         {children}
-      </div>
+      </main>
 
       <Footer />
 
