@@ -237,7 +237,7 @@ export function NotionPage({
   const keys = Object.keys(recordMap?.block || {})
   const block = getBlockValue(recordMap?.block?.[keys[0]!])
 
-  const isHomePage = pageId === site?.rootNotionPageId
+  const _isHomePage = pageId === site?.rootNotionPageId
   const isBlogPost =
     block?.type === 'page' && block?.parent_table === 'collection'
   const isGuide = isGuidePage(pageId)
