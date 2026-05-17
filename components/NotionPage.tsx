@@ -351,9 +351,18 @@ export function NotionPage({
     block
   )
 
-  const socialDescription =
+  // Per-page description for SEO + social cards.
+  // Try (in order): explicit Description property, Notion's Auto Summary,
+  // then fall back to the site-wide description. Truncate to 160 chars
+  // for ideal search-snippet display.
+  const rawDescription =
     getPageProperty<string>('Description', block, recordMap) ||
+    getPageProperty<string>('Auto Summary', block, recordMap) ||
     config.description
+  const socialDescription =
+    rawDescription && rawDescription.length > 160
+      ? rawDescription.slice(0, 157).replace(/\s+\S*$/, '') + '…'
+      : rawDescription
 
   return (
     <>
@@ -367,7 +376,7 @@ export function NotionPage({
         isBlogPost={isBlogPost}
       />
 
-      {isHomePage && <StructuredData />}
+      <StructuredData />
 
       {isLiteMode && <BodyClassName className='notion-lite' />}
       {isDarkMode && <BodyClassName className='dark-mode' />}

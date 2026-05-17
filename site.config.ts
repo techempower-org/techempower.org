@@ -53,7 +53,9 @@ export default siteConfig({
     // About pages
     '/about': 'dbf0ddece2ce468fb2bf9049e6322e8a',
     '/donate': '59d8a4dab0cc484f8b044d33f240ce1d',
-    '/non-discrimination-policy': 'cdbe9906ae2441a1a9bb3aec601a5a6c'
+    '/non-discrimination-policy': 'cdbe9906ae2441a1a9bb3aec601a5a6c',
+    '/privacy-policy': '363a4ee6952081b28996c0c05280ce18',
+    '/privacy': '363a4ee6952081b28996c0c05280ce18'
   },
 
   // custom navigation
