@@ -19,7 +19,6 @@
  */
 
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getCloudflareContext } from '@opennextjs/cloudflare'
 
 import { type BedrockEnv, invokeBedrock } from '@/lib/chat-server/bedrock'
 import { classifyMessage } from '@/lib/chat-server/classify'
@@ -124,25 +123,19 @@ export default async function handler(
   }
 
   // ---- Environment + bindings --------------------------------------------
+  //
+  // OpenNext (Cloudflare) maps Worker secrets into `process.env` for the
+  // Pages Router runtime. KV bindings, however, are not in `process.env` —
+  // they land on `globalThis` under their binding name. `getCloudflareContext`
+  // is App-Router/middleware-only and throws here.
 
-  const cf = getCloudflareContext()
-  const env = (cf.env ?? {}) as {
-    CHAT_KV?: ChatKv
-    AWS_ACCESS_KEY_ID?: string
-    AWS_SECRET_ACCESS_KEY?: string
-    AWS_REGION?: string
-    AI_GATEWAY_BASE?: string
-    TURNSTILE_SECRET_KEY?: string
-    SESSION_SIGN_SECRET?: string
-  }
-
-  const sessionSecret = env.SESSION_SIGN_SECRET ?? ''
-  const turnstileSecret = env.TURNSTILE_SECRET_KEY ?? ''
-  const awsAccessKeyId = env.AWS_ACCESS_KEY_ID ?? ''
-  const awsSecretAccessKey = env.AWS_SECRET_ACCESS_KEY ?? ''
-  const awsRegion = env.AWS_REGION ?? 'us-west-2'
-  const aiGatewayBase = env.AI_GATEWAY_BASE ?? ''
-  const chatKv = env.CHAT_KV
+  const sessionSecret = process.env.SESSION_SIGN_SECRET ?? ''
+  const turnstileSecret = process.env.TURNSTILE_SECRET_KEY ?? ''
+  const awsAccessKeyId = process.env.AWS_ACCESS_KEY_ID ?? ''
+  const awsSecretAccessKey = process.env.AWS_SECRET_ACCESS_KEY ?? ''
+  const awsRegion = process.env.AWS_REGION ?? 'us-west-2'
+  const aiGatewayBase = process.env.AI_GATEWAY_BASE ?? ''
+  const chatKv = (globalThis as unknown as { CHAT_KV?: ChatKv }).CHAT_KV
 
   // AWS keys + session secret are required. Turnstile + AI Gateway are
   // optional — see GitHub issues for the follow-up provisioning work. Without

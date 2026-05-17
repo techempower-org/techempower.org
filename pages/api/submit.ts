@@ -209,14 +209,11 @@ interface KVNamespaceLike {
 }
 
 async function getSubmitKv(): Promise<KVNamespaceLike | null> {
-  try {
-    const mod = await import('@opennextjs/cloudflare')
-    const { env } = mod.getCloudflareContext()
-    const kv = (env as unknown as { SUBMIT_KV?: KVNamespaceLike }).SUBMIT_KV
-    return kv ?? null
-  } catch {
-    return null
-  }
+  // KV bindings land on `globalThis` in the OpenNext Pages-Router runtime.
+  // `getCloudflareContext()` from @opennextjs/cloudflare is App-Router-only.
+  const kv = (globalThis as unknown as { SUBMIT_KV?: KVNamespaceLike })
+    .SUBMIT_KV
+  return kv ?? null
 }
 
 async function checkAndIncrementRateLimit(
