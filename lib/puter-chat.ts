@@ -275,9 +275,14 @@ export async function* streamChat(
       if (dataLines.length === 0) continue
 
       const raw = dataLines.join('\n')
-      let parsed: { type?: string; content?: string } | null = null
+      let parsed: { type?: string; content?: string; debug?: string } | null =
+        null
       try {
-        parsed = JSON.parse(raw) as { type?: string; content?: string }
+        parsed = JSON.parse(raw) as {
+          type?: string
+          content?: string
+          debug?: string
+        }
       } catch {
         continue
       }
@@ -285,6 +290,12 @@ export async function* streamChat(
       if (parsed?.type === 'text' && typeof parsed.content === 'string') {
         yield parsed.content
       } else if (parsed?.type === 'error') {
+        if (parsed.debug) {
+          // Surface server-side debug to the browser console so we can see
+          // real exception messages on transient failures without needing
+          // wrangler tail.
+          console.error('[chat] server debug:', parsed.debug)
+        }
         yield parsed.content ??
           'Something went wrong while reaching the assistant. Please try again.'
         return

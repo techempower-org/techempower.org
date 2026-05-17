@@ -267,10 +267,12 @@ export default async function handler(
     }
   } catch (err) {
     console.error('[chat] opus invoke failed', err)
+    const debugMsg = err instanceof Error ? err.message : String(err)
     writeEvent({
       type: 'error',
       content:
-        'Something went wrong while talking to the assistant. Please try again in a moment.'
+        'Something went wrong while talking to the assistant. Please try again in a moment.',
+      debug: debugMsg.slice(0, 500)
     })
   } finally {
     res.end()
