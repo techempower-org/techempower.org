@@ -51,7 +51,8 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       ),
       new Promise<never>((_, reject) =>
         setTimeout(
-          () => reject(new Error(`notion timeout after ${NOTION_TIMEOUT_MS}ms`)),
+          () =>
+            reject(new Error(`notion timeout after ${NOTION_TIMEOUT_MS}ms`)),
           NOTION_TIMEOUT_MS
         )
       )
