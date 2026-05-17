@@ -4,7 +4,11 @@ import { trackEvent } from '@/components/GoogleAnalytics'
 
 import styles from './NewsletterSignup.module.css'
 
-const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID
+// Self-hosted listmonk at list.techempower.org. Public list "TechEmpower News".
+// Double opt-in: listmonk sends a confirmation email; only confirmed addresses
+// receive newsletters. No PII passes through any third party.
+const LISTMONK_ENDPOINT = 'https://list.techempower.org/api/public/subscription'
+const LISTMONK_LIST_UUID = '38286840-6d95-4288-95e3-dac8ab804bcc'
 
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error'
 
@@ -13,59 +17,31 @@ export function NewsletterSignup() {
   const [state, setState] = React.useState<SubmitState>('idle')
   const [errorMessage, setErrorMessage] = React.useState<string | null>(null)
 
-  // No Formspree id wired yet → render an unobtrusive mailto fallback so the
-  // section still works at launch. JP can sign up at formspree.io and set
-  // NEXT_PUBLIC_FORMSPREE_ID to switch to a proper inline form.
-  if (!FORMSPREE_ID) {
-    return (
-      <section className={styles.section} aria-labelledby='newsletter-heading'>
-        <div className={styles.inner}>
-          <h2 id='newsletter-heading' className={styles.heading}>
-            Get new guides in your inbox
-          </h2>
-          <p className={styles.text}>
-            We send a short note when we publish a new guide or update an
-            existing one. No spam, no fundraising emails — just useful resources
-            for low-income folks and the people who help them.
-          </p>
-          <div className={styles.actions}>
-            <a
-              href='mailto:hi@techempower.org?subject=Subscribe%20me%20to%20the%20TechEmpower%20newsletter&body=Yes%20please%20add%20me%20to%20your%20mailing%20list.'
-              className={styles.btn}
-              onClick={() =>
-                trackEvent('newsletter_intent', {
-                  method: 'mailto_fallback'
-                })
-              }
-            >
-              Email to subscribe
-            </a>
-          </div>
-        </div>
-      </section>
-    )
-  }
-
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     if (!email) return
     setState('submitting')
     setErrorMessage(null)
     try {
-      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      const response = await fetch(LISTMONK_ENDPOINT, {
         method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: new FormData(event.currentTarget)
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          name: email.split('@')[0],
+          list_uuids: [LISTMONK_LIST_UUID]
+        })
       })
       if (response.ok) {
         setState('success')
-        trackEvent('newsletter_signup', { method: 'formspree' })
+        trackEvent('newsletter_signup', { method: 'listmonk' })
         setEmail('')
       } else {
-        const data = await response.json().catch(() => ({}))
+        const data = (await response.json().catch(() => ({}))) as {
+          message?: string
+        }
         setErrorMessage(
-          (data as { error?: string })?.error ??
-            'Something went wrong. Try again in a minute?'
+          data?.message ?? 'Something went wrong. Try again in a minute?'
         )
         setState('error')
       }
@@ -90,7 +66,7 @@ export function NewsletterSignup() {
 
         {state === 'success' ? (
           <p className={styles.success} role='status' aria-live='polite'>
-            ✓ You’re in. Check your inbox for a confirmation.
+            ✓ Check your inbox to confirm — the link expires in 24 hours.
           </p>
         ) : (
           <form className={styles.form} onSubmit={onSubmit} noValidate>
