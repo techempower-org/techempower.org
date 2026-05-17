@@ -13,7 +13,13 @@ export function ResourcesToolbar() {
   const [activeCategory, setActiveCategory] = React.useState<string | null>(
     null
   )
-  const [categories, setCategories] = React.useState<string[]>([])
+  // Keys are category names; values are how many resource cards carry that
+  // category in the current view. Drives the count badge on each filter chip.
+  const [categoryCounts, setCategoryCounts] = React.useState<
+    Record<string, number>
+  >({})
+  // Total cards in the current view (used as the count on the "All" chip).
+  const [totalCount, setTotalCount] = React.useState(0)
   const [portalTarget, setPortalTarget] = React.useState<HTMLElement | null>(
     null
   )
@@ -49,22 +55,10 @@ export function ResourcesToolbar() {
     }
   }, [])
 
-  // Extract available categories from cards on mount
+  // Extract available categories + per-category counts from cards on mount.
   React.useEffect(() => {
-    const cats = new Set<string>()
-    const cards = document.querySelectorAll(
-      '.resources-page .notion-collection-card'
-    )
-    for (const card of cards) {
-      const tags = card.querySelectorAll(
-        '.notion-property-multi_select-item, .notion-property-select-item'
-      )
-      for (const tag of tags) {
-        const text = tag.textContent?.trim()
-        if (text) cats.add(text)
-      }
-    }
-    setCategories([...cats].toSorted())
+    setCategoryCounts(scanCategoryCounts())
+    setTotalCount(countVisibleCards())
   }, [])
 
   // Apply search + filter + sort whenever inputs change
@@ -125,23 +119,9 @@ export function ResourcesToolbar() {
   // Re-scan categories when the view changes (tabs switch = DOM mutation)
   React.useEffect(() => {
     const observer = new MutationObserver(() => {
-      const cats = new Set<string>()
-      const cards = document.querySelectorAll(
-        '.resources-page .notion-collection-card'
-      )
-      for (const card of cards) {
-        const tags = card.querySelectorAll(
-          '.notion-property-multi_select-item, .notion-property-select-item'
-        )
-        for (const tag of tags) {
-          const text = tag.textContent?.trim()
-          if (text) cats.add(text)
-        }
-      }
-      const sorted = [...cats].toSorted()
-      setCategories((prev) =>
-        prev.join(',') === sorted.join(',') ? prev : sorted
-      )
+      const next = scanCategoryCounts()
+      setCategoryCounts((prev) => (sameCounts(prev, next) ? prev : next))
+      setTotalCount(countVisibleCards())
     })
 
     const target = document.querySelector('.resources-page')
@@ -220,25 +200,33 @@ export function ResourcesToolbar() {
         </select>
       </div>
 
-      {categories.length > 0 && (
+      {Object.keys(categoryCounts).length > 0 && (
         <div className='resources-filter-chips'>
           <button
             className={`resources-chip ${!activeCategory ? 'active' : ''}`}
             onClick={() => setActiveCategory(null)}
           >
-            All
+            All{' '}
+            <span className='resources-chip-count' aria-hidden='true'>
+              {totalCount}
+            </span>
           </button>
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              className={`resources-chip ${activeCategory === cat ? 'active' : ''}`}
-              onClick={() =>
-                setActiveCategory((prev) => (prev === cat ? null : cat))
-              }
-            >
-              {cat}
-            </button>
-          ))}
+          {Object.keys(categoryCounts)
+            .toSorted()
+            .map((cat) => (
+              <button
+                key={cat}
+                className={`resources-chip ${activeCategory === cat ? 'active' : ''}`}
+                onClick={() =>
+                  setActiveCategory((prev) => (prev === cat ? null : cat))
+                }
+              >
+                {cat}{' '}
+                <span className='resources-chip-count' aria-hidden='true'>
+                  {categoryCounts[cat]}
+                </span>
+              </button>
+            ))}
         </div>
       )}
     </div>
@@ -251,4 +239,57 @@ export function ResourcesToolbar() {
 
   // Fallback: render inline (SSR or before portal target is found)
   return null
+}
+
+// --- helpers ---------------------------------------------------------------
+
+function scanCategoryCounts(): Record<string, number> {
+  const counts: Record<string, number> = {}
+  const cards = document.querySelectorAll(
+    '.resources-page .notion-collection-card'
+  )
+  for (const card of cards) {
+    const tags = card.querySelectorAll(
+      '.notion-property-multi_select-item, .notion-property-select-item'
+    )
+    // Same card in two view-groups (e.g., "Featured" + "Browse") would be
+    // counted twice if we naively iterate. Dedup by card-href within this
+    // scan; the tag set per card is small so the cost is negligible.
+    const seen = new Set<string>()
+    for (const tag of tags) {
+      const text = tag.textContent?.trim()
+      if (text) seen.add(text)
+    }
+    for (const cat of seen) {
+      counts[cat] = (counts[cat] ?? 0) + 1
+    }
+  }
+  return counts
+}
+
+function countVisibleCards(): number {
+  const hrefs = new Set<string>()
+  const cards = document.querySelectorAll(
+    '.resources-page .notion-collection-card'
+  )
+  for (const card of cards) {
+    const href = card.getAttribute('href')
+    if (href) hrefs.add(href)
+  }
+  // Cards can appear in multiple gallery view groupings (one card per group).
+  // Dedup by href to get the true unique-resource count.
+  return hrefs.size
+}
+
+function sameCounts(
+  a: Record<string, number>,
+  b: Record<string, number>
+): boolean {
+  const aKeys = Object.keys(a)
+  const bKeys = Object.keys(b)
+  if (aKeys.length !== bKeys.length) return false
+  for (const k of aKeys) {
+    if (a[k] !== b[k]) return false
+  }
+  return true
 }

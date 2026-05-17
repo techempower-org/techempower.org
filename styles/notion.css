@@ -1404,6 +1404,39 @@
     color 150ms ease,
     border-color 150ms ease;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+}
+
+.resources-chip-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5em;
+  padding: 0 0.4em;
+  border-radius: 999px;
+  background: var(--te-bark-100, #f0ebe5);
+  color: var(--te-bark-700, #3d2e24);
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.4;
+}
+
+.resources-chip.active .resources-chip-count {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+.dark-mode .resources-chip-count {
+  background: var(--te-bark-700, #3d2e24);
+  color: var(--te-bark-200, #e0d6cc);
+}
+
+.dark-mode .resources-chip.active .resources-chip-count {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
 }
 
 .resources-chip:hover {
