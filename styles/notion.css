@@ -450,8 +450,29 @@
 .notion-table-of-contents-item {
   padding: 0.25em 0;
   font-size: 0.9rem;
-  color: var(--te-bark-600, #5c4236);
+  /* WCAG AA: was --te-bark-600 (#8b796f) which fails 4.5:1 against cream;
+     bark-700 (#4a3a30) clears at 9:1. */
+  color: var(--te-bark-700, #4a3a30);
   transition: color 150ms ease;
+}
+
+.notion-table-of-contents-item-body {
+  /* react-notion-x emits this inner span for the link label; cover both */
+  color: inherit;
+}
+
+.dark-mode .notion-table-of-contents-item,
+.dark-mode .notion-table-of-contents-item-body {
+  color: var(--te-cream, #f0ebe5);
+}
+
+.notion-table-of-contents-active-item {
+  color: var(--te-teal-700, #0f766e);
+  font-weight: 600;
+}
+
+.dark-mode .notion-table-of-contents-active-item {
+  color: var(--te-teal-500, #14b8a6);
 }
 
 .notion-table-of-contents-item:hover {
@@ -1403,7 +1424,9 @@
 
 .dark-mode .resources-chip {
   border-color: var(--te-bark-600, #5c4a3d);
-  color: var(--te-bark-400, #998478);
+  /* WCAG AA: was --te-bark-400 (#8a7565) at ratio 4.17 on #1a1412;
+     bark-300 (#c4b5a8) lifts to ~9:1. */
+  color: var(--te-bark-300, #c4b5a8);
 }
 
 .dark-mode .resources-chip:hover {

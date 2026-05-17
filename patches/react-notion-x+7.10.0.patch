@@ -1,5 +1,5 @@
 diff --git a/node_modules/react-notion-x/build/index.js b/node_modules/react-notion-x/build/index.js
-index cbcb3b3..a1bf0cd 100644
+index cbcb3b3..25f3ffe 100644
 --- a/node_modules/react-notion-x/build/index.js
 +++ b/node_modules/react-notion-x/build/index.js
 @@ -2826,7 +2826,7 @@ function Block(props) {
@@ -20,3 +20,18 @@ index cbcb3b3..a1bf0cd 100644
                              PageIcon,
                              {
                                block,
+@@ -2967,11 +2967,11 @@ function Block(props) {
+       if (isH1) {
+         headerBlock = /* @__PURE__ */ jsx32("h2", { className: classNameStr, "data-id": id, children: innerHeader });
+       } else if (isH2) {
+-        headerBlock = /* @__PURE__ */ jsx32("h3", { className: classNameStr, "data-id": id, children: innerHeader });
++        headerBlock = /* @__PURE__ */ jsx32("h2", { className: classNameStr, "data-id": id, children: innerHeader });
+       } else if (isH3) {
+-        headerBlock = /* @__PURE__ */ jsx32("h4", { className: classNameStr, "data-id": id, children: innerHeader });
++        headerBlock = /* @__PURE__ */ jsx32("h3", { className: classNameStr, "data-id": id, children: innerHeader });
+       } else {
+-        headerBlock = /* @__PURE__ */ jsx32("h5", { className: classNameStr, "data-id": id, children: innerHeader });
++        headerBlock = /* @__PURE__ */ jsx32("h4", { className: classNameStr, "data-id": id, children: innerHeader });
+       }
+       if ((_f = block.format) == null ? void 0 : _f.toggleable) {
+         return /* @__PURE__ */ jsxs14("details", { className: cs("notion-toggle", blockId), children: [
