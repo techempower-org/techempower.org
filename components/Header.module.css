@@ -73,7 +73,9 @@
 }
 
 :global(.dark-mode) .navLink {
-  color: var(--te-bark-400);
+  /* WCAG AA: bark-400 (#8a7565) was ratio 4.01 against dark bark bg;
+     bark-300 lifts to ~7.6 (axe-pass). */
+  color: var(--te-bark-300);
 }
 
 .navLink:hover {
