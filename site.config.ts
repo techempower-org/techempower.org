@@ -47,6 +47,9 @@ export default siteConfig({
     // Resources database
     '/resources': '2a3d706803c649409e74e9ce5ccd4c4b',
 
+    // Storyvox app landing page
+    '/storyvox': '363a4ee6952081e48184f03b153b4a8d',
+
     // About pages
     '/about': 'dbf0ddece2ce468fb2bf9049e6322e8a',
     '/donate': '59d8a4dab0cc484f8b044d33f240ce1d',
@@ -63,6 +66,10 @@ export default siteConfig({
     {
       title: 'Resources',
       pageId: '2a3d706803c649409e74e9ce5ccd4c4b'
+    },
+    {
+      title: 'Storyvox',
+      pageId: '363a4ee6952081e48184f03b153b4a8d'
     },
     {
       title: 'About',
