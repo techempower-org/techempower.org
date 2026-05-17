@@ -1,3 +1,4 @@
+import resourceSlugLockfile from './lib/data/resource-slug-lockfile.json'
 import { siteConfig } from './lib/site-config'
 
 export default siteConfig({
@@ -34,6 +35,14 @@ export default siteConfig({
 
   // map of notion page IDs to URL paths
   pageUrlOverrides: {
+    // Resource-DB slugs locked at build time so agent rewrites that change
+    // a page's Notion Name property don't break external links. Generated
+    // from /resources HTML via scripts/build-slug-lockfile.mjs; refresh by
+    // running that script against a fresh /resources fetch when the
+    // canonical resource set changes. Explicit overrides below this spread
+    // win on key collision.
+    ...resourceSlugLockfile,
+
     // Guide pages
     '/guides/how-to-use-techempower': '6c979ba4e43f48d7a4836e0027ea4178',
     '/guides/free-internet': 'bb5e537b083a417eb90ed9e984128c71',
@@ -57,8 +66,9 @@ export default siteConfig({
     '/privacy-policy': '363a4ee6952081b28996c0c05280ce18',
     '/privacy': '363a4ee6952081b28996c0c05280ce18',
 
-    // Resource pages — locked slugs so agent rewrites that change the
-    // Notion Name property don't break external links.
+    // Legacy slugs for resource pages whose Notion title changed after
+    // launch. These point at the same page IDs the lockfile would resolve
+    // under the new title, but at the old URL too.
     '/irs-direct-file': 'd56973ef43ee4c8ba2423917cc2d5651',
     '/hospitality-house-nevada-county-homeless-shelter':
       '363a4ee6952081dc9cb8e400146a05b7',

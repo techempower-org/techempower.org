@@ -18,18 +18,15 @@ export function NewsletterSignup() {
   // NEXT_PUBLIC_FORMSPREE_ID to switch to a proper inline form.
   if (!FORMSPREE_ID) {
     return (
-      <section
-        className={styles.section}
-        aria-labelledby='newsletter-heading'
-      >
+      <section className={styles.section} aria-labelledby='newsletter-heading'>
         <div className={styles.inner}>
           <h2 id='newsletter-heading' className={styles.heading}>
             Get new guides in your inbox
           </h2>
           <p className={styles.text}>
             We send a short note when we publish a new guide or update an
-            existing one. No spam, no fundraising emails — just useful
-            resources for low-income folks and the people who help them.
+            existing one. No spam, no fundraising emails — just useful resources
+            for low-income folks and the people who help them.
           </p>
           <div className={styles.actions}>
             <a
@@ -87,9 +84,9 @@ export function NewsletterSignup() {
           Get new guides in your inbox
         </h2>
         <p className={styles.text}>
-          We send a short note when we publish a new guide or update an
-          existing one. No spam, no fundraising emails — just useful
-          resources for low-income folks and the people who help them.
+          We send a short note when we publish a new guide or update an existing
+          one. No spam, no fundraising emails — just useful resources for
+          low-income folks and the people who help them.
         </p>
 
         {state === 'success' ? (
