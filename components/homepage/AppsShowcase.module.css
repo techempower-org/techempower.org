@@ -1,0 +1,126 @@
+.section {
+  padding: 3.5rem 1.25rem;
+  background: var(--te-cream-50, var(--te-cream));
+}
+
+.inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-family: var(--te-font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--te-bark-900);
+  text-align: center;
+  margin: 0 0 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: var(--te-bark-600);
+  text-align: center;
+  margin: 0 0 2rem;
+  line-height: 1.6;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 720px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  background: var(--te-white);
+  border: 1px solid var(--te-bark-200);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
+}
+
+.card:hover,
+.card:focus-visible {
+  border-color: var(--te-teal-500, #14b8a6);
+  box-shadow:
+    0 4px 16px rgba(13, 148, 136, 0.12),
+    0 1px 4px rgba(13, 148, 136, 0.06);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.card:focus-visible {
+  outline: 3px solid var(--te-teal-500, #14b8a6);
+  outline-offset: 3px;
+}
+
+.cardIcon {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.cardTitle {
+  font-family: var(--te-font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--te-bark-800);
+  margin: 0;
+}
+
+.cardText {
+  font-size: 0.95rem;
+  color: var(--te-bark-600);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.cardCta {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--te-teal-700, #0f766e);
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 200ms ease;
+}
+
+.card:hover .arrow {
+  transform: translateX(2px);
+}
+
+:global(.dark-mode) .section {
+  background: var(--te-cream-dark, #1c1510);
+}
+
+:global(.dark-mode) .card {
+  background: var(--te-cream-dark, #1c1510);
+  border-color: var(--te-bark-200);
+}
+
+:global(.dark-mode) .card:hover,
+:global(.dark-mode) .card:focus-visible {
+  border-color: var(--te-teal-600, #0d9488);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.35),
+    0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+:global(.dark-mode) .cardCta {
+  color: var(--te-teal-300, #5eead4);
+}

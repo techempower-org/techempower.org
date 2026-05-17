@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
 import { AboutDonate } from '@/components/homepage/AboutDonate'
+import { AppsShowcase } from '@/components/homepage/AppsShowcase'
 import { GuideGrid } from '@/components/homepage/GuideGrid'
 import { Hero } from '@/components/homepage/Hero'
 import { NewsletterSignup } from '@/components/homepage/NewsletterSignup'
@@ -45,6 +46,7 @@ export default function HomePage() {
         <Hero />
         <GuideGrid />
         <ResourcesPreview />
+        <AppsShowcase />
         <SupportChannels />
         <AboutDonate />
         <NewsletterSignup />
