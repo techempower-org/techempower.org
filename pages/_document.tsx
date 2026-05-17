@@ -5,8 +5,16 @@ export default class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head>
+          <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
           <link rel='shortcut icon' href='/favicon.ico' />
-          <link rel='icon' type='image/png' sizes='32x32' href='favicon.png' />
+          <link rel='icon' type='image/png' sizes='32x32' href='/favicon.png' />
+          <link
+            rel='icon'
+            type='image/png'
+            sizes='192x192'
+            href='/favicon-192x192.png'
+          />
+          <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
           <link rel='manifest' href='/manifest.json' />
 
           <link rel='preconnect' href='https://fonts.googleapis.com' />

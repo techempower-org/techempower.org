@@ -1,7 +1,16 @@
 {
-  "name": "Next.js Notion Starter Kit",
-  "short_name": "Starter Kit",
+  "name": "TechEmpower",
+  "short_name": "TechEmpower",
+  "description": "Technology for All: Access Made Easy. Free technology resources for individuals with low income, their families, and nonprofit organizations.",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    },
     {
       "src": "/favicon.png",
       "type": "image/png",
@@ -15,10 +24,22 @@
     {
       "src": "/favicon-192x192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
     }
   ],
-  "theme_color": "#000000",
-  "background_color": "#000000",
+  "theme_color": "#b45309",
+  "background_color": "#faf8f5",
   "display": "standalone"
 }
