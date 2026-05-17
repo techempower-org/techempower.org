@@ -15,7 +15,7 @@ export default siteConfig({
 
   // open graph metadata
   description:
-    'Technology for All: Access Made Easy. Free technology resources for individuals with low income, their families, and nonprofit organizations.',
+    'Free, plain-language guides to programs that lower the cost of internet, phone, food, healthcare, and more. A 501(c)(3) nonprofit based in Grass Valley, California, serving Nevada County and beyond.',
 
   // social usernames
   twitter: undefined,

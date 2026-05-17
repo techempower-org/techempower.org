@@ -6,50 +6,52 @@ const guides = [
   {
     slug: 'how-to-use-techempower',
     emoji: '\u2600\uFE0F',
-    title: 'How to use TechEmpower.org',
-    summary: 'A step-by-step walkthrough'
+    title: 'Start here',
+    summary: 'A short tour of the site so you can find what you need'
   },
   {
     slug: 'free-internet',
     emoji: '\uD83C\uDF10',
-    title: 'Free Internet Options',
-    summary: 'Get free or low-cost internet'
+    title: 'Free & low-cost internet',
+    summary: 'Home internet for $0\u201315 a month if you qualify'
   },
   {
-    slug: 'ev-incentives',
-    emoji: '\uD83D\uDE97',
-    title: 'EV & Plug-in Hybrid Incentives',
-    summary: 'Save thousands on an EV'
+    slug: 'free-cell-service',
+    emoji: '\uD83D\uDCF1',
+    title: 'Free smartphone & cell service',
+    summary: 'A free phone and free monthly service through Lifeline'
   },
   {
     slug: 'ebt-balance',
     emoji: '\uD83D\uDCB3',
-    title: 'Check Your EBT Balance',
-    summary: 'Manage benefits with Propel app'
+    title: 'Check your EBT balance',
+    summary: 'See your balance and recent purchases with the free Propel app'
   },
   {
     slug: 'ebt-spending',
     emoji: '\uD83E\uDD55',
-    title: 'Best Places to Spend EBT',
-    summary: 'Farms, stores, delivery with EBT'
+    title: 'Best places to spend EBT',
+    summary:
+      'Local farms, grocery stores, and delivery services that accept CalFresh'
+  },
+  {
+    slug: 'ev-incentives',
+    emoji: '\uD83D\uDE97',
+    title: 'EV & hybrid car rebates',
+    summary: 'Stack up to $14,000 in rebates on a new or used electric car'
+  },
+  {
+    slug: 'password-manager',
+    emoji: '\u2764\uFE0F',
+    title: 'A safer way to handle passwords',
+    summary: 'Remember one password instead of thirty \u2014 free and easy'
   },
   {
     slug: 'findhelp',
     emoji: '\uD83D\uDD0D',
     title: 'findhelp.org',
-    summary: 'Connect to social services near you'
-  },
-  {
-    slug: 'password-manager',
-    emoji: '\u2764\uFE0F',
-    title: 'Password Manager Guide',
-    summary: 'Secure your accounts easily'
-  },
-  {
-    slug: 'free-cell-service',
-    emoji: '\uD83D\uDCF1',
-    title: 'Free Cell Service & Smartphone',
-    summary: 'Get a free phone via Lifeline'
+    summary:
+      'A national tool to find food, housing, and other services by ZIP code'
   }
 ] as const
 
@@ -65,8 +67,9 @@ export function GuideGrid() {
           Step-by-step guides
         </h2>
         <p className={styles.subtitle}>
-          Pick a topic to get started. Each guide is free, plain-language, and
-          walks you through what to do.
+          Pick a topic. Each guide is written in plain English, walks you
+          through what to do, and tells you exactly who to call if you get
+          stuck.
         </p>
 
         <ul className={styles.grid}>

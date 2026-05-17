@@ -9,7 +9,7 @@ export function SupportChannels() {
         </h2>
         <p className={styles.subtitle}>
           Two free ways to get help — chat with our community online, or call
-          2-1-1 from any phone.
+          2-1-1 from any phone, 24 hours a day.
         </p>
 
         <div className={styles.cards}>
@@ -18,10 +18,10 @@ export function SupportChannels() {
             <span className={styles.cardIcon} aria-hidden='true'>
               💬
             </span>
-            <h3 className={styles.cardTitle}>Join Our Discord</h3>
+            <h3 className={styles.cardTitle}>Join our Discord</h3>
             <p className={styles.cardText}>
-              Ask questions, share tips, and connect with others in our friendly
-              community chat.
+              Ask questions, share tips, and talk to neighbors who&rsquo;ve been
+              through these programs themselves. Free to join.
             </p>
             <a
               href='https://discord.gg/7wDhAG3vYS'
@@ -54,7 +54,8 @@ export function SupportChannels() {
                 2-1-1
               </a>{' '}
               from any phone to reach a trained specialist who can connect you
-              to local services &mdash; housing, food, utilities, and more.
+              to local help &mdash; housing, food, utilities, and more. Free,
+              confidential, and available in Spanish and many other languages.
             </p>
           </div>
         </div>

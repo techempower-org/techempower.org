@@ -7,8 +7,16 @@
   text-align: center;
   padding: 4rem 1.25rem 3.5rem;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(13, 148, 136, 0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(217, 119, 6, 0.06) 0%, transparent 70%),
+    radial-gradient(
+      ellipse 80% 60% at 50% 0%,
+      rgba(13, 148, 136, 0.08) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 80% 80%,
+      rgba(217, 119, 6, 0.06) 0%,
+      transparent 70%
+    ),
     var(--te-cream);
   min-height: 55vh;
   overflow: hidden;
@@ -21,7 +29,12 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--te-teal-500), var(--te-amber-500), var(--te-teal-500));
+  background: linear-gradient(
+    90deg,
+    var(--te-teal-500),
+    var(--te-amber-500),
+    var(--te-teal-500)
+  );
 }
 
 .inner {
@@ -72,6 +85,21 @@
   margin-right: auto;
 }
 
+.ctaRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@media (min-width: 480px) {
+  .ctaRow {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+}
+
 .cta {
   display: inline-flex;
   align-items: center;
@@ -85,10 +113,42 @@
   border: none;
   cursor: pointer;
   text-decoration: none;
-  transition: background 200ms ease, transform 150ms ease, box-shadow 200ms ease;
+  transition:
+    background 200ms ease,
+    transform 150ms ease,
+    box-shadow 200ms ease;
   box-shadow:
     0 1px 3px rgba(13, 148, 136, 0.15),
     0 6px 16px rgba(13, 148, 136, 0.12);
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--te-bark-700);
+  padding: 0.85rem 1.25rem;
+  border-radius: 100px;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: var(--te-bark-300);
+  transition:
+    color 150ms ease,
+    text-decoration-color 150ms ease;
+}
+
+.ctaSecondary:hover {
+  color: var(--te-teal-700);
+  text-decoration-color: var(--te-teal-500);
+}
+
+.ctaSecondary:focus-visible {
+  outline: 3px solid var(--te-teal-500);
+  outline-offset: 3px;
+  border-radius: 100px;
 }
 
 .cta:hover {
@@ -149,8 +209,16 @@
 
 :global(.dark-mode) .hero {
   background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(13, 148, 136, 0.15) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(217, 119, 6, 0.1) 0%, transparent 70%),
+    radial-gradient(
+      ellipse 80% 60% at 50% 0%,
+      rgba(13, 148, 136, 0.15) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 80% 80%,
+      rgba(217, 119, 6, 0.1) 0%,
+      transparent 70%
+    ),
     var(--te-cream);
 }
 

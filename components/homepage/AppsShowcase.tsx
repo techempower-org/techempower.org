@@ -10,8 +10,8 @@ export function AppsShowcase() {
           Free apps we make
         </h2>
         <p className={styles.subtitle}>
-          Open-source, no ads, no tracking — built to be useful right out of the
-          box.
+          Open-source, no ads, no tracking. Built right here in Nevada County to
+          fill gaps we kept seeing.
         </p>
 
         <div className={styles.cards}>
@@ -22,9 +22,9 @@ export function AppsShowcase() {
             </span>
             <h3 className={styles.cardTitle}>Storyvox</h3>
             <p className={styles.cardText}>
-              An Android audiobook app that reads every TechEmpower guide aloud
-              with offline neural text-to-speech. Built for visual access,
-              limited literacy, or listening while driving.
+              An Android app that reads every TechEmpower guide out loud, even
+              with no internet. Built for low vision, limited literacy, or
+              listening while you drive.
             </p>
             <span className={styles.cardCta}>
               Learn more
@@ -48,9 +48,9 @@ export function AppsShowcase() {
             </span>
             <h3 className={styles.cardTitle}>Forage for All</h3>
             <p className={styles.cardText}>
-              A community-run map of fruit trees and edible plants on public
-              land. Drop a pin, share what&rsquo;s ripe, eat from your own
-              neighborhood. Web, iOS, and Android.
+              A community map of fruit trees, berries, and edible plants on
+              public land. Drop a pin, share what&rsquo;s ripe, eat free from
+              your own neighborhood. Web, iOS, and Android.
             </p>
             <span className={styles.cardCta}>
               Open the map

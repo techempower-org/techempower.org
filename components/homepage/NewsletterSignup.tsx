@@ -57,11 +57,12 @@ export function NewsletterSignup() {
     <section className={styles.section} aria-labelledby='newsletter-heading'>
       <div className={styles.inner}>
         <h2 id='newsletter-heading' className={styles.heading}>
-          Get new guides in your inbox
+          New guides, sent to your inbox
         </h2>
         <p className={styles.text}>
-          A short email when we publish a new guide or update one. No spam, no
-          fundraising — just useful resources, a few times a year.
+          A short email when we publish a new guide or a program changes. No
+          spam, no fundraising pitches &mdash; just useful resources, a few
+          times a year. You can unsubscribe with one click.
         </p>
 
         {state === 'success' ? (

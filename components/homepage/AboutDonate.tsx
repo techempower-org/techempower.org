@@ -13,10 +13,12 @@ export function AboutDonate() {
         </h2>
 
         <p className={styles.text}>
-          TechEmpower is a nonprofit in Grass Valley, California. We write free,
-          plain-language guides that explain how to use programs like Lifeline,
-          EBT, and EV rebates &mdash; help that&apos;s already out there, just
-          hard to find. Donations keep every guide free for everyone.
+          TechEmpower is a 501(c)(3) nonprofit based in Grass Valley,
+          California. We write free, plain-language guides that explain how to
+          use programs like Lifeline, CalFresh, and EV rebates &mdash; help
+          that&rsquo;s already out there, just hard to find. We don&rsquo;t take
+          a cent from the programs we list. Your tax-deductible donation keeps
+          every guide free for everyone.
         </p>
 
         <div className={styles.actions}>
