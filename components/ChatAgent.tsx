@@ -138,15 +138,68 @@ export interface ChatAgentProps {
   onAuthRequired?: () => Promise<void>
 }
 
+// sessionStorage key for chat persistence within a tab. Survives client-side
+// navigation between pages (so the assistant's link suggestions don't blow
+// away history); auto-clears when the tab closes, which is the right default
+// on shared/library devices.
+const STORAGE_KEY = 'te-chat-history-v1'
+const STORAGE_MAX_TURNS = 20
+
+function loadStoredMessages(): ChatMessage[] {
+  if (typeof window === 'undefined') return []
+  try {
+    const raw = sessionStorage.getItem(STORAGE_KEY)
+    if (!raw) return []
+    const parsed = JSON.parse(raw) as ChatMessage[]
+    if (!Array.isArray(parsed)) return []
+    return parsed
+      .filter(
+        (m): m is ChatMessage =>
+          !!m &&
+          (m.role === 'user' || m.role === 'assistant') &&
+          typeof m.content === 'string'
+      )
+      .slice(-STORAGE_MAX_TURNS)
+  } catch {
+    return []
+  }
+}
+
 export function ChatAgent({ onSendMessage, onAuthRequired }: ChatAgentProps) {
   const [isOpen, setIsOpen] = React.useState(false)
-  const [messages, setMessages] = React.useState<ChatMessage[]>([])
+  // Hydrate from sessionStorage lazily so the initial render doesn't see
+  // server-rendered "empty" then flicker.
+  const [messages, setMessages] = React.useState<ChatMessage[]>(() =>
+    loadStoredMessages()
+  )
   const [input, setInput] = React.useState('')
   const [isStreaming, setIsStreaming] = React.useState(false)
 
   const messagesEndRef = React.useRef<HTMLDivElement>(null)
   const textareaRef = React.useRef<HTMLTextAreaElement>(null)
   const panelRef = React.useRef<HTMLDivElement>(null)
+
+  // Persist on every messages change. Trim to the last STORAGE_MAX_TURNS so
+  // sessionStorage doesn't bloat if a user has a very long conversation.
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return
+    try {
+      if (messages.length === 0) {
+        sessionStorage.removeItem(STORAGE_KEY)
+      } else {
+        const trimmed = messages.slice(-STORAGE_MAX_TURNS)
+        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(trimmed))
+      }
+    } catch {
+      /* quota or disabled — swallow silently */
+    }
+  }, [messages])
+
+  const handleClear = React.useCallback(() => {
+    if (isStreaming) return
+    setMessages([])
+    setInput('')
+  }, [isStreaming])
 
   // Auto-scroll to bottom when messages change
   React.useEffect(() => {
@@ -333,6 +386,33 @@ export function ChatAgent({ onSendMessage, onAuthRequired }: ChatAgentProps) {
         {/* Header */}
         <div className={styles.header}>
           <h2 className={styles.headerTitle}>TechEmpower Assistant</h2>
+          {messages.length > 0 && (
+            <button
+              type='button'
+              className={styles.clearButton}
+              onClick={handleClear}
+              disabled={isStreaming}
+              aria-label='Clear conversation'
+              title='Clear conversation'
+            >
+              <svg
+                width='16'
+                height='16'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='currentColor'
+                strokeWidth='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                aria-hidden='true'
+              >
+                <polyline points='3 6 5 6 21 6' />
+                <path d='M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6' />
+                <path d='M10 11v6M14 11v6' />
+                <path d='M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2' />
+              </svg>
+            </button>
+          )}
           <button
             type='button'
             className={styles.closeButton}
