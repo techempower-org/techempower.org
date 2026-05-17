@@ -38,8 +38,13 @@ import { verifyTurnstile } from '@/lib/chat-server/turnstile'
 const OPUS_MODEL = 'us.anthropic.claude-opus-4-7'
 const MAX_USER_MESSAGE_CHARS = 4000
 const MAX_HISTORY_CHARS = 32_000
-const MAX_HISTORY_TURNS = 20
+// Server-side hard cap. Client may keep more in sessionStorage for scroll
+// continuity, but we only forward this many turns to Bedrock to control
+// per-call CPU + token cost.
+const MAX_HISTORY_TURNS = 6
 const OPUS_MAX_TOKENS = 800
+
+const noop = () => {}
 
 const SYSTEM_PROMPT = `You are TechEmpower's friendly assistant. TechEmpower is a nonprofit that helps people with low income find free technology resources and programs in Nevada County, California.
 
@@ -100,7 +105,12 @@ export default async function handler(
 
   const body = (req.body || {}) as ChatRequestBody
   const message = (body.message ?? '').toString()
-  const history = Array.isArray(body.history) ? body.history : []
+  // Truncate (not reject) over-long histories: the client may keep 20 turns
+  // for UI scrollback, but we only forward the most-recent MAX_HISTORY_TURNS
+  // to Bedrock. Keeps per-call cost predictable.
+  const history = (Array.isArray(body.history) ? body.history : []).slice(
+    -MAX_HISTORY_TURNS
+  )
   const turnstileToken = (body.turnstileToken ?? '').toString()
   const pagePath = (body.pagePath ?? '').toString().slice(0, 200)
   const pageTitle = (body.pageTitle ?? '').toString().slice(0, 200)
@@ -110,9 +120,6 @@ export default async function handler(
   }
   if (message.length > MAX_USER_MESSAGE_CHARS) {
     return res.status(400).json({ error: 'message_too_long' })
-  }
-  if (history.length > MAX_HISTORY_TURNS) {
-    return res.status(400).json({ error: 'history_too_long' })
   }
   const historyChars = history.reduce(
     (n, m) => n + (typeof m.content === 'string' ? m.content.length : 0),
@@ -202,8 +209,15 @@ export default async function handler(
   }
 
   // ---- Topic classifier --------------------------------------------------
-
-  const classification = await classifyMessage(bedrockEnv, message)
+  //
+  // Only gate the FIRST message in a conversation. Once a session has had
+  // an on-topic exchange, follow-ups are overwhelmingly on-topic too —
+  // skipping the Haiku call saves ~$0.0001 and ~500ms per follow-up turn,
+  // and the user has already cleared a rate-limit + Turnstile check.
+  const classification =
+    history.length === 0
+      ? await classifyMessage(bedrockEnv, message)
+      : { allowed: true, rawResponse: 'SKIP', inputTokens: 0, outputTokens: 0 }
 
   // Stream begins. Once we set SSE headers, all errors flow through SSE.
   res.setHeader('Content-Type', 'text/event-stream')
@@ -216,13 +230,20 @@ export default async function handler(
     res.write(`data: ${JSON.stringify(obj)}\n\n`)
   }
 
+  // Fire-and-forget KV counter writes — these don't need to block the
+  // response. The user gets their answer ~50-150ms sooner per turn, and
+  // the writes complete in the background before the isolate is recycled.
   if (chatKv) {
-    await incrementMessageCounters({ CHAT_KV: chatKv }, ip, session.sessionId)
-    await incrementTokenSpend(
+    void incrementMessageCounters(
+      { CHAT_KV: chatKv },
+      ip,
+      session.sessionId
+    ).catch(noop)
+    void incrementTokenSpend(
       { CHAT_KV: chatKv },
       ip,
       classification.inputTokens + classification.outputTokens
-    )
+    ).catch(noop)
   }
 
   if (!classification.allowed) {
@@ -259,11 +280,11 @@ export default async function handler(
     })
 
     if (chatKv) {
-      await incrementTokenSpend(
+      void incrementTokenSpend(
         { CHAT_KV: chatKv },
         ip,
         result.inputTokens + result.outputTokens
-      )
+      ).catch(noop)
     }
   } catch (err) {
     console.error('[chat] opus invoke failed', err)

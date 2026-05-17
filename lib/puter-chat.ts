@@ -198,24 +198,42 @@ export async function* streamChat(
     }
   }
 
+  // Only forward the last 6 turns to the server. The client keeps more in
+  // sessionStorage for scrollback, but Bedrock doesn't need that context to
+  // answer the next question, and it saves CPU + tokens per turn.
+  const SEND_HISTORY_TURNS = 6
+
   const payload = {
     message,
-    history,
+    history: history.slice(-SEND_HISTORY_TURNS),
     turnstileToken: turnstileToken ?? undefined,
     pagePath: window.location.pathname,
     pageTitle: document.title
   }
 
-  let response: Response
-  try {
-    response = await fetch(CHAT_ENDPOINT, {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(payload),
-      credentials: 'same-origin'
-    })
-  } catch {
-    yield 'I lost the connection to the assistant. Please check your internet and try again.'
+  // Single auto-retry on transient 503 (CF Worker resource throttling or
+  // Bedrock/AI Gateway 503). Most transient blips clear within a couple
+  // seconds. Beyond one retry we surface the error to the user.
+  let response: Response | null = null
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      response = await fetch(CHAT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(payload),
+        credentials: 'same-origin'
+      })
+    } catch {
+      yield 'I lost the connection to the assistant. Please check your internet and try again.'
+      return
+    }
+    if (response.status !== 503 || attempt === 1) break
+    // Backoff before retry — exponential-ish but capped short for UX.
+    await new Promise((r) => setTimeout(r, 1500))
+  }
+
+  if (!response) {
+    yield 'I lost the connection to the assistant. Please try again.'
     return
   }
 
@@ -234,6 +252,10 @@ export async function* streamChat(
     }
     if (response.status === 403) {
       yield "I couldn't verify you're human. Please refresh the page and try again."
+      return
+    }
+    if (response.status === 503) {
+      yield 'The assistant is briefly overloaded. Please wait a moment and try again — or call **2-1-1** for live help.'
       return
     }
     if (response.status === 400 && parsed?.error === 'message_too_long') {

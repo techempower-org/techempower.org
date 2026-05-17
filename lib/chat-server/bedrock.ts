@@ -91,9 +91,21 @@ export async function invokeBedrock(
     secretAccessKey: env.AWS_SECRET_ACCESS_KEY
   })
 
+  // When routed through Cloudflare AI Gateway, opt into response caching via
+  // per-request header. Cache key is derived from the request body, so
+  // identical prompts return cached responses (and skip Bedrock entirely).
+  // 1h TTL is a balance between freshness and cost — guides/programs don't
+  // change minute-to-minute. The header is no-op on direct Bedrock calls.
+  const cacheHeaders: Record<string, string> = gatewayBase
+    ? {
+        'cf-aig-cache-ttl': '3600',
+        'cf-aig-metadata': JSON.stringify({ model: opts.modelId })
+      }
+    : {}
+
   const res = await fetch(url, {
     method: 'POST',
-    headers: signed.headers,
+    headers: { ...signed.headers, ...cacheHeaders },
     body
   })
 
