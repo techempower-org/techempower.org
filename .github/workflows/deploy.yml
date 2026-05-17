@@ -28,6 +28,7 @@ jobs:
           WORKERS_CI_COMMIT_SHA: ${{ github.sha }}
           WORKERS_CI_COMMIT_REF: ${{ github.ref_name }}
           NEXT_PUBLIC_GA_TRACKING_ID: ${{ vars.GA_TRACKING_ID }}
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ secrets.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
 
       - name: Deploy to Cloudflare Workers
         run: pnpm cf:deploy

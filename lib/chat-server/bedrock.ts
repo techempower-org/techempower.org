@@ -151,7 +151,7 @@ async function sigv4Sign(
     'x-amz-content-sha256': payloadHash
   }
 
-  const signedHeaderNames = Object.keys(headers).sort()
+  const signedHeaderNames = Object.keys(headers).toSorted()
   const canonicalHeaders = signedHeaderNames
     .map((h) => `${h}:${(headers[h] ?? '').trim().replaceAll(/\s+/g, ' ')}\n`)
     .join('')

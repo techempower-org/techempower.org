@@ -10,7 +10,7 @@
  * here for 1/200th the cost of a full Opus turn.
  */
 
-import { invokeBedrock, type BedrockEnv } from './bedrock'
+import { type BedrockEnv, invokeBedrock } from './bedrock'
 
 const HAIKU_MODEL = 'anthropic.claude-haiku-4-5-20251001-v1:0'
 

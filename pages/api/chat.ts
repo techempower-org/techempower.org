@@ -18,10 +18,10 @@
  * {"type":"error","content":"..."}` and end the stream.
  */
 
-import { getCloudflareContext } from '@opennextjs/cloudflare'
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { getCloudflareContext } from '@opennextjs/cloudflare'
 
-import { invokeBedrock, type BedrockEnv } from '@/lib/chat-server/bedrock'
+import { type BedrockEnv, invokeBedrock } from '@/lib/chat-server/bedrock'
 import { classifyMessage } from '@/lib/chat-server/classify'
 import {
   type ChatKv,
