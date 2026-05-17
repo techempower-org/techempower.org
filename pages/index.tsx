@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { AboutDonate } from '@/components/homepage/AboutDonate'
 import { GuideGrid } from '@/components/homepage/GuideGrid'
 import { Hero } from '@/components/homepage/Hero'
+import { NewsletterSignup } from '@/components/homepage/NewsletterSignup'
 import { ResourcesPreview } from '@/components/homepage/ResourcesPreview'
 import { SupportChannels } from '@/components/homepage/SupportChannels'
 import * as config from '@/lib/config'
@@ -46,6 +47,7 @@ export default function HomePage() {
         <ResourcesPreview />
         <SupportChannels />
         <AboutDonate />
+        <NewsletterSignup />
       </main>
     </>
   )
