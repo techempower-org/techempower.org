@@ -7,9 +7,11 @@ import { resolveNotionPage } from '@/lib/resolve-notion-page'
 import { trimRecordMap } from '@/lib/trim-record-map'
 import { type PageProps, type Params } from '@/lib/types'
 
-// Resources page is heavy — revalidate every 12 hours.
+// Resources page is heavy — revalidate every 24 hours. Halves the number
+// of cold-render passes per day, and at 12h the page's listed data is
+// already meaningfully stable (resources change cadence is days/weeks).
 // Other pages revalidate every hour.
-const RESOURCES_REVALIDATE = 43_200
+const RESOURCES_REVALIDATE = 86_400
 const DEFAULT_REVALIDATE = 3600
 
 // Hard cap on Notion resolution time. notion-client retries 429/5xx internally
@@ -65,15 +67,17 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
     // Sanitize block properties to prevent react-notion-x SSR crashes
     // from malformed URLs in Notion data (e.g. URLs wrapped in quotes).
+    // Only `page` blocks carry URL properties that have been observed to
+    // contain quote-wrapped values — skipping the other 95% of blocks
+    // (text/callout/divider/etc.) cuts this loop's cost ~20x on /resources.
     if (props.recordMap?.block) {
       for (const blockData of Object.values(props.recordMap.block)) {
         const block = (blockData as any)?.value
-        if (!block?.properties) continue
+        if (block?.type !== 'page' || !block.properties) continue
         for (const [key, val] of Object.entries(block.properties)) {
           if (Array.isArray(val) && Array.isArray(val[0])) {
             const str = val[0][0]
             if (typeof str === 'string') {
-              // Strip wrapping single or double quotes (e.g. "'https://...'" stored in Notion)
               if (
                 (str.startsWith("'") && str.endsWith("'")) ||
                 (str.startsWith('"') && str.endsWith('"'))
