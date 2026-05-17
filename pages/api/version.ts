@@ -93,10 +93,10 @@ export default function handler(_req: NextApiRequest, res: NextApiResponse) {
     uptime: Math.floor((Date.now() - startTime) / 1000),
     realm: 'forge',
     platform: detectPlatform(),
-    repo: 'https://github.com/jphein/techempower',
+    repo: 'https://github.com/techempower-org/techempower.org',
     commit_url:
       git.hash !== 'dev'
-        ? `https://github.com/jphein/techempower/commit/${git.hash}`
+        ? `https://github.com/techempower-org/techempower.org/commit/${git.hash}`
         : ''
   })
 }

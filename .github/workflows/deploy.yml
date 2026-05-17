@@ -24,6 +24,9 @@ jobs:
 
       - name: Build OpenNext Cloudflare bundle
         run: pnpm cf:build
+        env:
+          WORKERS_CI_COMMIT_SHA: ${{ github.sha }}
+          WORKERS_CI_COMMIT_REF: ${{ github.ref_name }}
 
       - name: Deploy to Cloudflare Workers
         run: pnpm cf:deploy
