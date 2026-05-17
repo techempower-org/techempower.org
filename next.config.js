@@ -21,9 +21,9 @@ const cspDirectives = [
   "default-src 'self'",
   // Scripts: self + GA loader + PostHog + Fathom; 'unsafe-inline' for the
   // noflash + GA config inline blocks.
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://app.posthog.com https://*.posthog.com https://cdn.usefathom.com",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://app.posthog.com https://*.posthog.com https://cdn.usefathom.com https://static.cloudflareinsights.com",
   // Same set for script-src-elem so browsers that split on it agree.
-  "script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://app.posthog.com https://*.posthog.com https://cdn.usefathom.com",
+  "script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://app.posthog.com https://*.posthog.com https://cdn.usefathom.com https://static.cloudflareinsights.com",
   // Styles: self + Google Fonts CSS + react-notion-x inline styles.
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com",
