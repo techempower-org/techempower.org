@@ -5,17 +5,26 @@ export default class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head>
-          <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-          <link rel='shortcut icon' href='/favicon.ico' />
-          <link rel='icon' type='image/png' sizes='32x32' href='/favicon.png' />
+          {/* Cache-bust query string — browsers cache favicons separately
+              from regular images and often ignore Cache-Control headers
+              on the favicon specifically. Bump `v=N` when changing the
+              favicon to force every browser to re-fetch. */}
+          <link rel='icon' type='image/svg+xml' href='/favicon.svg?v=2' />
+          <link rel='shortcut icon' href='/favicon.ico?v=2' />
+          <link
+            rel='icon'
+            type='image/png'
+            sizes='32x32'
+            href='/favicon.png?v=2'
+          />
           <link
             rel='icon'
             type='image/png'
             sizes='192x192'
-            href='/favicon-192x192.png'
+            href='/favicon-192x192.png?v=2'
           />
-          <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
-          <link rel='manifest' href='/manifest.json' />
+          <link rel='apple-touch-icon' href='/apple-touch-icon.png?v=2' />
+          <link rel='manifest' href='/manifest.json?v=2' />
 
           <link rel='preconnect' href='https://fonts.googleapis.com' />
           <link
