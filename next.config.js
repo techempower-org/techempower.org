@@ -21,9 +21,9 @@ const cspDirectives = [
   "default-src 'self'",
   // Scripts: self + GA loader + PostHog + Fathom; 'unsafe-inline' for the
   // noflash + GA config inline blocks.
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://app.posthog.com https://*.posthog.com https://cdn.usefathom.com https://static.cloudflareinsights.com",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://app.posthog.com https://*.posthog.com https://cdn.usefathom.com https://static.cloudflareinsights.com https://challenges.cloudflare.com",
   // Same set for script-src-elem so browsers that split on it agree.
-  "script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://app.posthog.com https://*.posthog.com https://cdn.usefathom.com https://static.cloudflareinsights.com",
+  "script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://app.posthog.com https://*.posthog.com https://cdn.usefathom.com https://static.cloudflareinsights.com https://challenges.cloudflare.com",
   // Styles: self + Google Fonts CSS + react-notion-x inline styles.
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com",
@@ -39,7 +39,7 @@ const cspDirectives = [
   // Media (audio/video) — Notion blocks can embed both.
   "media-src 'self' data: blob: https://www.notion.so https://*.notion.so",
   // Iframes embedded via lib/oembed.ts (YouTube, Twitter/X, Vimeo, etc.).
-  "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com https://twitter.com https://platform.twitter.com https://x.com https://www.notion.so",
+  "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com https://twitter.com https://platform.twitter.com https://x.com https://www.notion.so https://challenges.cloudflare.com",
   // Clickjacking protection — supersedes X-Frame-Options for modern
   // browsers. We never want techempower.org embedded in another page.
   "frame-ancestors 'none'",

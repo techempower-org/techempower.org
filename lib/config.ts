@@ -112,6 +112,14 @@ export const isSearchEnabled: boolean = getSiteConfig('isSearchEnabled', true)
 
 // ----------------------------------------------------------------------------
 
+// Notion database that receives visitor "Submit a Resource" form submissions.
+// Sibling of the live "🦮 Resources" database (same Welcome page parent). The
+// /api/submit route writes new rows here with Status=New; JP moderates from
+// Notion.
+export const submissionsQueueDatabaseId = '1469dc4996944c9cb97db9ad9f2a8abd'
+
+// ----------------------------------------------------------------------------
+
 // Optional redis instance for persisting preview images
 export const isRedisEnabled: boolean =
   getSiteConfig('isRedisEnabled', false) || !!getEnv('REDIS_ENABLED', null)

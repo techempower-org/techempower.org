@@ -59,7 +59,9 @@
   padding: 0.75rem 1.75rem;
   border-radius: 100px;
   text-decoration: none;
-  transition: background 200ms ease, transform 150ms ease;
+  transition:
+    background 200ms ease,
+    transform 150ms ease;
 }
 
 .cta:hover {
@@ -84,4 +86,35 @@
 
 :global(.dark-mode) .cta {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.submitHint {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  color: var(--te-bark-500);
+}
+
+.submitLink {
+  color: var(--te-teal-600);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.submitLink:hover {
+  color: var(--te-teal-700);
+}
+
+.submitLink:focus-visible {
+  outline: 2px solid var(--te-teal-500);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+:global(.dark-mode) .submitHint {
+  color: var(--te-bark-400);
+}
+
+:global(.dark-mode) .submitLink {
+  color: var(--te-teal-700);
 }

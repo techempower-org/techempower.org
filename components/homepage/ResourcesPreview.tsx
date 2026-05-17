@@ -22,7 +22,8 @@ export function ResourcesPreview() {
         </h2>
         <p className={styles.subtitle}>
           All <strong>{RESOURCE_COUNT}</strong> free programs, searchable and
-          filterable — by topic, who qualifies, and where you live.
+          filterable — by topic, who qualifies, and where you live. Every
+          listing is hand-checked against the program&rsquo;s official source.
         </p>
 
         <div className={styles.highlights}>
@@ -50,6 +51,13 @@ export function ResourcesPreview() {
           Browse all programs
           <span aria-hidden='true'> →</span>
         </Link>
+
+        <p className={styles.submitHint}>
+          Know a free program we don&rsquo;t list yet?{' '}
+          <Link href='/submit' className={styles.submitLink}>
+            Submit it<span aria-hidden='true'> →</span>
+          </Link>
+        </p>
       </div>
     </section>
   )

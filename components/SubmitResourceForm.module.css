@@ -1,0 +1,277 @@
+/* SubmitResourceForm — "Submit a Resource" intake form for techempower.org.
+   Earth-tone tokens match the rest of the site; mobile-first layout. */
+
+.wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.intro {
+  margin-bottom: 2rem;
+}
+
+.heading {
+  font-family: var(--te-font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--te-bark-900);
+  margin: 0 0 0.5rem;
+  line-height: 1.15;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--te-bark-600);
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: var(--te-cream);
+  border: 1px solid var(--te-bark-200);
+  border-radius: 14px;
+  padding: 1.5rem 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--te-bark-800);
+}
+
+.optional {
+  font-weight: 400;
+  color: var(--te-bark-500);
+  margin-left: 0.35rem;
+  font-size: 0.85rem;
+}
+
+.help {
+  font-size: 0.825rem;
+  color: var(--te-bark-500);
+  margin: 0;
+}
+
+.input,
+.textarea,
+.select {
+  font: inherit;
+  font-size: 1rem;
+  color: var(--te-bark-900);
+  background: var(--te-white, #ffffff);
+  border: 1px solid var(--te-bark-300);
+  border-radius: 8px;
+  padding: 0.625rem 0.75rem;
+  width: 100%;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 7rem;
+  line-height: 1.5;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--te-teal-600);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.2);
+}
+
+.input:focus-visible,
+.textarea:focus-visible,
+.select:focus-visible {
+  outline: 3px solid var(--te-teal-500);
+  outline-offset: 1px;
+}
+
+.input[aria-invalid='true'],
+.textarea[aria-invalid='true'],
+.select[aria-invalid='true'] {
+  border-color: var(--te-coral-600);
+}
+
+.input[aria-invalid='true']:focus,
+.textarea[aria-invalid='true']:focus,
+.select[aria-invalid='true']:focus {
+  box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.2);
+}
+
+.fieldError {
+  color: var(--te-coral-600);
+  font-size: 0.825rem;
+  margin: 0;
+}
+
+.turnstile {
+  min-height: 65px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--te-teal-600);
+  color: #ffffff;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: 0;
+  border-radius: 100px;
+  cursor: pointer;
+  transition:
+    background 200ms ease,
+    transform 150ms ease;
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--te-teal-700);
+  transform: translateY(-1px);
+}
+
+.submit:focus-visible {
+  outline: 3px solid var(--te-teal-500);
+  outline-offset: 3px;
+}
+
+.submit:disabled {
+  background: var(--te-bark-300);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.formError {
+  background: var(--te-coral-100);
+  border: 1px solid var(--te-coral-600);
+  color: var(--te-coral-600);
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.success {
+  background: var(--te-cream);
+  border: 1px solid var(--te-teal-600);
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.successHeading {
+  font-family: var(--te-font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--te-bark-900);
+  margin: 0 0 0.5rem;
+}
+
+.successBody {
+  color: var(--te-bark-700);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.successActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.linkButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--te-teal-600);
+  color: #ffffff;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.625rem 1.25rem;
+  border: 0;
+  border-radius: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background 200ms ease,
+    transform 150ms ease;
+}
+
+.linkButton:hover {
+  background: var(--te-teal-700);
+  transform: translateY(-1px);
+}
+
+.linkButton:focus-visible {
+  outline: 3px solid var(--te-teal-500);
+  outline-offset: 3px;
+}
+
+.secondaryButton {
+  composes: linkButton;
+  background: transparent;
+  color: var(--te-bark-800);
+  border: 1px solid var(--te-bark-300);
+}
+
+.secondaryButton:hover {
+  background: var(--te-cream-dark);
+  color: var(--te-bark-900);
+}
+
+@media (min-width: 540px) {
+  .wrapper {
+    padding: 3rem 2rem 5rem;
+  }
+
+  .heading {
+    font-size: 2.25rem;
+  }
+
+  .form {
+    padding: 2rem;
+  }
+}
+
+:global(.dark-mode) .input,
+:global(.dark-mode) .textarea,
+:global(.dark-mode) .select {
+  background: var(--te-bark-100);
+  color: var(--te-bark-900);
+  border-color: var(--te-bark-300);
+}
+
+:global(.dark-mode) .submit,
+:global(.dark-mode) .linkButton {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+:global(.dark-mode) .formError {
+  background: rgba(225, 29, 72, 0.12);
+}

@@ -29,6 +29,9 @@ export function FooterImpl() {
           <Link href='/resources' className={styles.link}>
             Resources
           </Link>
+          <Link href='/submit' className={styles.link}>
+            Submit a resource
+          </Link>
           <Link href='/about' className={styles.link}>
             About
           </Link>

@@ -23,5 +23,18 @@
       "binding": "NEXT_INC_CACHE_R2_BUCKET",
       "bucket_name": "techempower-cache"
     }
+  ],
+  // KV namespace used by /api/chat for per-IP and per-session rate-limit
+  // counters. ID is filled in by `wrangler kv namespace create CHAT_KV` and
+  // committed before deploy.
+  "kv_namespaces": [
+    {
+      "binding": "CHAT_KV",
+      "id": "e2e0bf7034b24ca19e7acd5ce279cff1"
+    },
+    {
+      "binding": "SUBMIT_KV",
+      "id": "927f8110b1424a1abe9123f615e9c415"
+    }
   ]
 }
