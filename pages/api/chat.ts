@@ -246,8 +246,8 @@ export default async function handler(
         })),
         { role: 'user' as const, content: message }
       ],
-      maxTokens: OPUS_MAX_TOKENS,
-      temperature: 0.5
+      maxTokens: OPUS_MAX_TOKENS
+      // No `temperature` — Opus 4.7 deprecated it (Bedrock returns 400).
     })
 
     writeEvent({ type: 'text', content: result.text })

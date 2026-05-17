@@ -56,13 +56,19 @@ export async function invokeBedrock(
   env: BedrockEnv,
   opts: InvokeOptions
 ): Promise<InvokeResult> {
-  const body = JSON.stringify({
+  // Opus 4.7 deprecates the `temperature` parameter (Bedrock rejects with
+  // 400 if sent). Only include it when the caller explicitly passes one.
+  // Haiku still accepts it.
+  const requestBody: Record<string, unknown> = {
     anthropic_version: 'bedrock-2023-05-31',
     max_tokens: opts.maxTokens,
-    temperature: opts.temperature ?? 0.7,
     system: opts.system,
     messages: opts.messages
-  })
+  }
+  if (typeof opts.temperature === 'number') {
+    requestBody.temperature = opts.temperature
+  }
+  const body = JSON.stringify(requestBody)
 
   const awsHost = `bedrock-runtime.${env.AWS_REGION}.amazonaws.com`
   // AWS SigV4 path is the path AWS sees — same whether we go direct or
