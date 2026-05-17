@@ -1,5 +1,7 @@
 import Link from 'next/link'
 
+import { trackEvent } from '@/components/GoogleAnalytics'
+
 import styles from './AboutDonate.module.css'
 
 export function AboutDonate() {
@@ -21,7 +23,15 @@ export function AboutDonate() {
           <Link href='/about' className={styles.btnLearn}>
             Learn More
           </Link>
-          <Link href='/donate' className={styles.btnDonate}>
+          <Link
+            href='/donate'
+            className={styles.btnDonate}
+            onClick={() =>
+              trackEvent('donate_intent', {
+                location: 'homepage_about_section'
+              })
+            }
+          >
             Donate
           </Link>
         </div>

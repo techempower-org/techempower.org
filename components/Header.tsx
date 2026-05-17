@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 
+import { trackEvent } from '@/components/GoogleAnalytics'
+
 import styles from './Header.module.css'
 
 const NAV_LINKS = [
@@ -60,6 +62,9 @@ export function Header() {
           <Link
             href='/donate'
             className={`${styles.navLink} ${styles.donateLink}`}
+            onClick={() =>
+              trackEvent('donate_intent', { location: 'header_desktop' })
+            }
           >
             Donate
           </Link>
@@ -120,7 +125,13 @@ export function Header() {
               {label}
             </Link>
           ))}
-          <Link href='/donate' className={styles.mobileDonateLink}>
+          <Link
+            href='/donate'
+            className={styles.mobileDonateLink}
+            onClick={() =>
+              trackEvent('donate_intent', { location: 'header_mobile' })
+            }
+          >
             Donate
           </Link>
         </nav>
