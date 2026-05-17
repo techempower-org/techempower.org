@@ -210,6 +210,7 @@ export function ResourcesToolbar() {
 
         <select
           className='resources-sort-select'
+          aria-label='Sort resources'
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value as 'default' | 'az' | 'za')}
         >
