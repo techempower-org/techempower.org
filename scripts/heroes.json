@@ -1,0 +1,87 @@
+[
+  {
+    "page_id": "0959e44599984143acabc80187305001",
+    "title": "Welcome to TechEmpower.org",
+    "summary": "A 501(c)(3) nonprofit in Grass Valley, California dedicated to digital equity, inclusion, and accessibility. We provide free technology resources to individuals with low income, their families, and nonprofit organizations.",
+    "quality": "ultra",
+    "_status": "already_generated"
+  },
+  {
+    "page_id": "6c979ba4e43f48d7a4836e0027ea4178",
+    "title": "How to use TechEmpower.org",
+    "summary": "A welcome guide to the TechEmpower website. Browse guides, search resources, get peer support via Discord or 211 phone line. The site is a directory of free technology resources for low-income individuals and nonprofits in Nevada County, California.",
+    "quality": "ultra"
+  },
+  {
+    "page_id": "bb5e537b083a417eb90ed9e984128c71",
+    "title": "Free Internet for Low-Income Households",
+    "summary": "How low-income families in Nevada County, California can get free or $10/month internet. Lifeline subsidy, AT&T Access, Comcast Internet Essentials, free Wi-Fi hotspots from the library. Step-by-step guidance for people on CalFresh, Medi-Cal, or SNAP.",
+    "quality": "ultra"
+  },
+  {
+    "page_id": "758054e1a2ec4c1aa077202ffedec710",
+    "title": "Electric Vehicle and Plug-in Hybrid Incentives",
+    "summary": "California programs stacking incentives for income-eligible buyers to afford a used electric vehicle or plug-in hybrid. DCAP, Clean Cars 4 All, PG&E EV charging rate plans. Updated for 2026 after the federal used EV tax credit sunset.",
+    "quality": "ultra"
+  },
+  {
+    "page_id": "272a4ee69520804fa68ad8c110af49f6",
+    "title": "Check Your EBT Balance with the Propel App",
+    "summary": "Use the free Propel app to instantly check your CalFresh EBT balance on your phone. Track transactions, get deposit notifications, find nearby stores that accept EBT. No more calling the number on the back of your card.",
+    "quality": "ultra"
+  },
+  {
+    "page_id": "16f7018ad9354265a2b216c44464b1c3",
+    "title": "My Favorite Places to Spend EBT",
+    "summary": "Stretch CalFresh EBT benefits at the Nevada City Farmers Market and Mountain Bounty Farm CSA. Market Match doubles fresh-produce dollars. Online EBT at Amazon, Walmart, Instacart for grocery delivery. Local Nevada County food resources.",
+    "quality": "ultra"
+  },
+  {
+    "page_id": "992742a61e2e472b9b4a149f7aa74539",
+    "title": "findhelp.org — Find Local Social Services",
+    "summary": "A nationwide directory to find free or low-cost help near you: food, housing, financial assistance, healthcare, child care, jobs, education, legal. Enter your zip code, browse categories or search by keyword. Works in every county in the U.S.",
+    "quality": "ultra"
+  },
+  {
+    "page_id": "99b0ab9c7cce428e8c86e3143752aa1c",
+    "title": "Use a Positive Affirmation for Your Master Password",
+    "summary": "Free password manager guide using Bitwarden or Google Password Manager. Choose a strong master password by making it a positive affirmation — long, meaningful, memorable. The password manager generates random passwords for every other site.",
+    "quality": "ultra"
+  },
+  {
+    "page_id": "7519ef16d7b74519acd9b8262a7beb84",
+    "title": "Free Cell Service and Smartphone for Folks with Low Income",
+    "summary": "Get a free smartphone with unlimited talk, text, and data through the federal Lifeline program. Available to anyone with low income in California. Safelink Wireless, Assurance Wireless, TruConnect — pick what works for your area.",
+    "quality": "ultra"
+  },
+  {
+    "page_id": "dbf0ddece2ce468fb2bf9049e6322e8a",
+    "title": "About the Founder",
+    "summary": "Jeffrey Hein founded TechEmpower in January 2023 to scale into free public resources what he'd spent 22 years doing one nonprofit at a time: helping Nevada County's community get the technology they needed without paying for what should have been free. The work is rooted in Grass Valley, California.",
+    "quality": "ultra"
+  },
+  {
+    "page_id": "59d8a4dab0cc484f8b044d33f240ce1d",
+    "title": "Donate to TechEmpower",
+    "summary": "Support TechEmpower's mission of digital equity for low-income individuals and nonprofits. Tax-deductible donations through PayPal fund free guides and resources. Every dollar keeps our resources free for the people who need them most.",
+    "quality": "ultra"
+  },
+  {
+    "page_id": "cdbe9906ae2441a1a9bb3aec601a5a6c",
+    "title": "Non-Discrimination Policy",
+    "summary": "TechEmpower's commitment to equal opportunity and nondiscrimination. We do not discriminate on the basis of race, color, national origin, ancestry, sex, sexual orientation, gender identity or expression, religion, age, pregnancy, disability, medical condition, genetic information, marital status, or veteran status.",
+    "quality": "ultra"
+  },
+  {
+    "page_id": "363a4ee6952081e48184f03b153b4a8d",
+    "title": "Storyvox — TechEmpower Guides as Audiobooks",
+    "summary": "A free Android audiobook app that reads digital-equity guides aloud using offline neural text-to-speech. Built for accessibility — visually impaired users, low literacy, audio-while-driving. Open source, no ads, no tracking. Pulls every guide from TechEmpower.org automatically.",
+    "quality": "ultra"
+  },
+  {
+    "page_id": "363a4ee6952081b28996c0c05280ce18",
+    "title": "Privacy Policy",
+    "summary": "TechEmpower's privacy practices: what data we collect (anonymized analytics via Google Analytics), what we don't (no tracking across other sites, no selling of personal info). Third-party services listed: Cloudflare, Notion, PayPal, Google Fonts, Discord. CCPA section for California residents.",
+    "quality": "ultra"
+  }
+]
