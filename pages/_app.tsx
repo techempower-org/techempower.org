@@ -1,5 +1,9 @@
-// used for rendering equations (optional)
-import 'katex/dist/katex.min.css'
+// NOTE: katex.min.css (24KB) intentionally NOT imported here. The Equation
+// component in NotionPage.tsx is dynamic()-imported, and katex CSS should
+// load with it on-demand rather than ship on every page. The TechEmpower
+// content (resources/guides) does not currently contain math equations,
+// so eager-loading 24KB of KaTeX styles wastes bandwidth and parse time
+// on every cold render.
 // used for code syntax highlighting (optional)
 import 'prismjs/themes/prism-coy.css'
 // core styles shared by all of react-notion-x (required)

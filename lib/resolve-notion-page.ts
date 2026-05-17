@@ -10,12 +10,30 @@ import {
   pageUrlOverrides,
   site
 } from './config'
+import resourceSlugLockfile from './data/resource-slug-lockfile.json'
 import { db } from './db'
 import { getCanonicalPageId } from './get-canonical-page-id'
 import { getSiteMap } from './get-site-map'
 import { getPage, type GetPageOptions } from './notion'
 import { notion } from './notion-api'
 import { RESOURCES_PAGE } from './page-ids'
+
+// Build-time slug→pageId index. The lockfile JSON keys have a leading `/`
+// (e.g. `/caleitc-...`); `pageUrlOverrides` in config strips it, but we
+// receive the slug from Next.js without the leading slash, so build a
+// matching index here. Used as a fast-path inside resolveCollectionSlug
+// to avoid the heavy `notion.getPage(RESOURCES_PAGE)` call when the slug
+// is already known at build time.
+const resourceSlugIndex: Record<string, string> = Object.fromEntries(
+  Object.entries(resourceSlugLockfile as Record<string, string>).map(
+    ([slug, pageId]) => [slug.replace(/^\//, ''), pageId]
+  )
+)
+
+// Strict slug shape — Notion canonical slugs are kebab-case ASCII. Anything
+// containing path separators, dots, or non-printable chars is a scanner
+// probe or a broken link and should NOT trigger an expensive Notion fetch.
+const VALID_SLUG_PATTERN = /^[a-z0-9][a-z0-9-]{0,200}$/
 
 export async function resolveNotionPage(
   domain: string,
@@ -102,12 +120,40 @@ export async function resolveNotionPage(
 
 /**
  * Resolve a clean URL slug to a Notion page ID by searching through
- * collection items. Fetches the resources collection page (1 API call)
- * and generates canonical slugs for each item to find a match.
+ * collection items. Tries (in order):
+ *   1. Build-time slug lockfile (`lib/data/resource-slug-lockfile.json`) —
+ *      a 253-entry map covering the entire resources DB. ~0ms.
+ *   2. Slug-shape validation — reject scanner probes and obviously bad
+ *      paths BEFORE calling Notion's API.
+ *   3. Full collection fetch (the original slow path) — only if the slug
+ *      passes validation but isn't in the lockfile (e.g. a brand-new
+ *      Notion entry added after the last lockfile refresh).
+ *
+ * The full fetch is the known CPU-exhaustion hotspot (Worker error 1102):
+ * it pulls the entire resources record map (~3MB) and scans every block.
+ * Most cold loads will now exit at step 1.
  */
 async function resolveCollectionSlug(
   slug: string
 ): Promise<string | undefined> {
+  // 1. Build-time lockfile fast path. Covers all 253 current resources.
+  const locked = resourceSlugIndex[slug]
+  if (locked) {
+    return locked
+  }
+
+  // 2. Reject obviously-malformed slugs to avoid blowing the CPU budget on
+  //    scanner traffic (`.env`, `wp-admin`, etc.). The dynamic route
+  //    handler already filters known scanner patterns; this is the
+  //    belt-and-suspenders fallback for anything else that isn't a
+  //    realistic resource slug.
+  if (!VALID_SLUG_PATTERN.test(slug)) {
+    return undefined
+  }
+
+  // 3. Slow path — only reached for brand-new Notion entries not yet in
+  //    the lockfile. Run `scripts/build-slug-lockfile.mjs` against a
+  //    fresh /resources fetch to refresh it.
   try {
     const collectionRecordMap = await notion.getPage(RESOURCES_PAGE)
     const uuid = !!includeNotionIdInUrls

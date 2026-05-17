@@ -32,6 +32,19 @@ export default class MyDocument extends Document {
             href='https://fonts.gstatic.com'
             crossOrigin=''
           />
+          {/* Notion image proxy: every resource card cover is fetched via
+              `www.notion.so/image/...` which 302-redirects to
+              `img.notionusercontent.com`. /resources renders ~195 such
+              images — preconnect both hosts so the DNS+TLS handshake is
+              warmed before HTML parsing reaches the <img> tags, saving
+              ~200ms on cold cards-grid renders. crossOrigin is required
+              for the redirect target (anonymous CORS image fetch). */}
+          <link rel='preconnect' href='https://www.notion.so' />
+          <link
+            rel='preconnect'
+            href='https://img.notionusercontent.com'
+            crossOrigin=''
+          />
           <link
             href='https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&display=swap'
             rel='stylesheet'
