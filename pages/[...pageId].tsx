@@ -4,6 +4,7 @@ import { NotionPage } from '@/components/NotionPage'
 import { domain } from '@/lib/config'
 import { isResourcesPage } from '@/lib/page-ids'
 import { resolveNotionPage } from '@/lib/resolve-notion-page'
+import { trimRecordMap } from '@/lib/trim-record-map'
 import { type PageProps, type Params } from '@/lib/types'
 
 // Resources page is heavy — revalidate every 12 hours.
@@ -83,6 +84,13 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
           }
         }
       }
+    }
+
+    // Strip Notion metadata fields the renderer doesn't read. On /resources
+    // (253 cards × multiple blocks) this drops the SSR body by ~30-50%,
+    // pulling us back under the Workers Free plan's 6 MB response cap.
+    if (props.recordMap) {
+      trimRecordMap(props.recordMap)
     }
 
     return { props, revalidate }
