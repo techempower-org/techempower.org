@@ -55,7 +55,16 @@ export default siteConfig({
     '/donate': '59d8a4dab0cc484f8b044d33f240ce1d',
     '/non-discrimination-policy': 'cdbe9906ae2441a1a9bb3aec601a5a6c',
     '/privacy-policy': '363a4ee6952081b28996c0c05280ce18',
-    '/privacy': '363a4ee6952081b28996c0c05280ce18'
+    '/privacy': '363a4ee6952081b28996c0c05280ce18',
+
+    // Resource pages — locked slugs so agent rewrites that change the
+    // Notion Name property don't break external links.
+    '/irs-direct-file': 'd56973ef43ee4c8ba2423917cc2d5651',
+    '/hospitality-house-nevada-county-homeless-shelter':
+      '363a4ee6952081dc9cb8e400146a05b7',
+    '/lease-ev-discounts-jan-2025-ride-and-drive-clean':
+      '18aa4ee69520811ba9c8e479e0540ad7',
+    '/github-student-developer-pack': '309a4ee69520817aaa23ebc00eebbe32'
   },
 
   // custom navigation

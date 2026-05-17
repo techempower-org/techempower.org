@@ -16,16 +16,13 @@
   "observability": {
     "enabled": true
   },
+  "limits": {
+    "cpu_ms": 50000
+  },
   "r2_buckets": [
     {
       // Bucket must be pre-created in the Cloudflare account before deploy:
       //   npx wrangler r2 bucket create techempower-cache
-      "binding": "NEXT_INC_CACHE_R2_BUCKET",
-      "bucket_name": "techempower-cache"
-    }
-  ],
-  "r2_buckets": [
-    {
       "binding": "NEXT_INC_CACHE_R2_BUCKET",
       "bucket_name": "techempower-cache"
     }
