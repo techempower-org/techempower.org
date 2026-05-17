@@ -38,6 +38,9 @@ export function FooterImpl() {
           <Link href='/non-discrimination-policy' className={styles.link}>
             Non-Discrimination Policy
           </Link>
+          <Link href='/privacy-policy' className={styles.link}>
+            Privacy Policy
+          </Link>
         </nav>
 
         <button
