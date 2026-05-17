@@ -62,11 +62,11 @@ export function GuideGrid() {
     >
       <div className={styles.inner}>
         <h2 id='guides-heading' className={styles.heading}>
-          Free Guides &amp; Resources
+          Step-by-step guides
         </h2>
         <p className={styles.subtitle}>
-          Pick a topic below to get started. Every guide is free and easy to
-          follow.
+          Pick a topic to get started. Each guide is free, plain-language, and
+          walks you through what to do.
         </p>
 
         <ul className={styles.grid}>

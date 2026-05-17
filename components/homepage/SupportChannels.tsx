@@ -5,10 +5,11 @@ export function SupportChannels() {
     <section className={styles.section} aria-labelledby='support-heading'>
       <div className={styles.inner}>
         <h2 id='support-heading' className={styles.heading}>
-          Need Help?
+          Stuck? Talk to a real person.
         </h2>
         <p className={styles.subtitle}>
-          Our community and phone support are here for you, at no cost.
+          Two free ways to get help — chat with our community online, or call
+          2-1-1 from any phone.
         </p>
 
         <div className={styles.cards}>

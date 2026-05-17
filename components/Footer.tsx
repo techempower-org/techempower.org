@@ -55,7 +55,9 @@ export function FooterImpl() {
         </button>
 
         <div className={styles.copyright}>
-          &copy; {currentYear} {config.author}. All rights reserved.
+          &copy; {currentYear} {config.author}. A 501(c)(3) nonprofit based in
+          Grass Valley, California. EIN 92-2581940. Donations are
+          tax-deductible.
         </div>
       </div>
     </footer>

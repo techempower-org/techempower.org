@@ -11,11 +11,11 @@ export function ResourcesPreview() {
     >
       <div className={styles.inner}>
         <h2 id='resources-heading' className={styles.heading}>
-          Resources Database
+          Search all free programs
         </h2>
         <p className={styles.subtitle}>
-          Search and filter hundreds of free programs — sorted by subject,
-          eligibility, and more.
+          Over 250 free programs you can search and filter — by topic, who
+          qualifies, and where you live.
         </p>
 
         <div className={styles.highlights}>
@@ -40,7 +40,7 @@ export function ResourcesPreview() {
         </div>
 
         <Link href='/resources' className={styles.cta}>
-          Browse All Resources
+          Browse all programs
           <span aria-hidden='true'> →</span>
         </Link>
       </div>

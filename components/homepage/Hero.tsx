@@ -11,18 +11,19 @@ export function Hero() {
         </div>
 
         <h1 id='hero-heading' className={styles.heading}>
-          Your guide to <span className={styles.accent}>free resources</span>{' '}
-          you deserve
+          Free help with{' '}
+          <span className={styles.accent}>internet, phones,</span> food, and
+          more
         </h1>
 
         <p className={styles.subtext}>
-          Internet, phones, food benefits, electric vehicles, and more &mdash;
-          we break down every program in plain language so you and your family
-          can get the help that&apos;s already waiting for you.
+          We explain real programs in plain words &mdash; like $9.25/month off
+          your phone bill, free smartphones through Lifeline, and EBT food
+          benefits. No sign-up. No catch.
         </p>
 
         <Link href='#guides' className={styles.cta}>
-          Find What You Need
+          See the guides
           <span className={styles.ctaArrow} aria-hidden='true'>
             &darr;
           </span>

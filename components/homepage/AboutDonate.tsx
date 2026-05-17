@@ -13,10 +13,10 @@ export function AboutDonate() {
         </h2>
 
         <p className={styles.text}>
-          TechEmpower is a nonprofit that helps people with low income use
-          technology to improve their lives. We create free, easy-to-read guides
-          so everyone can access the programs and tools they deserve. Your
-          support keeps these resources free for the people who need them most.
+          TechEmpower is a nonprofit in Grass Valley, California. We write free,
+          plain-language guides that explain how to use programs like Lifeline,
+          EBT, and EV rebates &mdash; help that&apos;s already out there, just
+          hard to find. Donations keep every guide free for everyone.
         </p>
 
         <div className={styles.actions}>

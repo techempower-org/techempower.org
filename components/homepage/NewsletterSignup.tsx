@@ -84,9 +84,8 @@ export function NewsletterSignup() {
           Get new guides in your inbox
         </h2>
         <p className={styles.text}>
-          We send a short note when we publish a new guide or update an existing
-          one. No spam, no fundraising emails — just useful resources for
-          low-income folks and the people who help them.
+          A short email when we publish a new guide or update one. No spam, no
+          fundraising — just useful resources, a few times a year.
         </p>
 
         {state === 'success' ? (
