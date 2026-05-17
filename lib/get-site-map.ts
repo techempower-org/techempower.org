@@ -47,7 +47,6 @@ const getPage = async (pageId: string, opts?: any) => {
     return null as any
   }
 
-  console.log('\nnotion getPage', cleanId)
   return notion.getPage(pageId, {
     kyOptions: {
       timeout: 30_000

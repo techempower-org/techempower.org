@@ -3,8 +3,9 @@ import type { GetServerSideProps } from 'next'
 import { host, pageUrlOverrides } from '@/lib/config'
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  if (req.method !== 'GET') {
+  if (req.method !== 'GET' && req.method !== 'HEAD') {
     res.statusCode = 405
+    res.setHeader('Allow', 'GET, HEAD')
     res.setHeader('Content-Type', 'application/json')
     res.write(JSON.stringify({ error: 'method not allowed' }))
     res.end()
@@ -21,6 +22,13 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     'public, max-age=28800, stale-while-revalidate=28800'
   )
   res.setHeader('Content-Type', 'text/xml')
+
+  // HEAD: send headers only, no body.
+  if (req.method === 'HEAD') {
+    res.end()
+    return { props: {} }
+  }
+
   res.write(createSitemap(paths))
   res.end()
 

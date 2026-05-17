@@ -15,17 +15,32 @@ import { getSocialImageUrl } from '@/lib/get-social-image-url'
 import { getCanonicalPageUrl } from '@/lib/map-page-url'
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  if (req.method !== 'GET') {
+  if (req.method !== 'GET' && req.method !== 'HEAD') {
     res.statusCode = 405
+    res.setHeader('Allow', 'GET, HEAD')
     res.setHeader('Content-Type', 'application/json')
     res.write(JSON.stringify({ error: 'method not allowed' }))
     res.end()
     return { props: {} }
   }
 
-  const siteMap = await getSiteMap()
   const ttlMinutes = 24 * 60 // 24 hours
   const ttlSeconds = ttlMinutes * 60
+
+  // HEAD: respond with cacheable headers but skip the (expensive) feed build.
+  // The feed build calls getSiteMap() which fans out into multiple Notion
+  // requests — there's no point doing that work for a HEAD probe.
+  if (req.method === 'HEAD') {
+    res.setHeader(
+      'Cache-Control',
+      `public, max-age=${ttlSeconds}, stale-while-revalidate=${ttlSeconds}`
+    )
+    res.setHeader('Content-Type', 'text/xml; charset=utf-8')
+    res.end()
+    return { props: {} }
+  }
+
+  const siteMap = await getSiteMap()
 
   const feed = new RSS({
     title: config.name,
