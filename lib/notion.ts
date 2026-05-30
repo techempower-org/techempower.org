@@ -15,6 +15,41 @@ import {
 import { getTweetsMap } from './get-tweets'
 import { notion } from './notion-api'
 
+/**
+ * Resolve human-readable property names to their opaque Notion schema IDs
+ * (e.g. "Category" → "\\rez") by scanning the first collection's schema.
+ * Names are matched case-insensitively and trimmed, so "Value" matches the
+ * real schema name "Value " (trailing space). Returns the IDs in the order
+ * the names were requested, skipping any that don't resolve.
+ */
+const resolveGalleryPropertyIds = (
+  recordMap: ExtendedRecordMap,
+  names: string[]
+): string[] => {
+  const wanted = new Map(names.map((n) => [n.trim().toLowerCase(), n]))
+  const nameToId = new Map<string, string>()
+
+  for (const collectionData of Object.values(recordMap.collection ?? {})) {
+    const schema =
+      (collectionData as any)?.value?.value?.schema ??
+      (collectionData as any)?.value?.schema
+    if (!schema) continue
+    for (const [propId, propDef] of Object.entries(
+      schema as Record<string, any>
+    )) {
+      const key = (propDef?.name ?? '').trim().toLowerCase()
+      if (key && wanted.has(key) && !nameToId.has(key)) {
+        nameToId.set(key, propId)
+      }
+    }
+  }
+
+  return names.flatMap((n) => {
+    const id = nameToId.get(n.trim().toLowerCase())
+    return id ? [id] : []
+  })
+}
+
 /** Parse category values from a Notion block's properties */
 const getBlockCategories = (
   allBlocks: Record<string, any>,
@@ -146,6 +181,22 @@ export async function getPage(
   // Inject client-side load-more limit into collection views so
   // react-notion-x renders a "Load More" button instead of all rows.
   if (options?.collectionLoadLimit || options?.enableGalleryCovers) {
+    // Resolve the property IDs we want every gallery card to display, by name,
+    // from the collection schema. react-notion-x renders a gallery card's
+    // non-title properties only if the view's `format.gallery_properties`
+    // lists them — so a view configured to show the title alone produces
+    // title-only cards, which breaks the /resources search + category filter
+    // (issue #19: it greps card text / counts category tags). We force the
+    // search-relevant properties to be visible on every gallery view so the
+    // toolbar always has data, regardless of how each Notion view is set up.
+    const searchPropertyIds = options?.enableGalleryCovers
+      ? resolveGalleryPropertyIds(recordMap, [
+          'Category',
+          'Value', // schema name has a trailing space ("Value "); matched loosely
+          'Eligibility'
+        ])
+      : []
+
     for (const viewData of Object.values(recordMap.collection_view)) {
       const view = (viewData as any)?.value
       if (!view) continue
@@ -164,6 +215,23 @@ export async function getPage(
         view.format.gallery_cover = { type: 'page_cover' }
         view.format.gallery_cover_size = 'medium'
         view.format.gallery_cover_aspect = 'cover'
+
+        // Ensure the search-relevant properties are present and visible in
+        // this view's gallery_properties, preserving any existing entries.
+        const existing: any[] = Array.isArray(view.format.gallery_properties)
+          ? view.format.gallery_properties
+          : []
+        const byId = new Map<string, any>()
+        // Title is always shown by react-notion-x; keep whatever's there.
+        for (const p of existing) {
+          if (p?.property) byId.set(p.property, { ...p })
+        }
+        for (const propId of searchPropertyIds) {
+          byId.set(propId, { property: propId, visible: true })
+        }
+        if (byId.size > 0) {
+          view.format.gallery_properties = [...byId.values()]
+        }
       }
     }
   }
