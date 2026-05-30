@@ -1,4 +1,4 @@
-# TechEmpower — Technology for All: Access Made Easy
+# TechEMPOWER — Technology for All: Access Made Easy
 
 > Free technology resources for individuals with low income, their families, and nonprofit organizations.
 
