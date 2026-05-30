@@ -63,9 +63,11 @@ export function ResourcesToolbar() {
 
   // Apply search + filter + sort whenever inputs change
   React.useEffect(() => {
-    const container = document.querySelector(
-      '.resources-page .notion-gallery-grid'
-    ) as HTMLElement | null
+    // Notion renders one gallery grid per view; only the active view's grid
+    // is visible. Operate on the visible grid, not blindly on the first one
+    // in the DOM (the old `querySelector` bug — it always grabbed Featured
+    // Resources even after switching tabs).
+    const container = getActiveGalleryGrid()
     if (!container) return
 
     const cards = [
@@ -200,6 +202,11 @@ export function ResourcesToolbar() {
         </select>
       </div>
 
+      {/* Chips render only when the active view exposes Category values on
+          its cards. The search box + sort above are intentionally OUTSIDE
+          this guard so search always works even if a view shows no chips
+          (issue #19: title-only views used to leave categoryCounts empty,
+          which silently hid this whole row). */}
       {Object.keys(categoryCounts).length > 0 && (
         <div className='resources-filter-chips'>
           <button
@@ -243,18 +250,44 @@ export function ResourcesToolbar() {
 
 // --- helpers ---------------------------------------------------------------
 
+/**
+ * Return the gallery grid for the view the user is actually looking at.
+ *
+ * Notion renders a separate `.notion-gallery-grid` for each collection view.
+ * Depending on render path, more than one grid can exist in the DOM at once
+ * (e.g. after switching tabs), with the inactive ones hidden. We pick the
+ * first grid that is actually displayed (`offsetParent !== null`), and only
+ * fall back to the first grid in document order if none report as visible
+ * (e.g. during SSR hydration where layout hasn't settled yet).
+ */
+function getActiveGalleryGrid(): HTMLElement | null {
+  const grids = [
+    ...document.querySelectorAll('.resources-page .notion-gallery-grid')
+  ] as HTMLElement[]
+  if (grids.length === 0) return null
+  return grids.find((g) => g.offsetParent !== null) ?? grids[0] ?? null
+}
+
+/** Cards belonging to the active (visible) gallery grid only. */
+function activeGridCards(): HTMLElement[] {
+  const grid = getActiveGalleryGrid()
+  if (!grid) return []
+  return [
+    ...grid.querySelectorAll(':scope > .notion-collection-card')
+  ] as HTMLElement[]
+}
+
 function scanCategoryCounts(): Record<string, number> {
   const counts: Record<string, number> = {}
-  const cards = document.querySelectorAll(
-    '.resources-page .notion-collection-card'
-  )
-  for (const card of cards) {
+  // Only scan the active grid — scanning every grid in the DOM double-counts
+  // resources that appear in multiple views and yields chip counts that don't
+  // match what the user sees.
+  for (const card of activeGridCards()) {
     const tags = card.querySelectorAll(
       '.notion-property-multi_select-item, .notion-property-select-item'
     )
-    // Same card in two view-groups (e.g., "Featured" + "Browse") would be
-    // counted twice if we naively iterate. Dedup by card-href within this
-    // scan; the tag set per card is small so the cost is negligible.
+    // Dedup categories within a single card so a card tagged with the same
+    // category twice doesn't inflate the count.
     const seen = new Set<string>()
     for (const tag of tags) {
       const text = tag.textContent?.trim()
@@ -269,15 +302,11 @@ function scanCategoryCounts(): Record<string, number> {
 
 function countVisibleCards(): number {
   const hrefs = new Set<string>()
-  const cards = document.querySelectorAll(
-    '.resources-page .notion-collection-card'
-  )
-  for (const card of cards) {
+  for (const card of activeGridCards()) {
     const href = card.getAttribute('href')
     if (href) hrefs.add(href)
   }
-  // Cards can appear in multiple gallery view groupings (one card per group).
-  // Dedup by href to get the true unique-resource count.
+  // Dedup by href in case the active grid lists a resource more than once.
   return hrefs.size
 }
 
