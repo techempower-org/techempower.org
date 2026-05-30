@@ -19,7 +19,7 @@
 
 ## About
 
-TechEmpower is a registered 501(c)(3) nonprofit based in Grass Valley, California. We promote digital equity, inclusion, and accessibility by curating free technology resources and step-by-step guides.
+Techempower.org is a registered 501(c)(3) nonprofit based in Grass Valley, California. We promote digital equity, inclusion, and accessibility by curating free technology resources and step-by-step guides.
 
 This repository powers [techempower.org](https://techempower.org) — a Next.js site that renders content from Notion using [react-notion-x](https://github.com/NotionX/react-notion-x).
 
