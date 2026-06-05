@@ -62,8 +62,8 @@ ARTICLES = [
         ),
     },
     {
-        "slug": "storyvox",
-        "title": "Storyvox: TechEmpower Guides as Audiobooks",
+        "slug": "candela",
+        "title": "Candela: TechEmpower Guides as Audiobooks",
         "summary": (
             "A free Android audiobook app that reads digital-equity guides "
             "aloud using offline neural text-to-speech. Built for "

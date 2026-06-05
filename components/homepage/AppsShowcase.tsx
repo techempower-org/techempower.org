@@ -15,12 +15,17 @@ export function AppsShowcase() {
         </p>
 
         <div className={styles.cards}>
-          {/* Storyvox card */}
-          <Link href='/storyvox' className={styles.card}>
-            <span className={styles.cardIcon} aria-hidden='true'>
-              🔊
-            </span>
-            <h3 className={styles.cardTitle}>Storyvox</h3>
+          {/* Candela card (formerly Storyvox) */}
+          <Link href='/candela' className={styles.card}>
+            <img
+              src='/candela-mark.svg'
+              alt=''
+              className={styles.cardIconImg}
+              aria-hidden='true'
+              width={28}
+              height={28}
+            />
+            <h3 className={styles.cardTitle}>Candela</h3>
             <p className={styles.cardText}>
               An Android app that reads every TechEmpower guide out loud, even
               with no internet. Built for low vision, limited literacy, or
