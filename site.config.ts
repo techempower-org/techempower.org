@@ -56,7 +56,9 @@ export default siteConfig({
     // Resources database
     '/resources': '2a3d706803c649409e74e9ce5ccd4c4b',
 
-    // Storyvox app landing page
+    // Candela app landing page (formerly Storyvox)
+    '/candela': '363a4ee6952081e48184f03b153b4a8d',
+    // Legacy slug — keep external links to the old Storyvox URL working
     '/storyvox': '363a4ee6952081e48184f03b153b4a8d',
 
     // About pages
@@ -89,7 +91,7 @@ export default siteConfig({
       pageId: '2a3d706803c649409e74e9ce5ccd4c4b'
     },
     {
-      title: 'Storyvox',
+      title: 'Candela',
       pageId: '363a4ee6952081e48184f03b153b4a8d'
     },
     {
