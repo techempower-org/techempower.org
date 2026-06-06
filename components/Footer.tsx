@@ -17,7 +17,7 @@ export function FooterImpl() {
       <div className={styles.inner}>
         <div className={styles.brand}>
           <Link href='/' className={styles.logo}>
-            <span aria-hidden='true'>⚡</span> TechEmpower
+            <span aria-hidden='true'>⚡</span> TechEMPOWER.org
           </Link>
           <p className={styles.tagline}>Technology for All: Access Made Easy</p>
         </div>

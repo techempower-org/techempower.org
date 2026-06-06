@@ -9,7 +9,7 @@ export default siteConfig({
   rootNotionSpaceId: undefined,
 
   // basic site info (required)
-  name: 'TechEmpower',
+  name: 'TechEMPOWER.org',
   domain: 'techempower.org',
   author: 'TechEmpower',
 
