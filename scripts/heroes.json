@@ -1,15 +1,15 @@
 [
   {
     "page_id": "0959e44599984143acabc80187305001",
-    "title": "Welcome to TechEmpower.org",
+    "title": "Welcome to TechEMPOWER.org",
     "summary": "A 501(c)(3) nonprofit in Grass Valley, California dedicated to digital equity, inclusion, and accessibility. We provide free technology resources to individuals with low income, their families, and nonprofit organizations.",
     "quality": "ultra",
     "_status": "already_generated"
   },
   {
     "page_id": "6c979ba4e43f48d7a4836e0027ea4178",
-    "title": "How to use TechEmpower.org",
-    "summary": "A welcome guide to the TechEmpower website. Browse guides, search resources, get peer support via Discord or 211 phone line. The site is a directory of free technology resources for low-income individuals and nonprofits in Nevada County, California.",
+    "title": "How to use TechEMPOWER.org",
+    "summary": "A welcome guide to the Techempower.org website. Browse guides, search resources, get peer support via Discord or 211 phone line. The site is a directory of free technology resources for low-income individuals and nonprofits in Nevada County, California.",
     "quality": "ultra"
   },
   {
@@ -57,31 +57,31 @@
   {
     "page_id": "dbf0ddece2ce468fb2bf9049e6322e8a",
     "title": "About the Founder",
-    "summary": "Jeffrey Hein founded TechEmpower in January 2023 to scale into free public resources what he'd spent 22 years doing one nonprofit at a time: helping Nevada County's community get the technology they needed without paying for what should have been free. The work is rooted in Grass Valley, California.",
+    "summary": "Jeffrey Hein founded Techempower.org in January 2023 to scale into free public resources what he'd spent 22 years doing one nonprofit at a time: helping Nevada County's community get the technology they needed without paying for what should have been free. The work is rooted in Grass Valley, California.",
     "quality": "ultra"
   },
   {
     "page_id": "59d8a4dab0cc484f8b044d33f240ce1d",
-    "title": "Donate to TechEmpower",
-    "summary": "Support TechEmpower's mission of digital equity for low-income individuals and nonprofits. Tax-deductible donations through PayPal fund free guides and resources. Every dollar keeps our resources free for the people who need them most.",
+    "title": "Donate to TechEMPOWER.org",
+    "summary": "Support Techempower.org's mission of digital equity for low-income individuals and nonprofits. Tax-deductible donations through PayPal fund free guides and resources. Every dollar keeps our resources free for the people who need them most.",
     "quality": "ultra"
   },
   {
     "page_id": "cdbe9906ae2441a1a9bb3aec601a5a6c",
     "title": "Non-Discrimination Policy",
-    "summary": "TechEmpower's commitment to equal opportunity and nondiscrimination. We do not discriminate on the basis of race, color, national origin, ancestry, sex, sexual orientation, gender identity or expression, religion, age, pregnancy, disability, medical condition, genetic information, marital status, or veteran status.",
+    "summary": "Techempower.org's commitment to equal opportunity and nondiscrimination. We do not discriminate on the basis of race, color, national origin, ancestry, sex, sexual orientation, gender identity or expression, religion, age, pregnancy, disability, medical condition, genetic information, marital status, or veteran status.",
     "quality": "ultra"
   },
   {
     "page_id": "363a4ee6952081e48184f03b153b4a8d",
-    "title": "Candela — TechEmpower Guides as Audiobooks",
-    "summary": "A free Android audiobook app that reads digital-equity guides aloud using offline neural text-to-speech. Built for accessibility — visually impaired users, low literacy, audio-while-driving. Open source, no ads, no tracking. Pulls every guide from TechEmpower.org automatically. Formerly Storyvox.",
+    "title": "Candela — TechEMPOWER.org Guides as Audiobooks",
+    "summary": "A free Android audiobook app that reads digital-equity guides aloud using offline neural text-to-speech. Built for accessibility — visually impaired users, low literacy, audio-while-driving. Open source, no ads, no tracking. Pulls every guide from Techempower.org automatically. Formerly Storyvox.",
     "quality": "ultra"
   },
   {
     "page_id": "363a4ee6952081b28996c0c05280ce18",
     "title": "Privacy Policy",
-    "summary": "TechEmpower's privacy practices: what data we collect (anonymized analytics via Google Analytics), what we don't (no tracking across other sites, no selling of personal info). Third-party services listed: Cloudflare, Notion, PayPal, Google Fonts, Discord. CCPA section for California residents.",
+    "summary": "Techempower.org's privacy practices: what data we collect (anonymized analytics via Google Analytics), what we don't (no tracking across other sites, no selling of personal info). Third-party services listed: Cloudflare, Notion, PayPal, Google Fonts, Discord. CCPA section for California residents.",
     "quality": "ultra"
   }
 ]

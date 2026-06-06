@@ -11,7 +11,7 @@ export default siteConfig({
   // basic site info (required)
   name: 'TechEMPOWER.org',
   domain: 'techempower.org',
-  author: 'TechEmpower',
+  author: 'TechEMPOWER.org',
 
   // open graph metadata
   description:

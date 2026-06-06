@@ -6,7 +6,7 @@ import { PageHead } from './PageHead'
 import styles from './styles.module.css'
 
 export function Page404({ site }: types.PageProps) {
-  const title = `Page not found — ${site?.name || 'TechEmpower'}`
+  const title = `Page not found — ${site?.name || 'TechEMPOWER.org'}`
 
   return (
     <>
@@ -29,7 +29,7 @@ export function Page404({ site }: types.PageProps) {
               <Link href='/resources'>Search free programs</Link>
             </li>
             <li>
-              <Link href='/about'>About TechEmpower</Link>
+              <Link href='/about'>About TechEMPOWER.org</Link>
             </li>
           </ul>
 

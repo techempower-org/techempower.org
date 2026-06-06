@@ -281,7 +281,7 @@ export function SubmitResourceForm() {
         <p className={styles.subtitle}>
           Know a free program or service that helps low-income individuals or
           families? Tell us about it. Our team reviews every submission before
-          it goes live on TechEmpower.
+          it goes live on Techempower.org.
         </p>
       </div>
 

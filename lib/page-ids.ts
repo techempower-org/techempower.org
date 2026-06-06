@@ -69,9 +69,9 @@ export const GUIDE_METADATA: readonly GuideMeta[] = [
   {
     id: GUIDE_HOW_TO_USE_TECHEMPOWER,
     slug: 'how-to-use-techempower',
-    title: 'How to Use TechEmpower',
+    title: 'How to Use TechEMPOWER.org',
     summary:
-      'Learn how to navigate TechEmpower and get the most from our free guides.',
+      'Learn how to navigate Techempower.org and get the most from our free guides.',
     icon: '\u{1F4D6}' // open book
   },
   {

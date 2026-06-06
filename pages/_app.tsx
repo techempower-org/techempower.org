@@ -51,7 +51,7 @@ const BUILD_VERSION = 'teal-puma-v3'
 if (!isServer) {
   bootstrap()
   console.log(
-    `%c⚡ TechEmpower ${BUILD_VERSION}`,
+    `%c⚡ TechEMPOWER.org ${BUILD_VERSION}`,
     'color:#0d9488;font-weight:bold'
   )
 }

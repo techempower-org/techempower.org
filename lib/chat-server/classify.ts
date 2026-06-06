@@ -14,13 +14,13 @@ import { type BedrockEnv, invokeBedrock } from './bedrock'
 
 const HAIKU_MODEL = 'anthropic.claude-haiku-4-5-20251001-v1:0'
 
-const CLASSIFIER_SYSTEM = `You are a topic gate for TechEmpower, a nonprofit chat assistant that helps people find free programs and technology resources in Nevada County, California.
+const CLASSIFIER_SYSTEM = `You are a topic gate for Techempower.org, a nonprofit chat assistant that helps people find free programs and technology resources in Nevada County, California.
 
 A message is IN-TOPIC if it is about ANY of:
 - Free or low-cost programs (internet, phone, food, healthcare, housing, transportation, utilities, childcare, education, employment, mental health, legal aid, EV/electric vehicle incentives)
 - Eligibility for government assistance (Lifeline, ACP, CalFresh/SNAP, EBT, Medi-Cal, Section 8, etc.)
 - Nevada County or California-specific services or agencies (Connecting Point, 211, 911, county departments)
-- TechEmpower's guides, resources, donations, or services
+- Techempower.org's guides, resources, donations, or services
 - Friendly small-talk: greetings, thank-yous, clarifications, expressions of need or frustration
 
 A message is OUT-OF-TOPIC if it is about:

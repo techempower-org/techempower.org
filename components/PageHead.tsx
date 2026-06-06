@@ -25,8 +25,8 @@ export function PageHead({
   const isHomePage = pageId === site?.rootNotionPageId
   const formattedTitle =
     isHomePage || !rawTitle || rawTitle === site?.name
-      ? `${site?.name ?? 'TechEmpower'}`
-      : `${rawTitle} | ${site?.name ?? 'TechEmpower'}`
+      ? `${site?.name ?? 'TechEMPOWER.org'}`
+      : `${rawTitle} | ${site?.name ?? 'TechEMPOWER.org'}`
 
   description = description ?? site?.description
 
