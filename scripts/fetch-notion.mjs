@@ -15,7 +15,7 @@ const textOf = (b) => {
 
 console.log('=== BLOCK COUNT:', Object.keys(blocks).length, '===\n')
 
-for (const [id, entry] of Object.entries(blocks)) {
+for (const [, entry] of Object.entries(blocks)) {
   const b = entry.value
   if (!b) continue
   const type = b.type
