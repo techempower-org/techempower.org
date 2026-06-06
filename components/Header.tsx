@@ -40,7 +40,7 @@ export function Header() {
           <span className={styles.logoIcon} aria-hidden='true'>
             ⚡
           </span>
-          TechEmpower
+          TechEMPOWER.org
         </Link>
 
         {/* Desktop nav */}
