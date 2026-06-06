@@ -27,8 +27,8 @@ export function AppsShowcase() {
             />
             <h3 className={styles.cardTitle}>Candela</h3>
             <p className={styles.cardText}>
-              An Android app that reads every Techempower.org guide out loud, even
-              with no internet. Built for low vision, limited literacy, or
+              An Android app that reads every Techempower.org guide out loud,
+              even with no internet. Built for low vision, limited literacy, or
               listening while you drive.
             </p>
             <span className={styles.cardCta}>

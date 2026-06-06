@@ -36,7 +36,11 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <Link href='/' className={styles.logo} aria-label='Techempower.org home'>
+        <Link
+          href='/'
+          className={styles.logo}
+          aria-label='Techempower.org home'
+        >
           <span className={styles.logoIcon} aria-hidden='true'>
             ⚡
           </span>
