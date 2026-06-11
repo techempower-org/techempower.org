@@ -21,5 +21,13 @@ export default [
       'jsx-a11y/anchor-is-valid': 'off',
       '@typescript-eslint/naming-convention': 'off'
     }
+  },
+  {
+    // next.config.js runs at build time only — reading CI env vars there is
+    // the supported way to inline build info (realm-sigil) into the bundle.
+    files: ['next.config.js'],
+    rules: {
+      'no-process-env': 'off'
+    }
   }
 ]

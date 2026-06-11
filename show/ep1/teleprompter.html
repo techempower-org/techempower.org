@@ -96,6 +96,8 @@
   #playBtn { min-width: 110px; font-weight: 700; }
   #help { position: fixed; bottom: 10px; right: 14px; z-index: 10; color: var(--dim); font-size: 13px; transition: opacity 0.4s; }
   body.playing #help { opacity: 0; }
+  #sigil { position: fixed; bottom: 10px; left: 14px; z-index: 10; color: var(--accent); font-size: 13px; opacity: 0.9; transition: opacity 0.4s; font-variant-numeric: tabular-nums; }
+  body.playing #sigil { opacity: 0.45; }
 </style>
 </head>
 <body>
@@ -531,6 +533,7 @@ END OF SCRIPT
 ================================================================
 </script>
 
+<div id="sigil" title="script version sigil — changes whenever the script text changes">✦ Annealed Spark · 4604e34</div>
 <div id="help">SPACE play/pause · ↑↓ speed · A−/A+ font · M mirror · T theme · F fullscreen · Home top</div>
 
 <script>
@@ -598,7 +601,7 @@ END OF SCRIPT
   const playBtn = document.getElementById('playBtn');
   const timerEl = document.getElementById('timer');
   const estEl = document.getElementById('est');
-  let playing = false, speed = null, fontSize = 54, elapsed = 0, lastT = null;
+  let playing = false, speed = null, speedKey = 'tp-speed', fontSize = 54, elapsed = 0, lastT = null;
 
   function maxScroll() { return vp.scrollHeight - vp.clientHeight; }
   function fmt(s) { s = Math.round(s); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
@@ -608,9 +611,20 @@ END OF SCRIPT
   function defaults() {
     fontSize = parseFloat(localStorage.getItem('tp-font')) || 54;
     applyFont();
-    const saved = parseFloat(localStorage.getItem('tp-speed'));
-    // default speed: whole script in ~25 minutes
-    speed = saved > 0 ? saved : Math.max(12, maxScroll() / (25 * 60));
+    // count only spoken words (skip cue blocks, section banners, inline cues)
+    let words = 0;
+    content.querySelectorAll('p.line').forEach((p) => {
+      const t = p.cloneNode(true);
+      t.querySelectorAll('.cue-inline').forEach((c) => c.remove());
+      words += (t.textContent.match(/\S+/g) || []).length;
+    });
+    // saved speed is keyed to the script's word count, so a script change
+    // re-baselines the pace instead of reusing a stale saved setting
+    speedKey = 'tp-speed-' + words;
+    const saved = parseFloat(localStorage.getItem(speedKey));
+    // default pace: ~150 spoken words per minute across the full scroll
+    const targetSec = Math.max(60, (words / 150) * 60);
+    speed = saved > 0 ? saved : Math.max(8, maxScroll() / targetSec);
     updateEst();
   }
 
@@ -635,7 +649,7 @@ END OF SCRIPT
   }
   function bumpSpeed(f) {
     speed = Math.min(400, Math.max(4, speed * f));
-    localStorage.setItem('tp-speed', speed);
+    localStorage.setItem(speedKey, speed);
     updateEst();
   }
   function bumpFont(d) {

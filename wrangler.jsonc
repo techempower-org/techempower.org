@@ -11,7 +11,10 @@
   },
   "routes": [
     { "pattern": "techempower.org", "custom_domain": true },
-    { "pattern": "www.techempower.org", "custom_domain": true }
+    { "pattern": "www.techempower.org", "custom_domain": true },
+    // Serves /api/version via a host rewrite in next.config.js — the
+    // quick "is the cache fresh?" check after a deploy.
+    { "pattern": "sigil.techempower.org", "custom_domain": true }
   ],
   "observability": {
     "enabled": true

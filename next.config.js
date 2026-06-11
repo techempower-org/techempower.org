@@ -1,5 +1,34 @@
 // import path from 'node:path'
 // import { fileURLToPath } from 'node:url'
+import { execFileSync } from 'node:child_process'
+
+// --- realm-sigil build info ------------------------------------------------
+// Inlined into the bundle at build time via the `env` key below. The
+// Cloudflare Workers runtime never sees CI env vars, so runtime lookups of
+// WORKERS_CI_COMMIT_SHA in /api/version always missed in production (the
+// live endpoint showed "dev"). CI sets WORKERS_CI_* during `pnpm cf:build`
+// (.github/workflows/deploy.yml); local builds fall back to git directly.
+function gitCmd(args, fallback) {
+  try {
+    return (
+      execFileSync('git', args, { stdio: ['ignore', 'pipe', 'ignore'] })
+        .toString()
+        .trim() || fallback
+    )
+  } catch {
+    return fallback
+  }
+}
+
+const sigilHash = (
+  process.env.WORKERS_CI_COMMIT_SHA || gitCmd(['rev-parse', 'HEAD'], 'dev')
+).slice(0, 7)
+const sigilBranch =
+  process.env.WORKERS_CI_COMMIT_REF ||
+  gitCmd(['rev-parse', '--abbrev-ref', 'HEAD'], 'unknown')
+const sigilDirty = process.env.WORKERS_CI_COMMIT_SHA
+  ? 'false'
+  : String(gitCmd(['status', '--porcelain'], '') !== '')
 
 // --- Content Security Policy ---------------------------------------------
 // Built as an array so the directives stay readable. Joined with `; ` for
@@ -113,6 +142,29 @@ export default {
 
   // Strip the `X-Powered-By: Next.js` fingerprint header.
   poweredByHeader: false,
+
+  // Build-time constants for the realm-sigil /api/version endpoint.
+  env: {
+    SIGIL_HASH: sigilHash,
+    SIGIL_BRANCH: sigilBranch,
+    SIGIL_DIRTY: sigilDirty,
+    SIGIL_BUILT: new Date().toISOString(),
+    SIGIL_PLATFORM: process.env.GITHUB_ACTIONS ? 'cloudflare' : 'local'
+  },
+
+  // sigil.techempower.org serves the version endpoint directly (the
+  // hostname is routed to this worker in wrangler.jsonc).
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: '/:path*',
+          has: [{ type: 'host', value: 'sigil.techempower.org' }],
+          destination: '/api/version'
+        }
+      ]
+    }
+  },
 
   async headers() {
     return [
