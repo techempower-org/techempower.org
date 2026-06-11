@@ -543,7 +543,7 @@ END OF SCRIPT
 </script>
 
 <div id="sigil" title="script version sigil — changes whenever the script text changes">✦ Ignited Die · a5d87a0</div>
-<div id="help">SPACE play/pause · ↑↓ speed · A−/A+ font · M mirror · T theme · F fullscreen · Home top</div>
+<div id="help">SPACE play/pause · ↑↓ speed · PgUp/PgDn or clicker jump · A−/A+ font · M mirror · T theme · F fullscreen · Home top</div>
 
 <script>
 (function () {
@@ -696,6 +696,11 @@ END OF SCRIPT
       document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
     else if (e.key === '[') bumpFont(-4);
     else if (e.key === ']') bumpFont(4);
+    // USB presenter clickers send PageDown/PageUp (some send Right/Left):
+    // small jumps so an operator can keep the scroll glued to the actual
+    // conversation pace without touching the keyboard
+    else if (e.key === 'PageDown' || e.key === 'ArrowRight') { e.preventDefault(); vp.scrollTop += vp.clientHeight * 0.25; }
+    else if (e.key === 'PageUp' || e.key === 'ArrowLeft') { e.preventDefault(); vp.scrollTop -= vp.clientHeight * 0.25; }
   });
 
   defaults();

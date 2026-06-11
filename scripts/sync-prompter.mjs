@@ -14,8 +14,14 @@ import { fileURLToPath } from 'node:url'
 
 const dir = join(dirname(fileURLToPath(import.meta.url)), '..', 'show', 'ep1')
 
-// body = everything after the prompter-notes header (delimited by '=' rules)
-const txt = readFileSync(join(dir, 'ep1-teleprompter.txt'), 'utf8')
+// body = everything after the prompter-notes header (delimited by '=' rules).
+// The txt is the studio-delivery master and ships with CRLF line endings for
+// Windows prompter software — normalize here so the embedded copy and the
+// content-hash sigil are independent of line-ending style.
+const txt = readFileSync(join(dir, 'ep1-teleprompter.txt'), 'utf8').replaceAll(
+  '\r\n',
+  '\n'
+)
 const lines = txt.split('\n')
 const rules = lines.flatMap((l, i) =>
   l.trim() && [...l.trim()].every((c) => c === '=') ? [i] : []
