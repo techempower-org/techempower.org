@@ -51,6 +51,11 @@ yarn-error.log*
 *.jpg
 *.jpeg
 
+# ...but show production assets ARE versioned
+!show/**/*.png
+!show/**/*.jpg
+!show/**/*.jpeg
+
 # Claude Code session data
 .claude/
 

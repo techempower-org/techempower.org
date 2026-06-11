@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teleprompter — Wait, I Qualify?! Ep1</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23e8a13c'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' font-family='sans-serif' font-weight='bold' fill='%231f2421'%3EW%3F%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #0d0f0e;
+    --text: #f5f1e8;
+    --dim: #8a857a;
+    --shawna: #e87a5d;
+    --jeff: #5da89b;
+    --chip-bg: #1f2421;
+    --chip-border: #3a423e;
+    --bar-bg: rgba(13, 15, 14, 0.92);
+    --accent: #e8a13c;
+  }
+  @media (prefers-color-scheme: light) {
+    body:not(.force-dark):not(.force-light) {
+      --bg: #faf6ee;
+      --text: #2a2520;
+      --dim: #9a948a;
+      --shawna: #c25435;
+      --jeff: #2e7d6e;
+      --chip-bg: #f0e9db;
+      --chip-border: #d8cfbc;
+      --bar-bg: rgba(250, 246, 238, 0.94);
+    }
+  }
+  body.force-light {
+    --bg: #faf6ee;
+    --text: #2a2520;
+    --dim: #9a948a;
+    --shawna: #c25435;
+    --jeff: #2e7d6e;
+    --chip-bg: #f0e9db;
+    --chip-border: #d8cfbc;
+    --bar-bg: rgba(250, 246, 238, 0.94);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { background: var(--bg); color: var(--text); font-family: "DM Sans", system-ui, sans-serif; overflow: hidden; }
+
+  #viewport { height: 100vh; overflow-y: scroll; scrollbar-width: none; }
+  #viewport::-webkit-scrollbar { display: none; }
+  body.mirror #viewport { transform: scaleX(-1); }
+
+  #scriptArea {
+    max-width: 25ch;
+    font-size: var(--fs, 54px);
+    line-height: 1.45;
+    margin: 0 auto;
+    padding: 45vh 0.5em 80vh;
+    font-weight: 500;
+  }
+  .speaker { display: block; font-weight: 800; letter-spacing: 0.06em; margin: 1.1em 0 0.15em; font-size: 0.72em; }
+  .speaker.shawna { color: var(--shawna); }
+  .speaker.jeff { color: var(--jeff); }
+  p.line { margin-bottom: 0.45em; }
+  p.line.shawna-line { border-left: 0.12em solid var(--shawna); padding-left: 0.4em; }
+  p.line.jeff-line { border-left: 0.12em solid var(--jeff); padding-left: 0.4em; }
+  .cue, .cue-inline { color: var(--dim); font-style: italic; font-weight: 400; }
+  .cue { display: block; font-size: 0.6em; border: 1px dashed var(--chip-border); border-radius: 0.5em; padding: 0.5em 0.8em; margin: 1.2em 0; }
+  .section { display: block; text-align: center; font-size: 0.55em; font-weight: 800; letter-spacing: 0.12em; color: var(--accent); background: var(--chip-bg); border: 1px solid var(--chip-border); border-radius: 0.6em; padding: 0.7em 1em; margin: 2em 0 1.2em; text-transform: uppercase; }
+  #title { text-align: center; padding-top: 8vh; }
+  #title h1 { font-size: 1.3em; color: var(--accent); margin-bottom: 0.3em; }
+  #title p { font-size: 0.55em; color: var(--dim); margin-bottom: 0.4em; }
+
+  /* fixed eye-line marker */
+  #eyeline { position: fixed; top: 38vh; left: 0; right: 0; pointer-events: none; }
+  #eyeline::before, #eyeline::after { content: "▶"; position: absolute; color: var(--accent); font-size: 22px; opacity: 0.85; }
+  #eyeline::before { left: 12px; }
+  #eyeline::after { right: 12px; content: "◀"; }
+
+  #topfade, #botfade { position: fixed; left: 0; right: 0; height: 14vh; pointer-events: none; z-index: 5; }
+  #topfade { top: 0; background: linear-gradient(var(--bg), transparent); }
+  #botfade { bottom: 0; background: linear-gradient(transparent, var(--bg)); }
+
+  #bar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+    display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;
+    padding: 10px 14px; background: var(--bar-bg); backdrop-filter: blur(6px);
+    transition: opacity 0.4s; font-size: 15px;
+  }
+  body.playing #bar { opacity: 0; }
+  body.playing #bar:hover { opacity: 1; }
+  #bar button {
+    background: var(--chip-bg); color: var(--text); border: 1px solid var(--chip-border);
+    border-radius: 8px; padding: 7px 13px; font-size: 15px; cursor: pointer; font-family: inherit;
+  }
+  #bar button:hover { border-color: var(--accent); }
+  #bar .stat { color: var(--dim); padding: 0 6px; font-variant-numeric: tabular-nums; }
+  #bar .stat b { color: var(--text); }
+  #playBtn { min-width: 110px; font-weight: 700; }
+  #help { position: fixed; bottom: 10px; right: 14px; z-index: 10; color: var(--dim); font-size: 13px; transition: opacity 0.4s; }
+  body.playing #help { opacity: 0; }
+</style>
+</head>
+<body>
+<div id="bar">
+  <button id="playBtn">▶ Start</button>
+  <button id="slower">− speed</button>
+  <button id="faster">+ speed</button>
+  <span class="stat">est. total <b id="est">–</b></span>
+  <span class="stat">elapsed <b id="timer">0:00</b></span>
+  <button id="fsmall">A−</button>
+  <button id="fbig">A+</button>
+  <button id="mirrorBtn">Mirror</button>
+  <button id="themeBtn">Theme</button>
+  <button id="fsBtn">Fullscreen</button>
+  <button id="topBtn">⇤ Top</button>
+</div>
+<div id="eyeline"></div>
+<div id="topfade"></div><div id="botfade"></div>
+<div id="viewport"><div id="scriptArea">
+  <div id="title">
+    <h1>WAIT, I QUALIFY?!</h1>
+    <p>Episode 1 — “You Qualify for More Than You Think”</p>
+    <p>Record: Mon June 15, 2026 · Nevada County Media</p>
+    <p>Press SPACE to start / pause · ↑↓ speed · F fullscreen</p>
+  </div>
+  <div id="content"></div>
+</div></div>
+
+<script type="text/plain" id="rawScript">
+[POST: JINGLE + LOGO INTRO -- in studio, hold one beat, then go]
+
+SHAWNA:
+Welcome to "Wait, I Qualify?!" -- the show about unlocking aid
+for real people, right here in Nevada County. I'm Shawna.
+
+JEFF:
+And I'm Jeff. We're from TechEmpower dot org -- a local
+nonprofit dedicated to helping folks find the help and
+incentives they're entitled to, from the state, the federal
+government, and local organizations.
+
+SHAWNA:
+This is our very first episode, so we're starting with the
+big one. Today we're busting the four myths that stop people
+from ever applying for help in the first place. Because here's
+the secret of this whole show: most people qualify for more
+than they think -- and most of that help goes unclaimed.
+
+JEFF:
+A lot more than they think. Let's get into it.
+
+
+================================================================
+MYTH ONE: "BENEFITS ARE ONLY FOR THE TRULY DESTITUTE"
+================================================================
+
+SHAWNA:
+Let's jump right in. Jeff -- aren't these kinds of benefits
+just for folks who are truly destitute? People with nothing,
+people experiencing homelessness?
+
+JEFF:
+No. And honestly, Shawna, that's the single biggest myth out
+there -- so let's kill it with one real number.
+
+People hear "low income" and assume it means almost nothing.
+Here's the truth: the official poverty line for a family of
+four this year is thirty-three thousand dollars. And many
+assistance programs consider you low income at up to DOUBLE
+that -- sixty-six thousand dollars a year for a family of
+four.
+
+SHAWNA:
+Sixty-six thousand. That's... a lot more than people picture
+when they hear "low income."
+
+JEFF:
+And for housing help, it goes even higher. The federal
+housing agency -- it's called HUD -- draws its own line,
+county by county. Here in Nevada County, their official
+low-income line is just over ONE HUNDRED THOUSAND dollars a
+year for a family of four.
+
+SHAWNA:
+Wait -- a household making a hundred thousand dollars, here
+in Nevada County, can count as low income for housing
+programs?
+
+JEFF:
+That's right. And some programs go higher still -- there's
+even help for first-time homebuyers. But we'll get to
+specific programs all season long. For today, just hold onto
+this: every program draws its own line, and almost every
+line is higher than people guess.
+
+SHAWNA:
+So the answer to "do I make too much?" is...
+
+JEFF:
+Don't guess -- check. That's actually the point of this
+whole show.
+
+SHAWNA:
+But why are those lines so much higher than people expect?
+
+JEFF:
+Because the math of everyday life changed. In recent years,
+paychecks have mostly kept up with everyday prices -- but the
+essentials have not played fair. Housing, healthcare,
+childcare -- the things you can't skip -- have grown far
+faster than wages.
+
+And the long-run picture is worse. Since the late seventies,
+the American economy became about 87 percent more productive.
+The typical worker's pay grew only about 33 percent.
+
+SHAWNA:
+So the country got richer -- but the paycheck didn't.
+
+[POST: CHART GRAPHIC ON SCREEN -- hosts gesture toward it and hold the beat]
+
+JEFF:
+And housing is the worst of it. Look at this chart. A typical
+home recently hit a record -- selling for more than FIVE
+TIMES what a typical household earns in a year. Twenty-five
+years ago, three times was normal.
+
+SHAWNA:
+So even folks working full time can find the math just
+doesn't work anymore.
+
+JEFF:
+Exactly. And that is exactly who these programs are for. Not
+"other people." You.
+
+
+================================================================
+MYTH TWO: "I'D BE TAKING IT AWAY FROM SOMEONE WHO NEEDS IT MORE"
+================================================================
+
+SHAWNA:
+Okay, myth number two -- and I hear this one from the kindest
+people. "If I sign up, aren't I taking benefits away from
+someone else? Someone who needs it more than me?"
+
+JEFF:
+This is the myth I most want to bust, because it stops
+generous, conscientious people from getting help they've
+earned. The answer is no -- and here's why.
+
+Let's name the big programs, because we'll be talking about
+them all season. CalFresh -- that's California's grocery
+money, what folks used to call food stamps. Medi-Cal --
+that's free or low-cost health coverage. The Earned Income
+Tax Credit -- extra cash back at tax time for people who
+work. And S-S-I -- monthly checks for seniors and people
+with disabilities living on very little.
+
+Here's the thing about all four: there is no fixed pot of
+money. The law says if you qualify, the help is yours by
+right -- and the funding GROWS to cover every eligible
+person who signs up. Your benefits do not come out of your
+neighbor's pocket. That's literally how the law is written.
+
+SHAWNA:
+So there's no line I'm cutting in.
+
+JEFF:
+For the big programs, no line at all. And here's the part
+that gets me. Every year, an estimated SIXTY BILLION dollars
+or more in benefits goes unclaimed across this country --
+because eligible people never apply.
+
+SHAWNA:
+Sixty BILLION dollars?
+
+JEFF:
+Every year. Right here in California, about one in five
+people who qualify for CalFresh grocery help aren't getting
+it. And about one in five workers who've earned that
+tax-time cash back never claim it.
+
+SHAWNA:
+That's people's own money, just... left on the table.
+
+JEFF:
+Left on the table. Now -- one honest exception, because
+we'll always be straight with you on this show. A few programs DO
+have limited funding and waiting lists. The big example is
+Section 8 -- the federal program that helps pay your monthly
+rent. But even there, applying doesn't take help away from
+anyone who already has it. It just gets you in line. And if
+you never apply, you're not in line at all.
+
+One more thing. If a program accepts you as eligible, that
+means you fit the exact group that program was built to
+serve. These eligibility rules are strict. If you pass them,
+you're not cheating the system -- you ARE who the help is
+for.
+
+
+================================================================
+MYTH THREE: "GOOD PEOPLE DON'T TAKE HANDOUTS"
+================================================================
+
+SHAWNA:
+Here's the myth people don't say out loud, but everybody
+feels. "Why would I deserve free or reduced-price things?
+Isn't accepting handouts... bad?"
+
+JEFF:
+Let me reframe that. The help you'd get from these programs
+is a tiny drop in the bucket compared to the help and money
+that wealthy organizations and people receive from the
+government every single year. If you think quote-unquote
+"good people" or wealthy people don't take government
+support -- you're flat-out wrong. Let me give you three
+examples.
+
+Example one: big corporations. Researchers tracked hundreds
+of big corporations that stayed profitable every single year
+for five straight years. On average they paid about 14
+percent in federal income tax -- not the 21 percent the law
+says. About one in three of them paid ZERO in at least one
+of those years. And a few did even better than zero.
+
+SHAWNA:
+Better than zero? What does that even mean?
+
+JEFF:
+Twenty-three of them, over all five years combined, paid
+nothing at all -- zero, or even less. Some literally got
+money back. All of it perfectly legal: tax breaks for buying
+equipment, for how they pay their executives, for doing
+research. And Congress made those breaks bigger and
+permanent just last year.
+
+SHAWNA:
+So a billion-dollar company can legally pay zero, but a
+working family feels guilty about food assistance.
+
+JEFF:
+That's the absurdity, yes. Example two: bailouts. When big
+industries hit a crisis, the government steps in -- every
+time. In 2008, Congress put up seven hundred billion dollars
+in emergency rescue money for the banks -- and out of that
+same pot, the carmakers GM and Chrysler got tens of billions
+too.
+
+SHAWNA:
+And that wasn't a one-time thing.
+
+JEFF:
+Not even close. When the pandemic grounded air travel,
+passenger airlines got about fifty-four billion to keep
+paying their workers. And in 2023, when a big bank called
+Silicon Valley Bank collapsed, the government stepped in so
+every person and business with money in that bank got every
+dollar back -- even amounts way above what the government
+normally protects. Nobody called those CEOs freeloaders.
+
+Example three -- and this one's about your coworkers. Back
+in 2020, a government watchdog agency studied who was
+actually receiving food assistance and Medicaid -- Medicaid
+is the national name for what we call Medi-Cal here in
+California. In every state they looked at, the top employers
+of people on those benefits were household names. Walmart
+was number one. McDonald's usually right behind. And about
+seven in ten of those folks were working FULL TIME. Wages
+have come up since then -- Walmart says its average store
+worker now makes about eighteen twenty-five an hour.
+
+SHAWNA:
+And here in Nevada County, covering the basics for just one
+adult takes over twenty-seven dollars an hour.
+
+JEFF:
+Exactly. So working full time at a big-name employer and
+still qualifying for help isn't a personal failure -- it's
+the system working exactly as designed.
+
+SHAWNA:
+So when someone skips benefits they're eligible for, out of
+pride...
+
+JEFF:
+They're giving up a tiny bit of money on principle, while
+the wealthiest one percent -- who hold roughly a third of
+all the wealth in this country -- take everything they can,
+with zero shame. If you want the full story, there's a
+brand-new book about exactly this: "Escape from Capitalism,"
+by the economist Clara Mattei. Her point is simple: when
+benefits for working people get cut, that's a political
+choice, not a law of nature. So take what you've earned. The
+wealthy already do.
+
+[POST: BOOK COVER ON SCREEN while Jeff mentions it --
+"Escape from Capitalism" by Clara Mattei]
+
+
+================================================================
+MYTH FOUR: "IT'S SCARY -- WHAT IF I DO IT WRONG?"
+================================================================
+
+SHAWNA:
+Last myth, and it's the quiet one. A lot of people tell us:
+"It's scary to hand all my information to a government
+agency. And what if I apply, mess something up, and get
+punished for it?"
+
+JEFF:
+Yeah. That fear is real, and I want to honor it -- and then
+take it apart.
+
+First, the good news. Most benefit programs have strict
+privacy and security rules, written into federal law. Your
+information is only supposed to be used to run the program
+itself.
+
+Now, the honest part -- because we promised to be straight
+with you. The current federal administration has rolled some
+of that back, and people should know about it. In 2025, ICE
+-- the immigration enforcement agency -- was given access to
+Medicaid's records: the list of everyone signed up. That's
+about seventy-nine million people nationwide. California and
+twenty-one other states sued. Right now, for Californians, a
+court order says only basic information can be shared -- no
+medical records. And only about people who aren't here
+lawfully. That fight is still in court.
+
+SHAWNA:
+So what does that mean practically, for someone watching?
+
+JEFF:
+For most people, applying is still safe -- full stop. But if
+anyone in your household isn't a citizen, do one thing
+first: get free advice from a legal-aid or immigration
+nonprofit. And know this. Immigration officials use
+something called the "public charge" rule when they decide
+green cards. Under that rule, as it stands today, using food
+help, health coverage, or housing assistance does NOT count
+against you.
+
+SHAWNA:
+Okay -- and the "what if I do it wrong" fear?
+
+JEFF:
+Here's the truth. If you apply honestly and it turns out you
+don't qualify -- nothing bad happens. Nothing. The worst
+outcome is a "no." There's no penalty for being told no.
+
+Just two things to keep in mind. One: always answer
+truthfully. Being WRONG is fine -- honest mistakes are not
+fraud. Knowingly giving false information is the one thing
+that does carry penalties. Two: if a program ever overpays
+you by mistake -- even THEIR mistake -- they can ask for that
+money back later. So when your income changes, report it
+promptly, and you'll never be surprised.
+
+SHAWNA:
+And if someone applies and then changes their mind?
+
+JEFF:
+You can take back your application at any time before
+there's a decision -- no penalty -- and apply again later
+whenever you want. Already enrolled? You can ask to close
+your case any time. You are in control of this process the
+whole way through.
+
+Look -- it's scary to do anything new. But this is the kind
+of scary that might actually end with money in your pocket
+and food on your table.
+
+
+[OPTIONAL GUEST SEGMENT GOES HERE -- IF BOOKED]
+
+
+================================================================
+CLOSE
+================================================================
+
+SHAWNA:
+So let's recap the four myths. Benefits aren't just for the
+destitute -- a family of four here can make sixty-six
+thousand, sometimes over one hundred thousand, and still
+qualify.
+
+JEFF:
+You're not taking anything from anyone -- for the big
+programs, the funding grows when you enroll, and sixty
+billion dollars a year goes unclaimed.
+
+SHAWNA:
+"Good people don't take help" -- tell that to the
+corporations, the banks, and the airlines.
+
+JEFF:
+And if you apply honestly, the worst thing that can happen is
+somebody tells you no.
+
+SHAWNA:
+[TO CAMERA] Before we go -- write these down. If you remember
+nothing else from today, remember these three.
+
+JEFF:
+First: dial two-one-one from any phone. Here in Nevada County
+that's two-one-one Connecting Point. It's free, confidential,
+answered twenty-four-seven, in English and Spanish -- and a
+real person helps you find food, housing, health care, you
+name it.
+
+Second: go to findhelp dot org. Type in your ZIP code, and it
+shows you free and reduced-cost programs near you.
+
+And third: visit us at techempower dot org. And while you're
+there, click "Join our Discord" -- that's our free online
+chat community -- if you want one-on-one help. We answer.
+
+SHAWNA:
+Next time on "Wait, I Qualify?!" -- getting connected. Free
+and low-cost internet, and how to get online without breaking
+the bank.
+
+JEFF:
+Until then -- go find out what you qualify for. You might be
+surprised.
+
+[POST: OUTRO -- JINGLE + LOGO + END CARD: TECHEMPOWER.ORG /
+211 / FINDHELP.ORG. In studio: hold on smiles for a beat]
+
+================================================================
+END OF SCRIPT
+================================================================
+</script>
+
+<div id="help">SPACE play/pause · ↑↓ speed · A−/A+ font · M mirror · T theme · F fullscreen · Home top</div>
+
+<script>
+(function () {
+  const raw = document.getElementById('rawScript').textContent;
+  const content = document.getElementById('content');
+  const blocks = raw.split(/\n\s*\n/).map(b => b.trim()).filter(Boolean);
+  let currentSpeaker = null;
+  const frag = document.createDocumentFragment();
+
+  for (const block of blocks) {
+    const lines = block.split('\n').map(l => l.trim());
+    // section banner: lines of ='s around a title
+    if (lines.some(l => /^=+$/.test(l))) {
+      const titles = lines.filter(l => !/^=+$/.test(l));
+      if (titles.length) {
+        const s = document.createElement('span');
+        s.className = 'section';
+        s.textContent = titles.join(' ');
+        frag.appendChild(s);
+        currentSpeaker = null;
+      }
+      continue;
+    }
+    let text = lines.join(' ');
+    // standalone cue block
+    if (/^\[[^\]]+\]$/.test(text)) {
+      const c = document.createElement('span');
+      c.className = 'cue';
+      c.textContent = text;
+      frag.appendChild(c);
+      continue;
+    }
+    // speaker tag at start of block
+    const m = text.match(/^(SHAWNA|JEFF):\s*(.*)$/);
+    if (m) {
+      currentSpeaker = m[1].toLowerCase();
+      const tag = document.createElement('span');
+      tag.className = 'speaker ' + currentSpeaker;
+      tag.textContent = m[1];
+      frag.appendChild(tag);
+      text = m[2];
+      if (!text) continue;
+    }
+    const p = document.createElement('p');
+    p.className = 'line' + (currentSpeaker ? ' ' + currentSpeaker + '-line' : '');
+    for (const part of text.split(/(\[[^\]]+\])/)) {
+      if (!part) continue;
+      if (/^\[[^\]]+\]$/.test(part)) {
+        const c = document.createElement('span');
+        c.className = 'cue-inline';
+        c.textContent = part;
+        p.appendChild(c);
+      } else {
+        p.appendChild(document.createTextNode(part));
+      }
+    }
+    frag.appendChild(p);
+  }
+  content.appendChild(frag);
+
+  // ---- engine ----
+  const vp = document.getElementById('viewport');
+  const area = document.getElementById('scriptArea');
+  const playBtn = document.getElementById('playBtn');
+  const timerEl = document.getElementById('timer');
+  const estEl = document.getElementById('est');
+  let playing = false, speed = null, fontSize = 54, elapsed = 0, lastT = null;
+
+  function maxScroll() { return vp.scrollHeight - vp.clientHeight; }
+  function fmt(s) { s = Math.round(s); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+  function updateEst() { estEl.textContent = speed > 0 ? '~' + fmt(maxScroll() / speed) : '–'; }
+  function applyFont() { area.style.setProperty('--fs', fontSize + 'px'); requestAnimationFrame(updateEst); }
+
+  function defaults() {
+    fontSize = parseFloat(localStorage.getItem('tp-font')) || 54;
+    applyFont();
+    const saved = parseFloat(localStorage.getItem('tp-speed'));
+    // default speed: whole script in ~25 minutes
+    speed = saved > 0 ? saved : Math.max(12, maxScroll() / (25 * 60));
+    updateEst();
+  }
+
+  function setPlaying(p) {
+    playing = p;
+    document.body.classList.toggle('playing', p);
+    playBtn.textContent = p ? '⏸ Pause' : '▶ Start';
+    lastT = null;
+    if (p) requestAnimationFrame(tick);
+  }
+  function tick(t) {
+    if (!playing) return;
+    if (lastT !== null) {
+      const dt = (t - lastT) / 1000;
+      vp.scrollTop += speed * dt;
+      elapsed += dt;
+      timerEl.textContent = fmt(elapsed);
+      if (vp.scrollTop >= maxScroll() - 1) setPlaying(false);
+    }
+    lastT = t;
+    requestAnimationFrame(tick);
+  }
+  function bumpSpeed(f) {
+    speed = Math.min(400, Math.max(4, speed * f));
+    localStorage.setItem('tp-speed', speed);
+    updateEst();
+  }
+  function bumpFont(d) {
+    fontSize = Math.min(120, Math.max(24, fontSize + d));
+    localStorage.setItem('tp-font', fontSize);
+    applyFont();
+  }
+  function toTop() { setPlaying(false); vp.scrollTop = 0; elapsed = 0; timerEl.textContent = '0:00'; }
+  function toggleTheme() {
+    const b = document.body;
+    if (b.classList.contains('force-light')) { b.classList.remove('force-light'); b.classList.add('force-dark'); }
+    else if (b.classList.contains('force-dark')) { b.classList.remove('force-dark'); }
+    else { b.classList.add('force-light'); }
+  }
+
+  playBtn.onclick = () => setPlaying(!playing);
+  document.getElementById('slower').onclick = () => bumpSpeed(1 / 1.18);
+  document.getElementById('faster').onclick = () => bumpSpeed(1.18);
+  document.getElementById('fsmall').onclick = () => bumpFont(-4);
+  document.getElementById('fbig').onclick = () => bumpFont(4);
+  document.getElementById('mirrorBtn').onclick = () => document.body.classList.toggle('mirror');
+  document.getElementById('themeBtn').onclick = toggleTheme;
+  document.getElementById('topBtn').onclick = toTop;
+  document.getElementById('fsBtn').onclick = () =>
+    document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+
+  document.addEventListener('keydown', (e) => {
+    if (e.code === 'Space') { e.preventDefault(); setPlaying(!playing); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); bumpSpeed(1.18); }
+    else if (e.key === 'ArrowDown') { e.preventDefault(); bumpSpeed(1 / 1.18); }
+    else if (e.key === 'Home') toTop();
+    else if (e.key === 'm' || e.key === 'M') document.body.classList.toggle('mirror');
+    else if (e.key === 't' || e.key === 'T') toggleTheme();
+    else if (e.key === 'f' || e.key === 'F')
+      document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+    else if (e.key === '[') bumpFont(-4);
+    else if (e.key === ']') bumpFont(4);
+  });
+
+  defaults();
+})();
+</script>
+</body>
+</html>

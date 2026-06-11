@@ -1,0 +1,651 @@
+{
+  "summary": "Fact-check 12 claims in Wait I Qualify Ep1 script, with adversarial verification",
+  "agentCount": 24,
+  "logs": [
+    "Verifying 12 claims from the Ep1 script",
+    "Done: 12/12 claims verified; 2 verdict(s) revised by the skeptic pass"
+  ],
+  "result": {
+    "checkedAsOf": "2026-06-11",
+    "totalClaims": 12,
+    "completed": 12,
+    "results": [
+      {
+        "claimId": "fpl-66k",
+        "quote": "Federally, low income is considered anyone that makes less than $66,000 a year for a family of 4.",
+        "verdict": "mostly_accurate",
+        "firstPassVerdict": "mostly_accurate",
+        "confidence": "high",
+        "summary": "The $66,000 figure is exactly right for one widely used benchmark: 200% of the 2026 HHS Poverty Guidelines, which are $33,000 for a family of four in the 48 contiguous states (published Jan 15, 2026). However, there is no single federal definition of \"low income\" — HHS itself says programs use varying multiples of the poverty line (125%, 150%, 185%, 200%). The one federal agency that formally defines \"low-income family\" in statute, HUD, sets it at 80% of area median income, which for Nevada County, CA is $100,100 for a family of four under FY2026 limits (effective May 1, 2026) — much higher than $66,000. The fix is to name the benchmark (\"twice the federal poverty line\") rather than call it \"the\" federal definition.",
+        "finalStatement": "There is no single federal definition of \"low income,\" but a common benchmark used by many federal programs and researchers is income below 200% of the federal poverty guidelines — for a family of four in 2026, that's $66,000 a year (2 x the $33,000 poverty guideline for the 48 contiguous states, published January 15, 2026). For federal housing programs, HUD formally defines a \"low-income family\" as one earning no more than 80% of area median income — in Nevada County, CA that's $100,100 for a family of four under the FY2026 limits effective May 1, 2026.",
+        "scriptSuggestion": "\"People hear 'low income' and assume it means almost nothing. Here's the real number: the 2026 federal poverty line for a family of four is $33,000 — and many assistance programs consider you low income at up to double that, $66,000 a year. And for housing help it goes even higher: HUD's low-income limit here in Nevada County is about $100,000 for a family of four. So before you decide you make too much to qualify — check.\"",
+        "skepticUpheld": true,
+        "skepticNotes": "All load-bearing numbers in the verifier output survived independent adversarial checks against primary sources (WebSearch was non-functional in this environment, so verification was done by fetching/downloading the primary documents directly, including sources beyond those the verifier cited).\n\nCONFIRMED INDEPENDENTLY:\n1. 2026 HHS poverty guideline, family of 4, 48 contiguous states + DC = $33,000 (1 person $15,960; +$5,680/person; internally consistent: 15,960 + 3x5,680 = 33,000). Confirmed twice: (a) ASPE official page (aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines), and (b) a fresh independent source the verifier did not cite — the Federal Register full text of \"Annual Update of the HHS Poverty Guidelines,\" document 2026-00755, publication date 2026-01-15 (federalregister.gov API + full-text grep showed \"4...$33,000\", \"$15,960\", \"add $5,680\"). So 200% FPL = $66,000 exactly; the script's number matches this benchmark and the Jan 15, 2026 publication date is correct.\n2. ASPE FAQ confirmed: no official federal definitions for income tiers generally; programs use percentage multiples (the FAQ's examples are 125%/150%/185% — it does not itself name 200%, a minor stretch in the verifier's parenthetical, but 200% FPL is genuinely a widespread program/research benchmark, so the \"common benchmark\" framing stands).\n3. HUD FY2026 Section 8 notice PDF (HUD-sec8-FY26.pdf, downloaded and text-extracted): \"low-income family is defined as those families whose incomes do not exceed 80 percent of the median family income for the area\" per Section 3(b)(2) of the U.S. Housing Act; limits \"effective on the later of May 1, 2026, or the date issued.\" Matches verifier.\n4. HUD Section8-FY26.xlsx (downloaded from huduser.gov and parsed): Nevada County, CA row — median family income $140,400; low income (80%) 4-person $100,100; very low (50%) 4-person $62,550; extremely low (30%) 4-person $37,550. All four figures match the verifier exactly.\n5. CA HCD 2025 State Income Limits PDF (hcd.ca.gov): Nevada County AMI $124,600; 4-person Very Low $56,900; Low $91,000. Matches verifier's supporting evidence.\n\nNOTHING REFUTED. Two trivial refinements only: (a) the $33,000 guideline applies to the 48 contiguous states + DC (Alaska/Hawaii are higher) — harmless for a California audience but added for precision; (b) ASPE's FAQ multiples list does not itself include 200%, so the 200% benchmark should be attributed to program/researcher practice, not to ASPE — the corrected statement already did this correctly. Verdict \"mostly_accurate\" for the original quote is upheld: right number, wrong framing (\"the\" federal definition does not exist, and HUD's statutory low-income limit for Nevada County is ~$100k, not $66k).",
+        "evidence": [
+          {
+            "source": "HHS ASPE — Poverty Guidelines (official page)",
+            "url": "https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines",
+            "detail": "2026 poverty guideline for a household of 4 in the 48 contiguous states is $33,000 (1 person: $15,960; +$5,680 per additional person). Published in the Federal Register Jan 15, 2026. 200% of $33,000 = $66,000, exactly matching the script's number.",
+            "asOf": "2026-01-15"
+          },
+          {
+            "source": "HHS ASPE — Poverty Guidelines FAQ",
+            "url": "https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines/frequently-asked-questions-related-poverty-guidelines-poverty",
+            "detail": "Confirms there is no official federal definition of income terms beyond 'poverty'; programs use percentage multiples of the guidelines (e.g., 125%, 150%, 185%) as eligibility criteria, and ASPE publishes no official multiples chart. Supports framing $66,000 as 'a common benchmark,' not 'the federal definition.'",
+            "asOf": "2026-06-11"
+          },
+          {
+            "source": "HUD — FY 2026 Section 8 Income Limits Notice (PDF)",
+            "url": "https://www.huduser.gov/portal/datasets/il/il26/HUD-sec8-FY26.pdf",
+            "detail": "Defines 'low-income family' under Section 3(b)(2) of the U.S. Housing Act as income not exceeding 80% of area median family income; FY2026 limits effective May 1, 2026. This is the formal federal statutory 'low-income' definition, and it differs from 200% FPL.",
+            "asOf": "2026-05-01"
+          },
+          {
+            "source": "HUD — FY 2026 Section 8 Income Limits data (Section8-FY26.xlsx)",
+            "url": "https://www.huduser.gov/portal/datasets/il/il26/Section8-FY26.xlsx",
+            "detail": "Nevada County, CA FY2026 row: median family income $140,400; low income (80% AMI) for a 4-person family $100,100; very low income (50%) $62,550; extremely low income (30%) $37,550. Shows HUD 'low income' locally is ~$100k, well above $66k.",
+            "asOf": "2026-05-01"
+          },
+          {
+            "source": "California HCD — 2025 State Income Limits (PDF)",
+            "url": "https://www.hcd.ca.gov/sites/default/files/docs/grants-and-funding/income-limits-2025.pdf",
+            "detail": "State-adopted HUD FY2025 figures for Nevada County: AMI $124,600; low income (4-person) $91,000; very low income (4-person) $56,900. Corroborates that housing-program 'low income' in Nevada County has been ~$91k-$100k, not $66k.",
+            "asOf": "2025-05-01"
+          }
+        ]
+      },
+      {
+        "claimId": "programs-150k",
+        "quote": "And some programs are for folks that make less than $150,000 a year.",
+        "verdict": "accurate",
+        "firstPassVerdict": "accurate",
+        "confidence": "high",
+        "summary": "True as written for June 2026, and supportable with specific active programs. The new federal \"no tax on tips\" and \"no tax on overtime\" deductions (tax years 2025-2028) give the full benefit to filers with modified AGI under $150,000 (single; $300,000 joint). Covered California's 2026 premium tax credit cap (the 400% FPL cliff, back now that enhanced subsidies expired after 2025) is $150,600 for a family of five ($128,600 for a family of four). CalHFA first-time homebuyer assistance in Nevada County allows income up to $246,000. CAUTION: do not use the federal EV tax credit as the example — it was terminated for vehicles acquired after Sept 30, 2025 — and California's HEEHRA single-family rebates (80-150% AMI tier) are waitlisted as of Feb 24, 2026.",
+        "finalStatement": "Some benefit programs are open to households earning up to roughly $150,000 a year or more: the new federal tax deductions on tips and overtime (tax years 2025-2028) give the full benefit until modified adjusted gross income passes $150,000 for a single filer ($300,000 for joint filers), Covered California premium help for 2026 extends to about $150,600 for a family of five (more for larger households), and CalHFA first-time homebuyer assistance in Nevada County allows household incomes up to $246,000.",
+        "scriptSuggestion": "\"And some of these programs reach well into the middle class. Take the new federal tax breaks on tips and overtime pay — you get the full deduction as long as you make under $150,000 a year. Health insurance help through Covered California? In 2026 a family of five can earn up to about $150,000 and still get a discount on their premiums. And if you're buying your first home here in Nevada County, the state's CalHFA down payment help is open to households making up to $246,000. So please — don't assume you make too much. Check.\"",
+        "skepticUpheld": true,
+        "skepticNotes": "CONFIRMED INDEPENDENTLY (all three load-bearing sources opened directly; WebSearch tool errored in this environment, so verification used primary-source fetches with local PDF text extraction): (1) IRS newsroom OBBBA fact sheet (irs.gov/newsroom/one-big-beautiful-bill-act-tax-deductions-for-working-americans-and-seniors, fetched 2026-06-11) — tips deduction up to $25,000 and overtime deduction up to $12,500 ($25,000 joint), tax years 2025-2028, each 'phases out for taxpayers with modified adjusted gross income over $150,000 ($300,000 for joint filers)' — verifier's thresholds exact. (2) Covered California official FPL chart PDF (coveredca.com/pdfs/FPL-chart.pdf, dated 3/2026, source DHCS ACWDL 26-01) — downloaded and text-extracted; footnote verbatim: 'Consumers with income above 400% FPL are not eligible for a federal premium tax credit'; 400% FPL = $62,600 (1 person), $128,600 (4), $150,600 (5). The 2026 subsidy cliff and dollar figures are confirmed by the contemporaneous official chart; no evidence found that the cliff was reversed (chart post-dates the late-2025 subsidy fight). Figure is conservative — a family of 6 can earn $172,600. (3) CalHFA 2025 Government & Conventional Income Limits PDF (calhfa.ca.gov, effective 06.09.2025; WebFetch hit a cert error so fetched via curl) — Nevada County limit is exactly $246,000. NOTHING REFUTED. Minor residual risk: federal action after March 2026 on ACA subsidies could not be ruled out via news search (search tool unavailable), but the official 3/2026 chart is the best available evidence and supports the statement for 2026 coverage. The cautions (EV credit terminated for vehicles acquired after 2025-09-30; HEEHRA single-family waitlist) are not load-bearing in the corrected statement and remain sound. Final statement kept essentially as corrected, with the joint-filer threshold added for precision.",
+        "evidence": [
+          {
+            "source": "IRS Newsroom — One Big Beautiful Bill Act: tax deductions for working Americans and seniors",
+            "url": "https://www.irs.gov/newsroom/one-big-beautiful-bill-act-tax-deductions-for-working-americans-and-seniors",
+            "detail": "No Tax on Tips (up to $25,000) and No Tax on Overtime (up to $12,500/$25,000) deductions apply tax years 2025-2028 and phase out for modified AGI over $150,000 ($300,000 joint); senior $6,000 deduction phases out over $75,000 ($150,000 joint).",
+            "asOf": "2026-06-11"
+          },
+          {
+            "source": "Covered California — Program Eligibility by Federal Poverty Level for 2026 (official chart, dated 3/2026, source DHCS ACWDL 26-01)",
+            "url": "https://www.coveredca.com/pdfs/FPL-chart.pdf",
+            "detail": "Federal premium tax credit available 100%-400% FPL only ('Consumers with income above 400% FPL are not eligible for a federal premium tax credit') — confirming the subsidy cliff returned for 2026 after enhanced credits expired. 400% FPL for 2026 coverage: $62,600 (1 person), $128,600 (family of 4), $150,600 (family of 5).",
+            "asOf": "2026-03"
+          },
+          {
+            "source": "CalHFA — 2025 Government & Conventional Income Limits (effective 06/09/2025)",
+            "url": "https://www.calhfa.ca.gov/homeownership/limits/income/income.pdf",
+            "detail": "CalHFA first mortgage and subordinate (MyHome down payment assistance) income limit for Nevada County is $246,000 — a state homebuyer program whose limit is well above $150,000, available to Nevada County residents.",
+            "asOf": "2026-06-11"
+          },
+          {
+            "source": "U.S. DOE/EPA fueleconomy.gov Tax Center",
+            "url": "https://fueleconomy.gov/feg/taxcenter.shtml",
+            "detail": "Federal new ($7,500) and used ($4,000) clean vehicle credits applied only to vehicles 'acquired from January 1, 2023, through September 30, 2025' — confirming the $150k-capped EV credit is terminated and must NOT be cited on air as a current program.",
+            "asOf": "2026-06-11"
+          },
+          {
+            "source": "California Energy Commission — IRA Residential Energy Rebate Programs (HEEHRA)",
+            "url": "https://www.energy.ca.gov/programs-and-topics/programs/inflation-reduction-act-residential-energy-rebate-programs",
+            "detail": "HEEHRA heat pump rebates use income tiers of under 80% AMI (up to $8,000) and 80-150% AMI (up to $4,000), but 'As of February 24, 2026, HEEHRA rebates for single-family home retrofits are fully reserved statewide' (waitlist); multifamily rebates remain available. Use with caution on air.",
+            "asOf": "2026-02-24"
+          }
+        ]
+      },
+      {
+        "claimId": "wages-vs-col",
+        "quote": "Cost of living has gone up a lot, but wages have not, so the amount people make does not go nearly as far. The wealthiest tiny percentage are getting richer while keeping wages stagnant. [Accompanied by a printed chart of US home prices vs median household income diverging.]",
+        "verdict": "partially_accurate",
+        "firstPassVerdict": "partially_accurate",
+        "confidence": "high",
+        "summary": "The wealth-concentration and housing-chart parts are solid: the top 1% now hold 31.9% of US wealth (up from 22.8% in 1989, Fed data through 2025 Q4), and home prices have wildly outrun incomes — the median home sold for 5.6x median household income in 2022 (record; 4.1 in 2019), with prices up 43% vs incomes up 7% from 2019-2022. The blanket \"wages have not [gone up]\" is wrong for recent years: real median weekly earnings rose ~4% from late 2019 to early 2026, and low-wage workers — this show's audience — saw the fastest real wage gains on record post-2020, reversing about a third of four decades of wage-inequality growth (Autor/Dube/McGrew). The defensible long-run version is the productivity-pay gap: productivity +87% vs typical pay +33% since 1979 (EPI), and \"keeping wages stagnant\" as a deliberate act of the wealthy is a contested causal claim best softened to \"the gains went to the top.\"",
+        "finalStatement": "Since 1979 the US economy became about 87% more productive, but a typical worker's hourly pay grew only about 33%, with a disproportionate share of the gains flowing to the top: the wealthiest 1% now hold roughly 32% of all US wealth, up from about 23% in 1989. In the last few years, though, wages have roughly kept pace with overall inflation — and low-wage workers actually saw the fastest real gains of any wage group from 2019 to 2023 — but housing has far outrun incomes: the median home sold for 5.6 times the median household income in 2022, the highest on record back to the early 1970s, versus 4.1 in 2019 and ratios around 3 across much of the country in 2000.",
+        "scriptSuggestion": "Here's the squeeze. Over the last forty-some years, the American economy became about 87 percent more productive — but the typical worker's pay grew only about 33 percent. Most of the difference went to the very top: the wealthiest one percent now hold roughly a third of all the wealth in this country. Now, in the last few years paychecks have mostly kept up with everyday prices — but housing hasn't played fair. Look at this chart: a typical home now sells for more than five times what a typical household earns in a year. Twenty-five years ago, three times was normal in most of America. So even folks working full time can find the math just doesn't work anymore — and that's exactly who these programs exist for.",
+        "skepticUpheld": true,
+        "skepticNotes": "Independently confirmed (primary sources opened directly, not just trusting the verifier):\n\n1. Top 1% wealth share — CONFIRMED. Pulled the Fed Distributional Financial Accounts CSV directly from FRED (fredgraph.csv?id=WFRBST01134): 22.8% in 1989 Q3, 30.6% in 2019 Q4, 31.9% in 2025 Q4 (latest observation). Bottom 50% at 2.5% in 2025 Q4 (WFRBSB50215) also matches. Numbers are exact, not rounded favorably.\n\n2. Real median weekly earnings — CONFIRMED. FRED CSV for LES1252881600Q: $335 (1979 Q1), $362 (2019 Q4), $376 (2026 Q1). That is +3.9% real since late 2019 and only ~12% over 47 years, so the verifier's dual finding holds: long-run near-stagnation is real, but the literal 'wages have not gone up' is false for the recent period. (2025 Q4 observation is missing in the series — a data gap, not a contradiction.)\n\n3. EPI Productivity–Pay Tracker — CONFIRMED verbatim via the Dec 3, 2025 Wayback snapshot (live epi.org returns 403): 'Change 1979q4–2025q2: Productivity +87.3%, Hourly pay +32.7%... grown 2.7x as much as pay,' page updated Sept 3, 2025. The ~87%/~33% figures in the corrected statement are accurate.\n\n4. Harvard JCHS post — CONFIRMED verbatim via a May 18, 2026 Wayback capture of the live page (jchs.harvard.edu blocks fetchers): median single-family sale price 5.6x median household income in 2022, 'higher than at any point on record dating back to the early 1970s'; 4.1 in 2019; home prices +43% vs incomes +7% from 2019–2022; 'fully two-thirds of large markets had price-to-income ratios below 3.0 as recently as 2000.' Published Jan 22, 2024, by Hermann & Whitney.\n\n5. NBER w31010 (Autor, Dube & McGrew, 'The Unexpected Compression') — CONFIRMED from nber.org: compression 'counteracted around one-third of the four-decade increase in aggregate 90/10 log wage inequality,' with tightness strongly predictive of real wage growth among low-wage workers, gains concentrated among young non-college workers and job switchers.\n\n6. Census income — CONFIRMED from census.gov press release (Sept 9, 2025): real median household income $83,730 in 2024, not statistically different from 2023's $82,690 — supporting 'recent real incomes roughly flat while home prices kept rising.'\n\nRefutation attempts and minor adjustments:\n- 'Fastest real wage gains on record' (verifier summary only): the NBER paper does not say 'on record'; it documents fast relative gains and a one-third reversal. The corrected statement's softer 'fastest real gains' survives, but I tightened it to 'fastest real gains of any wage group' to match the compression finding precisely.\n- Staleness check on the housing ratio: incomes jumped +8.1% in 2023 while sale prices were roughly flat, so the price-to-income ratio eased after 2022 (~4.9–5.0x on NAR 2024 median single-family price of ~$412,500 vs $83,730 income). 2022 therefore remains the record and the corrected statement's explicit 2022 anchoring is accurate — but the verifier's scriptSuggestion line 'a typical home NOW sells for more than five times' is borderline (closer to ~5x on the latest data); recommend the on-air script say 'around five times' or keep the 2022 anchor.\n- Wealth-share staleness: 2025 Q4 is the latest DFA quarter available as of June 11, 2026; no newer release contradicts it.\n\nVerdict: the first-pass verdict (partially_accurate, with the blanket 'wages have not gone up' being the wrong part and the wealth-concentration and housing-divergence parts being solid) is upheld. No load-bearing number was refuted.",
+        "evidence": [
+          {
+            "source": "Economic Policy Institute — Productivity-Pay Tracker",
+            "url": "https://www.epi.org/productivity-pay-gap/",
+            "detail": "Tracker states: 'Change 1979q4-2025q2: Productivity +87.3%, Hourly pay +32.7%. Productivity has grown 2.7x as much as pay.' Verified via Wayback Machine snapshot of Dec 3, 2025 (epi.org blocks direct fetch). Supports long-run 'typical pay lagged the economy' framing, not literal zero wage growth.",
+            "asOf": "2025-12-03 snapshot, data through 2025 Q2"
+          },
+          {
+            "source": "BLS via FRED — Real median usual weekly earnings (LES1252881600Q)",
+            "url": "https://fred.stlouisfed.org/series/LES1252881600Q",
+            "detail": "Real (1982-84 $) median weekly earnings: $335 in 1979 Q1 vs $376 in 2026 Q1 — only ~12% real growth in 47 years (long-run near-stagnation is true). But 2019 Q4 ($362) to 2026 Q1 ($376) is +3.9% in real terms, so 'wages have not gone up' is false for the recent period the audience has lived through.",
+            "asOf": "data through 2026 Q1, pulled 2026-06-11"
+          },
+          {
+            "source": "Harvard Joint Center for Housing Studies — 'Home Price-to-Income Ratio Reaches Record High'",
+            "url": "https://www.jchs.harvard.edu/blog/home-price-income-ratio-reaches-record-high-0",
+            "detail": "National median single-family sale price was 5.6x median household income in 2022 — highest on record back to the early 1970s — vs 4.1 in 2019; two-thirds of large metros were below 3.0 as recently as 2000. Home prices grew 43% from 2019-2022 while incomes grew just 7%. Directly validates the printed home-prices-vs-income divergence chart.",
+            "asOf": "published Jan 2024, data through 2022"
+          },
+          {
+            "source": "Federal Reserve Distributional Financial Accounts via FRED (WFRBST01134, WFRBSB50215)",
+            "url": "https://fred.stlouisfed.org/series/WFRBST01134",
+            "detail": "Top 1% share of total US household net worth: 22.8% (1989 Q3) → 30.6% (2019 Q4) → 31.9% (2025 Q4). Bottom 50% hold just 2.5% (2025 Q4). Supports 'the wealthiest tiny percentage are getting richer.' Nuance: the bottom-50% share also rose since 2019 (1.7% → 2.5%).",
+            "asOf": "data through 2025 Q4, pulled 2026-06-11"
+          },
+          {
+            "source": "NBER Working Paper 31010 — Autor, Dube & McGrew, 'The Unexpected Compression'",
+            "url": "https://www.nber.org/papers/w31010",
+            "detail": "Post-2020 tight labor markets drove rapid real wage gains for low-wage workers (especially young non-college workers and job switchers), reversing roughly one-third of the four-decade rise in 90/10 wage inequality. Complicates the claim: the show's own low-income audience saw the fastest real wage growth in decades during 2020-2023.",
+            "asOf": "published 2023, data through ~2023"
+          },
+          {
+            "source": "Census/S&P via FRED — Case-Shiller National Index (CSUSHPINSA) and median household income (MEHOINUSA672N)",
+            "url": "https://fred.stlouisfed.org/series/CSUSHPINSA",
+            "detail": "Case-Shiller US National Home Price Index rose ~55% from Jan 2020 (212.4) to Mar 2026 (329.9), while nominal median household income rose ~22% from 2019 ($68,700) to 2024 ($83,730); real median household income was essentially flat ($83,260 in 2019 vs $83,730 in 2024). Housing-vs-income divergence holds through the most recent data.",
+            "asOf": "home prices through Mar 2026; income through 2024, pulled 2026-06-11"
+          }
+        ]
+      },
+      {
+        "claimId": "no-fixed-pot",
+        "quote": "You are not taking benefits away from someone else. Programs and organizations get a certain amount of funds to provide to folks. Most benefits programs have excess money that is left on the table because those that are eligible do not apply. The more excess money they have, the less they can help people because they will not be able to get grants and continue running their organization.",
+        "verdict": "partially_accurate",
+        "firstPassVerdict": "partially_accurate",
+        "confidence": "high",
+        "summary": "The conclusion is correct — applying does not take benefits from someone else — but the stated mechanism is backwards for the programs this show covers. SNAP/CalFresh, Medicaid/Medi-Cal, EITC, and SSI are open-ended entitlements: there is no fixed pot, and federal funding automatically expands as more eligible people enroll (still true in June 2026; OBBBA cut eligibility and shifted costs but did not cap these programs). Billions do go unclaimed (~$60B/yr nationally; only 88% of SNAP-eligible people participated in FY2022, 81% in California; ~19-22% of EITC-eligible workers don't claim it), but that's money never spent, not \"excess money\" sitting in agency accounts, and the grants-and-overhead explanation is wrong for these programs. The fixed-pot description only fits capped programs like Section 8 vouchers (about 1 in 4 needy households served) — and even there, applying doesn't take aid from current recipients.",
+        "finalStatement": "You are not taking benefits away from someone else. The major programs — CalFresh, Medi-Cal, the Earned Income Tax Credit, SSI — have no fixed pot of money: they are entitlements, so when one more eligible person enrolls, federal funding expands to cover them. Nationally, an estimated $60 billion or more in benefits goes unclaimed every year because eligible people don't apply — in 2022 about 12% of eligible people nationally (19% in California) weren't getting SNAP/CalFresh, and roughly 1 in 5 eligible workers miss the EITC. A few programs, such as Section 8 housing vouchers, do have capped funding and waitlists, but even there applying does not take help away from anyone already receiving it.",
+        "scriptSuggestion": "Here's a myth I really want to bust: 'If I sign up, I'm taking it away from somebody who needs it more.' Not true. The big programs — CalFresh, Medi-Cal, the Earned Income Tax Credit, SSI — don't have a fixed pot of money. They're set up so that when one more eligible person enrolls, the funding grows to cover them. Your benefits don't come out of your neighbor's pocket. And here's the part that gets me: every year, an estimated sixty billion dollars or more in benefits goes unclaimed across the country because eligible people never apply. In California, about one in five people who qualify for CalFresh aren't getting it, and about one in five workers who've earned the Earned Income Tax Credit never claim it. That's your money, left on the table. Now, a few programs — like Section 8 housing vouchers — do have limited funding and waitlists. But even there, applying doesn't take a voucher away from anyone who already has one; it just gets you in line.",
+        "skepticUpheld": true,
+        "skepticNotes": "Independently confirmed (opened sources directly; WebSearch was unavailable in this environment due to an API error, so verification was done by fetching primary/live sources rather than keyword search):\n\n1. SNAP participation, FY2022 — CONFIRMED from the primary source itself. Downloaded and text-extracted the USDA FNS/Mathematica PDF \"Reaching Those in Need: Estimates of State SNAP Participation Rates in 2022\" (fns-prod.azureedge.us): \"An estimated 88 percent of eligible people received\" SNAP nationally; California listed at 81% with an asterisk marking it significantly different from the national rate. The verifier's 88%/81% figures are exact.\n\n2. EITC, TY2022 — CONFIRMED from the live IRS page (irs.gov/tax-professionals/eitc-central/eitc-participation-rate-by-state): national rate 80.8%, California 77.4%, and the page's own footnote: \"Approximately 19.2% of all eligible earned income taxpayers in TY2022 didn't claim the Earned Income Tax Credit.\" \"Roughly 1 in 5\" is accurate (and slightly worse in CA at ~22.6% unclaimed).\n\n3. Medicaid open-ended match — CONFIRMED from the live KFF \"Medicaid Financing: The Basics\" brief: \"federal matching program with no cap,\" \"no pre-set limit,\" core populations covered \"without waiting lists or enrollment caps.\" The 2025 reconciliation law (OBBBA) figure of $911 billion / 14% over a decade matches, and KFF describes cost-shifting mechanisms (provider-tax limits, directed-payment limits, error-rate penalties) — not a cap or block grant. Only U.S. territories have capped Medicaid funding.\n\n4. SNAP structure post-OBBBA — CONFIRMED from CRS R42505 (updated Sept 29, 2025): \"The federal government currently funds 100% of benefit costs\" and states \"must either deny eligibility or make benefits available within 30 days of initial application\" (i.e., no waitlist/rationing). Caveat: CRS notes cost-share changes under P.L. 119-21 with possible state benefit cost-sharing starting FY2028 — consistent with the verifier. FFIS brief confirms the change is a cost SHIFT to states (~$15B/yr estimated, tied to payment error rates), not a cap or block grant. Minor nit: the verifier's CRS evidence bullet implied CRS frames SNAP as an uncapped entitlement; CRS supports the operative facts (100% federal benefit funding, 30-day deny-or-provide rule) but does not itself use entitlement/no-cap language — the entitlement framing rests on KFF/CBPP and statute, which is fine.\n\n5. $60B unclaimed — CONFIRMED verbatim from Penn LDI: \"Every year, at least $60 billion in public benefits goes unused nationally.\" Note the figure is unattributed on that page (it traces to Benefits Data Trust estimates), so the hedged \"an estimated $60 billion or more\" wording in the corrected statement is appropriately cautious — keep the hedge.\n\n6. Housing counterexample — CONFIRMED verbatim from NLIHC: \"1 in 4 extremely low income families who need assistance receive it.\"\n\nAttempted refutations that failed: (a) Could OBBBA have converted SNAP/Medicaid to fixed pots by June 2026? No — both KFF and CRS (each updated post-enactment, Sept 2025) describe eligibility cuts and state cost-shifting, not caps; as of June 2026 federal funding still covers 100% of SNAP benefit costs (state cost-share begins FY2028 at the earliest). (b) Are the participation numbers stale or misquoted? No — FY2022 remains the most recent published state-level SNAP estimate, and the figures match the primary PDF exactly. One real-world nuance not in the verdict: SNAP is an appropriated entitlement, and the Oct–Nov 2025 government shutdown briefly delayed/partially paid November 2025 SNAP benefits — but that was an appropriations lapse affecting everyone, not a fixed pot drained by applicants, so it does not undermine the on-air claim that applying takes nothing from anyone else. Verdict and corrected statement survive scrutiny; finalStatement is the verifier's corrected statement, unchanged.",
+        "evidence": [
+          {
+            "source": "KFF — Medicaid Financing: The Basics",
+            "url": "https://www.kff.org/medicaid/issue-brief/medicaid-financing-the-basics/",
+            "detail": "Medicaid is 'jointly funded by states and the federal government through a federal matching program with no cap' — 'a guarantee to states for federal matching payments with no pre-set limit,' and states must cover core populations 'without waiting lists or enrollment caps.' Notes the 2025 reconciliation law (OBBBA) cuts an estimated $911B (14%) over a decade but does NOT end the open-ended match.",
+            "asOf": "2025 (post-OBBBA update)"
+          },
+          {
+            "source": "USDA FNS / Mathematica — Reaching Those in Need: Estimates of State SNAP Participation Rates in 2022",
+            "url": "https://fns-prod.azureedge.us/sites/default/files/resource-files/ear-snap-Reaching-Those-in-Need-2022.pdf",
+            "detail": "An estimated 88% of eligible people received SNAP in FY2022 nationally; California's rate was 81% (significantly below the national rate). In FY2024 SNAP served 41 million people/month and provided over $114 billion in benefits. Demonstrates that ~12% of eligible people nationally (19% in CA) leave SNAP benefits unclaimed — and that the program scales to whoever enrolls.",
+            "asOf": "February 2025 (FY2022 data)"
+          },
+          {
+            "source": "IRS — EITC Participation Rate by State",
+            "url": "https://www.irs.gov/tax-professionals/eitc-central/eitc-participation-rate-by-state",
+            "detail": "National EITC participation rate was 80.8% for tax year 2022 (78% by the CPS-based estimate); 'approximately 19.2% of all eligible earned income taxpayers in TY2022 didn't claim the EITC.' California's rate: 77.4%. The EITC is a tax credit with no funding cap — every eligible filer who claims it gets it.",
+            "asOf": "Page last reviewed August 2025 (TY2022 data)"
+          },
+          {
+            "source": "Congressional Research Service R42505, SNAP: A Primer (via EveryCRSReport)",
+            "url": "https://www.everycrsreport.com/reports/R42505.html",
+            "detail": "'The federal government currently funds 100% of benefit costs' and 'the state SNAP agency must either deny eligibility or make benefits available within 30 days of initial application' — i.e., no waitlist or rationing; benefits are an individual eligibility-based right, not drawn from a fixed local pot.",
+            "asOf": "Current CRS primer"
+          },
+          {
+            "source": "CBPP — The Problems with Block-Granting Entitlement Programs",
+            "url": "https://www.cbpp.org/the-problems-with-block-granting-entitlement-programs",
+            "detail": "Contrasts fixed block-grant funding with the 'entitlement structure, in which anyone who is eligible for benefits or services can receive them' — the structure SNAP and Medicaid have. Directly contradicts the script's 'programs get a certain amount of funds' framing for these programs.",
+            "asOf": "Current"
+          },
+          {
+            "source": "Penn LDI (University of Pennsylvania Leonard Davis Institute)",
+            "url": "https://ldi.upenn.edu/our-work/research-updates/emergency-care-can-help-patients-get-health-insurance-and-unclaimed-benefits-for-food-rent-and-more/",
+            "detail": "States that 'at least $60 billion in public benefits goes unused nationally' each year — the widely cited Benefits Data Trust-derived estimate of unclaimed benefits. Supports the 'money left on the table' point, correctly framed as benefits never claimed, not surplus agency funds.",
+            "asOf": "Penn LDI research update citing the standard ~$60B/yr estimate"
+          },
+          {
+            "source": "National Low Income Housing Coalition — The Problem",
+            "url": "https://nlihc.org/explore-issues/why-we-care/problem",
+            "detail": "Only '1 in 4 extremely low income families who need assistance receive it' — housing assistance (e.g., Section 8 vouchers) is the major counterexample: appropriation-capped with waitlists, unlike SNAP/Medicaid/EITC/SSI.",
+            "asOf": "Current"
+          },
+          {
+            "source": "USDA FNS — One Big Beautiful Bill Act implementation page (with FFIS state-impact brief)",
+            "url": "https://www.fns.usda.gov/obbb",
+            "detail": "OBBBA (signed July 4, 2025) expands SNAP work requirements and creates state cost-sharing for benefit costs tied to payment error rates beginning FY2028 (FY2029-30 for high-error states; see https://ffis.org/budget-brief/one-big-beautiful-bill-act/). It tightens eligibility and shifts costs to states but does not convert SNAP into a capped/fixed-pot program — as of June 2026 everyone who is eligible and applies still receives benefits.",
+            "asOf": "Law signed July 4, 2025; implementation guidance through 2025-26"
+          }
+        ]
+      },
+      {
+        "claimId": "corp-tax",
+        "quote": "Most big companies do not pay federal income tax because they supposedly have zero income and get huge R&D tax breaks.",
+        "verdict": "inaccurate",
+        "firstPassVerdict": "inaccurate",
+        "confidence": "high",
+        "summary": "The word \"most\" is wrong: most big profitable companies DO pay some federal income tax, just far below the 21% statutory rate. ITEP's study of 342 consistently profitable Fortune 500/S&P 500 firms (2018-2022) found an average effective rate of 14.1%, with 109 firms (about one-third) paying zero in at least one year and only 23 paying zero or less across all five years; GAO found roughly 25% of profitable large corporations owe nothing in a given year. The mechanism is also mischaracterized: these firms report billions in profits to shareholders but legally zero out taxable income mainly via accelerated depreciation, stock-option deductions, and tax credits — R&D is one piece, not the headline driver. Note the 2025-2026 update: the OBBBA (July 2025) made 100% bonus depreciation and full immediate domestic R&D expensing permanent, so the breaks are bigger now than during the study period.",
+        "finalStatement": "Most large profitable corporations do pay some federal income tax — but far less than the 21% statutory rate, averaging about 14.1% from 2018-2022 (ITEP). Roughly a quarter of profitable large corporations owe zero in a given year (GAO, based on 2014-2018 IRS data), and ITEP found 109 of 342 consistently profitable Fortune 500/S&P 500 companies paid zero federal income tax in at least one year from 2018-2022, including 23 that paid zero or got net refunds across all five years combined while earning about $131 billion in profits. They do this legally through breaks like accelerated depreciation, stock-option write-offs, research credits, and offshore profit-shifting — and the One Big Beautiful Bill Act of July 2025 made 100% bonus depreciation and full domestic R&D expensing permanent, expanding those breaks as of June 2026.",
+        "scriptSuggestion": "\"Here's the wild part — it's not most, but it's a lot. Researchers looked at 342 big corporations that were profitable every single year from 2018 to 2022. About one in three of them paid zero federal income tax in at least one of those years — and 23 of them paid less than nothing over all five years combined. They got money back. On average those companies paid about 14 percent, not the 21 percent that's on the books. It's all legal — write-offs for equipment, executive stock options, research credits — and Congress actually made those breaks bigger and permanent in 2025. So if a billion-dollar company can legally pay zero, nobody watching should feel one ounce of shame using a benefit they legally qualify for.\"",
+        "skepticUpheld": true,
+        "skepticNotes": "INDEPENDENTLY CONFIRMED (opened primary sources directly, not just verifier citations): (1) ITEP Feb 2024 report (itep.org/corporate-tax-avoidance-trump-tax-law/): 342 consistently profitable corporations 2018-2022, 14.1% average effective federal rate, 109 paid zero or less in at least one year, 23 paid zero/negative across all five years on $130.75B in profits (-2.9% rate, -$3.83B net), $275B total tax subsidies, 55 firms under 5% including T-Mobile, Netflix, GM, AT&T, Bank of America, FedEx, Nike — every number in the verifier output matches. Mechanisms confirmed: accelerated depreciation, stock options (Apple $6.3B, Microsoft $6.1B), research credits (Apple $4B+), plus offshore profit-shifting — confirming R&D credits are one of several drivers, not the headline one, so the original quote's mechanism framing is indeed wrong. (2) GAO-23-105384 (gao.gov/products/gao-23-105384): exactly as stated — on average 25% of PROFITABLE large corporations ($10M+ assets, Schedule M-3 filers) had no federal tax liability each year 2014-2018; effective rate 16% (2014) to 9% (2018); about half of ALL large corporations had no liability but ~44% reported losses. Refutes \"most.\" (3) Tax Foundation OBBBA page: signed July 4, 2025; 100% bonus depreciation permanent; full immediate expensing permanent for DOMESTIC R&D only (foreign R&D stays on 15-year amortization), with retroactive 2021-2025 relief for certain firms — matches verifier. (4) Currency check via ITEP corporate-taxes topic page fetched today (2026-06-11): no comprehensive Fortune 500-wide update newer than Feb 2024; only post-2024 item is a sector-specific May 29, 2026 oil-and-gas piece. (5) Fresh independent search (DuckDuckGo; Bing/WebSearch were unavailable) surfaced non-ITEP coverage (Yahoo News, Common Dreams, DCReport, beSpacific) independently confirming 342 firms, 14.1%, 109 zero-in-at-least-one-year, 23 zero-across-five-years. MINOR ADJUSTMENTS to the corrected statement: (a) \"full R&D expensing\" tightened to \"full DOMESTIC R&D expensing\" — OBBBA did not restore expensing for foreign R&D; (b) anchored GAO's one-quarter figure to its 2014-2018 data window to avoid implying a current-year measurement. Verdict \"inaccurate\" for the original quote stands: \"most\" is wrong (~25% of profitable large corps in a given year; ~7% of ITEP's sample over all five years), and R&D breaks are mischaracterized as the primary mechanism. The verifier's scriptSuggestion numbers (one in three, 23 net-refund firms, ~14%, breaks made permanent in 2025) all check out for air.",
+        "evidence": [
+          {
+            "source": "Institute on Taxation and Economic Policy (ITEP), \"Corporate Tax Avoidance in the First Five Years of the Trump Tax Law\"",
+            "url": "https://itep.org/corporate-tax-avoidance-trump-tax-law/",
+            "detail": "Studied 342 Fortune 500/S&P 500 corporations profitable every year 2018-2022. Average effective federal rate 14.1% vs 21% statutory. 109 firms paid $0 or less in at least one year (collectively $258B in profits in those years with $14.3B in net rebates); 23 firms paid zero or negative tax across the entire five years on $130.75B in profits; 55 firms (16%) paid under 5%. Total tax subsidies $275B. Named near-zero payers include T-Mobile, Netflix, GM, AT&T, Bank of America, FedEx, Nike, Duke Energy.",
+            "asOf": "2024-02-29"
+          },
+          {
+            "source": "U.S. Government Accountability Office, GAO-23-105384, \"Corporate Income Tax: Effective Rates Before and After 2017 Law Change\"",
+            "url": "https://www.gao.gov/products/gao-23-105384",
+            "detail": "Among PROFITABLE large corporations (assets $10M+), on average 25% had no federal income tax liability in each year 2014-2018 — i.e., not 'most.' About half of ALL large corporations had no liability, but ~44% of those reported actual losses. Average effective rate for profitable large corporations fell from 16% (2014) to 9% (2018) after TCJA.",
+            "asOf": "2023-01"
+          },
+          {
+            "source": "Tax Foundation, \"One Big Beautiful Bill Act Tax Policies: Details and Analysis\"",
+            "url": "https://taxfoundation.org/research/all/federal/one-big-beautiful-bill-act-tax-changes/",
+            "detail": "Confirms OBBBA (enacted July 2025) permanently restored full immediate expensing of DOMESTIC R&D under Section 174 (reversing TCJA's 5-year amortization that began in 2022, with retroactive relief for 2021-2025 investments for certain firms) and permanently restored 100% bonus depreciation. So as of June 2026, R&D and depreciation write-offs are larger than during the ITEP study window — the 'huge tax breaks' point is more true now, but it must not be framed as 'most companies pay zero.'",
+            "asOf": "2025-07"
+          },
+          {
+            "source": "ITEP corporate taxes topic page (currency check)",
+            "url": "https://itep.org/topic/corporate-taxes/",
+            "detail": "As of June 2026, ITEP's most recent comprehensive zero-tax study remains the Feb 2024 five-year report; newest related item is a May 29, 2026 piece on oil and gas corporations paying little U.S. tax. No newer Fortune 500-wide count exists, so the 2018-2022 figures are the defensible numbers to cite on air.",
+            "asOf": "2026-06-11"
+          }
+        ]
+      },
+      {
+        "claimId": "bailouts",
+        "quote": "Government bails out industries when they spend too much money and get in financial crises.",
+        "verdict": "mostly_accurate",
+        "firstPassVerdict": "mostly_accurate",
+        "confidence": "high",
+        "summary": "The core idea is well-documented: the federal government has repeatedly rescued industries in financial crises — TARP in 2008 ($700B authorized, cut to $475B by Dodd-Frank, $443.5B actually disbursed), the ~$80B auto rescue of GM/Chrysler/Ally (net cost $9.3B), ~$54B in pandemic payroll support to passenger airlines in 2020-21, and the 2023 guarantee of all deposits at Silicon Valley Bank and Signature Bank. Two wording issues: bailouts were triggered by crises (credit crunch, pandemic demand collapse, bank runs), not simply by industries 'spending too much money'; and much of the money came back (most TARP funds were repaid, and the SVB backstop was paid for by a $16.3B special assessment on big banks, not taxpayers). No 2025-26 policy changes affect these historical facts.",
+        "finalStatement": "When major industries have hit financial crises, the federal government has repeatedly stepped in to rescue them: in 2008 Congress authorized $700 billion for TARP (later capped at $475 billion, with about $443.5 billion actually disbursed and most of it eventually repaid); GM, Chrysler, and their finance arms got roughly $80 billion in 2008-09, most of which was also recovered; passenger airlines received about $54 billion in payroll support during the pandemic; and in 2023 regulators guaranteed every deposit at Silicon Valley Bank and Signature Bank, with the cost — most recently estimated by the FDIC at about $16.7 billion — charged to large banks through a special assessment collected from 2024 through early 2026, rather than to taxpayers. One correction to the original framing: these rescues were triggered by crises — a credit crunch, a pandemic collapse in travel, bank runs — not simply by industries spending too much money.",
+        "scriptSuggestion": "\"When big industries hit a crisis, the government steps in. In 2008, Congress authorized 700 billion dollars to rescue the banks — about 443 billion actually went out the door. GM and Chrysler got roughly 80 billion. When the pandemic grounded air travel, passenger airlines got about 54 billion dollars to keep paying their workers. And in 2023, when Silicon Valley Bank collapsed, the government made every depositor whole — even the ones way over the insurance limit. Nobody called those CEOs freeloaders. So if banks and airlines can take help when times get tough, so can you. That's exactly what these programs are for.\"",
+        "skepticUpheld": false,
+        "skepticNotes": "CONFIRMED INDEPENDENTLY (primary sources fetched directly, not just trusted from the verifier): (1) TARP — Treasury's own TARP page (home.treasury.gov/data/troubled-assets-relief-program, fetched 2026-06-11) states verbatim: $700B authorized October 2008, reduced to $475B by Dodd-Frank, $443.5B disbursed as of 9/30/2023, $425.5B collected ($443.1B incl. extra AIG share proceeds), net cost $31.1B. 'Most eventually repaid' holds. (2) Auto rescue — Treasury's automotive-programs page (fetched directly) confirms 'approximately $80 billion' invested, net cost $9.3B, GM $51.0B in/$39.7B back, Ally $17.2B in/$19.6B back, Chrysler 90% recovered. (3) Airlines — ~$54B to passenger carriers corroborated by multiple independent sources (Mercatus, Eno Transportation, CNN, Senate hearing coverage); Treasury's PSP3 page shows $13.8B actually provided to passenger carriers (vs $14B authorized), so passenger total is ~$53.7B ('about $54 billion' is fair); Treasury's PSP overview confirms $59B total across all aviation incl. cargo/contractors. (4) FDIC PR-23-092 (fetched directly) confirms the November 2023 final rule estimated $16.3B attributable to protecting uninsured depositors, ~114 banking organizations assessed, none under $5B in assets. REFUTED/ADJUSTED: (a) The $16.3B figure is the stale November 2023 estimate, not the cost actually charged. FDIC raised the estimate to $20.4B in early 2024 (bizjournals.com/pittsburgh 2024-03-06: 'The FDIC in November looked to recoup $16.3 billion... Its new estimate is $20.4 billion'), and the FDIC's current special-assessment page (fdic.gov/deposit-insurance-assessments/special-assessment-pursuant-systemic-risk-determination, last updated 2026-04-17) now puts the estimate at approximately $16.7B, collected over eight quarters ending with the March 30, 2026 payment, applied to 141 banks across 110 banking organizations. (b) The verifier's claim 'No 2025-26 policy changes affect these historical facts' is wrong in one particular: a December 2025 FDIC interim final rule (Federal Register 2025-12-19, doc 2025-23425) cut the final-quarter rate from 3.36 to 2.97 bps and set up offset/shortfall true-up mechanics pending FDIC v. SVB Financial Trust litigation — so the final cost to banks is still not fully settled. The core point (banks, not taxpayers, bear the cost) survives. (c) Minor flag on the scriptSuggestion (not the corrected statement): '700 billion to rescue the banks — about 443 billion went out the door' conflates the bank rescue with all of TARP; per Treasury only ~$250B was committed to banking institutions, with the rest going to autos, AIG, credit markets, and housing. VERDICT: the mostly_accurate verdict on the original quote stands (the quote's weak point — crises, not 'spending too much,' triggered the bailouts — was correctly identified), but the corrected statement needed the SVB cost figure updated, so the verifier output as written is not upheld unmodified.",
+        "evidence": [
+          {
+            "source": "U.S. Treasury — Troubled Assets Relief Program (TARP) overview",
+            "url": "https://home.treasury.gov/data/troubled-assets-relief-program",
+            "detail": "States Congress initially authorized $700 billion for TARP in October 2008, reduced to $475 billion by the Dodd-Frank Act; total disbursed was $443.5 billion as of September 30, 2023; approximately $82 billion committed to stabilize the auto industry ($2B cancelled); net cost of TARP about $31 billion after interest expense.",
+            "asOf": "data as of 2023-09-30, fetched 2026-06-11"
+          },
+          {
+            "source": "ProPublica Bailout Tracker",
+            "url": "https://projects.propublica.org/bailout/",
+            "detail": "Independent tracker confirming TARP recipients received $443 billion of the $475 billion authorized; $390 billion of principal returned; the combined TARP + Fannie/Freddie bailout showed a net $109 billion profit to the government as of August 2022.",
+            "asOf": "2022-08-18"
+          },
+          {
+            "source": "U.S. Treasury — TARP Automotive Programs",
+            "url": "https://home.treasury.gov/data/troubled-assets-relief-program/automotive-programs",
+            "detail": "States 'Treasury invested approximately $80 billion in the auto industry' through the Automotive Industry Financing Program, with a net cost of $9.3 billion: GM $51B invested/$39.7B recovered, Chrysler returned $11.2B of $12.5B, Ally $17.2B invested/$19.6B recovered.",
+            "asOf": "fetched 2026-06-11"
+          },
+          {
+            "source": "U.S. Treasury — Payroll Support Program (PSP1) Payments",
+            "url": "https://home.treasury.gov/policy-issues/coronavirus/assisting-american-industry/payroll-support-program-payments",
+            "detail": "Under the CARES Act, Treasury awarded $24.9 billion to passenger air carriers, $827 million to cargo carriers, and $2.8 billion to contractors in PSP1 (2020).",
+            "asOf": "data as of 2023-08-17"
+          },
+          {
+            "source": "U.S. Treasury — PSP3 Guidelines (PDF)",
+            "url": "https://home.treasury.gov/system/files/136/PSP3-Guidelines.pdf",
+            "detail": "Confirms PSP3 (American Rescue Plan, 2021) provided up to $14 billion to passenger air carriers plus $1 billion to contractors, and references the $15 billion PSP2 passenger total. PSP1 ($24.9B) + PSP2 ($15B) + PSP3 ($14B) = roughly $54 billion to passenger airlines across 2020-21.",
+            "asOf": "2021"
+          },
+          {
+            "source": "FDIC/Treasury/Federal Reserve joint statement on SVB and Signature Bank (PR-23-017, March 12, 2023)",
+            "url": "https://www.fdic.gov/news/press-releases/2023/pr23017.html",
+            "detail": "Regulators invoked the systemic risk exception to fully protect all depositors at Silicon Valley Bank and Signature Bank, including uninsured ones; states twice that 'no losses will be borne by the taxpayer'; shareholders and certain unsecured debtholders were not protected; Deposit Insurance Fund losses recovered by a special assessment on banks.",
+            "asOf": "2023-03-12"
+          },
+          {
+            "source": "FDIC final rule on special assessment (PR-23-092, November 16, 2023)",
+            "url": "https://www.fdic.gov/news/press-releases/2023/pr23092.html",
+            "detail": "FDIC estimated approximately $16.3 billion of the SVB/Signature failure costs was attributable to protecting uninsured depositors, recovered via a special assessment on roughly 114 large banking organizations; no bank under $5 billion in assets pays.",
+            "asOf": "2023-11-16"
+          }
+        ]
+      },
+      {
+        "claimId": "walmart-benefits",
+        "quote": "Places like WalMart rely on the government to pay for their employees food and health care via government programs so they do not have to pay their workers a living wage.",
+        "verdict": "partially_accurate",
+        "firstPassVerdict": "partially_accurate",
+        "confidence": "high",
+        "summary": "The factual kernel is real: GAO-21-45 (published Oct 2020, using Feb 2020 state data) found Walmart was the No. 1 employer and McDonald's typically No. 2 among working adult Medicaid enrollees and SNAP recipients in essentially every state that provided data, and ~70% of those working beneficiaries worked full time. But the claim as worded asserts corporate intent (\"so they do not have to pay a living wage\"), which GAO never found, and it ignores that the data is six years old and Walmart's average US hourly associate wage is now $18.25 (CA minimum is $16.90 in 2026, fast food $20). The deeper truth still holds locally: MIT's living wage for a single adult in Nevada County is $27.25/hr, so full-time workers at these employers can still legitimately qualify for benefits — but the statement must be hedged as a 2020 study and stripped of the intent accusation.",
+        "finalStatement": "A 2020 GAO study (GAO-21-45, using February 2020 data from 15 program agencies in 11 states) found that Walmart and McDonald's consistently ranked among the top employers of working adults enrolled in Medicaid and SNAP: Walmart placed in the top four on every state list and No. 1 on more than half of them, with McDonald's usually close behind. About 70% of those working beneficiaries worked full-time hours (35+ per week). GAO did not conclude that employers deliberately shift labor costs onto taxpayers, no single employer accounted for more than 4% of working beneficiaries in any state, and Walmart tops these lists partly because it is the largest private employer in the US. The data is also six years old: Walmart now says its average US hourly store associate makes $18.25/hour, California's minimum wage is $16.90 in 2026, and the state's fast-food chains must pay at least $20.00. Even so, MIT's living wage for a single adult in Nevada County is $27.25/hour (Feb 2026), so full-time work at these wages still falls short of local self-sufficiency — and because program eligibility depends on household size and income, a full-time worker supporting children at these wages, or one earning a starting wage or working part-time hours, can still qualify for CalFresh and Medi-Cal.",
+        "scriptSuggestion": "Here's something that surprises people. Back in 2020, the GAO — the federal government's own watchdog — looked at who was actually receiving food assistance and Medicaid. In every state they studied, the top employers of people getting those benefits were household names: Walmart was number one, McDonald's right behind. And about seven in ten of those folks were working full time. Now, wages have come up since then — Walmart says its average store worker makes about eighteen twenty-five an hour today — but here in Nevada County, a living wage for just one adult is over twenty-seven dollars an hour. So if you're working full time, even at a big-name employer, and you're still struggling — these programs were designed for exactly your situation. You earned them, and there's no shame in using them.",
+        "skepticUpheld": false,
+        "skepticNotes": "CONFIRMED independently (primary sources, not just the verifier's citations): (1) GAO-21-45 product page (gao.gov/products/gao-21-45): published Oct 19 2020, released Nov 18 2020; Feb 2020 data from 15 agencies (6 Medicaid, 9 SNAP) in 11 states; 12M wage-earning adults on Medicaid and 9M in SNAP households; ~70% of adult wage earners worked full-time hours (35+/wk) weekly; no single employer exceeded 4% of working beneficiaries in any state; estimates explicitly non-generalizable. (2) I downloaded and text-extracted the full GAO-21-45 PDF and checked every employer table: Georgia Medicaid Walmart #1 (3,959; 2.1%) and McDonald's #2 (1,480; 0.8%), Indiana Medicaid Walmart #1 (2,396; 1.6%) — verifier's example figures are exact. (3) Walmart corporate page (live, fetched today): average US hourly field associate $18.25, supply chain ~$27, starting wages up >90% since 2015. (4) CA DIR: state minimum wage $16.90 eff Jan 1 2026 ($16.50 in 2025); fast-food minimum $20.00 since Apr 1 2024 with no documented increase since. (5) MIT Living Wage Calculator, Nevada County (updated Feb 15 2026): $27.25 single adult, $46.67 for 1 adult + 1 child.\n\nREFUTED/ADJUSTED in the verifier's corrected statement: (a) \"Walmart usually No. 1 ... in every state that provided data\" overstates the PDF tables. Across the 15 agency lists Walmart's ranks were 1,1,2,4,1,3,1,1,1,2,4,2,1,1,2 — No. 1 on only 8 of 15 lists (6 of 11 states), but top-4 on every list (Maine Medicaid #1 was Hannaford's; Massachusetts had Walmart at #4 on both lists). (b) McDonald's was absent from the Massachusetts Medicaid top-employer list entirely (and #13 on MA's SNAP list), so \"in every state that provided data\" does not strictly hold for McDonald's; it ranked No. 2 on 7 of 15 lists and No. 1 once (Nebraska SNAP). (c) The closing inference — $18.25 is below the $27.25 single-adult living wage \"so many full-time workers ... remain income-eligible for CalFresh and Medi-Cal\" — is wrong for the single adult it juxtaposes: a single adult at $18.25/hr full-time (~$38,000/yr) exceeds both CalFresh's 200%-FPL gross-income limit (~$31-32k) and Medi-Cal's 138%-FPL adult limit (~$21.6k). Eligibility survives only via household size (workers supporting children), sub-average/starting wages, or part-time hours — the fix matters for a show specifically about who qualifies. The verifier's VERDICT on the original quote (partially_accurate: real GAO kernel, but unsupported intent claim and stale 2020 framing) is affirmed; the corrected statement needed the three tightenings above, so the package as written is not fully upheld.",
+        "evidence": [
+          {
+            "source": "GAO, \"Federal Social Safety Net Programs\" (GAO-21-45) product page",
+            "url": "https://www.gao.gov/products/gao-21-45",
+            "detail": "Published Oct 19, 2020 (released Nov 18, 2020). Found 12 million wage-earning adults on Medicaid and 9 million in SNAP households; ~70% of adult wage earners in both programs worked full-time hours; data from 15 agencies in 11 states, explicitly non-generalizable; no single employer accounted for more than 4% of working beneficiaries in any state.",
+            "asOf": "2020-10-19"
+          },
+          {
+            "source": "GAO-21-45 full report PDF (state employer tables, appendixes II-III)",
+            "url": "https://www.gao.gov/assets/gao-21-45.pdf",
+            "detail": "Names Walmart and McDonald's in the top-employer tables for every state providing data, e.g., Georgia Medicaid: Walmart #1 with ~3,959 enrollees (2.1%), McDonald's #2 with ~1,480 (0.8%); Indiana: Walmart #1 with ~2,396 (1.6%). Data is February 2020. GAO caveats: employer name-matching limitations, multiple jobs per person, estimates not generalizable.",
+            "asOf": "2020-11-18"
+          },
+          {
+            "source": "Walmart corporate, \"How Much Do Walmart Associates Make?\" (Ask Walmart)",
+            "url": "https://corporate.walmart.com/askwalmart/how-much-do-walmart-associates-make",
+            "detail": "Walmart states the average U.S. hourly field associate makes $18.25/hour (supply chain associates ~$27/hour), with starting wages up over 90% since 2015; page references 2025 benefit-plan figures and was live June 2026. This is the key counterpoint showing the 2020-era framing is stale.",
+            "asOf": "2026-06-11"
+          },
+          {
+            "source": "California DIR, Minimum Wage FAQ",
+            "url": "https://www.dir.ca.gov/dlse/faq_minimumwage.htm",
+            "detail": "California minimum wage is $16.90/hour effective January 1, 2026 (note: the $16.50 figure in show prep was the 2025 rate). Higher local and industry rates apply.",
+            "asOf": "2026-01-01"
+          },
+          {
+            "source": "California DIR, Fast Food Minimum Wage FAQ (AB 1228)",
+            "url": "https://www.dir.ca.gov/dlse/Fast-Food-Minimum-Wage-FAQ.htm",
+            "detail": "Fast food restaurant employees (covering chains like McDonald's) must be paid at least $20.00/hour since April 1, 2024 — relevant counterpoint if McDonald's is named on air in a California context.",
+            "asOf": "2024-04-01"
+          },
+          {
+            "source": "MIT Living Wage Calculator, Nevada County, CA",
+            "url": "https://livingwage.mit.edu/counties/06057",
+            "detail": "Living wage in Nevada County (data updated Feb 15, 2026): $27.25/hour for a single adult with no children, $46.67 for 1 adult + 1 child, vs. $16.90 state minimum. Shows Walmart's $18.25 average remains below a local living wage, supporting the hedged version of the claim.",
+            "asOf": "2026-02-15"
+          },
+          {
+            "source": "KFF, \"Understanding the Intersection of Medicaid and Work: An Update\"",
+            "url": "https://www.kff.org/medicaid/understanding-the-intersection-of-medicaid-and-work-an-update/",
+            "detail": "Using 2023 data: 64% of nonelderly adult Medicaid enrollees worked; among workers, 69% worked full time (35+ hrs/week). Confirms the show's core myth-busting point — working people qualify — with data newer than GAO's. No newer federal study names specific employers; the 2020 GAO report remains the latest employer-level source.",
+            "asOf": "2023-12-31"
+          }
+        ]
+      },
+      {
+        "claimId": "mattei-book",
+        "quote": "Read the book published this year \"Escape from Capitalism\" by the economist Clara Mattei to really understand the excessive amount of aid wealthy folks get from the government, while benefits for workers get slashed.",
+        "verdict": "mostly_accurate",
+        "firstPassVerdict": "mostly_accurate",
+        "confidence": "high",
+        "summary": "The book is real and correctly attributed: economist Clara E. Mattei (University of Tulsa, author of The Capital Order) published \"Escape from Capitalism: An Intervention\" with Simon & Schuster on January 27, 2026 (UK: Allen Lane/Penguin, January 22, 2026), so \"published this year\" is accurate for a June 2026 air date. The script's gloss is slightly off, though: the book's centerpiece is that austerity — slashing benefits, wages, and labor rights for workers — is a deliberate political tool to protect the profits of the wealthy, and that economics masquerades as neutral science to make capitalism look inevitable. It is not primarily a catalog of \"excessive government aid to wealthy folks\" (corporate-welfare framing); that half of the sentence overstates one thread. Producers should also know it is an explicitly anti-capitalist/socialist intervention, which may matter for tone on a benefits-education show.",
+        "finalStatement": "Economist Clara E. Mattei — a professor of economics at the University of Tulsa and author of The Capital Order — published \"Escape from Capitalism: An Intervention\" (Simon & Schuster, January 2026). The book argues that cuts to benefits, wages, and labor protections for working people are deliberate political choices — not economic necessities — made to protect the profits and power of the wealthy, and that mainstream economics presents these choices as neutral science. Note for producers: the book is not primarily about government aid flowing to the rich (the original script's framing), and it is an explicitly anti-capitalist intervention, which may matter for tone.",
+        "scriptSuggestion": "\"If you want the bigger picture, read 'Escape from Capitalism' by the economist Clara Mattei — it just came out this January. She shows that when benefits for working people get slashed, that's not some law of economics — it's a political choice, made to protect the profits of the people at the top.\"",
+        "skepticUpheld": true,
+        "skepticNotes": "Independently confirmed (via direct fetches of Kirkus, Penguin UK, and Jacobin, plus a fresh DuckDuckGo search surfacing the author's site, Simon & Schuster, Amazon, and Google Books; the WebSearch tool itself errored persistently, so the DDG fetch served as the independent search): (1) The book is real — \"Escape From Capitalism: An Intervention\" (US, Simon & Schuster, Jan 27, 2026, 224 pp., ISBN 9781668085141); UK edition \"Escape From Capitalism: Economics is Political, and Other Liberating Truths\" (Allen Lane/Penguin, Jan 22, 2026, ISBN 9780241742181). \"Published this year\" is accurate for a June 2026 air date. (2) Author correctly attributed: Clara E. Mattei, Italian economist, Professor of Economics at the University of Tulsa (current affiliation per Kirkus and Penguin — not stale; she left The New School), author of The Capital Order (2022). Blurbs from Piketty, Varoufakis, Tooze, Milanovic, Galbraith confirmed on the Penguin page. (3) The verifier's content correction is right and is the load-bearing fix: the Jacobin review (Maher & Aquanno, Feb 9, 2026) explicitly frames the book as austerity-as-class-discipline in three forms (fiscal, monetary, industrial) with economics posing as neutral science; it states tax breaks for the wealthy appear only briefly, and government handouts/subsidies to the rich are NOT the book's frame — so the original script's \"excessive amount of aid wealthy folks get from the government\" gloss misstates the thesis. Nothing in the verifier's verdict, dates, names, or correction was refuted. Producers' tone note (explicitly anti-capitalist/socialist intervention — Jacobin calls it \"an uncompromising defense of a Marxist account\") also confirmed. Sources: kirkusreviews.com/book-reviews/clara-e-mattei/escape-from-capitalism/; penguin.co.uk/books/468201/escape-from-capitalism-by-mattei-clara-e/9780241742181; jacobin.com/2026/02/capitalism-democracy-economy-politics-socialism; simonandschuster.com/books/Escape-from-Capitalism/Clara-E-Mattei/9781668085141.",
+        "evidence": [
+          {
+            "source": "Kirkus Reviews — Escape From Capitalism",
+            "url": "https://www.kirkusreviews.com/book-reviews/clara-e-mattei/escape-from-capitalism/",
+            "detail": "Confirms title (Escape From Capitalism: An Intervention), author Clara E. Mattei (Italian economist, University of Tulsa, author of The Capital Order), publisher Simon & Schuster, publication date January 27, 2026, 224 pages. Summarizes the argument as a forceful case against a system in which 'the many fill the pockets of the few,' with capitalists fearing full employment because it gives workers leverage.",
+            "asOf": "Review posted November 22, 2025"
+          },
+          {
+            "source": "Penguin Books UK — Escape From Capitalism (Allen Lane)",
+            "url": "https://www.penguin.co.uk/books/468201/escape-from-capitalism-by-mattei-clara-e/9780241742181",
+            "detail": "UK edition published January 22, 2026 by Allen Lane (ISBN 9780241742181), UK subtitle 'Economics is Political, and Other Liberating Truths.' Publisher description: challenges the dogma 'that austerity is necessary, unemployment natural'; poverty and inequality are 'core features' of the system, which 'unfairly rewards people with the most resources.' Piketty blurb calls it 'a compelling and insightful book on austerity.'",
+            "asOf": "Fetched June 11, 2026"
+          },
+          {
+            "source": "Jacobin review by Stephen Maher and Scott Aquanno",
+            "url": "https://jacobin.com/2026/02/capitalism-democracy-economy-politics-socialism",
+            "detail": "February 9, 2026 review of the book. Confirms the core argument: austerity is class discipline in three forms (fiscal cuts to social spending, monetary policy, restricting labor rights) through which 'the state disciplines workers by imposing material insecurity' to protect profits; economics cloaks capitalist interests behind pretensions of neutrality. Reviewers note 'cuts to programs for working people coincided with massive tax breaks for the wealthy,' but direct government handouts to the rich are not the book's main frame.",
+            "asOf": "February 9, 2026"
+          },
+          {
+            "source": "Simon & Schuster official publisher listing",
+            "url": "https://www.simonandschuster.com/books/Escape-from-Capitalism/Clara-E-Mattei/9781668085141",
+            "detail": "Official US publisher page (ISBN 9781668085141) listing Escape from Capitalism: An Intervention by Clara E. Mattei, with bio confirming she is a professor of economics at The University of Tulsa and author of The Capital Order. Note: the page blocks automated fetchers (HTTP 403) but the listing is confirmed via search-index snippets and matches Kirkus/Penguin details.",
+            "asOf": "Indexed as of June 11, 2026"
+          }
+        ]
+      },
+      {
+        "claimId": "ice-medicaid",
+        "quote": "Most government programs have strict privacy rules, however our current federal administration is changing some of that and people should be aware — for example ICE accessing Medicaid data.",
+        "verdict": "accurate",
+        "firstPassVerdict": "accurate",
+        "confidence": "high",
+        "summary": "The claim is true and, if anything, understated. In June-July 2025 the administration reversed a 2013 promise that health-coverage data would never be used for immigration enforcement: CMS handed enrollee data to DHS, and a July 17, 2025 agreement obtained by AP gave ICE access to data on the nation's ~79 million Medicaid enrollees. A 22-state lawsuit led by CA AG Bonta won an Aug 12, 2025 injunction, but Judge Chhabria's Dec 29, 2025 ruling lets CMS share six basic data elements (citizenship/immigration status, address, phone, DOB, Medicaid ID) about people not lawfully present even in suing states — medical records and lawfully present people's data stay blocked there, while non-suing states face no restriction and ICE actively uses the data. As of June 2026 the fight continues: states filed a motion to enforce on March 26, 2026 alleging oversharing (the government admitted on April 9 it improperly shared Minnesota data), with no ruling yet; in the parallel SNAP fight, courts blocked USDA's data demand for California and other suing states, though at least 27 states had already complied.",
+        "finalStatement": "Most government benefit programs have strict privacy rules, but the current federal administration has rolled some of those back and people should be aware. Since 2025, ICE has been given access to Medicaid enrollee data under a federal agreement covering roughly 79 million people. California and 21 other states sued; as of June 2026 a federal court order limits sharing in those states to basic information (citizenship and immigration status, address, phone number, date of birth, Medicaid ID) about people not lawfully present — no medical records and no data on lawfully present immigrants — but ICE access is active, unrestricted in non-suing states, and the states allege the federal government has violated the order, with an enforcement motion pending before the court. A parallel USDA demand for SNAP recipient data was blocked by courts for California and other suing states, though at least 27 states had already turned data over.",
+        "scriptSuggestion": "Most benefit programs have strict privacy rules — your information is only supposed to be used to run the program. But the current administration has changed some of that, and people should be aware. In 2025, the federal government gave ICE access to Medicaid enrollment data — an agreement covering about 79 million people nationwide. California and 21 other states sued, and right now a court order limits what can be shared about Californians: only basic details like address, date of birth, and immigration status, only for people who aren't here lawfully — no medical records, and nothing about people here legally. But the states say the government hasn't always followed that order, and the fight is still in court. For most people, applying for Medi-Cal or CalFresh is still safe and legal — but if you're in a mixed-status family, talk to a trusted legal aid group first so you can make an informed choice.",
+        "skepticUpheld": true,
+        "skepticNotes": "VERDICT UPHELD. I attempted to refute every load-bearing element with fresh, independent sourcing and could not. Confirmed: (1) The ~79M figure and July 2025 CMS-DHS agreement — AP's July 17, 2025 report is corroborated by CNN (7/18/25), USA Today (7/18/25), LA Times (7/17/25), and US News syndication; KFF's issue brief independently confirms the July 2025 'Information Exchange Agreement' gives select ICE staff direct T-MSIS access covering all enrollees regardless of status. (2) Litigation timeline — read the Clearinghouse case page for California v. HHS, 3:25-cv-05536 (N.D. Cal.) directly: filed July 1, 2025; Aug 12, 2025 preliminary injunction (2025 WL 2356224); Dec 29, 2025 Chhabria ruling (2025 WL 3751931) denying relief as to basic biographical/location/contact data while blocking broader sharing; March 26, 2026 motion to enforce still pending; docket last updated June 9, 2026 with no later ruling. (3) Read the Harvard CHLPI brief (April 22, 2026 PDF) in full: in the 22 suing states (CA+19 filed; KY, WI joined Aug 2025) CMS may share only citizenship/immigration status, address, phone, DOB, and Medicaid ID, only about people not lawfully residing — no medical records, no lawfully present people — while 'in the remaining states no such restriction exists, and ICE continues to obtain and use Medicaid data'; ICE rescinded its 2013 no-enforcement-use memo in October 2025; on April 9, 2026 the government admitted improperly sharing Minnesota residents' data with ICE (since deleted); no ruling on the enforcement motion as of April 21, 2026. (4) Freshness: two independent date-targeted searches found zero May–June 2026 developments (no ruling, no appeal, no scope change), consistent with the June 9, 2026 docket check — 'enforcement motion pending as of June 2026' is supportable, though partly negative evidence. (5) SNAP parallel — NPR (Oct 16, 2025): at least 27 states turned over recipient data; Bonta coalition won an N.D. Cal. injunction blocking the handover for suing states; JURIST (Feb 2026): judge blocked USDA from withholding SNAP funds from 21 suing states + DC. MINOR NUANCES, not errors: the suit was filed by 20 states (CHLPI: 'California and 19 other states'; some outlets add DC), with KY/WI joining later to form the 22-state coalition, so 'California and 21 other states sued' compresses the timeline but accurately states the current roster; the 'six elements' count depends on splitting citizenship vs. immigration status — the corrected statement lists elements rather than asserting a count, which is the right call. The corrected statement and the verifier's script suggestion (including the mixed-status-family legal-aid advisory) are accurate and appropriately hedged for a June 2026 air date.",
+        "evidence": [
+          {
+            "source": "AP News (Kimberly Kindy & Amanda Seitz)",
+            "url": "https://apnews.com/article/immigration-medicaid-trump-ice-ab9c2267ce596089410387bfcb40eeb7",
+            "detail": "July 17, 2025: AP obtained the CMS-DHS agreement giving ICE officials access to personal data — including home addresses and ethnicities — of the nation's ~79 million Medicaid enrollees, to locate immigrants possibly in the U.S. unlawfully.",
+            "asOf": "2025-07-17"
+          },
+          {
+            "source": "Civil Rights Litigation Clearinghouse — California v. HHS, N.D. Cal. 3:25-cv-05536",
+            "url": "https://clearinghouse.net/case/46754/",
+            "detail": "Full case timeline: filed July 1, 2025 by 21 states + DC (KY and WI joined Aug 28, 2025); Aug 12, 2025 preliminary injunction barred HHS from sharing plaintiff states' Medicaid data with DHS; Dec 29, 2025 ruling denied relief as to basic biographical/location/contact data but blocked broader sharing; plaintiffs' March 26, 2026 motion to enforce (alleging a massive improper dataset transfer including lawfully present individuals) is the most recent development listed, still pending with docket checked June 9, 2026.",
+            "asOf": "2026-06-09"
+          },
+          {
+            "source": "Politico",
+            "url": "https://www.politico.com/news/2025/12/29/trump-admin-can-share-immigrants-medicaid-data-ice-judge-rules-00707716",
+            "detail": "Dec 29, 2025: Judge Vince Chhabria ruled the administration may resume sharing location/biographical data about undocumented immigrants on Medicaid with ICE; companion coverage (Courthouse News, CBS, USA Today) confirms the six permitted data elements and that the injunction still protects sensitive health records and lawfully present immigrants.",
+            "asOf": "2025-12-29"
+          },
+          {
+            "source": "Harvard Law School CHLPI, 'Medicaid Data Sharing with ICE: What We Know and Why We're Worried'",
+            "url": "https://chlpi.org/wp-content/uploads/2026/04/Medicaid-ICE-data-sharing-FINAL.pdf",
+            "detail": "April 22, 2026 status brief: in the 22 suing states (CA, AZ, CO, CT, DE, HI, IL, ME, MD, MA, MI, MN, NV, NJ, NM, NY, OR, RI, VT, WA, KY, WI) CMS may share only the six basic elements about people not lawfully present; 'in the remaining states no such restriction exists, and ICE continues to obtain and use Medicaid data.' Documents ICE's October 2025 rescission of its 2013 no-enforcement-use policy, the March 26, 2026 enforcement motion, and the government's April 9, 2026 admission that it improperly shared Minnesota enrollee data with ICE (since deleted); no ruling on the motion as of April 21, 2026.",
+            "asOf": "2026-04-22"
+          },
+          {
+            "source": "California Attorney General press release",
+            "url": "https://oag.ca.gov/news/press-releases/attorney-general-bonta-asks-court-enforce-order-blocking-hhs-sharing-large",
+            "detail": "Late March 2026: AG Bonta's coalition asked the court to enforce the injunction, confirm its scope covers all lawfully residing individuals, and require the federal government to account for what Medicaid data HHS shared with ICE and how ICE is using it.",
+            "asOf": "2026-03-27"
+          },
+          {
+            "source": "NPR",
+            "url": "https://www.npr.org/2026/03/13/nx-s1-5737468/medicaid-immigration-ice-dhs-trump",
+            "detail": "March 13, 2026: reports Medicaid data sharing with ICE is active, has 'upended decades of explicit promises to patients,' and is deterring even eligible immigrants from seeking coverage — confirming ICE access is current, not blocked, as of spring 2026.",
+            "asOf": "2026-03-13"
+          },
+          {
+            "source": "NPR (SNAP parallel)",
+            "url": "https://www.npr.org/2025/10/16/nx-s1-5533045/snap-privacy-usda-lawsuit",
+            "detail": "Oct 16, 2025: USDA's May 2025 demand for SNAP recipients' personal data (back to Jan 2020, incl. SSNs and addresses) — at least 27 states had already turned over data on millions of recipients, while Democratic-led suing states (incl. California, suit filed July 28, 2025) won a court order keeping their residents' data out of federal hands; in Feb 2026 a judge further blocked USDA from withholding SNAP funds from the 21 suing states + DC over their refusal (Jurist/Bloomberg Law coverage of N.D. Cal. orders).",
+            "asOf": "2026-02-28"
+          }
+        ]
+      },
+      {
+        "claimId": "no-trouble",
+        "quote": "You will never get in trouble for not being eligible. When you apply, they check if you are eligible and if you are not, nothing bad happens. With most programs, you can just rescind your application / case at any time.",
+        "verdict": "partially_accurate",
+        "firstPassVerdict": "partially_accurate",
+        "confidence": "high",
+        "summary": "The core reassurance is right: an honest application that gets denied carries no penalty (SNAP rules require intentional deception, proven by clear and convincing evidence, before anyone is sanctioned), and federal rules expressly let you withdraw an application any time before a decision and reapply later. But \"never... nothing bad happens\" is overbroad in three ways: (1) knowingly giving false information is an Intentional Program Violation with 12-month/24-month/permanent disqualifications and possible prosecution; (2) if benefits are paid in error — even purely the agency's error — they are a federal debt the state must claw back (benefit reductions, tax-refund offsets); (3) for households with non-citizens, June 2026 is not a \"nothing bad happens\" environment: the 2022 public charge rule (under which SNAP, Medicaid, WIC, and housing do NOT count) is still in effect, but DHS proposed rescinding it in November 2025, and Medicaid and SNAP applicant data has been shared with DHS/ICE since 2025, so application data is no longer reliably walled off from immigration enforcement. The claim needs one honest caveat sentence, not a rewrite of its encouraging message.",
+        "finalStatement": "If you apply honestly and it turns out you don't qualify, you will not be penalized — the worst outcome is a denial. You can withdraw your application at any time before a decision and reapply later whenever you want, and if you're already enrolled you can ask to close your case. Two caveats: penalties only attach if you knowingly give false information (an honest mistake is not fraud — fraud must be proven as intentional), and if a program overpays you by mistake — even the agency's own mistake — it can collect that money back later, so report income changes promptly. One more note for immigrant and mixed-status families: under the public charge rule in effect as of June 2026, using CalFresh/SNAP, Medi-Cal/Medicaid, WIC, or housing assistance does not count against a green-card application — but DHS proposed rescinding that rule in November 2025 (not yet final), the State Department tightened public-charge screening in January 2026 for people processing visas abroad, and in 2025 the federal government began sharing Medicaid enrollee data with ICE and collecting state SNAP records (California and other states are fighting that in court). Benefits data is no longer reliably walled off from immigration enforcement, so if anyone in your household isn't a citizen, get free advice from a legal-aid or immigration nonprofit before applying.",
+        "scriptSuggestion": "\"Here's the truth: if you apply honestly and it turns out you don't qualify, nothing bad happens. There's no penalty for being told no — and you can withdraw your application or close your case whenever you want and reapply later. Just two things to keep in mind. One: always answer the questions truthfully — being wrong is fine, but knowingly giving false information is the one thing that does carry penalties. Two: if a program ever overpays you by mistake — even their mistake — they can ask for that money back, so report changes in your income promptly. And one note for our immigrant neighbors: under the rules in effect today, using food or health programs does not count against you in a green-card decision — but those rules and how agencies share data have been changing, so if anyone in your household isn't a citizen, get free advice first from a legal-aid or immigration nonprofit. Don't let fear stop you — just apply with good information.\"",
+        "skepticUpheld": true,
+        "skepticNotes": "VERDICT UPHELD with minor precision fixes. Independently confirmed via primary sources (WebSearch tool was down with repeated API errors, so verification used direct fetches of regulatory text and the Federal Register API rather than the verifier's news links):\n\nCONFIRMED: (1) 7 CFR 273.2(c)(6) (Cornell LII, fetched fresh): exact text \"may voluntarily withdraw its application at any time prior to the determination of eligibility\" and household \"shall be advised of its right to reapply at any time subsequent to a withdrawal\" — supports the rescind-anytime claim, but note the regulatory right is PRE-decision; post-approval you instead request voluntary case closure (standard practice, different mechanism). (2) 7 CFR 273.16: IPV requires INTENTIONAL false/misleading statement or concealment, proven by clear and convincing evidence; penalties 12 months / 24 months / permanent — verifier's numbers exact. Honest denial carries no sanction. (3) 7 CFR 273.18: overpayments including pure agency-error (AE) claims are federal debts states \"must establish and collect\"; AE allotment reduction is greater of $10/10% (20%/$20 is for IPV claims only — verifier's \"10-20%\" range was correct but conflated claim types); mandatory Treasury Offset Program referral at 180 days delinquent. Minor softener verifier omitted: states may decline claims of $125 or less as not cost-effective. (4) Federal Register API doc 2025-20278: DHS NPRM published 2025-11-19 proposing to rescind the 2022 public charge rule, comments closed 2025-12-19 (8,846 comments) — and a fresh FR API search for all \"public charge ground of inadmissibility\" documents since 2025-11-01 returns ONLY this proposed rule: NO final rule published through 2026-06-11. (5) ILRC pc-updates page (updated 2026-06-01): 2022 rule \"remains good law and current policy\"; rescission \"is just a proposed rule and is not in effect\"; also confirms the Jan 21, 2026 State Department consular pause on immigrant visas for 75 countries (consular processing abroad only, challenged in CLINIC v. Rubio) — a post-2025 development the corrected statement under-referenced. (6) Federal Register API doc 2025-20911 (official notice, stronger than the AP article I could not fetch — apnews.com blocked, NPR timed out twice): CMS/HHS notice published 2025-11-25, effective immediately, announcing Medicaid data sharing with DHS \"including its component agency U.S. Immigration and Customs Enforcement.\"\n\nADJUSTED in finalStatement: (a) precision on data sharing — Medicaid enrollee data sharing with ICE is documented by official notice; SNAP data was demanded by and transferred to USDA (federal collection amid enforcement concerns, litigation by ~21 states incl. California ongoing), not directly documented as handed to ICE — so the two are no longer lumped as identical; (b) withdrawal timing split into before-decision withdrawal vs. after-approval case closure to match 7 CFR 273.2(c)(6); (c) added the Jan 2026 consular-processing tightening as part of the changing-rules caveat; (d) localized program names (CalFresh/Medi-Cal) for the Nevada County, CA audience and noted California is among the states suing over SNAP data. Could NOT independently re-open: AP Medicaid/ICE article (domain blocked), NPR 27-states article (timeout x2), USCIS and NILC pages (403) — but the official FR notices and ILRC's June 2026 update independently corroborate the substance those articles carried.",
+        "evidence": [
+          {
+            "source": "7 CFR 273.16 (Cornell LII) — SNAP Intentional Program Violations",
+            "url": "https://www.law.cornell.edu/cfr/text/7/273.16",
+            "detail": "An IPV requires intentionally making a false or misleading statement or concealing facts, proven by clear and convincing evidence. Simply applying and being found ineligible is not a violation. Penalties for actual fraud: 12 months first offense, 24 months second, permanent third — so 'never get in trouble' is only true for honest applications.",
+            "asOf": "current regulation, accessed 2026-06-11"
+          },
+          {
+            "source": "7 CFR 273.18 (Cornell LII) — SNAP recipient claims (overpayments)",
+            "url": "https://www.law.cornell.edu/cfr/text/7/273.18",
+            "detail": "Overpayments are federal debts states must establish and collect even when caused by agency error — via benefit reduction (10-20%), tax-refund offsets, and Treasury Offset Program referral. So 'nothing bad happens' fails when benefits are granted in error and later recouped.",
+            "asOf": "current regulation, accessed 2026-06-11"
+          },
+          {
+            "source": "7 CFR 273.2(c)(6) (Cornell LII) — withdrawing a SNAP application",
+            "url": "https://www.law.cornell.edu/cfr/text/7/273.2",
+            "detail": "A household 'may voluntarily withdraw its application at any time prior to the determination of eligibility' and must be advised of its right to reapply at any time afterward, with no penalty. Supports the 'you can rescind your application' part of the claim.",
+            "asOf": "current regulation, accessed 2026-06-11"
+          },
+          {
+            "source": "Immigrant Legal Resource Center — public charge updates",
+            "url": "https://www.ilrc.org/pc-updates",
+            "detail": "As of its June 1, 2026 update: the 2022 public charge rule 'remains good law and current policy' — Medicaid, nutrition programs, and housing assistance do NOT count; only primary dependence on cash aid or government-funded long-term care counts. The late-2025 DHS proposal to rescind the 2022 rule 'is just a proposed rule and is not in effect.' Also notes new State Department consular public-charge restrictions (Jan 21, 2026) for visa processing abroad.",
+            "asOf": "2026-06-01"
+          },
+          {
+            "source": "Federal Register — DHS proposed rule, Public Charge Ground of Inadmissibility",
+            "url": "https://www.federalregister.gov/documents/2025/11/19/2025-20278/public-charge-ground-of-inadmissibility",
+            "detail": "DHS proposed rescinding the 2022 public charge regulations on Nov 19, 2025, arguing they are 'unduly restrictive' of enforcement — confirming the rules may tighten after this episode airs, which is why a caveat for non-citizen viewers is needed.",
+            "asOf": "2025-11-19"
+          },
+          {
+            "source": "AP News — Trump administration hands over Medicaid enrollee data to ICE",
+            "url": "https://apnews.com/article/immigration-medicaid-trump-ice-ab9c2267ce596089410387bfcb40eeb7",
+            "detail": "ICE was given access to personal data on the nation's 79 million Medicaid enrollees, including home addresses — direct evidence that applying for benefits in 2025-26 can expose household data to immigration enforcement, contradicting an unqualified 'nothing bad happens' for mixed-status families.",
+            "asOf": "2025-07"
+          },
+          {
+            "source": "Federal Register — Notice of Medicaid Information Sharing Between CMS and DHS",
+            "url": "https://www.federalregister.gov/documents/2025/11/25/2025-20911/notice-of-medicaid-information-sharing-between-the-centers-for-medicare-and-medicaid-services-and",
+            "detail": "CMS formally announced its policy of sharing Medicaid data with DHS on Nov 25, 2025 — the data-sharing arrangement is official agency policy, not just press reporting.",
+            "asOf": "2025-11-25"
+          },
+          {
+            "source": "AP News — 20+ states sue USDA over SNAP data collection",
+            "url": "https://apnews.com/article/immigration-deportation-snap-trump-usda-8da2d74038ede32b65059f96c07a50ef",
+            "detail": "USDA demanded SNAP applicant/recipient personal data (names, birthdates, addresses, SSNs) from states amid immigration-enforcement concerns; 21 states + DC sued in July 2025 and won a temporary block, but litigation is ongoing.",
+            "asOf": "2025-07-28"
+          },
+          {
+            "source": "NPR — At least 27 states shared sensitive food stamp data with USDA",
+            "url": "https://www.npr.org/2025/10/16/nx-s1-5533045/snap-privacy-usda-lawsuit",
+            "detail": "Despite the court order, NPR found at least 27 states had already transferred millions of SNAP records to USDA — SNAP application data has in fact already flowed to the federal government.",
+            "asOf": "2025-10-16"
+          },
+          {
+            "source": "KFF — Key Facts on Health Coverage of Immigrants",
+            "url": "https://www.kff.org/racial-equity-and-health-policy/fact-sheet/key-facts-on-health-coverage-of-immigrants/",
+            "detail": "Documents the real-world chilling effect: 12% of immigrant adults avoided applying for government assistance in 2025 (up from 8% in 2023), and 51% worry about information being shared with immigration enforcement — the exact audience-fear dynamic the show's caveat wording must handle carefully.",
+            "asOf": "2026-05-19"
+          }
+        ]
+      },
+      {
+        "claimId": "privacy-rules",
+        "quote": "Most government programs have strict privacy and security rules regarding sharing information.",
+        "verdict": "mostly_accurate",
+        "firstPassVerdict": "mostly_accurate",
+        "confidence": "high",
+        "summary": "The baseline is solidly true: federal law imposes confidentiality rules on the major benefit programs — SNAP (7 CFR 272.1(c)), Medicaid (42 CFR 431.300-307, requiring state statutes with legal sanctions), WIC (7 CFR 246.26), and tax data (26 U.S.C. 6103) — all restricting use/disclosure to program administration with enumerated exceptions. But as of June 2026 the flat statement is misleading for this audience: a Dec 29, 2025 court ruling lets CMS share basic Medicaid biographic/contact data with ICE, the D.C. Circuit on Feb 24, 2026 allowed the IRS-ICE taxpayer data-sharing agreement to continue (a June 8, 2026 TIGTA report flagged improper address sharing under it), and USDA demanded SNAP recipient data from states (at least 27 complied before a Feb 26, 2026 ruling barred USDA from coercing the holdout states). The claim needs a small on-air caveat tying into the show's ice-medicaid segment.",
+        "finalStatement": "Most government benefit programs are bound by strict federal confidentiality rules: SNAP applicant information may only be disclosed to enumerated parties for program purposes (7 CFR 272.1(c)), Medicaid agencies must restrict use of applicant and beneficiary data to purposes directly connected with plan administration under state laws carrying legal sanctions (42 CFR 431.300-307), WIC limits use to persons directly connected with program administration (7 CFR 246.26), and tax returns are confidential by default under 26 U.S.C. 6103. However, in 2025-2026 those baselines gained significant, actively litigated immigration-enforcement exceptions. On December 29, 2025, Judge Vince Chhabria (N.D. Cal.) ruled CMS may share basic biographic, location, and contact information about Medicaid enrollees believed not lawfully present with ICE — though sensitive health records and data on lawfully present immigrants remain protected by injunction. The IRS disclosed roughly 47,000 taxpayer addresses to ICE under a 2025 agreement; the D.C. Circuit on February 24, 2026 declined to block that agreement on its face, but separate district-court injunctions (D.D.C., Nov 21, 2025; D. Mass., Feb 5, 2026) currently restrict further IRS sharing and ICE's use of the data, and a June 8, 2026 Treasury Inspector General report flagged flawed matching and security risks in those disclosures. USDA also obtained SNAP recipient records from at least 27 states before a February 26, 2026 ruling by Judge Maxine Chesney (N.D. Cal.) barred it from cutting funding to the 21 suing states plus D.C. that refused. So the privacy baseline is real, but it now carries immigration-enforcement exceptions that courts are still fighting over.",
+        "scriptSuggestion": "\"Here's the good news: the privacy rules for these programs are written into federal law. SNAP, Medicaid, WIC — your information can generally only be used to run the program itself, and your tax records are confidential by law too. Now, I want to be straight with you: over the past year the federal government has started sharing some Medicaid and tax data with immigration enforcement, and the courts are still fighting that out — we'll get into that in a minute. For most people, applying for benefits is safe and your information stays put. But if anyone in your household has immigration concerns, talk to a legal aid organization first — for free — before you apply.\"",
+        "skepticUpheld": true,
+        "skepticNotes": "INDEPENDENTLY CONFIRMED: (1) Regulatory baseline — fetched 7 CFR 272.1(c) directly from Cornell LII; it does restrict SNAP household info use/disclosure to enumerated parties (program administration, IEVS, SAVE, audits, limited law-enforcement access incl. fleeing-felon address/SSN/photo carve-out). The 42 CFR 431.300-307 (Medicaid Subpart F), 7 CFR 246.26 (WIC), and 26 U.S.C. 6103 cites match the well-established regulatory structure. (2) Dec 29, 2025 Medicaid-ICE ruling — confirmed via DuckDuckGo cross-search hitting Politico, USA Today (12/30/25), CBS, NBC, AP, Courthouse News, and Federal News Network (Jan 2026): Judge Vince Chhabria (N.D. Cal.) partially lifted the Aug 2025 injunction, allowing CMS to share basic biographic/location/contact data of enrollees not lawfully present, usable in deportation cases starting Jan 6, 2026; sensitive health records and data on lawfully present immigrants remain protected (KFF brief, Jan 14, 2026, confirms data elements: immigration status, address, phone, DOB, Medicaid ID). (3) Feb 24, 2026 D.C. Circuit decision — confirmed by reading the full CRS Legal Sidebar LSB11413 PDF (Mar 26, 2026): affirmed denial of preliminary injunction in Centro de Trabajadores Unidos v. Bessent, holding 6103(i)(2) likely permits address disclosure. (4) June 8, 2026 TIGTA report — confirmed via US News (6/8/26), Forbes (6/9/26), Politico (6/8/26), Bloomberg Tax: IRS shared ~47,000 addresses (47,289 records) of 1.28M ICE requested, with flawed matching/security risks. (5) NPR (Oct 16, 2025) confirms \"at least 27 states\" shared SNAP data with USDA; Feb 26, 2026 preliminary injunction confirmed (Reuters/US News/JURIST). REFUTED/ADJUSTED: (a) Verifier's evidence said the Feb 26, 2026 SNAP ruling came from \"a federal judge in Boston\" — wrong venue. It was Judge Maxine Chesney, N.D. Cal. (San Francisco), covering 21 states + D.C. (some outlets round to \"22 Democratic-led states\"). (b) The corrected statement understated current IRS-ICE restrictions: per CRS LSB11413, despite the D.C. Circuit's facial ruling, the IRS remains preliminarily enjoined (Center for Taxpayer Rights, D.D.C., Nov 21, 2025) from further sharing except in strict 6103(i)(2) compliance, and ICE/DHS were enjoined Feb 5, 2026 (D. Mass.) from using already-shared return information — so saying only that the D.C. Circuit \"declined to block\" the agreement could mislead viewers into thinking tax-data sharing flows freely as of June 2026; it is largely paused by injunctions on appeal. Also note the ~47,000 addresses were disclosed via an IRS admission (Feb 11, 2026 declaration) that the D.D.C. court called confirmation of a 6103(i)(2) violation; TIGTA's June report corroborated. (c) Minor framing fix: the Dec 29 Medicaid ruling applies to enrollees not lawfully present and leaves health records protected — added for accuracy. Verdict mostly_accurate stands; the original script line is true as a baseline but needs the 2025-26 immigration-enforcement caveat, exactly as the first pass concluded. Key sources: law.cornell.edu/cfr/text/7/272.1; congress.gov/crs_external_products/LSB/PDF/LSB11413/LSB11413.1.pdf; kff.org/immigrant-health/potential-implications-of-the-new-medicaid-data-sharing-agreement-between-cms-and-ice/; usatoday.com (12/30/25); usnews.com (6/8/26); forbes.com (6/9/26); npr.org/2025/10/16/nx-s1-5533045; jurist.org (Feb 2026).",
+        "evidence": [
+          {
+            "source": "7 CFR 272.1(c) — SNAP disclosure restrictions (Cornell LII)",
+            "url": "https://www.law.cornell.edu/cfr/text/7/272.1",
+            "detail": "SNAP household information use/disclosure 'shall be restricted to' enumerated parties (program administration, IEVS verification, audits); law-enforcement access requires written request and is limited (e.g., address/SSN/photo only for fleeing felons).",
+            "asOf": "current CFR, June 2026"
+          },
+          {
+            "source": "42 CFR 431.301 (Subpart F) — Medicaid safeguarding rules (Cornell LII)",
+            "url": "https://www.law.cornell.edu/cfr/text/42/431.301",
+            "detail": "State Medicaid plans must provide safeguards, under a state statute imposing legal sanctions, restricting use or disclosure of applicant/beneficiary information to purposes directly connected with administration of the plan (42 CFR 431.300-307).",
+            "asOf": "current CFR, June 2026"
+          },
+          {
+            "source": "7 CFR 246.26 — WIC confidentiality (Cornell LII)",
+            "url": "https://www.law.cornell.edu/cfr/text/7/246.26",
+            "detail": "WIC applicant/participant information is confidential; use and disclosure limited to persons directly connected with WIC administration or enforcement with a need to know; other disclosure generally requires a signed, voluntary release.",
+            "asOf": "current CFR, June 2026"
+          },
+          {
+            "source": "26 U.S.C. 6103 — Confidentiality of tax returns (Cornell LII)",
+            "url": "https://www.law.cornell.edu/uscode/text/26/6103",
+            "detail": "Returns and return information 'shall be confidential' by default; disclosure only through enumerated statutory exceptions, including the 6103(i) law-enforcement provisions the 2025 IRS-ICE agreement invokes.",
+            "asOf": "current statute, June 2026"
+          },
+          {
+            "source": "Politico — Trump admin can share immigrants' Medicaid data with ICE, judge rules",
+            "url": "https://www.politico.com/news/2025/12/29/trump-admin-can-share-immigrants-medicaid-data-ice-judge-rules-00707716",
+            "detail": "On Dec 29, 2025, Judge Vince Chhabria (N.D. Cal., Case 3:25-cv-05536-VC) ruled the administration may resume sharing basic biographical, location, and contact data of Medicaid enrollees with ICE, partially lifting the Aug 12, 2025 preliminary injunction won by ~20 states.",
+            "asOf": "2025-12-29"
+          },
+          {
+            "source": "KFF — Potential Implications of the New Medicaid Data Sharing Agreement Between CMS and ICE",
+            "url": "https://www.kff.org/immigrant-health/potential-implications-of-the-new-medicaid-data-sharing-agreement-between-cms-and-ice/",
+            "detail": "Documents the CMS-ICE Medicaid data-sharing arrangement and CMS's Nov 25, 2025 notice describing plans to share state-submitted Medicaid data with DHS/ICE once the injunction lifted — the key erosion of the Medicaid confidentiality baseline.",
+            "asOf": "late 2025"
+          },
+          {
+            "source": "CRS Legal Sidebar LSB11413 — Updates on Litigation over the IRS-ICE Information-Sharing Agreement",
+            "url": "https://www.congress.gov/crs_external_products/LSB/PDF/LSB11413/LSB11413.1.pdf",
+            "detail": "On Feb 24, 2026, the D.C. Circuit affirmed denial of a preliminary injunction against the IRS-ICE taxpayer data-sharing agreement, allowing sharing to continue in that case (a separate D. Mass. judge blocked it for plaintiff groups on Feb 5, 2026).",
+            "asOf": "2026-03-26"
+          },
+          {
+            "source": "AP News — Watchdog report flags security risks in the IRS-ICE data-sharing deal",
+            "url": "https://apnews.com/article/treasury-irs-ice-data-immigration-enforcement-7164b43edee2c5220f4ab346c228f538",
+            "detail": "TIGTA report (covered June 8, 2026) found the 2025 IRS-ICE agreement let ICE submit names/addresses for cross-checking against tax records, with inaccurate matching and improper address sharing — evidence the 6103 baseline is being stretched in practice.",
+            "asOf": "2026-06-08"
+          },
+          {
+            "source": "Reuters — Trump administration cannot force states to supply food stamp data, US judge rules",
+            "url": "https://www.reuters.com/legal/government/trump-administration-cannot-force-states-supply-food-stamp-data-us-judge-rules-2026-02-26/",
+            "detail": "On Feb 26, 2026, a federal judge in Boston ruled USDA cannot condition SNAP administrative funding on states turning over recipient data (22 Democratic-led states); NPR reported at least 27 states had already shared millions of SNAP records with USDA before the litigation.",
+            "asOf": "2026-02-26"
+          }
+        ]
+      },
+      {
+        "claimId": "closing-resources",
+        "quote": "Closing resources given to viewers: dial 211, Findhelp.org, TechEmpower.org, and the TechEmpower Discord.",
+        "verdict": "accurate",
+        "firstPassVerdict": "accurate",
+        "confidence": "high",
+        "summary": "All four closing resources check out as of June 11, 2026. Dialing 2-1-1 works in Nevada County and is answered locally by \"211 Connecting Point\" (operated by Connecting Point, serving Nevada County, Placer County, and Tahoe-Truckee, 24/7, free, confidential, with Spanish support and toll-free 1-833-DIAL211). Findhelp.org is the correct current name and URL — the company rebranded from Aunt Bertha in November 2021 and is clearly active in 2026 (copyright 2026, Feb 2026 blog post, $250M raise reported March 2026). techempower.org returns HTTP 200, and the TechEmpower Discord invite (discord.gg/7wDhAG3vYS, linked from the homepage) resolves to the \"techempower.org\" server with no expiration.",
+        "finalStatement": "Closing resources: dial 2-1-1 — in Nevada County the call is answered by 211 Connecting Point (free, confidential, 24/7, English and Spanish; toll-free 1-833-DIAL211); findhelp.org — the free national resource search formerly known as Aunt Bertha, still operating in 2026; techempower.org — live and resolving; and the TechEmpower Discord — active, non-expiring invite, joinable from the \"Join our Discord\" card (link reads \"Open Discord\") on the techempower.org homepage.",
+        "scriptSuggestion": "\"Before we go, write these down. First: dial 2-1-1 from any phone — here in Nevada County that's 211 Connecting Point. It's free, it's confidential, it's answered twenty-four-seven, in English and Spanish, and a real person will help you find food, housing, health care, you name it. Second: go to findhelp.org, type in your ZIP code, and it shows you free and reduced-cost programs near you. And third: visit us at techempower.org — and while you're there, click 'Join our Discord' if you want to ask questions and get one-on-one help from our community.\"",
+        "skepticUpheld": true,
+        "skepticNotes": "Independently confirmed all four resources (did not rely on verifier's evidence alone). (1) 211 Nevada County: fetched https://211connectingpoint.org/ myself — footer \"OPEN 24/7 • FREE • CONFIDENTIAL\", © 2026, toll-free 1-833-DIAL211, TTY 1-844-521-6697, Spanish phone support (\"Para obtener ayuda en español, llame al 2-1-1\"); coverage Nevada County, Placer County, Tahoe/Truckee. Fresh independent search (DuckDuckGo, since the WebSearch tool errored repeatedly in this environment) corroborated via nevadacountyca.gov/3517/211-Community-Resources (county HHSA partners with 211 Connecting Point; also the Coordinated Entry access point) and connectingpoint.org/about (adopted Nevada County's 211 program in 2011). (2) Findhelp: opened the verifier's key source https://company.findhelp.com/blog/2021/11/21/aunt-bertha-is-now-findhelp/ — exists, published Nov 21, 2021, confirms Aunt Bertha→Findhelp rebrand and findhelp.org as the free public search site; company.findhelp.com shows © 2026 and a Feb 4, 2026 blog post (Best in KLAS). The 2026 raise is real and multiply corroborated: TPG's Rise Funds invested ~$250M (TPG press page, Business Wire 2026-03-02, Austin Business Journal 2026-03-03, PE Hub, Yahoo Finance) — the verifier's bizjournals citation checks out. (3) techempower.org: my own curl returned HTTP 200. (4) Discord: my own Discord API call for invite 7wDhAG3vYS resolved to guild \"techempower.org\" (id 1056976642033057812), expires_at: null, 23 members / 3 online; invite is hard-coded in /home/jp/Projects/techempower/components/homepage/SupportChannels.tsx:27. One refinement (not a refutation): the homepage element is a card headed \"Join our Discord\" whose clickable link text is \"Open Discord\" — adjusted finalStatement so on-air phrasing matches the actual UI. No stale-policy, number, name, or date errors found; verdict and scriptSuggestion stand.",
+        "evidence": [
+          {
+            "source": "Connecting Point (connectingpoint.org)",
+            "url": "https://connectingpoint.org/",
+            "detail": "Connecting Point is 'a public agency connecting people to supportive programs, information, and services in Nevada County, Placer County, and beyond' and operates the '211 Connecting Point' 24/7 call center reachable at '2-1-1 or 1-833-DIAL211'.",
+            "asOf": "2026-06-11"
+          },
+          {
+            "source": "211 Connecting Point",
+            "url": "https://211connectingpoint.org/",
+            "detail": "Official 211 site branded '211 Connecting Point', footer 'OPEN 24/7 • FREE • CONFIDENTIAL', coverage areas listed as Nevada County, Tahoe/Truckee, and Placer County; TTY 1-844-521-6697, web chat 7am-6:30pm PT weekdays, Spanish line ('Para obtener ayuda en español, llame al 2-1-1'); copyright © 2026 confirms currency.",
+            "asOf": "2026-06-11"
+          },
+          {
+            "source": "Findhelp company site",
+            "url": "https://company.findhelp.com/",
+            "detail": "Findhelp, a Public Benefit Corporation, is actively operating: copyright © 2026, blog post dated Feb 4, 2026 (Best in KLAS for SDoH networks), and the page directs the public 'In need of support? Search Findhelp.org.' Network spans 970k+ program locations in all 50 states.",
+            "asOf": "2026-06-11"
+          },
+          {
+            "source": "Findhelp rebrand announcement",
+            "url": "https://company.findhelp.com/blog/2021/11/21/aunt-bertha-is-now-findhelp/",
+            "detail": "Official Nov 21, 2021 announcement: 'Aunt Bertha is now Findhelp,' and findhelp.org is described as 'a free, public destination to find resources' where the company consolidated its public sites — confirming findhelp.org is the correct current public URL.",
+            "asOf": "2021-11-21"
+          },
+          {
+            "source": "Austin Business Journal",
+            "url": "https://www.bizjournals.com/austin/news/2026/03/03/findhelp-raises-250m-bono-richard-branson.html",
+            "detail": "March 3, 2026 report that Findhelp raised $250M from TPG for its social care platform — independent confirmation the company is operating and growing in 2026.",
+            "asOf": "2026-03-03"
+          },
+          {
+            "source": "Direct HTTP checks of techempower.org and Discord invite API (verified via curl on 2026-06-11)",
+            "url": "https://discord.com/api/v10/invites/7wDhAG3vYS",
+            "detail": "techempower.org returned HTTP 200. The Discord invite code 7wDhAG3vYS — linked from the site's homepage 'Join our Discord' button (components/homepage/SupportChannels.tsx in the site repo) — resolves via the Discord API to guild 'techempower.org' with expires_at: null (non-expiring invite). Note: findhelp.org's homepage returns 403 to automated clients due to Cloudflare bot protection, but the site is live for normal browsers per the company site's active link to it.",
+            "asOf": "2026-06-11"
+          }
+        ]
+      }
+    ]
+  }
+}
