@@ -160,7 +160,8 @@ reach your road. But here's what's real. If you're in Grass
 Valley or Nevada City proper, the cable company's program is
 called Xfinity Internet Essentials: fourteen ninety-five a
 month, seventy-five megabits -- that's plenty for streaming
-and video calls -- free equipment, no contract. Same easy
+and video calls -- free equipment, no contract. One
+catch: it's for households new to Xfinity. Same easy
 eligibility: CalFresh, Medi-Cal, school lunch, W-I-C, and
 more.
 
@@ -174,8 +175,9 @@ one. There is a tiny LOCAL internet company east of Nevada
 City called NevCoFiber, and they have a fifteen-dollar-a-
 month plan for qualifying households. And that's not slow
 internet -- that's FIBER. No data caps. And their network
-has battery backup, so it stays up when P-G-and-E shuts the
-power off.
+has backup power, so it stays up when P-G-and-E shuts the
+power off -- though you'll still need a little power at your
+house to run your own router.
 
 SHAWNA:
 Fifteen dollars... for fiber... that survives a power
@@ -194,16 +196,17 @@ SHAWNA:
 And if none of them reach you today?
 
 JEFF:
-Two real reasons for hope. First: Nevada County has about
-seventy-five million dollars earmarked through a state
-broadband program to wire homes that have no good internet
--- one of the biggest rural pots in California -- and crews
-are already building. Second: last year the state approved
-extending that LifeLine discount to home internet -- up to
-twenty or thirty dollars a month off -- and it's rolling out
-through this year, with more internet companies signing on.
-So if the answer is "no" today, check again in a few months.
-It's changing fast.
+Two real reasons for hope. First: Nevada County landed one
+of the biggest rural broadband allocations in California --
+almost seventy-five million dollars set aside by the state
+-- and so far nearly fifteen million of it has turned into
+two local fiber projects, with crews already building.
+Second: since this January, that LifeLine discount we talked
+about also works on home internet -- up to twenty or thirty
+dollars a month off -- through participating providers like
+Xfinity and Spectrum, with more signing on. So if the answer
+is "no" today, check again in a few months. It's changing
+fast.
 
 SHAWNA:
 And meanwhile?
@@ -314,14 +317,17 @@ HOTLINE where patient trainers answer any tech question --
 the number will be on your screen. If your ears, eyes, or
 hands make a regular phone hard to use: California Connect
 ships you a free adapted phone -- amplified, big-button,
-captioned -- no income test at all. And right here at home:
-TechEmpower runs free tech-help classes at Nevada County
-Media in Grass Valley, plus a free online help community --
-that's literally why we exist. Bring the hundred-fifty-
-dollar computer to class and we'll set it up together.
+captioned -- no income test at all; you just need a doctor
+or other licensed professional to sign off that you need
+it. And right here at home:
+that's us -- TechEmpower. Free help from real neighbors,
+online, whenever you're stuck: go to techempower dot org and
+click "Join our Discord." Get that hundred-fifty-dollar
+computer home and we'll walk you through setting it up, step
+by step. That's literally why we exist.
 
 [POST: PROGRAM CARD -- Senior Planet hotline / California
-Connect (caconnect.org) / TechEmpower classes + Discord]
+Connect (caconnect.org) / TechEmpower Discord]
 
 
 ================================================================

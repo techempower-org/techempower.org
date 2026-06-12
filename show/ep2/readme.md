@@ -12,6 +12,7 @@ production artifacts, same system as `show/ep1/`.
 | `ep2-teleprompter.txt` | **Studio master — copy to the portable drive for NCM.** Plain ASCII, CRLF line endings, ALL-CAPS speaker tags, `[bracket]` cues. Built from 8-agent program research + adversarial fact-check (June 11, 2026). Re-verify carrier plan details and library hours the week of taping. |
 | `teleprompter.html` | **Practice/rehearsal only.** Same app as Ep1; sync with `node scripts/sync-prompter.mjs ep2` after editing the txt. Sigil badge bottom-left changes when the script changes. |
 | `host-cards.html` | Printable backup note cards (Ctrl+P): Shawna S1–S6, Jeff J1–J3. |
+| `fact-check-full-report.json` | Full 11-claim adversarial verification: verdicts, primary-source URLs, ad-lib guardrails, week-of re-check flags. All fixes are applied in the txt. |
 
 Post-edit assets (jingle/logo/outro + on-screen program cards with
 phone numbers and URLs) are due with the edit, not the shoot — the
