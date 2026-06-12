@@ -5,20 +5,22 @@
 // script changes — refresh the prompter and compare the sigil to know
 // whether you're looking at the current version or a stale cache.
 //
-// Usage: node scripts/sync-prompter.mjs
+// Usage: node scripts/sync-prompter.mjs [episode]   (default: ep1)
+//   e.g. node scripts/sync-prompter.mjs ep2
 
 import { readFileSync, writeFileSync } from 'node:fs'
 import { createHash } from 'node:crypto'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const dir = join(dirname(fileURLToPath(import.meta.url)), '..', 'show', 'ep1')
+const ep = process.argv[2] || 'ep1'
+const dir = join(dirname(fileURLToPath(import.meta.url)), '..', 'show', ep)
 
 // body = everything after the prompter-notes header (delimited by '=' rules).
 // The txt is the studio-delivery master and ships with CRLF line endings for
 // Windows prompter software — normalize here so the embedded copy and the
 // content-hash sigil are independent of line-ending style.
-const txt = readFileSync(join(dir, 'ep1-teleprompter.txt'), 'utf8').replaceAll(
+const txt = readFileSync(join(dir, `${ep}-teleprompter.txt`), 'utf8').replaceAll(
   '\r\n',
   '\n'
 )

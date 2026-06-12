@@ -1,0 +1,363 @@
+================================================================
+WAIT, I QUALIFY?!  --  EPISODE 2
+"Getting Connected" (internet + phones)
+Record: Monday, July 6, 2026 -- Nevada County Media
+Hosts: SHAWNA (interviewer) + JEFF (expert)
+Target runtime: 20-30 minutes (no guest; short is fine)
+----------------------------------------------------------------
+PROMPTER NOTES (do not read):
+- Lines in [BRACKETS] are cues, not dialogue.
+- Jingle, logo, and on-screen program cards are added in
+  post-edit. [POST: ...] cues are notes for the editor --
+  in studio, hold a beat and keep going.
+- Long phone numbers and web addresses go on screen as
+  program cards -- hosts say "the number is on your screen"
+  instead of reading digit strings aloud.
+- Dollar figures and stats are written out as spoken.
+- Plain-language rule: every program gets a short
+  explanation the first time it's named. No bare acronyms.
+- Numbers fact-checked against primary sources June 11,
+  2026. Sources live on the Notion script page. Re-verify
+  carrier plan details + library hours the week of taping
+  (library hours changed July 1).
+================================================================
+
+
+[POST: JINGLE + LOGO INTRO -- in studio, hold one beat, then go]
+
+SHAWNA:
+Welcome back to "Wait, I Qualify?!" -- the show about
+unlocking aid for real people, right here in Nevada County.
+I'm Shawna.
+
+JEFF:
+And I'm Jeff. We're from TechEmpower dot org -- a local
+nonprofit that helps folks find the help and incentives
+they're entitled to, from the state, the federal government,
+and local organizations.
+
+SHAWNA:
+Today we're talking about getting connected -- internet and
+phone service. And here's the catch nobody talks about: all
+the help has moved online. Job applications. Doctor visits.
+School. Even applying for the benefits we covered last
+episode.
+
+JEFF:
+Right -- you practically need the internet to get help
+affording the internet. So today we cut through that. A
+phone plan for zero dollars a month. Home internet for about
+fifteen. A library card that checks out the internet itself.
+And a real computer, with a warranty, for about a hundred
+and fifty bucks. All real, all available right here, right
+now.
+
+
+================================================================
+THE MYTH: "THE FREE INTERNET PROGRAM IS GONE, SO THERE'S NOTHING"
+================================================================
+
+SHAWNA:
+Before we get to those -- Jeff, I have to ask, because half
+our viewers are thinking it. There WAS a big internet
+discount from the government. Thirty dollars a month. My
+neighbor had it. And then it just... vanished?
+
+JEFF:
+Your neighbor remembers right. It was called the Affordable
+Connectivity Program -- the big pandemic-era internet
+discount. At its peak it was helping over twenty-three
+million households. And in June of twenty twenty-four,
+Congress let the money run out. It ended. And as of today,
+nothing federal has replaced it.
+
+SHAWNA:
+So if something online promises "free government internet"
+through that program today...
+
+JEFF:
+Walk away -- that's a scam. The program is gone. But here's
+the part nobody told those twenty-three million people: the
+help that SURVIVED is better than most folks realize. And
+that's the rest of today's show.
+
+
+================================================================
+BENEFIT ONE: THE ZERO-DOLLAR PHONE PLAN
+================================================================
+
+SHAWNA:
+Okay -- start with the phone.
+
+JEFF:
+The phone is the best connection deal in California, full
+stop. Two programs stack on top of each other. The federal
+one is called Lifeline -- about nine dollars a month off
+your phone or internet bill. Then California adds its own,
+called California LifeLine -- up to nineteen dollars more.
+Stack them, and that's almost thirty dollars a month in
+help. Which is why companies like Assurance Wireless and
+TruConnect can hand you a smartphone -- the phone itself
+included -- with unlimited talk, unlimited text, and a pile
+of data, for ZERO dollars a month.
+
+SHAWNA:
+Free free? Or "free, asterisk, gotcha on page nine" free?
+
+JEFF:
+Free free. No bill, no contract, no credit check. And the
+income lines are higher than people guess -- this is "Wait,
+I Qualify?!", after all. A single person can make up to
+about twenty-four thousand six hundred a year. A family of
+four, up to fifty thousand eight hundred. And if anyone in
+your house is already on CalFresh -- that's the grocery
+money program -- or Medi-Cal, the health coverage, or W-I-C,
+or your kid gets a free school lunch... you qualify
+automatically. No income math needed.
+
+SHAWNA:
+So basically -- if you applied for anything from episode
+one, this one's yours too.
+
+JEFF:
+Exactly. One stop: californialifeline dot com -- there's a
+provider search, type in your zip code, pick a company, and
+they walk you through it. One heads-up: as of this February,
+the state program and the federal program each want their
+own application -- it's two forms now, not one. Annoying,
+but the phone company helps you do both.
+
+[POST: PROGRAM CARD -- California LifeLine: californialifeline.com,
+free plans via Assurance Wireless / TruConnect]
+
+SHAWNA:
+Fine print we should be straight about?
+
+JEFF:
+Three things. It's one benefit per household -- one, total,
+phone or internet, not both. You have to actually use the
+free plan at least once a month, or they shut it off. And
+once a year they re-check that you still qualify -- don't
+ignore that letter. Oh -- and ask which network the free
+phone rides on. Most of them use T-Mobile, which is solid
+here in town and spotty in the canyons. If you're keeping a
+landline instead, these discounts work on a home phone too.
+
+
+================================================================
+BENEFIT TWO: HOME INTERNET FOR ABOUT FIFTEEN DOLLARS
+================================================================
+
+SHAWNA:
+Okay, phones -- handled. What about internet at the house?
+And give us the honest version, because half this county
+lives past the end of the cable line.
+
+JEFF:
+The honest version: in this county, step one is always
+"check your address." No program matters if the wire doesn't
+reach your road. But here's what's real. If you're in Grass
+Valley or Nevada City proper, the cable company's program is
+called Xfinity Internet Essentials: fourteen ninety-five a
+month, seventy-five megabits -- that's plenty for streaming
+and video calls -- free equipment, no contract. Same easy
+eligibility: CalFresh, Medi-Cal, school lunch, W-I-C, and
+more.
+
+SHAWNA:
+And Truckee?
+
+JEFF:
+Different cable company over the hill -- Optimum -- so
+Truckee folks, check that one instead. Now -- my favorite
+one. There is a tiny LOCAL internet company east of Nevada
+City called NevCoFiber, and they have a fifteen-dollar-a-
+month plan for qualifying households. And that's not slow
+internet -- that's FIBER. No data caps. And their network
+has battery backup, so it stays up when P-G-and-E shuts the
+power off.
+
+SHAWNA:
+Fifteen dollars... for fiber... that survives a power
+shutoff. Where's the catch?
+
+JEFF:
+The catch is reach -- they're over a hundred homes around
+Banner Mountain and Red Dog Road so far, with a couple
+hundred more being built right now. If you're anywhere east
+of Nevada City, check nevcofiber dot com.
+
+[POST: PROGRAM CARD -- Xfinity Internet Essentials $14.95 /
+NevCoFiber Community Assist $15 -- "check your address"]
+
+SHAWNA:
+And if none of them reach you today?
+
+JEFF:
+Two real reasons for hope. First: Nevada County has about
+seventy-five million dollars earmarked through a state
+broadband program to wire homes that have no good internet
+-- one of the biggest rural pots in California -- and crews
+are already building. Second: last year the state approved
+extending that LifeLine discount to home internet -- up to
+twenty or thirty dollars a month off -- and it's rolling out
+through this year, with more internet companies signing on.
+So if the answer is "no" today, check again in a few months.
+It's changing fast.
+
+SHAWNA:
+And meanwhile?
+
+JEFF:
+Meanwhile... there's a place in this county handing out free
+internet, today, no monthly bill at all. The library.
+
+
+================================================================
+BENEFIT THREE: THE LIBRARY CHECKS OUT THE INTERNET
+================================================================
+
+SHAWNA:
+Okay, you've been sitting on this one all week -- go.
+
+JEFF:
+Your Nevada County library card can check out THE INTERNET.
+It's a little box called a hotspot -- you borrow it like a
+book. Free. Fourteen days. UNLIMITED data. It makes WiFi for
+up to ten devices -- your phone, the kids' homework laptop,
+all of it. And here's the genius part for our county: the
+library stocks them on Verizon, T-Mobile, AND A-T-and-T --
+so you pick the one that actually reaches your road.
+
+SHAWNA:
+Hold on. The library will hand me unlimited internet, for
+free, for two weeks. With a straight face.
+
+JEFF:
+With a smile, actually. Any adult or teen cardholder in good
+standing -- and teens, bring a parent or guardian, because
+they sign the form with you. It's a quick form at the desk.
+If they're checked out, put a hold on one in the catalog,
+same as a bestseller. Two honest notes: fourteen days means
+fourteen days -- the box shuts itself off if you keep it
+late. And the card shows a two-hundred-dollar charge if you
+lose it -- bring it back, charge disappears.
+
+SHAWNA:
+And the library card itself costs...
+
+JEFF:
+Nothing. And the branches keep giving: every branch has free
+WiFi that works from the PARKING LOT, twenty-four hours a
+day -- the Grass Valley lot is a free internet cafe at
+midnight, no card needed. Free computers inside. Chromebooks
+you can use in the building. Penn Valley and Bear River even
+have after-hours access for adults -- sign up once, do a
+quick orientation, and after that your card unlocks the door
+when staff have gone home. And -- this one matters -- free
+one-on-one tech help. A real person will sit down with you
+and your phone or laptop -- by appointment at the Madelyn
+Helling and Truckee branches, plus drop-in help. No
+judgment, no charge.
+
+[POST: PROGRAM CARD -- Nevada County Library: free hotspot
+lending, 24/7 WiFi, free tech help -- 530-265-7050]
+
+SHAWNA:
+One caution from our homework: branch hours just changed at
+the start of July -- so check the hours before you drive
+over. The WiFi in the parking lot, though -- always on.
+
+
+================================================================
+BENEFIT FOUR: A REAL COMPUTER + FREE HUMANS TO HELP
+================================================================
+
+SHAWNA:
+That leaves the computer itself. Because a new laptop is
+five hundred dollars before tax, and that's just not
+happening for a lot of households.
+
+JEFF:
+So don't buy new. There's a nonprofit up in Chico called
+Computers for Classrooms that refurbishes business computers
+for California families. About a hundred and fifty dollars
+gets you a desktop -- WITH the monitor and keyboard --
+Windows and Office installed, and a ONE-YEAR warranty. They
+ship it right to your door. Laptops too, around the same
+price. If money's tight, that is the best computer deal in
+the state.
+
+SHAWNA:
+A warranty. On a hundred-fifty-dollar computer.
+
+JEFF:
+A real warranty -- they're a nonprofit, the mission IS the
+warranty. Another one, called human-I-T, sells refurbished
+Chromebooks for around ninety to a hundred thirty dollars --
+and if you've got cell signal at home, they offer unlimited
+hotspot internet for about fifteen dollars a month -- you
+just buy the little hotspot box first, about seventy-five
+dollars, one time.
+
+[POST: PROGRAM CARD -- Computers for Classrooms (ships in CA) /
+human-I-T -- numbers on screen]
+
+SHAWNA:
+Okay -- and for the folks who get all this gear home, set it
+on the kitchen table, and feel completely lost?
+
+JEFF:
+Free humans. Three flavors. If you're sixty or older: Senior
+Planet, from A-A-R-P -- free classes over video, and a free
+HOTLINE where patient trainers answer any tech question --
+the number will be on your screen. If your ears, eyes, or
+hands make a regular phone hard to use: California Connect
+ships you a free adapted phone -- amplified, big-button,
+captioned -- no income test at all. And right here at home:
+TechEmpower runs free tech-help classes at Nevada County
+Media in Grass Valley, plus a free online help community --
+that's literally why we exist. Bring the hundred-fifty-
+dollar computer to class and we'll set it up together.
+
+[POST: PROGRAM CARD -- Senior Planet hotline / California
+Connect (caconnect.org) / TechEmpower classes + Discord]
+
+
+================================================================
+CLOSE
+================================================================
+
+SHAWNA:
+Let's land the plane. Today we found: a smartphone plan for
+zero dollars a month. Home internet for about fifteen. A
+library card that lends you unlimited internet -- and a
+parking lot that's online at midnight. A warrantied computer
+for about a hundred and fifty. And free, patient humans to
+help you use all of it.
+
+JEFF:
+And if you have no internet at all tonight, every door into
+help still opens by phone. Dial two-one-one -- here that's
+two-one-one Connecting Point -- free, confidential, around
+the clock, English and Spanish. If you're struggling
+emotionally, call or text nine-eight-eight, any phone, no
+internet needed. Online, it's findhelp dot org -- and us, at
+techempower dot org, where the Discord button gets you
+one-on-one help from real neighbors.
+
+SHAWNA:
+Next time on "Wait, I Qualify?!" -- food. The grocery help
+you've already earned, the rules that just changed, and why
+so much of it goes unclaimed.
+
+JEFF:
+Until then -- go find out what you qualify for. You might be
+surprised.
+
+[POST: OUTRO -- JINGLE + LOGO + END CARD: TECHEMPOWER.ORG /
+211 / FINDHELP.ORG. In studio: hold on smiles for a beat]
+
+================================================================
+END OF SCRIPT
+================================================================
