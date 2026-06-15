@@ -33,10 +33,19 @@
   li .cue { color:var(--dim); font-style:italic; font-size:0.85em; }
   li b { color:var(--accent); }
   @media print {
-    :root { --bg:#fff; --ink:#000; --dim:#666; --shawna:#b3432a; --jeff:#1f6b5d; --line:#999; --accent:#8a5a00; }
+    /* B&W laser: high-contrast black ink; tell hosts apart by border STYLE,
+       not hue (coral vs teal both render as similar grays). */
+    :root { --bg:#fff; --ink:#000; --dim:#333; --shawna:#000; --jeff:#000; --line:#000; --accent:#000; }
+    @page { size: letter portrait; margin: 0.4in; }
+    * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
     body { padding:0; }
     header { display:none; }
-    .card { page-break-inside:avoid; margin:0 auto 0.2in; }
+    .card { page-break-inside:avoid; margin:0 auto 0.2in; border-width:2.5px; }
+    .card.shawna { border-style:solid; }    /* Shawna = SOLID border */
+    .card.jeff   { border-style:dashed; }   /* Jeff   = DASHED border */
+    .tag { color:#000; }
+    li .cue { color:#333; }
+    li b { color:#000; text-decoration:underline; }  /* keep stat emphasis in B&W */
   }
 </style>
 </head>
