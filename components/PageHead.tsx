@@ -30,7 +30,12 @@ export function PageHead({
 
   description = description ?? site?.description
 
-  const socialImageUrl = getSocialImageUrl(pageId) || image
+  // Pass the page title (not the "<title> | <site>" composite) so the dynamic
+  // OG card shows the page title with the site name as the wordmark.
+  const socialImageTitle =
+    rawTitle && rawTitle !== site?.name ? rawTitle : undefined
+  const socialImageUrl = getSocialImageUrl(pageId, socialImageTitle) || image
+  const isDynamicSocialImage = socialImageUrl?.includes('/api/social-image')
 
   return (
     <Head>
@@ -84,6 +89,17 @@ export function PageHead({
           <meta name='twitter:card' content='summary_large_image' />
           <meta name='twitter:image' content={socialImageUrl} />
           <meta property='og:image' content={socialImageUrl} />
+          {isDynamicSocialImage && (
+            <>
+              <meta property='og:image:type' content='image/png' />
+              <meta property='og:image:width' content='1200' />
+              <meta property='og:image:height' content='630' />
+              <meta
+                property='og:image:alt'
+                content={rawTitle ?? site?.name ?? 'TechEMPOWER.org'}
+              />
+            </>
+          )}
         </>
       ) : (
         <meta name='twitter:card' content='summary' />
