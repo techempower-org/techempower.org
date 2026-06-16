@@ -70,7 +70,7 @@
     "@types/react-dom": "^19.2.3",
     "@types/rss": "^0.0.32",
     "eslint": "^9.39.2",
-    "npm-run-all2": "^8.0.4",
+    "npm-run-all2": "^9.0.2",
     "patch-package": "^8.0.1",
     "prettier": "^3.8.4",
     "typescript": "^5.9.3",
