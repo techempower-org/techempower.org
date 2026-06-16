@@ -84,7 +84,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
       : publishedTime
         ? new Date(publishedTime)
         : new Date()
-    const socialImageUrl = getSocialImageUrl(pageId)
+    const socialImageUrl = getSocialImageUrl(pageId, title)
 
     feed.item({
       title,
