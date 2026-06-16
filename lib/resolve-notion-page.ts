@@ -104,9 +104,11 @@ export async function resolveNotionPage(
       await writeCachedPageId(cacheKey, pageId)
     } else {
       // Negative-cache the miss so the next identical request short-circuits
-      // getSiteMap()/Notion instead of re-crawling. getSiteMap() failures
-      // throw (handled by the caller — cache untouched); the short negative
-      // TTL bounds the rare case where the collection fetch failed transiently.
+      // getSiteMap()/Notion instead of re-crawling. Both getSiteMap() AND
+      // resolveCollectionSlug() THROW on a transient upstream failure (handled
+      // by the caller — cache untouched), so reaching here means a genuine
+      // not-found: the slug isn't a page id, isn't in the sitemap, and isn't a
+      // resolvable collection slug. Safe to cache as a real 404.
       await writeCachedNotFound(cacheKey)
       return {
         error: {
@@ -161,25 +163,41 @@ async function resolveCollectionSlug(
   // 3. Slow path — only reached for brand-new Notion entries not yet in
   //    the lockfile. Run `scripts/build-slug-lockfile.mjs` against a
   //    fresh /resources fetch to refresh it.
+  //
+  // The fetch and the scan are split deliberately. The fetch is the ONLY
+  // operation here that can fail transiently (network / 5xx / 429 — and
+  // notion-client has already exhausted its internal `got` retries by the
+  // time it throws). A throw means we DON'T KNOW whether the slug exists, so
+  // it must NOT be reported as a not-found. We rethrow: the caller
+  // (resolveNotionPage) leaves the negative cache untouched on a throw — the
+  // same contract getSiteMap() relies on — so a brand-new slug that merely hit
+  // a Notion blip is never poisoned into a 404 for the whole NEGATIVE_TTL_S
+  // window (the #36 follow-up bug this fixes).
+  let collectionRecordMap: ExtendedRecordMap
   try {
-    const collectionRecordMap = await notion.getPage(RESOURCES_PAGE)
-    const uuid = !!includeNotionIdInUrls
-
-    for (const [blockId, blockData] of Object.entries(
-      collectionRecordMap.block
-    )) {
-      const block = (blockData as any)?.value
-      if (!block || block.type !== 'page') continue
-
-      const canonicalId = getCanonicalPageId(blockId, collectionRecordMap, {
-        uuid
-      })
-      if (canonicalId === slug) {
-        return uuidToId(blockId)
-      }
-    }
+    collectionRecordMap = await notion.getPage(RESOURCES_PAGE)
   } catch (err) {
-    console.warn('resolveCollectionSlug failed', err)
+    console.warn('resolveCollectionSlug: transient Notion fetch failed', err)
+    throw err
+  }
+
+  // The scan runs entirely on data already in memory (pure CPU, no I/O), so it
+  // cannot fail transiently. Completing it without a match is a GENUINE
+  // not-found: returning undefined lets the caller negative-cache a real 404,
+  // which is the optimization we want to keep.
+  const uuid = !!includeNotionIdInUrls
+  for (const [blockId, blockData] of Object.entries(
+    collectionRecordMap.block
+  )) {
+    const block = (blockData as any)?.value
+    if (!block || block.type !== 'page') continue
+
+    const canonicalId = getCanonicalPageId(blockId, collectionRecordMap, {
+      uuid
+    })
+    if (canonicalId === slug) {
+      return uuidToId(blockId)
+    }
   }
 
   return undefined
