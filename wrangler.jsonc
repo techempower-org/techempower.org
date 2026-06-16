@@ -39,5 +39,13 @@
       "binding": "SUBMIT_KV",
       "id": "927f8110b1424a1abe9123f615e9c415"
     }
+  ],
+  // Self-referencing service binding required by OpenNext's memory queue
+  // (open-next.config.ts → queue: memoryQueue). The queue revalidates stale
+  // ISR pages by issuing a HEAD request back to this same Worker in the
+  // background, keeping the expensive Notion render off the user's request
+  // path so it never trips the Workers Free 10ms CPU cap (HTTP 503 / 1102).
+  "services": [
+    { "binding": "WORKER_SELF_REFERENCE", "service": "techempower" }
   ]
 }
