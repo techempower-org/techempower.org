@@ -80,7 +80,7 @@ export function SpanishToggle({
           id='spanish-callout'
           className={styles.callout}
           role='region'
-          aria-label='Traducci\u00F3n al espa\u00F1ol'
+          aria-label='Traducción al español'
           lang='es'
         >
           <span className={styles.calloutIcon} aria-hidden='true'>

@@ -176,6 +176,7 @@ export function ResourcesToolbar() {
             type='text'
             className='resources-search-input'
             placeholder='Search resources...'
+            aria-label='Search resources'
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
