@@ -142,16 +142,23 @@ export default async function handler(
   const awsSecretAccessKey = process.env.AWS_SECRET_ACCESS_KEY ?? ''
   const awsRegion = process.env.AWS_REGION ?? 'us-west-2'
   const aiGatewayBase = process.env.AI_GATEWAY_BASE ?? ''
+  const aiGatewayAuthToken = process.env.AI_GATEWAY_AUTH_TOKEN ?? ''
   const chatKv = (globalThis as unknown as { CHAT_KV?: ChatKv }).CHAT_KV
 
-  // AWS keys + session secret are required. Turnstile + AI Gateway are
-  // optional — see GitHub issues for the follow-up provisioning work. Without
-  // Turnstile we lose bot defense; without AI Gateway we lose observability.
-  // Rate limits + topic classifier still gate every call.
-  if (!sessionSecret || !awsAccessKeyId || !awsSecretAccessKey) {
+  // Bedrock auth requires ONE of two modes:
+  //   - BYOK: AI_GATEWAY_BASE + AI_GATEWAY_AUTH_TOKEN (gateway signs; no AWS
+  //     keys needed in the Worker — preferred, see issue #18).
+  //   - SigV4 fallback: AWS_ACCESS_KEY_ID + AWS_SECRET_ACCESS_KEY (Worker
+  //     signs locally).
+  // Session secret is always required. Turnstile is optional bot defense —
+  // rate limits + the topic classifier still gate every call without it.
+  const hasByok = !!aiGatewayBase && !!aiGatewayAuthToken
+  const hasAwsKeys = !!awsAccessKeyId && !!awsSecretAccessKey
+  if (!sessionSecret || (!hasByok && !hasAwsKeys)) {
     console.error('[chat] missing required env', {
       hasSessionSecret: !!sessionSecret,
-      hasAwsKeys: !!awsAccessKeyId && !!awsSecretAccessKey,
+      hasByok,
+      hasAwsKeys,
       hasGateway: !!aiGatewayBase,
       hasTurnstile: !!turnstileSecret
     })
@@ -162,7 +169,8 @@ export default async function handler(
     AWS_ACCESS_KEY_ID: awsAccessKeyId,
     AWS_SECRET_ACCESS_KEY: awsSecretAccessKey,
     AWS_REGION: awsRegion,
-    AI_GATEWAY_BASE: aiGatewayBase
+    AI_GATEWAY_BASE: aiGatewayBase,
+    AI_GATEWAY_AUTH_TOKEN: aiGatewayAuthToken
   }
 
   // ---- Session + Turnstile -----------------------------------------------
