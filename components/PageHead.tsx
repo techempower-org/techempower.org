@@ -96,7 +96,7 @@ export function PageHead({
               <meta property='og:image:height' content='630' />
               <meta
                 property='og:image:alt'
-                content={rawTitle ?? site?.name ?? 'TechEMPOWER.org'}
+                content={rawTitle || site?.name || 'TechEMPOWER.org'}
               />
             </>
           )}

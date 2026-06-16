@@ -8,7 +8,14 @@ import fraunces600Base64 from './fraunces-600'
 // accepts an ArrayBuffer for `fonts[].data`.
 function decodeFont(base64: string): ArrayBuffer {
   const binary = atob(base64)
-  const bytes = Uint8Array.from(binary, (ch) => ch.codePointAt(0) ?? 0)
+  const { length } = binary
+  // Index by UTF-16 code unit rather than `Uint8Array.from(binary, …)`: the
+  // latter iterates the string by Unicode code point (surrogate-pair checks +
+  // a temp string per char), needless cold-start overhead for latin1 bytes.
+  const bytes = new Uint8Array(length)
+  for (let i = 0; i < length; i++) {
+    bytes[i] = binary.codePointAt(i) ?? 0
+  }
   return bytes.buffer
 }
 
