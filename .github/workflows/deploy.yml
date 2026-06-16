@@ -35,3 +35,25 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Warm cache (prime R2 under the new build id)
+        # OpenNext keys the R2 incremental cache by NEXT_BUILD_ID, so right
+        # after a deploy the cache is empty for this build and the first hit
+        # to each page is a cold on-demand render. On the Workers Paid plan
+        # that render completes fine — so we curl the main pages here,
+        # SEQUENTIALLY (no Notion 429 storm, unlike a mass prebuild), to
+        # populate R2 immediately. Net effect: the first real visitor after a
+        # deploy gets a warm cached page, never a cold render. Best-effort —
+        # never fails the deploy.
+        continue-on-error: true
+        run: |
+          base="https://techempower.org"
+          for p in / /about /donate /resources /candela \
+                   /guides/how-to-use-techempower /guides/free-internet \
+                   /guides/ev-incentives /guides/ebt-balance \
+                   /guides/ebt-spending /guides/findhelp \
+                   /guides/password-manager /guides/free-cell-service; do
+            code=$(curl -sS -o /dev/null -w "%{http_code}" --max-time 40 "$base$p" || echo "ERR")
+            echo "warm $p -> $code"
+            sleep 1
+          done

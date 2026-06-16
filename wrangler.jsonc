@@ -19,6 +19,15 @@
   "observability": {
     "enabled": true
   },
+  // Workers Paid plan: raise the per-request CPU limit from the Free-plan
+  // 10ms cap to 30s. Rendering the /resources Notion recordMap (253 cards,
+  // ~6 MB) costs ~1.9s of CPU — impossible under 10ms (HTTP 503 / error 1102),
+  // comfortable under 30s. Set explicitly so the limit is baked into the
+  // deployment instead of relying on account-default propagation to the
+  // running version (which left a few cold renders still capped low).
+  "limits": {
+    "cpu_ms": 30000
+  },
   "r2_buckets": [
     {
       // Bucket must be pre-created in the Cloudflare account before deploy:
