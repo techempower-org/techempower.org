@@ -1,6 +1,30 @@
 onlyBuiltDependencies:
   - sharp
   - simple-git-hooks
+  # Migrated from package.json's `pnpm` block, which pnpm v10 ignores when this
+  # workspace file exists. (Current esbuild/workerd ship prebuilt binaries via
+  # optionalDependencies and have no build scripts, so this is a no-op today;
+  # kept for fidelity + to allow-list them if a future version adds one.)
+  - esbuild
+  - workerd
+
+# Dependency overrides. pnpm v10 reads overrides from this workspace file (NOT
+# the package.json `pnpm`/`overrides` fields) whenever pnpm-workspace.yaml exists,
+# so the prior top-level `overrides` block in package.json was dormant.
+# Security entries force patched transitive versions to clear Dependabot alerts.
+overrides:
+  # PRESERVED: pin cacheable-request's transitive keyv to the v1 line (migrated
+  # here from package.json, where pnpm v10 was silently ignoring it).
+  'cacheable-request>keyv': 'npm:@keyvhq/core@~1.6.6'
+  # --- security: transitive vuln remediation ---
+  '@babel/core': '^7.29.6' # GHSA arbitrary file read via sourceMappingURL (dev)
+  'dompurify': '^3.4.9' # XSS / sanitizer-bypass advisories (RUNTIME, posthog-js)
+  'esbuild': '^0.28.1' # dev-server/Deno install advisories (build toolchain)
+  'flatted': '^3.4.2' # prototype pollution via parse() (dev)
+  'js-yaml': '^4.2.0' # prototype pollution + quadratic DoS in merge keys (dev)
+  'minimatch@<3.1.3': '^3.1.3' # ReDoS in matchOne() (scoped to vulnerable 3.x only)
+  'postcss': '^8.5.10' # XSS via unescaped </style> (build-time CSS)
+  'tmp': '^0.2.6' # path traversal via unsanitized prefix/postfix (dev)
 
 enablePrePostScripts: true
 
