@@ -49,13 +49,15 @@ const sigilDirty = process.env.WORKERS_CI_COMMIT_SHA
 const cspDirectives = [
   "default-src 'self'",
   // Scripts: self + GA loader + PostHog + Fathom; 'unsafe-inline' for the
-  // noflash + GA config inline blocks.
+  // noflash + GA config inline blocks. No separate script-src-elem: browsers
+  // fall back to script-src for <script> elements, and the only delta was
+  // 'unsafe-eval' (which governs eval(), not element loading), so the
+  // effective element policy is identical.
   "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://app.posthog.com https://*.posthog.com https://cdn.usefathom.com https://static.cloudflareinsights.com https://challenges.cloudflare.com",
-  // Same set for script-src-elem so browsers that split on it agree.
-  "script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://app.posthog.com https://*.posthog.com https://cdn.usefathom.com https://static.cloudflareinsights.com https://challenges.cloudflare.com",
-  // Styles: self + Google Fonts CSS + react-notion-x inline styles.
+  // Styles: self + Google Fonts CSS + react-notion-x inline styles. No
+  // separate style-src-elem: it was byte-identical, so the style-src fallback
+  // covers <style>/<link> elements with the same sources.
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com",
   // Fonts: Google Fonts CDN + data: for any inlined font fallbacks.
   "font-src 'self' data: https://fonts.gstatic.com",
   // Images: self + data/blob (canvases, dark-mode toggle, Next image
@@ -99,9 +101,13 @@ const securityHeaders = [
   { key: 'X-Frame-Options', value: 'DENY' },
   { key: 'X-Content-Type-Options', value: 'nosniff' },
   { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-  // Disable browser features we don't use. Anyone needing one of these
-  // (e.g., a future "share location for nearest resource" feature) will
-  // need to relax this list explicitly.
+  // Disable browser features we don't use. Every entry below uses the empty
+  // allowlist `()`, which is STRICTER than the browser default (`self` for
+  // these features) — i.e. real defense-in-depth, not redundant. We dropped
+  // the two entries that only restated the default and therefore had no
+  // effect: `fullscreen=(self)` and `web-share=(self)` (both default to
+  // `self`). Anyone needing one of the disabled features will need to relax
+  // this list explicitly.
   {
     key: 'Permissions-Policy',
     value: [
@@ -110,7 +116,6 @@ const securityHeaders = [
       'camera=()',
       'display-capture=()',
       'encrypted-media=()',
-      'fullscreen=(self)',
       'geolocation=()',
       'gyroscope=()',
       'magnetometer=()',
@@ -122,7 +127,6 @@ const securityHeaders = [
       'screen-wake-lock=()',
       'sync-xhr=()',
       'usb=()',
-      'web-share=(self)',
       'xr-spatial-tracking=()'
     ].join(', ')
   },
