@@ -1,0 +1,63 @@
+# Dependabot configuration
+# Docs: https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+# The "npm" ecosystem covers pnpm projects (Dependabot reads pnpm-lock.yaml).
+version: 2
+updates:
+  # JavaScript / TypeScript dependencies (pnpm)
+  - package-ecosystem: "npm"
+    directory: "/"
+    target-branch: "master"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "chore(deps)"
+      prefix-development: "chore(deps-dev)"
+      include: "scope"
+    # Collapse low-risk minor + patch updates into a single weekly PR.
+    groups:
+      minor-and-patch:
+        applies-to: version-updates
+        update-types:
+          - "minor"
+          - "patch"
+    # Pinned criticals — keep major bumps out of Dependabot's queue so they
+    # stay a deliberate, manually reviewed change (see CLAUDE.md / hosting stack).
+    ignore:
+      - dependency-name: "next"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react-dom"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "wrangler"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@opennextjs/cloudflare"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react-notion-x"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "notion-client"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "notion-types"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "notion-utils"
+        update-types: ["version-update:semver-major"]
+
+  # GitHub Actions used in .github/workflows
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    target-branch: "master"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(ci)"
+      include: "scope"
+    groups:
+      actions:
+        applies-to: version-updates
+        update-types:
+          - "minor"
+          - "patch"
