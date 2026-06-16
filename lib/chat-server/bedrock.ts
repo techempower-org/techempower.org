@@ -1,10 +1,20 @@
 /**
  * AWS Bedrock client for Cloudflare Workers via Cloudflare AI Gateway.
  *
- * Implements SigV4 signing with the Web Crypto API (no AWS SDK — the SDK is
- * ~1 MiB and our worker bundle is already near the 3 MiB free-plan cap).
- * Requests are POSTed at the AI Gateway URL but signed for the AWS Bedrock
- * host so AWS validates the signature unchanged when CF forwards it.
+ * Two auth modes, selected at call time:
+ *
+ *   1. BYOK (preferred) — AWS credentials are stored inside the Cloudflare AI
+ *      Gateway. We send an UNSIGNED request and authenticate to the gateway
+ *      with `cf-aig-authorization: Bearer <token>`; the gateway performs SigV4
+ *      on its own infrastructure before forwarding to Bedrock. This drops the
+ *      4×HMAC-SHA256 + 2×SHA256 per request that was pushing the chat hot path
+ *      toward the Workers CPU cap (~10ms → ~1ms). See issue #18.
+ *      Active when BOTH `AI_GATEWAY_BASE` and `AI_GATEWAY_AUTH_TOKEN` are set.
+ *
+ *   2. SigV4 fallback — we sign locally with the Web Crypto API (no AWS SDK;
+ *      it is ~1 MiB and the worker bundle is already near the bundle cap).
+ *      Used for direct Bedrock calls, or an unauthenticated AI Gateway
+ *      pass-through, when no BYOK token is configured. Requires AWS keys.
  *
  * Models:
  *   - `us.anthropic.claude-opus-4-7`               main assistant
@@ -12,8 +22,12 @@
  */
 
 export interface BedrockEnv {
-  AWS_ACCESS_KEY_ID: string
-  AWS_SECRET_ACCESS_KEY: string
+  /**
+   * AWS credentials. Required only for the SigV4 fallback path — not needed
+   * in BYOK mode, where the credentials live on the Cloudflare AI Gateway.
+   */
+  AWS_ACCESS_KEY_ID?: string
+  AWS_SECRET_ACCESS_KEY?: string
   AWS_REGION: string
   /**
    * Optional Cloudflare AI Gateway base URL up to (but not including)
@@ -22,6 +36,13 @@ export interface BedrockEnv {
    * Bedrock is called directly via `bedrock-runtime.<region>.amazonaws.com`.
    */
   AI_GATEWAY_BASE?: string
+  /**
+   * Optional Cloudflare AI Gateway auth token. When set alongside
+   * `AI_GATEWAY_BASE`, enables BYOK mode: requests are sent unsigned with
+   * `cf-aig-authorization: Bearer <token>` and the gateway signs them. When
+   * empty, the SigV4 fallback path is used instead.
+   */
+  AI_GATEWAY_AUTH_TOKEN?: string
 }
 
 const AWS_SERVICE = 'bedrock'
@@ -75,21 +96,21 @@ export async function invokeBedrock(
   // through AI Gateway (gateway forwards the request unchanged).
   const awsPath = `/model/${encodeURIComponent(opts.modelId)}/invoke`
 
-  const gatewayBase = (env.AI_GATEWAY_BASE ?? '').trim()
+  let gatewayBase = (env.AI_GATEWAY_BASE ?? '').trim()
+  // fetch() needs an absolute URL — a scheme-less gateway base (e.g.
+  // `gateway.ai.cloudflare.com/...`) would throw. Default to https, the only
+  // scheme Cloudflare AI Gateway serves.
+  if (gatewayBase && !/^https?:\/\//i.test(gatewayBase)) {
+    gatewayBase = `https://${gatewayBase}`
+  }
+  const authToken = (env.AI_GATEWAY_AUTH_TOKEN ?? '').trim()
+  // BYOK is active only when we have both a gateway to route through AND a
+  // token to authenticate to it. Either one alone falls back to SigV4.
+  const useByok = gatewayBase !== '' && authToken !== ''
+
   const url = gatewayBase
     ? `${gatewayBase.replace(/\/+$/, '')}/aws-bedrock/bedrock-runtime/${env.AWS_REGION}/model/${encodeURIComponent(opts.modelId)}/invoke`
     : `https://${awsHost}${awsPath}`
-
-  const signed = await sigv4Sign({
-    method: 'POST',
-    host: awsHost,
-    path: awsPath,
-    body,
-    region: env.AWS_REGION,
-    service: AWS_SERVICE,
-    accessKeyId: env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: env.AWS_SECRET_ACCESS_KEY
-  })
 
   // When routed through Cloudflare AI Gateway, opt into response caching via
   // per-request header. Cache key is derived from the request body, so
@@ -103,9 +124,41 @@ export async function invokeBedrock(
       }
     : {}
 
+  let requestHeaders: Record<string, string>
+  if (useByok) {
+    // BYOK: no in-worker SigV4. The AI Gateway holds the AWS credentials and
+    // signs each request before forwarding to Bedrock. We only authenticate to
+    // the gateway itself. The AWS `Authorization` header must NOT be sent.
+    requestHeaders = {
+      'content-type': 'application/json',
+      accept: 'application/json',
+      'cf-aig-authorization': `Bearer ${authToken}`,
+      ...cacheHeaders
+    }
+  } else {
+    // Fallback: sign locally with SigV4 (direct Bedrock, or unauthenticated
+    // gateway pass-through). Requires AWS credentials.
+    if (!env.AWS_ACCESS_KEY_ID || !env.AWS_SECRET_ACCESS_KEY) {
+      throw new Error(
+        'Bedrock auth not configured: set AI_GATEWAY_BASE + AI_GATEWAY_AUTH_TOKEN (BYOK) or AWS_ACCESS_KEY_ID + AWS_SECRET_ACCESS_KEY (SigV4).'
+      )
+    }
+    const signed = await sigv4Sign({
+      method: 'POST',
+      host: awsHost,
+      path: awsPath,
+      body,
+      region: env.AWS_REGION,
+      service: AWS_SERVICE,
+      accessKeyId: env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: env.AWS_SECRET_ACCESS_KEY
+    })
+    requestHeaders = { ...signed.headers, ...cacheHeaders }
+  }
+
   const res = await fetch(url, {
     method: 'POST',
-    headers: { ...signed.headers, ...cacheHeaders },
+    headers: requestHeaders,
     body
   })
 
