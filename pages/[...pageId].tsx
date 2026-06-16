@@ -61,6 +61,19 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       )
     ])
 
+    // Genuine miss: resolveNotionPage *resolves* (rather than throwing) with
+    // an error payload when a slug can't be mapped to a Notion page. Returning
+    // those props yields HTTP 200 with the not-found UI rendered client-side —
+    // a soft-404 that search engines index as a real page (issue #46). Return
+    // `notFound: true` instead so Next serves pages/404.tsx with a real 404
+    // status. The scanner short-circuit above already proves `notFound: true`
+    // produces a genuine 404 on OpenNext/Workers. Every error this resolution
+    // path emits (resolveNotionPage + pageAcl) is a 404, but gate on the
+    // status code explicitly so a future non-404 error isn't masked as a miss.
+    if (props.error?.statusCode === 404) {
+      return { notFound: true, revalidate: ERROR_REVALIDATE }
+    }
+
     const revalidate = isResourcesPage(props.pageId)
       ? RESOURCES_REVALIDATE
       : DEFAULT_REVALIDATE
