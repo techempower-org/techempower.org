@@ -41,7 +41,7 @@
     "expiry-map": "^2.0.0",
     "fathom-client": "^3.4.1",
     "katex": "^0.17.0",
-    "ky": "^1.14.3",
+    "ky": "^2.0.2",
     "lqip-modern": "^2.2.1",
     "next": "^16.2.9",
     "notion-client": "^7.10.0",
