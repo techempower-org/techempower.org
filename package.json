@@ -35,7 +35,7 @@
   "dependencies": {
     "@fisch0920/use-dark-mode": "^2.4.0",
     "@keyvhq/core": "^1.6.9",
-    "@keyvhq/redis": "^1.6.10",
+    "@keyvhq/redis": "^2.2.3",
     "@types/nprogress": "^0.2.3",
     "classnames": "^2.5.1",
     "expiry-map": "^2.0.0",
