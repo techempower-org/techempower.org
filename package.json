@@ -76,12 +76,6 @@
     "typescript": "^5.9.3",
     "wrangler": "^4.100.0"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "workerd"
-    ]
-  },
   "prettier": "@fisch0920/config/prettier",
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"

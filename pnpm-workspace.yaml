@@ -1,6 +1,12 @@
 onlyBuiltDependencies:
   - sharp
   - simple-git-hooks
+  # Migrated from package.json's `pnpm` block, which pnpm v10 ignores when this
+  # workspace file exists. (Current esbuild/workerd ship prebuilt binaries via
+  # optionalDependencies and have no build scripts, so this is a no-op today;
+  # kept for fidelity + to allow-list them if a future version adds one.)
+  - esbuild
+  - workerd
 
 # Dependency overrides. pnpm v10 reads overrides from this workspace file (NOT
 # the package.json `pnpm`/`overrides` fields) whenever pnpm-workspace.yaml exists.
