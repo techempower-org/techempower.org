@@ -4,7 +4,6 @@ import {
   type SearchResults
 } from 'notion-types'
 
-import { isPreviewImageSupportEnabled } from './config'
 import { getTweetsMap } from './get-tweets'
 import { notion } from './notion-api'
 
@@ -129,13 +128,14 @@ export async function getPage(
   // link, 5 sub-requests per cold worker) to slug-resolve titleless targets;
   // that's dead weight for this site (issue #16), so we skip it entirely.
 
-  if (isPreviewImageSupportEnabled) {
-    // Lazy import so `lqip-modern` / `sharp` are only loaded when the feature is enabled.
-    // Cloudflare Workers can't run sharp (native binding), so the flag stays false there.
-    const { getPreviewImageMap } = await import('./preview-images')
-    const previewImageMap = await getPreviewImageMap(recordMap)
-    ;(recordMap as any).preview_images = previewImageMap
-  }
+  // LQIP preview images (blur-up placeholders) are intentionally NOT generated.
+  // They require `sharp`'s native binding, which can't run on Cloudflare
+  // Workers, so the feature was always disabled here. The implementation
+  // (lib/preview-images.ts) and its `lqip-modern` dependency were removed in
+  // #52: even the previous runtime-gated `await import('./preview-images')`
+  // forced esbuild to walk the `lqip-modern` → `sharp` module graph at BUNDLE
+  // time, which hard-errored OpenNext's worker bundler (#51). `recordMap`
+  // simply carries no `preview_images`; react-notion-x renders without them.
 
   await getTweetsMap(recordMap)
 
