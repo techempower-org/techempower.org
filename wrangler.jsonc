@@ -47,23 +47,16 @@
     {
       "binding": "SUBMIT_KV",
       "id": "927f8110b1424a1abe9123f615e9c415"
+    },
+    {
+      // SITEMAP_KV — cross-worker cache for URI→pageId resolution + 404 results
+      // (issue #15). lib/page-id-cache.ts uses it to stop the 404 fallback from
+      // re-running getSiteMap() + resolveCollectionSlug() on every cold worker;
+      // falls back to in-memory when the binding is absent. Namespace created
+      // via `wrangler kv namespace create SITEMAP_KV`.
+      "binding": "SITEMAP_KV",
+      "id": "5609e78403aa404d8002a91411607e26"
     }
-    // SITEMAP_KV — cross-worker cache for URI→pageId resolution + 404 results
-    // (issue #15). Used by lib/page-id-cache.ts to stop the 404 fallback from
-    // re-running getSiteMap() + resolveCollectionSlug() on every cold worker.
-    // The code falls back to the in-memory cache when this binding is absent,
-    // so the site works without it — KV just makes the optimization persist
-    // across worker invocations.
-    //
-    // ⚠️ Left COMMENTED rather than as a live placeholder id on purpose: a KV
-    // binding pointing at a non-existent namespace id hard-fails `wrangler
-    // deploy`, and master auto-deploys. To activate, JP/Sandman must FIRST run:
-    //     npx wrangler kv namespace create SITEMAP_KV
-    // then uncomment the block below and paste the returned id:
-    // ,{
-    //   "binding": "SITEMAP_KV",
-    //   "id": "TODO_PASTE_ID_FROM_wrangler_kv_namespace_create_SITEMAP_KV"
-    // }
   ],
   // Self-referencing service binding required by OpenNext's memory queue
   // (open-next.config.ts → queue: memoryQueue). The queue revalidates stale
