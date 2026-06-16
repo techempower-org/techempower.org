@@ -6,7 +6,8 @@ updates:
   # JavaScript / TypeScript dependencies (pnpm)
   - package-ecosystem: "npm"
     directory: "/"
-    target-branch: "master"
+    # target-branch omitted on purpose: Dependabot then targets the repo's
+    # default branch automatically, so this stays correct if it's ever renamed.
     schedule:
       interval: "weekly"
       day: "monday"
@@ -37,17 +38,16 @@ updates:
         update-types: ["version-update:semver-major"]
       - dependency-name: "react-notion-x"
         update-types: ["version-update:semver-major"]
-      - dependency-name: "notion-client"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "notion-types"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "notion-utils"
+      # Wildcard covers notion-client / notion-types / notion-utils. Does NOT
+      # match react-notion-x (pinned separately above) since that doesn't
+      # start with "notion".
+      - dependency-name: "notion-*"
         update-types: ["version-update:semver-major"]
 
   # GitHub Actions used in .github/workflows
   - package-ecosystem: "github-actions"
     directory: "/"
-    target-branch: "master"
+    # target-branch omitted: see note in the npm block above.
     schedule:
       interval: "weekly"
       day: "monday"
