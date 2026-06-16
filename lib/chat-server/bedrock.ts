@@ -96,7 +96,13 @@ export async function invokeBedrock(
   // through AI Gateway (gateway forwards the request unchanged).
   const awsPath = `/model/${encodeURIComponent(opts.modelId)}/invoke`
 
-  const gatewayBase = (env.AI_GATEWAY_BASE ?? '').trim()
+  let gatewayBase = (env.AI_GATEWAY_BASE ?? '').trim()
+  // fetch() needs an absolute URL — a scheme-less gateway base (e.g.
+  // `gateway.ai.cloudflare.com/...`) would throw. Default to https, the only
+  // scheme Cloudflare AI Gateway serves.
+  if (gatewayBase && !/^https?:\/\//i.test(gatewayBase)) {
+    gatewayBase = `https://${gatewayBase}`
+  }
   const authToken = (env.AI_GATEWAY_AUTH_TOKEN ?? '').trim()
   // BYOK is active only when we have both a gateway to route through AND a
   // token to authenticate to it. Either one alone falls back to SigV4.

@@ -138,11 +138,16 @@ export default async function handler(
 
   const sessionSecret = process.env.SESSION_SIGN_SECRET ?? ''
   const turnstileSecret = process.env.TURNSTILE_SECRET_KEY ?? ''
-  const awsAccessKeyId = process.env.AWS_ACCESS_KEY_ID ?? ''
-  const awsSecretAccessKey = process.env.AWS_SECRET_ACCESS_KEY ?? ''
+  // Trim at the source: whitespace-only secrets (a common copy-paste mishap)
+  // would otherwise pass the `!!`-based presence guards below while being
+  // effectively empty, and bedrock.ts independently trims the gateway values
+  // when deciding BYOK vs SigV4 — so trimming here keeps the guard honest and
+  // the two layers in agreement.
+  const awsAccessKeyId = (process.env.AWS_ACCESS_KEY_ID ?? '').trim()
+  const awsSecretAccessKey = (process.env.AWS_SECRET_ACCESS_KEY ?? '').trim()
   const awsRegion = process.env.AWS_REGION ?? 'us-west-2'
-  const aiGatewayBase = process.env.AI_GATEWAY_BASE ?? ''
-  const aiGatewayAuthToken = process.env.AI_GATEWAY_AUTH_TOKEN ?? ''
+  const aiGatewayBase = (process.env.AI_GATEWAY_BASE ?? '').trim()
+  const aiGatewayAuthToken = (process.env.AI_GATEWAY_AUTH_TOKEN ?? '').trim()
   const chatKv = (globalThis as unknown as { CHAT_KV?: ChatKv }).CHAT_KV
 
   // Bedrock auth requires ONE of two modes:
