@@ -11,11 +11,15 @@ import {
   site
 } from './config'
 import resourceSlugLockfile from './data/resource-slug-lockfile.json'
-import { db } from './db'
 import { getCanonicalPageId } from './get-canonical-page-id'
 import { getSiteMap } from './get-site-map'
 import { getPage, type GetPageOptions } from './notion'
 import { notion } from './notion-api'
+import {
+  readCachedPageId,
+  writeCachedNotFound,
+  writeCachedPageId
+} from './page-id-cache'
 import { RESOURCES_PAGE } from './page-ids'
 
 // Build-time slug→pageId index. The lockfile JSON keys have a leading `/`
@@ -57,21 +61,25 @@ export async function resolveNotionPage(
       }
     }
 
-    const useUriToPageIdCache = true
     const cacheKey = `uri-to-page-id:${domain}:${environment}:${rawPageId}`
-    // TODO: should we use a TTL for these mappings or make them permanent?
-    // const cacheTTL = 8.64e7 // one day in milliseconds
-    const cacheTTL = undefined // disable cache TTL
 
-    if (!pageId && useUriToPageIdCache) {
-      try {
-        // check if the database has a cached mapping of this URI to page ID
-        pageId = await db.get(cacheKey)
-
-        // console.log(`redis get "${cacheKey}"`, pageId)
-      } catch (err: any) {
-        // ignore redis errors
-        console.warn(`redis error get "${cacheKey}"`, err.message)
+    // Resolution cache (issue #15), checked BEFORE the expensive fan-out below.
+    // A cached *negative* (404) result lets us skip getSiteMap() +
+    // resolveCollectionSlug() entirely for repeat bogus/scanner traffic; a
+    // cached *positive* result skips them for repeat legit traffic. Backed by
+    // Workers KV when bound (survives cold workers), else the in-memory db.
+    if (!pageId) {
+      const cached = await readCachedPageId(cacheKey)
+      if (cached.hit && cached.notFound) {
+        return {
+          error: {
+            message: `Not found "${rawPageId}"`,
+            statusCode: 404
+          }
+        }
+      }
+      if (cached.hit) {
+        pageId = cached.pageId
       }
     }
 
@@ -92,14 +100,14 @@ export async function resolveNotionPage(
     if (pageId) {
       recordMap = await getPage(pageId, pageOptions)
 
-      if (useUriToPageIdCache) {
-        try {
-          await db.set(cacheKey, pageId, cacheTTL)
-        } catch (err: any) {
-          console.warn(`redis error set "${cacheKey}"`, err.message)
-        }
-      }
+      // Cache the successful mapping so repeat traffic skips the fan-out.
+      await writeCachedPageId(cacheKey, pageId)
     } else {
+      // Negative-cache the miss so the next identical request short-circuits
+      // getSiteMap()/Notion instead of re-crawling. getSiteMap() failures
+      // throw (handled by the caller — cache untouched); the short negative
+      // TTL bounds the rare case where the collection fetch failed transiently.
+      await writeCachedNotFound(cacheKey)
       return {
         error: {
           message: `Not found "${rawPageId}"`,
