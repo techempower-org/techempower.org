@@ -3,15 +3,8 @@ import {
   type SearchParams,
   type SearchResults
 } from 'notion-types'
-import { mergeRecordMaps } from 'notion-utils'
-import pMap from 'p-map'
-import pMemoize from 'p-memoize'
 
-import {
-  isPreviewImageSupportEnabled,
-  navigationLinks,
-  navigationStyle
-} from './config'
+import { isPreviewImageSupportEnabled } from './config'
 import { getTweetsMap } from './get-tweets'
 import { notion } from './notion-api'
 
@@ -109,32 +102,6 @@ const blockMatchesFilter = (
     : groupResults.some(Boolean)
 }
 
-const getNavigationLinkPages = pMemoize(
-  async (): Promise<ExtendedRecordMap[]> => {
-    const navigationLinkPageIds = (navigationLinks || [])
-      .map((link) => link?.pageId)
-      .filter(Boolean)
-
-    if (navigationStyle !== 'default' && navigationLinkPageIds.length) {
-      return pMap(
-        navigationLinkPageIds,
-        async (navigationLinkPageId) =>
-          notion.getPage(navigationLinkPageId, {
-            chunkLimit: 1,
-            fetchMissingBlocks: false,
-            fetchCollections: false,
-            signFileUrls: false
-          }),
-        {
-          concurrency: 4
-        }
-      )
-    }
-
-    return []
-  }
-)
-
 export interface GetPageOptions {
   collectionReducerLimit?: number
   /** Inject a client-side load-more limit into every collection view. */
@@ -147,26 +114,20 @@ export async function getPage(
   pageId: string,
   options?: GetPageOptions
 ): Promise<ExtendedRecordMap> {
-  let recordMap = await notion.getPage(pageId, {
+  const recordMap = await notion.getPage(pageId, {
     ...(options?.collectionReducerLimit && {
       collectionReducerLimit: options.collectionReducerLimit
     })
   })
 
-  if (navigationStyle !== 'default') {
-    // ensure that any pages linked to in the custom navigation header have
-    // their block info fully resolved in the page record map so we know
-    // the page title, slug, etc.
-    const navigationLinkRecordMaps = await getNavigationLinkPages()
-
-    if (navigationLinkRecordMaps?.length) {
-      recordMap = navigationLinkRecordMaps.reduce(
-        (map, navigationLinkRecordMap) =>
-          mergeRecordMaps(map, navigationLinkRecordMap),
-        recordMap
-      )
-    }
-  }
+  // Note: the custom navigation header (navigationStyle: 'custom') does NOT
+  // require nav-link block info in this page's record map. Nav titles are
+  // static (`navigationLinks[].title` in site.config.ts) and nav URLs resolve
+  // via `pageUrlOverrides` through `getCanonicalPageId`/`mapPageUrl` — every
+  // nav target has an explicit override (or is the root page → "/"). The
+  // upstream starter kit fetched each nav link page here (1 Notion getPage per
+  // link, 5 sub-requests per cold worker) to slug-resolve titleless targets;
+  // that's dead weight for this site (issue #16), so we skip it entirely.
 
   if (isPreviewImageSupportEnabled) {
     // Lazy import so `lqip-modern` / `sharp` are only loaded when the feature is enabled.
