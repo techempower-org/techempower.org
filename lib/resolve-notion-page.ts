@@ -173,7 +173,7 @@ async function resolveCollectionSlug(
   // same contract getSiteMap() relies on — so a brand-new slug that merely hit
   // a Notion blip is never poisoned into a 404 for the whole NEGATIVE_TTL_S
   // window (the #36 follow-up bug this fixes).
-  let collectionRecordMap
+  let collectionRecordMap: ExtendedRecordMap
   try {
     collectionRecordMap = await notion.getPage(RESOURCES_PAGE)
   } catch (err) {
