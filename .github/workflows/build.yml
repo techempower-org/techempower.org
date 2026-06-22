@@ -16,7 +16,7 @@ jobs:
           - 24
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           # No git operations run after checkout (just pnpm install + test), so
           # don't leave the auth token in .git/config for later steps to read.
