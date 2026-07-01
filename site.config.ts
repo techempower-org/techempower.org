@@ -56,6 +56,9 @@ export default siteConfig({
     // Resources database
     '/resources': '2a3d706803c649409e74e9ce5ccd4c4b',
 
+    // "Wait, I Qualify?!" video series home
+    '/show': '390a4ee6952081c0b1edf3443a153913',
+
     // Candela app landing page (formerly Storyvox)
     '/candela': '363a4ee6952081e48184f03b153b4a8d',
     // Legacy slug — keep external links to the old Storyvox URL working
@@ -89,6 +92,10 @@ export default siteConfig({
     {
       title: 'Resources',
       pageId: '2a3d706803c649409e74e9ce5ccd4c4b'
+    },
+    {
+      title: 'Show',
+      pageId: '390a4ee6952081c0b1edf3443a153913'
     },
     {
       title: 'Candela',
