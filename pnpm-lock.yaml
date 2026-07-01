@@ -15,6 +15,11 @@ overrides:
   postcss: ^8.5.10
   tmp: ^0.2.6
 
+patchedDependencies:
+  '@opennextjs/cloudflare@1.19.11':
+    hash: 3cf819c7ffe9634750bbf52e2c53216fc327a5acaa822ba3c1b8377830c5ea2a
+    path: patches/@opennextjs__cloudflare@1.19.11.patch
+
 importers:
 
   .:
@@ -100,7 +105,7 @@ importers:
         version: 1.4.1(@typescript-eslint/eslint-plugin@8.61.0(@typescript-eslint/parser@8.61.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(typescript@5.9.3))(@typescript-eslint/parser@8.61.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(prettier@3.8.4)(typescript@5.9.3)(zod@4.3.6)
       '@opennextjs/cloudflare':
         specifier: ^1.19.11
-        version: 1.19.11(next@16.2.9(@babel/core@7.29.7)(@opentelemetry/api@1.9.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(wrangler@4.100.0)
+        version: 1.19.11(patch_hash=3cf819c7ffe9634750bbf52e2c53216fc327a5acaa822ba3c1b8377830c5ea2a)(next@16.2.9(@babel/core@7.29.7)(@opentelemetry/api@1.9.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(wrangler@4.100.0)
       '@types/node':
         specifier: ^25.9.3
         version: 25.9.3
@@ -5047,7 +5052,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@opennextjs/cloudflare@1.19.11(next@16.2.9(@babel/core@7.29.7)(@opentelemetry/api@1.9.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(wrangler@4.100.0)':
+  '@opennextjs/cloudflare@1.19.11(patch_hash=3cf819c7ffe9634750bbf52e2c53216fc327a5acaa822ba3c1b8377830c5ea2a)(next@16.2.9(@babel/core@7.29.7)(@opentelemetry/api@1.9.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(wrangler@4.100.0)':
     dependencies:
       '@ast-grep/napi': 0.40.5
       '@dotenvx/dotenvx': 1.31.0

@@ -1,3 +1,14 @@
+enablePrePostScripts: true
+
+minimumReleaseAge: 1440
+
+minimumReleaseAgeExclude:
+  - '@fisch0920/config'
+  - react-notion-x
+  - notion-client
+  - notion-types
+  - notion-utils
+
 onlyBuiltDependencies:
   - sharp
   - simple-git-hooks
@@ -13,27 +24,25 @@ onlyBuiltDependencies:
 # so the prior top-level `overrides` block in package.json was dormant.
 # Security entries force patched transitive versions to clear Dependabot alerts.
 overrides:
+  '@babel/core': ^7.29.6 # GHSA arbitrary file read via sourceMappingURL (dev)
   # PRESERVED: pin cacheable-request's transitive keyv to the v1 line (migrated
   # here from package.json, where pnpm v10 was silently ignoring it).
-  'cacheable-request>keyv': 'npm:@keyvhq/core@~1.6.6'
-  # --- security: transitive vuln remediation ---
-  '@babel/core': '^7.29.6' # GHSA arbitrary file read via sourceMappingURL (dev)
-  'dompurify': '^3.4.9' # XSS / sanitizer-bypass advisories (RUNTIME, posthog-js)
-  'esbuild': '^0.28.1' # dev-server/Deno install advisories (build toolchain)
-  'flatted': '^3.4.2' # prototype pollution via parse() (dev)
-  'js-yaml': '^4.2.0' # prototype pollution + quadratic DoS in merge keys (dev)
-  'minimatch@<3.1.3': '^3.1.3' # ReDoS in matchOne() (scoped to vulnerable 3.x only)
-  'postcss': '^8.5.10' # XSS via unescaped </style> (build-time CSS)
-  'tmp': '^0.2.6' # path traversal via unsanitized prefix/postfix (dev)
-
-enablePrePostScripts: true
-
-minimumReleaseAge: 1440
-minimumReleaseAgeExclude:
-  - '@fisch0920/config'
-  - react-notion-x
-  - notion-client
-  - notion-types
-  - notion-utils
+  cacheable-request>keyv: npm:@keyvhq/core@~1.6.6
+  dompurify: ^3.4.9 # XSS / sanitizer-bypass advisories (RUNTIME, posthog-js)
+  esbuild: ^0.28.1 # dev-server/Deno install advisories (build toolchain)
+  flatted: ^3.4.2 # prototype pollution via parse() (dev)
+  js-yaml: ^4.2.0 # prototype pollution + quadratic DoS in merge keys (dev)
+  minimatch@<3.1.3: ^3.1.3 # ReDoS in matchOne() (scoped to vulnerable 3.x only)
+  postcss: ^8.5.10 # XSS via unescaped </style> (build-time CSS)
+  tmp: ^0.2.6 # path traversal via unsanitized prefix/postfix (dev)
 
 packageManagerStrict: false
+
+# Fail-open patch for the R2 bucket-existence check in `opennextjs-cloudflare
+# deploy`: since 2026-07-01 the cloudflare-node SDK's request shape gets a CF
+# edge "Premature close" on GET /r2/buckets/<name> (wrangler/curl/bare fetch to
+# the same endpoint succeed), which hard-failed every deploy. The check is a
+# provisioning nicety — a genuinely missing bucket still fails loudly in the
+# subsequent `wrangler deploy`. Drop the patch when upstream/CF fix lands.
+patchedDependencies:
+  '@opennextjs/cloudflare@1.19.11': patches/@opennextjs__cloudflare@1.19.11.patch

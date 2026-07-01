@@ -1,0 +1,22 @@
+diff --git a/dist/cli/utils/ensure-r2-bucket.js b/dist/cli/utils/ensure-r2-bucket.js
+index 9eea7c5a885ad29e92c690daebf2c78bc9278fac..f783118af3000b0b66fd95685589c9263e818701 100644
+--- a/dist/cli/utils/ensure-r2-bucket.js
++++ b/dist/cli/utils/ensure-r2-bucket.js
+@@ -124,10 +124,13 @@ export async function ensureR2Bucket(projectDir, bucketName, jurisdiction) {
+         }
+         catch (error) {
+             if (!(error instanceof Cloudflare.NotFoundError)) {
+-                return {
+-                    success: false,
+-                    error: `Failed to check whether bucket exists: ${getErrorMessage(error)}`,
+-                };
++                // Fail open: the existence check is a provisioning nicety, not a
++                // safety gate — a missing bucket/binding still fails loudly in the
++                // subsequent `wrangler deploy`. (The cloudflare SDK's request shape
++                // currently trips a CF edge error, "Premature close", while
++                // wrangler/curl/bare fetch to the same endpoint succeed.)
++                console.warn(`Warning: could not verify R2 bucket "${bucketName}" exists (${getErrorMessage(error)}); assuming it exists and continuing.`);
++                return { success: true, bucketName };
+             }
+         }
+         await client.r2.buckets.create({
