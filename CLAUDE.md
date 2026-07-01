@@ -66,6 +66,7 @@ pnpm deploy:local
 | `styles/global.css` | Design system CSS custom properties (`--te-*` tokens) |
 | `styles/notion.css` | Notion content style overrides for react-notion-x |
 | `patches/` | patch-package patches applied at install |
+| `show/` | "Wait, I Qualify?!" episode production artifacts; `show/PIPELINE.md` is the repeatable episode machine |
 
 ## Content Architecture
 
@@ -74,6 +75,7 @@ All content lives in Notion. `site.config.ts` maps Notion page IDs to URL paths:
 - `/` — Custom homepage (React components)
 - `/guides/*` — Step-by-step technology guides (8 guides)
 - `/resources` — Searchable resource database (Notion collection)
+- `/show` — "Wait, I Qualify?!" video series home (episode list + get-help resources)
 - `/about`, `/donate` — Static pages
 
 ## Design System
