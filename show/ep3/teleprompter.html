@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teleprompter — Wait, I Qualify?! Ep3</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23e8a13c'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' font-family='sans-serif' font-weight='bold' fill='%231f2421'%3EW%3F%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #0d0f0e;
+    --text: #f5f1e8;
+    --dim: #8a857a;
+    --shawna: #e87a5d;
+    --jeff: #5da89b;
+    --chip-bg: #1f2421;
+    --chip-border: #3a423e;
+    --bar-bg: rgba(13, 15, 14, 0.92);
+    --accent: #e8a13c;
+  }
+  @media (prefers-color-scheme: light) {
+    body:not(.force-dark):not(.force-light) {
+      --bg: #faf6ee;
+      --text: #2a2520;
+      --dim: #9a948a;
+      --shawna: #c25435;
+      --jeff: #2e7d6e;
+      --chip-bg: #f0e9db;
+      --chip-border: #d8cfbc;
+      --bar-bg: rgba(250, 246, 238, 0.94);
+    }
+  }
+  body.force-light {
+    --bg: #faf6ee;
+    --text: #2a2520;
+    --dim: #9a948a;
+    --shawna: #c25435;
+    --jeff: #2e7d6e;
+    --chip-bg: #f0e9db;
+    --chip-border: #d8cfbc;
+    --bar-bg: rgba(250, 246, 238, 0.94);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { background: var(--bg); color: var(--text); font-family: "DM Sans", system-ui, sans-serif; overflow: hidden; }
+
+  #viewport { height: 100vh; overflow-y: scroll; scrollbar-width: none; }
+  #viewport::-webkit-scrollbar { display: none; }
+  body.mirror #viewport { transform: scaleX(-1); }
+
+  #scriptArea {
+    max-width: 25ch;
+    font-size: var(--fs, 54px);
+    line-height: 1.45;
+    margin: 0 auto;
+    padding: 45vh 0.5em 80vh;
+    font-weight: 500;
+  }
+  .speaker { display: block; font-weight: 800; letter-spacing: 0.06em; margin: 1.1em 0 0.15em; font-size: 0.72em; }
+  .speaker.shawna { color: var(--shawna); }
+  .speaker.jeff { color: var(--jeff); }
+  p.line { margin-bottom: 0.45em; }
+  p.line.shawna-line { border-left: 0.12em solid var(--shawna); padding-left: 0.4em; }
+  p.line.jeff-line { border-left: 0.12em solid var(--jeff); padding-left: 0.4em; }
+  .cue, .cue-inline { color: var(--dim); font-style: italic; font-weight: 400; }
+  .cue { display: block; font-size: 0.6em; border: 1px dashed var(--chip-border); border-radius: 0.5em; padding: 0.5em 0.8em; margin: 1.2em 0; }
+  .section { display: block; text-align: center; font-size: 0.55em; font-weight: 800; letter-spacing: 0.12em; color: var(--accent); background: var(--chip-bg); border: 1px solid var(--chip-border); border-radius: 0.6em; padding: 0.7em 1em; margin: 2em 0 1.2em; text-transform: uppercase; }
+  #title { text-align: center; padding-top: 8vh; }
+  #title h1 { font-size: 1.3em; color: var(--accent); margin-bottom: 0.3em; }
+  #title p { font-size: 0.55em; color: var(--dim); margin-bottom: 0.4em; }
+
+  /* fixed eye-line marker */
+  #eyeline { position: fixed; top: 38vh; left: 0; right: 0; pointer-events: none; }
+  #eyeline::before, #eyeline::after { content: "▶"; position: absolute; color: var(--accent); font-size: 22px; opacity: 0.85; }
+  #eyeline::before { left: 12px; }
+  #eyeline::after { right: 12px; content: "◀"; }
+
+  #topfade, #botfade { position: fixed; left: 0; right: 0; height: 14vh; pointer-events: none; z-index: 5; }
+  #topfade { top: 0; background: linear-gradient(var(--bg), transparent); }
+  #botfade { bottom: 0; background: linear-gradient(transparent, var(--bg)); }
+
+  #bar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+    display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;
+    padding: 10px 14px; background: var(--bar-bg); backdrop-filter: blur(6px);
+    transition: opacity 0.4s; font-size: 15px;
+  }
+  body.playing #bar { opacity: 0; }
+  body.playing #bar:hover { opacity: 1; }
+  #bar button {
+    background: var(--chip-bg); color: var(--text); border: 1px solid var(--chip-border);
+    border-radius: 8px; padding: 7px 13px; font-size: 15px; cursor: pointer; font-family: inherit;
+  }
+  #bar button:hover { border-color: var(--accent); }
+  #bar .stat { color: var(--dim); padding: 0 6px; font-variant-numeric: tabular-nums; }
+  #bar .stat b { color: var(--text); }
+  #playBtn { min-width: 110px; font-weight: 700; }
+  #help { position: fixed; bottom: 10px; right: 14px; z-index: 10; color: var(--dim); font-size: 13px; transition: opacity 0.4s; }
+  body.playing #help { opacity: 0; }
+  #sigil { position: fixed; bottom: 10px; left: 14px; z-index: 10; color: var(--accent); font-size: 13px; opacity: 0.9; transition: opacity 0.4s; font-variant-numeric: tabular-nums; }
+  body.playing #sigil { opacity: 0.45; }
+</style>
+</head>
+<body>
+<div id="bar">
+  <button id="playBtn">▶ Start</button>
+  <button id="slower">− speed</button>
+  <button id="faster">+ speed</button>
+  <span class="stat">est. total <b id="est">–</b></span>
+  <span class="stat">elapsed <b id="timer">0:00</b></span>
+  <button id="fsmall">A−</button>
+  <button id="fbig">A+</button>
+  <button id="mirrorBtn">Mirror</button>
+  <button id="themeBtn">Theme</button>
+  <button id="fsBtn">Fullscreen</button>
+  <button id="topBtn">⇤ Top</button>
+</div>
+<div id="eyeline"></div>
+<div id="topfade"></div><div id="botfade"></div>
+<div id="viewport"><div id="scriptArea">
+  <div id="title">
+    <h1>WAIT, I QUALIFY?!</h1>
+    <p>Episode 3 — “Food”</p>
+    <p>Record: Mon July 6, 2026 · Nevada County Media</p>
+    <p>Press SPACE to start / pause · ↑↓ speed · F fullscreen</p>
+  </div>
+  <div id="content"></div>
+</div></div>
+
+<script type="text/plain" id="rawScript">
+[POST: JINGLE + LOGO INTRO -- in studio, hold one beat, then go]
+
+SHAWNA:
+Welcome back to "Wait, I Qualify?!" -- the show about
+unlocking aid for real people, right here in Nevada County.
+I'm Shawna.
+
+JEFF:
+And I'm Jeff. We're from TechEmpower dot org -- a local
+nonprofit that helps folks find the help and incentives
+they're entitled to, from the state, the federal government,
+and local organizations.
+
+SHAWNA:
+Today: food. The grocery help you've already earned, the
+rules that just changed this year, and the places right
+here in town that will hand you groceries this week -- some
+with no paperwork at all.
+
+JEFF:
+And this one's timely. Our local food bank says recent
+federal changes cost about twenty-five hundred of our
+Nevada County neighbors their grocery benefits. So today we
+get people signed up, we get people back on, and we cover
+the safety net under the safety net. Three stops: CalFresh,
+W-I-C, and the no-questions-asked local food.
+
+[WEEK-OF RECHECK: the ~2,500 figure is from foodbankofnc.org
+as of July 1 -- confirm it is still current before air]
+
+
+================================================================
+SEGMENT ONE: CALFRESH -- GROCERY MONEY YOU'VE ALREADY EARNED
+================================================================
+
+SHAWNA:
+Let's start with the anchor. Jeff -- CalFresh, one sentence.
+
+JEFF:
+CalFresh is California's grocery money program -- what folks
+used to call food stamps. You get a card -- they call it an
+E-B-T card -- that works like a debit card at the register,
+it reloads every month, and you spend it on groceries at the
+stores where you already shop.
+
+SHAWNA:
+And who qualifies? Because I know the answer is "more people
+than you think" -- it's the name of the show.
+
+JEFF:
+It really is. In California, most households can earn up to
+about TWICE the federal poverty line and still qualify. In
+real numbers: about twenty-six hundred dollars a month for
+a single person, before taxes. About fifty-three hundred a
+month for a family of four.
+
+SHAWNA:
+Fifty-three hundred a month. That's a lot of working
+families watching right now.
+
+JEFF:
+Exactly who it's for. And here's what it's worth: depending
+on income, a single person can get up to two hundred
+ninety-eight dollars a month, and a family of four up to
+nine hundred ninety-four. Most folks land somewhere in
+between. And even the minimum -- twenty-four dollars a
+month for one- and two-person households -- buys real
+groceries every single month.
+
+[VERIFIED July 1 against the USDA FY2026 COLA memo PDF
+(saved with the fact-check artifacts); figures good through
+Sept 30, 2026 -- routine week-of confirm only]
+
+SHAWNA:
+Myth time -- because I've heard this one for years. "I'm on
+S-S-I, so I can't get CalFresh."
+
+JEFF:
+False -- and it's been false since twenty nineteen. S-S-I,
+that's the monthly federal check for seniors and people
+with disabilities living on very little. For decades,
+California really did lock S-S-I recipients out of food
+benefits -- so a lot of folks "know" the answer is no. That
+rule is GONE. Since June of twenty nineteen, you can get
+both. If somebody told you no years ago, it's a new answer
+now.
+
+SHAWNA:
+And seniors in general get a friendlier set of rules, right?
+
+JEFF:
+Three ways. If your household has someone sixty or older,
+the strict up-front income cap doesn't apply -- the county
+only looks at what's left after key bills, the net number.
+Second, out-of-pocket medical costs over thirty-five
+dollars a month actually raise your benefit. And third, a
+senior who can't shop or cook on their own because of a
+permanent disability can sometimes count as their OWN
+household, even while living with family. So don't rule grandma out just
+because she lives with you -- ask when you apply.
+
+SHAWNA:
+Okay -- the honest part. The rules changed this year,
+didn't they?
+
+JEFF:
+They did, and we'll always be straight with you. Two
+changes from last year's big federal law. First: since June
+first, able-bodied adults eighteen through sixty-four need
+to work, volunteer, or train about twenty hours a week to
+keep benefits long-term. But hear the second half: the
+exemption list is long. Parents of kids under fourteen,
+anyone pregnant, anyone medically unable to work,
+caregivers, students, and more. Don't assume the work rule
+hits you -- apply, and the county figures out which rules
+apply to you.
+
+SHAWNA:
+And the second change?
+
+JEFF:
+Immigration status. As of April, some immigrants who are
+here lawfully -- including refugees -- lost FEDERAL
+CalFresh. California does run a state version, the
+California Food Assistance Program, with the same benefit
+amounts -- but it only covers certain groups, like
+green-card holders in their first five years and survivors
+of abuse. Right now it does NOT cover most refugees who
+lost the federal benefit. So if anyone in your household
+isn't a citizen: don't guess, and don't panic. Using food
+benefits won't hurt a green-card application -- but get
+free advice from a legal-aid nonprofit first. And the food
+bank never asks about status.
+
+[WEEK-OF RECHECK: verified July 1 vs live CDSS H.R.1 FAQ;
+re-verify before air -- fastest-moving facts here. HOSTS,
+never ad-lib: veterans, former foster youth, and homeless
+folks are NO LONGER exempt from the work rule, and refugees
+can NOT switch to CFAP]
+
+SHAWNA:
+So how does somebody actually apply?
+
+JEFF:
+Four doors -- pick whichever you like. Online, any day of
+the year, at BenefitsCal dot com. By phone -- the statewide
+number is on your screen. In person at a county office --
+Nevada City or Truckee, both on your screen. Or just
+dial two-one-one, and a real person walks you through it.
+Two more things. If you're in a true emergency -- almost no
+money and no food -- say so, because there's an expedited
+track that can load benefits within three days. And once
+you're on, it's not forever-automatic: answer the county's
+renewal mail so your benefits keep flowing.
+
+[POST: PROGRAM CARD -- CalFresh: BenefitsCal.com /
+statewide 1-877-847-3663 / county offices: 950 Maidu Ave,
+Suite 120, Nevada City + 10075 Levon Ave, Truckee (Joseph
+Center) / local 530-265-1340 / or dial 2-1-1]
+
+[VERIFIED July 1 on live county pages: 950 Maidu Ave Ste
+120 (ZIP 95959) M-F 8-5, plus the full-service Truckee
+office at the Joseph Center. Do NOT air 888-809-1340 -- not
+on any current county page; local line is 530-265-1340]
+
+SHAWNA:
+And before we leave CalFresh -- the card works at the
+farmers market too?
+
+JEFF:
+It does. Your CalFresh card is welcome at the Nevada City
+farmers market -- Saturdays, downtown on Union Street. And
+here's the tip: at the market manager's booth, ask whether
+Market Match is running this season. When it is, they match
+what you spend -- up to ten extra dollars a visit, free --
+for fresh fruits and vegetables. It always pays to ask.
+
+[ACTION before July 20: call Sierra Harvest / county DSS.
+As of July 1 the statewide administrator's finder shows
+matching OFF at Nevada City (EBT itself is ON; last cycle
+ended Feb 28 2026, no renewal announced). If they confirm a
+live 2026-27 cycle, restore the original definite beat --
+text preserved in fact-check-full-report.json -- with
+whatever per-visit cap they state]
+
+SHAWNA:
+One question at the booth could double your produce money.
+Worth asking.
+
+
+================================================================
+SEGMENT TWO: WIC -- NOT JUST FOR MOMS
+================================================================
+
+SHAWNA:
+Program two: W-I-C. And I'll confess something -- I always
+assumed W-I-C was only for moms.
+
+JEFF:
+Almost everybody does, and that myth costs kids real food.
+W-I-C stands for Women, Infants, and Children, and it's
+free monthly money for healthy groceries -- loaded on its
+own card, like a debit card. It's for anyone pregnant,
+anyone who's had a baby in the last six months,
+breastfeeding parents, and any child under five. And here's
+the part almost nobody knows: dads, grandparents, foster
+parents -- if you're raising a child under five, YOU can
+enroll that child. Grandma raising a grandkid? That kid can
+get W-I-C.
+
+SHAWNA:
+So the child qualifies no matter who's doing the raising.
+What about income?
+
+JEFF:
+Higher than people guess, and it counts everyone in your
+household. A household of one, about twenty-nine thousand
+five hundred a year. And careful with that number -- a
+single parent and one child already count as a household of
+TWO, and that limit is about forty thousand. A family of
+four, about sixty-one thousand a year.
+
+SHAWNA:
+And you said there's a shortcut.
+
+JEFF:
+The best shortcut of the day. If you or your child already
+have Medi-Cal -- that's California's free or low-cost
+health coverage -- or CalFresh, or CalWORKs, another state
+aid program, then you have ALREADY passed the W-I-C income
+test. Automatically. And bring your Medi-Cal card to the
+appointment -- it doubles as your proof of income.
+
+SHAWNA:
+And what does a family actually get each month?
+
+JEFF:
+Two things on that W-I-C card. First, specific healthy
+staples -- milk, eggs, cereal, beans, baby formula, baby
+food. Second, flexible produce money for ANY fruits and
+vegetables you want -- fresh, frozen, or canned:
+twenty-six dollars a month for each kid ages one to five,
+forty-eight if you're pregnant, fifty-two if you're
+breastfeeding. Plus
+real human support -- nutrition advice and breastfeeding
+help, included, free. And if you're pregnant, enroll as
+soon as you know -- the earlier you start, the more months
+of help you get.
+
+SHAWNA:
+Twenty-six dollars of produce a month, per kid -- that
+adds up fast. Okay: where do folks sign up?
+
+JEFF:
+It's run by county Public Health, and it's an appointment,
+not a waiting line -- phone, video, or in person, your
+choice. There's an office in Grass Valley and one in
+Truckee, and both numbers are on your screen. One call, and
+they'll tell you exactly what to bring.
+
+[POST: PROGRAM CARD -- WIC: Grass Valley 530-265-1454 /
+Truckee 530-582-7814 / myfamily.wic.ca.gov]
+
+[VERIFIED July 1 on live county pages + the state WIC
+locator (Truckee = Joseph Center, Suite 202; GV ZIP 95949).
+At the pre-record call to 530-265-1454, ask whether Truckee
+should air 530-582-7814 or -7817 -- keep 7814 unless the
+office says otherwise]
+
+
+================================================================
+SEGMENT THREE: FOOD THIS WEEK -- LITTLE OR NO PAPERWORK
+================================================================
+
+SHAWNA:
+Last stop. Everything so far is an application. What about
+somebody whose fridge is empty TONIGHT?
+
+JEFF:
+Then skip the forms -- this county is genuinely good at
+this. Two heroes. First: the Interfaith Food Ministry, on
+Henderson Street in Grass Valley. It works like a
+drive-through: you pull up, tell the volunteers your picks
+of the day, and they load your car -- fresh produce, dairy,
+pantry staples. If you live anywhere in Nevada County and
+you need food, you qualify. Full stop. There is NO income
+test. Bring a photo ID and something with your address -- a
+bill or a lease -- and you can shop once every other week.
+They're open Monday, Wednesday, and Friday from ten to one
+-- heads up, the first hour is by reservation, walk-ins
+start at eleven -- plus Saturdays, no reservation needed.
+And if you're unhoused -- no address -- you are still
+welcome. Just say so at check-in.
+
+[POST: PROGRAM CARD -- Interfaith Food Ministry: 440
+Henderson St, Grass Valley / 530-273-8132 / Mon-Wed-Fri
+10 to 1 (first hour by reservation) + Saturdays]
+
+[VERIFIED July 1 on IFM's own site: Saturdays confirmed
+(no end time aired, on purpose); routine week-of confirm by
+phone]
+
+SHAWNA:
+And hero number two?
+
+JEFF:
+The Food Bank of Nevada County -- and this one asks for NO
+paperwork at all. Nothing. No forms, no income questions.
+They bring the food to you, with mobile distributions all
+over the county -- second and fourth Thursdays in Grass
+Valley, every Tuesday in Truckee, plus more sites from
+North San Juan out to Washington. You show up, you get
+groceries. And if you physically can't get to a site, they
+partner with a local group called FREED to deliver to
+homebound folks at home.
+
+SHAWNA:
+And parents -- there's a summer thing happening right now,
+isn't there?
+
+JEFF:
+Every summer, the food bank runs a free summer lunch
+program -- any child age two to eighteen, on weekdays, at
+sites all around the county. No registration, no paperwork,
+no income anything. Kids just show up and eat. This year it
+runs through the end of July, and the current sites are
+always at foodbankofnc dot org.
+
+[POST: PROGRAM CARD -- Food Bank of Nevada County:
+530-272-3796 / foodbankofnc.org -- distribution days +
+summer lunch sites]
+
+[WEEK-OF RECHECK: verified July 1 on the live site;
+re-confirm FBNC July distribution dates, the summer-lunch
+sites and end date, and that the ~2,500 stat is still
+posted -- call 530-272-3796]
+
+SHAWNA:
+One more group before we close: seniors.
+
+JEFF:
+Two quick ones for folks sixty and up. If cooking or
+shopping has gotten hard, Meals on Wheels delivers real
+meals to your door -- Gold Country Senior Services covers
+the west side of the county. In Truckee, Sierra Senior
+Services delivers to seniors who mostly can't get out of
+the house -- and if that's not quite you, they'll set you
+up with a group meal instead. Either way, one phone call
+and they'll figure out what fits. The suggested donation is
+about four to six dollars a meal -- and it is truly
+suggested. Nobody is turned away who can't pay. And if you'd rather eat with
+company: the Sierra Gold Senior Center on Colfax Avenue in
+Grass Valley serves a hot lunch at noon every Monday,
+Tuesday, and Thursday. Sixty and up, just show up -- on
+your first visit they'll have you fill out one quick form.
+
+[POST: PROGRAM CARD -- Meals on Wheels: Gold Country Senior
+Services 530-446-6853 (west county) / Sierra Senior
+Services 530-550-7600 (Truckee) -- Senior lunch: Sierra
+Gold Community Senior Center, 231 Colfax Ave, Grass Valley,
+Mon/Tue/Thu at noon -- 530-273-4961]
+
+[WEEK-OF RECHECK: re-confirm the senior-meal phone numbers
+and the 4-to-6-dollar suggested donations for the current
+fiscal year]
+
+
+================================================================
+CLOSE
+================================================================
+
+SHAWNA:
+Let's land the plane. Today we found: CalFresh -- grocery
+money for households up to about twice the poverty line,
+and your E-B-T card works at the farmers market too.
+W-I-C -- produce money and healthy staples for pregnancy
+and kids under five, dads and grandparents welcome, and
+automatic if you're on Medi-Cal. And food this very week,
+with little or no paperwork: Interfaith Food Ministry, the
+food bank's mobile sites, summer lunches for kids, and
+Meals on Wheels for seniors.
+
+JEFF:
+And the same three doors as always. Dial two-one-one --
+here that's two-one-one Connecting Point -- free,
+confidential, around the clock, English and Spanish, and a
+real person helps you find food today. Online, go to
+findhelp dot org and type in your ZIP code. And us:
+techempower dot org -- click "Join our Discord," our free
+online chat community, and a real neighbor will help you
+one-on-one. A CalFresh application, a W-I-C appointment,
+finding the nearest food distribution -- we answer.
+
+SHAWNA:
+Next time on "Wait, I Qualify?!" -- home and getting
+around. Help keeping a roof over your head, the lights on,
+and a way to get where you're going.
+
+JEFF:
+Until then -- go find out what you qualify for. You might
+be surprised.
+
+[POST: OUTRO -- JINGLE + LOGO + END CARD: TECHEMPOWER.ORG /
+211 / FINDHELP.ORG. In studio: hold on smiles for a beat]
+
+================================================================
+END OF SCRIPT
+================================================================
+</script>
+
+<div id="sigil" title="script version sigil — changes whenever the script text changes">✦ Ignited Die · e801f3c</div>
+<div id="help">SPACE play/pause · ↑↓ speed · PgUp/PgDn or clicker jump · A−/A+ font · M mirror · T theme · F fullscreen · Home top</div>
+
+<script>
+(function () {
+  const raw = document.getElementById('rawScript').textContent;
+  const content = document.getElementById('content');
+  const blocks = raw.split(/\n\s*\n/).map(b => b.trim()).filter(Boolean);
+  let currentSpeaker = null;
+  const frag = document.createDocumentFragment();
+
+  for (const block of blocks) {
+    const lines = block.split('\n').map(l => l.trim());
+    // section banner: lines of ='s around a title
+    if (lines.some(l => /^=+$/.test(l))) {
+      const titles = lines.filter(l => !/^=+$/.test(l));
+      if (titles.length) {
+        const s = document.createElement('span');
+        s.className = 'section';
+        s.textContent = titles.join(' ');
+        frag.appendChild(s);
+        currentSpeaker = null;
+      }
+      continue;
+    }
+    let text = lines.join(' ');
+    // standalone cue block
+    if (/^\[[^\]]+\]$/.test(text)) {
+      const c = document.createElement('span');
+      c.className = 'cue';
+      c.textContent = text;
+      frag.appendChild(c);
+      continue;
+    }
+    // speaker tag at start of block
+    const m = text.match(/^(SHAWNA|JEFF):\s*(.*)$/);
+    if (m) {
+      currentSpeaker = m[1].toLowerCase();
+      const tag = document.createElement('span');
+      tag.className = 'speaker ' + currentSpeaker;
+      tag.textContent = m[1];
+      frag.appendChild(tag);
+      text = m[2];
+      if (!text) continue;
+    }
+    const p = document.createElement('p');
+    p.className = 'line' + (currentSpeaker ? ' ' + currentSpeaker + '-line' : '');
+    for (const part of text.split(/(\[[^\]]+\])/)) {
+      if (!part) continue;
+      if (/^\[[^\]]+\]$/.test(part)) {
+        const c = document.createElement('span');
+        c.className = 'cue-inline';
+        c.textContent = part;
+        p.appendChild(c);
+      } else {
+        p.appendChild(document.createTextNode(part));
+      }
+    }
+    frag.appendChild(p);
+  }
+  content.appendChild(frag);
+
+  // ---- engine ----
+  const vp = document.getElementById('viewport');
+  const area = document.getElementById('scriptArea');
+  const playBtn = document.getElementById('playBtn');
+  const timerEl = document.getElementById('timer');
+  const estEl = document.getElementById('est');
+  let playing = false, speed = null, speedKey = 'tp-speed', fontSize = 54, elapsed = 0, lastT = null;
+
+  function maxScroll() { return vp.scrollHeight - vp.clientHeight; }
+  function fmt(s) { s = Math.round(s); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+  function updateEst() { estEl.textContent = speed > 0 ? '~' + fmt(maxScroll() / speed) : '–'; }
+  function applyFont() { area.style.setProperty('--fs', fontSize + 'px'); requestAnimationFrame(updateEst); }
+
+  function defaults() {
+    fontSize = parseFloat(localStorage.getItem('tp-font')) || 54;
+    applyFont();
+    // count only spoken words (skip cue blocks, section banners, inline cues)
+    let words = 0;
+    content.querySelectorAll('p.line').forEach((p) => {
+      const t = p.cloneNode(true);
+      t.querySelectorAll('.cue-inline').forEach((c) => c.remove());
+      words += (t.textContent.match(/\S+/g) || []).length;
+    });
+    // saved speed is keyed to the script's word count, so a script change
+    // re-baselines the pace instead of reusing a stale saved setting
+    speedKey = 'tp-speed-' + words;
+    const saved = parseFloat(localStorage.getItem(speedKey));
+    // default pace: ~150 spoken words per minute across the full scroll
+    const targetSec = Math.max(60, (words / 150) * 60);
+    speed = saved > 0 ? saved : Math.max(8, maxScroll() / targetSec);
+    updateEst();
+  }
+
+  function setPlaying(p) {
+    playing = p;
+    document.body.classList.toggle('playing', p);
+    playBtn.textContent = p ? '⏸ Pause' : '▶ Start';
+    lastT = null;
+    if (p) requestAnimationFrame(tick);
+  }
+  function tick(t) {
+    if (!playing) return;
+    if (lastT !== null) {
+      const dt = (t - lastT) / 1000;
+      vp.scrollTop += speed * dt;
+      elapsed += dt;
+      timerEl.textContent = fmt(elapsed);
+      if (vp.scrollTop >= maxScroll() - 1) setPlaying(false);
+    }
+    lastT = t;
+    requestAnimationFrame(tick);
+  }
+  function bumpSpeed(f) {
+    speed = Math.min(400, Math.max(4, speed * f));
+    localStorage.setItem(speedKey, speed);
+    updateEst();
+  }
+  function bumpFont(d) {
+    fontSize = Math.min(120, Math.max(24, fontSize + d));
+    localStorage.setItem('tp-font', fontSize);
+    applyFont();
+  }
+  function toTop() { setPlaying(false); vp.scrollTop = 0; elapsed = 0; timerEl.textContent = '0:00'; }
+  function toggleTheme() {
+    const b = document.body;
+    if (b.classList.contains('force-light')) { b.classList.remove('force-light'); b.classList.add('force-dark'); }
+    else if (b.classList.contains('force-dark')) { b.classList.remove('force-dark'); }
+    else { b.classList.add('force-light'); }
+  }
+
+  playBtn.onclick = () => setPlaying(!playing);
+  document.getElementById('slower').onclick = () => bumpSpeed(1 / 1.18);
+  document.getElementById('faster').onclick = () => bumpSpeed(1.18);
+  document.getElementById('fsmall').onclick = () => bumpFont(-4);
+  document.getElementById('fbig').onclick = () => bumpFont(4);
+  document.getElementById('mirrorBtn').onclick = () => document.body.classList.toggle('mirror');
+  document.getElementById('themeBtn').onclick = toggleTheme;
+  document.getElementById('topBtn').onclick = toTop;
+  document.getElementById('fsBtn').onclick = () =>
+    document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+
+  document.addEventListener('keydown', (e) => {
+    if (e.code === 'Space') { e.preventDefault(); setPlaying(!playing); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); bumpSpeed(1.18); }
+    else if (e.key === 'ArrowDown') { e.preventDefault(); bumpSpeed(1 / 1.18); }
+    else if (e.key === 'Home') toTop();
+    else if (e.key === 'm' || e.key === 'M') document.body.classList.toggle('mirror');
+    else if (e.key === 't' || e.key === 'T') toggleTheme();
+    else if (e.key === 'f' || e.key === 'F')
+      document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+    else if (e.key === '[') bumpFont(-4);
+    else if (e.key === ']') bumpFont(4);
+    // USB presenter clickers send PageDown/PageUp (some send Right/Left):
+    // small jumps so an operator can keep the scroll glued to the actual
+    // conversation pace without touching the keyboard
+    else if (e.key === 'PageDown' || e.key === 'ArrowRight') { e.preventDefault(); vp.scrollTop += vp.clientHeight * 0.25; }
+    else if (e.key === 'PageUp' || e.key === 'ArrowLeft') { e.preventDefault(); vp.scrollTop -= vp.clientHeight * 0.25; }
+  });
+
+  defaults();
+})();
+</script>
+</body>
+</html>
