@@ -4,6 +4,25 @@
   "logs": [
     "11/11 verified; 6 need fixes"
   ],
+  "weekOfRecheck": {
+    "date": "2026-06-29",
+    "recordDate": "2026-07-06",
+    "verifiedBy": "9 parallel agents",
+    "verdict": "ALL CLAIMS STILL ACCURATE — no script changes needed",
+    "claims": [
+      {"claimId": "acp-dead", "verdict": "still_accurate", "notes": "No federal ACP replacement enacted. State-level only (NM, NY). Bills stalled."},
+      {"claimId": "lifeline-stack", "verdict": "still_accurate", "notes": "$9.25 federal unchanged (FCC waiver locks through 2026). $19 CA unchanged. NPRM still pending, no final rule."},
+      {"claimId": "ca-lifeline-elig", "verdict": "still_accurate", "notes": "$24,600/$50,800 thresholds in force through May 31, 2027."},
+      {"claimId": "lifeline-gotchas", "verdict": "still_accurate", "notes": "One-per-household, usage rule, recertification all confirmed. Voice-only support confirmed through Nov 30, 2026."},
+      {"claimId": "xfinity-ie", "verdict": "still_accurate", "notes": "$14.95/mo, 75 Mbps, free equipment, no contract. IE Plus at $29.95/100Mbps also available."},
+      {"claimId": "nevcofiber", "verdict": "still_accurate", "notes": "100+ connections, $15/mo Community Assist, 215-home build targeting Dec 2026."},
+      {"claimId": "buildout-hope", "verdict": "still_accurate", "notes": "$75M allocation, ~$15M funded into 2 projects. Home Broadband Pilot active since Jan 2026, $20/$30 discounts, Xfinity+Spectrum participating."},
+      {"claimId": "library-hotspots", "verdict": "still_accurate", "notes": "Hotspot lending active at all branches. Verizon/T-Mobile/AT&T confirmed."},
+      {"claimId": "library-access", "verdict": "still_accurate", "notes": "July 1 hours change is EXPANSION (more hours). Open+ at Penn Valley + Bear River. 1:1 help at Madelyn Helling + Truckee."},
+      {"claimId": "devices", "verdict": "still_accurate", "notes": "CFC $150 desktop (price sheet 6/25/2025 still current). human-I-T $90-$130 Chromebook, $14.99/mo hotspot + $75 device."},
+      {"claimId": "free-humans", "verdict": "still_accurate", "notes": "Senior Planet 888-713-3495 active (now also Spanish + Mandarin). CA Connect still requires professional certification. 211 + 988 operational."}
+    ]
+  },
   "result": [
     {
       "claimId": "acp-dead",

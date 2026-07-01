@@ -56,6 +56,10 @@ yarn-error.log*
 !show/**/*.jpg
 !show/**/*.jpeg
 
+# Audacity jingle working sources are large local-only binaries
+# (the rendered jingle exports that actually ship live in ~/Videos/jingles/)
+show/jingle/
+
 # Claude Code session data
 .claude/
 
