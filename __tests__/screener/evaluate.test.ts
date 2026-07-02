@@ -99,4 +99,15 @@ describe('evaluate — golden cases from the fact-check corpus', () => {
     const cf = r.strong.find((v) => v.ruleId === 'calfresh')
     expect(cf?.reasons[0]?.params?.limit).toBe(5360)
   })
+  it('flags-only: PG&E customer sees Medical Baseline as worthAsking with its note', () => {
+    const r = evaluate(base, R)
+    expect(bucketOf(r, 'medical-baseline')).toBe('worthAsking')
+    const v = r.worthAsking.find((x) => x.ruleId === 'medical-baseline')
+    expect(v?.notes).toContain('medical-baseline-device')
+  })
+  it('flags-only: a vehicle surfaces retirement, not smog repair (needs failed-smog)', () => {
+    const r = evaluate({ ...base, flags: [...base.flags, 'has-vehicle'] }, R)
+    expect(bucketOf(r, 'bar-retirement')).toBe('worthAsking')
+    expect(bucketOf(r, 'bar-cap-repair')).toBe('absent')
+  })
 })

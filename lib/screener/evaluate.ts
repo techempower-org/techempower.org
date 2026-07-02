@@ -111,6 +111,22 @@ export function evaluate(answers: Answers, rules: Rule[]): EvaluationResult {
       }
     }
 
+    // flags-only rules (amendment A1): flagsAll passed and no other dimension
+    // exists — universal/unlock-hit would already have set include, and
+    // income/age are absent — so the flag itself is the whole screenable
+    // test. Surface capped at worthAsking; the note carries the remaining
+    // nuance (medical device, failed-smog tier).
+    if (
+      !include &&
+      (t.flagsAll?.length ?? 0) > 0 &&
+      limit === null &&
+      age === null
+    ) {
+      include = true
+      bucket = worst(bucket, 'worthAsking')
+      reasons.push({ key: 'reason.flag-match' })
+    }
+
     // age dimension: ageAnyMax (a specific member, e.g. a child) is a hard
     // gate; ageAnyMin is a solo gate when it's the rule's only dimension and
     // an alternative qualifying route (weaker bucket) when income exists too.
