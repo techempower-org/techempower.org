@@ -903,7 +903,10 @@
     },
     "thresholdsDisplay": { "1": 1835, "4": 3795 },
     "noteParams": {
-      "medi-cal-65plus-assets-2026": { "limitAssets65": 130000 }
+      "medi-cal-65plus-assets-2026": {
+        "limitAssets65": 130000,
+        "amountPerPerson": 65000
+      }
     },
     "name": {
       "en": "Medi-Cal for adults (free/low-cost health coverage)",

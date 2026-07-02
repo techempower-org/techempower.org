@@ -95,6 +95,13 @@
   color: var(--te-bark-500);
 }
 
+.esHint {
+  margin: 0.35rem 0 0;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--te-bark-400);
+}
+
 @media (min-width: 480px) {
   .section {
     padding: 3rem 1.5rem;

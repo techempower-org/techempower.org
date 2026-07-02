@@ -25,6 +25,9 @@ export function QualifyCallout() {
             <span aria-hidden='true'>🔒</span> Runs entirely on your device
             &mdash; your answers never leave it.
           </p>
+          <p className={styles.esHint} lang='es'>
+            Disponible en español
+          </p>
         </div>
       </div>
     </section>
