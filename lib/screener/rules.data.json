@@ -834,5 +834,328 @@
         "via": "wave-1 research + oracle ruling (b): numbers used for gating are not claims; numbers rendered are"
       }
     ]
+  },
+  {
+    "id": "medi-cal-adult",
+    "jurisdiction": "CA",
+    "category": "health",
+    "status": "open",
+    "test": {
+      "incomePctFPL": 138,
+      "categoricalUnlocks": ["ssi", "calworks"],
+      "specialNotes": [
+        "medi-cal-year-round",
+        "medi-cal-65plus-assets-2026",
+        "medi-cal-immigration-2026"
+      ]
+    },
+    "thresholdsDisplay": { "1": 1835, "4": 3795 },
+    "noteParams": {
+      "medi-cal-65plus-assets-2026": { "limitAssets65": 130000 }
+    },
+    "name": {
+      "en": "Medi-Cal for adults (free/low-cost health coverage)",
+      "es": "Medi-Cal para adultos (cobertura de salud gratuita o de bajo costo)"
+    },
+    "value": {
+      "en": "Full coverage — doctor, hospital, dental, vision, mental health, prescriptions — free or near-free for most adults under about $1,835/mo (single) or $3,795/mo (family of 4)",
+      "es": "Cobertura completa — médico, hospital, dental, visión, salud mental, medicamentos — gratis o casi gratis para la mayoría de adultos con ingresos hasta unos $1,835/mes (soltero) o $3,795/mes (familia de 4)"
+    },
+    "apply": {
+      "url": "https://benefitscal.com",
+      "phone": { "en": "530-265-1340", "es": "530-265-1340" },
+      "local": {
+        "en": "Nevada County DSS 530-265-1340 · or via CoveredCA.com — Medi-Cal enrolls year-round",
+        "es": "DSS del condado de Nevada 530-265-1340 · o vía CoveredCA.com — Medi-Cal inscribe todo el año"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Adult MAGI Medi-Cal = 138% FPL, ages 19-64 (plus Aged & Disabled FPL program at 138%)",
+        "source": "https://www.dhcs.ca.gov/services/medi-cal-resources/medi-cal-eligibility-division/all-county-welfare-directors-medi-cal-eligibility-division-information-letters/program-descriptions-by-fpl-enclosure-3/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (health batch) + oracle live re-verification"
+      },
+      {
+        "claim": "2026 FPL monthly chart (DHCS Enclosure 1): 138% = $1,836/1p, $3,795/4p (DHCS rounds up; screener fpl-2026.json floors to $1,835/$3,795 — always ≤ DHCS)",
+        "source": "https://www.dhcs.ca.gov/services/medi-cal-resources/medi-cal-eligibility-division/all-county-welfare-directors-medi-cal-eligibility-division-information-letters/2026-fpl-calculation-chart-monthly-values-enclosure-1/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (conservatism verified arithmetically on 6 cells)"
+      },
+      {
+        "claim": "No asset test for MAGI Medi-Cal; the 2026-01-01 reinstated asset limit ($130k +$65k/person) applies to non-MAGI (65+/disabled/nursing-home) only",
+        "source": "https://www.dhcs.ca.gov/medi-cal/help/asset-limit-frequently-asked-questions/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (confirmed-by-law: 42 CFR 435.603 + LAO scope)"
+      },
+      {
+        "claim": "Enrollment freeze: from January 2026 new undocumented-adult applicants cannot enroll in comprehensive coverage; existing enrollees keep coverage; emergency + pregnancy-related care remain available; premiums ($30/mo, 19-59) begin July 2027",
+        "source": "https://lao.ca.gov/Publications/Report/5075",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (LAO 5075 verbatim)"
+      }
+    ]
+  },
+  {
+    "id": "medi-cal-kids",
+    "jurisdiction": "CA",
+    "category": "health",
+    "status": "open",
+    "test": {
+      "incomePctFPL": 266,
+      "ageAnyMax": 17,
+      "categoricalUnlocks": ["ssi", "calworks"],
+      "specialNotes": [
+        "medi-cal-year-round",
+        "medi-cal-kids-any-status",
+        "medi-cal-kids-to-19"
+      ]
+    },
+    "thresholdsDisplay": { "2": 4796, "4": 7315 },
+    "name": {
+      "en": "Medi-Cal for kids (free coverage to much higher incomes)",
+      "es": "Medi-Cal para niños (cobertura gratuita con límites de ingreso mucho más altos)"
+    },
+    "value": {
+      "en": "Kids get free full coverage at much higher family incomes than adults — up to about $4,796/mo (parent + child) or $7,315/mo (family of 4), regardless of immigration status",
+      "es": "Los niños reciben cobertura completa gratuita con ingresos familiares mucho más altos que los adultos — hasta unos $4,796/mes (padre/madre + hijo) o $7,315/mes (familia de 4), sin importar el estatus migratorio"
+    },
+    "apply": {
+      "url": "https://benefitscal.com",
+      "phone": { "en": "530-265-1340", "es": "530-265-1340" },
+      "local": {
+        "en": "Nevada County DSS 530-265-1340 · or via CoveredCA.com — enrolls year-round",
+        "es": "DSS del condado de Nevada 530-265-1340 · o vía CoveredCA.com — inscribe todo el año"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Children's Medi-Cal (ACA OTLIC) = 266% FPL",
+        "source": "https://www.dhcs.ca.gov/services/medi-cal-resources/medi-cal-eligibility-division/all-county-welfare-directors-medi-cal-eligibility-division-information-letters/program-descriptions-by-fpl-enclosure-3/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (health batch) + oracle live re-verification"
+      },
+      {
+        "claim": "2026 monthly values at 266%: DHCS $4,799/2p, $7,315/4p (screener floors to $4,796/$7,315)",
+        "source": "https://www.dhcs.ca.gov/services/medi-cal-resources/medi-cal-eligibility-division/all-county-welfare-directors-medi-cal-eligibility-division-information-letters/2026-fpl-calculation-chart-monthly-values-enclosure-1/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle"
+      },
+      {
+        "claim": "2026 enrollment freeze applies to undocumented ADULTS; children's coverage regardless of status continues (existing-law SB 75 coverage not altered by the enacted freeze)",
+        "source": "https://lao.ca.gov/Publications/Report/5075",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (adults-only scope confirmed)"
+      }
+    ]
+  },
+  {
+    "id": "medi-cal-pregnancy",
+    "jurisdiction": "CA",
+    "category": "health",
+    "status": "open",
+    "test": {
+      "incomePctFPL": 213,
+      "flagsAll": ["pregnant"],
+      "specialNotes": [
+        "medi-cal-year-round",
+        "mcap-213-322",
+        "pregnancy-any-status"
+      ]
+    },
+    "thresholdsDisplay": { "1": 2832, "2": 3841 },
+    "noteParams": {
+      "mcap-213-322": { "limitMcap": 5809 }
+    },
+    "name": {
+      "en": "Medi-Cal for pregnancy (full coverage while pregnant)",
+      "es": "Medi-Cal por embarazo (cobertura completa durante el embarazo)"
+    },
+    "value": {
+      "en": "Full-scope coverage through pregnancy and beyond — free up to about $3,841/mo for a household of 2; low-cost MCAP continues up to ~$5,809/mo. Pregnancy care is open regardless of immigration status.",
+      "es": "Cobertura completa durante el embarazo y después — gratis hasta unos $3,841/mes para un hogar de 2; MCAP de bajo costo continúa hasta ~$5,809/mes. La atención del embarazo está disponible sin importar el estatus migratorio."
+    },
+    "apply": {
+      "url": "https://benefitscal.com",
+      "phone": { "en": "530-265-1340", "es": "530-265-1340" },
+      "local": {
+        "en": "Nevada County DSS 530-265-1340 · enrolls year-round",
+        "es": "DSS del condado de Nevada 530-265-1340 · inscribe todo el año"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Full-scope pregnancy Medi-Cal = 213% FPL; MCAP covers >213% to 322% FPL",
+        "source": "https://www.dhcs.ca.gov/services/medi-cal-resources/medi-cal-eligibility-division/all-county-welfare-directors-medi-cal-eligibility-division-information-letters/program-descriptions-by-fpl-enclosure-3/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (health batch) + oracle live re-verification"
+      },
+      {
+        "claim": "2026 monthly values: 213% = DHCS $2,833/1p, $3,843/2p; 322% = $5,809/2p (screener floors to $2,832/$3,841)",
+        "source": "https://www.dhcs.ca.gov/services/medi-cal-resources/medi-cal-eligibility-division/all-county-welfare-directors-medi-cal-eligibility-division-information-letters/2026-fpl-calculation-chart-monthly-values-enclosure-1/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle"
+      },
+      {
+        "claim": "Pregnancy-related care remains available to new applicants regardless of immigration status under the 2026 freeze",
+        "source": "https://lao.ca.gov/Publications/Report/5075",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (postpartum/PE detail trimmed pending cites — WordPress-migration casualties)"
+      }
+    ]
+  },
+  {
+    "id": "covered-california",
+    "jurisdiction": "CA",
+    "category": "health",
+    "status": "check-first",
+    "test": {
+      "limitsMonthly": {
+        "1": 5216,
+        "2": 7050,
+        "3": 8883,
+        "4": 10716,
+        "5": 12550,
+        "6": 14383,
+        "7": 16216,
+        "8": 18050,
+        "increment": 1833
+      },
+      "specialNotes": [
+        "cc-enrollment-window",
+        "cc-subsidy-cliff-2026",
+        "cc-state-subsidy-2026",
+        "cc-medi-cal-handoff"
+      ]
+    },
+    "thresholdsDisplay": { "1": 5216, "4": 10716 },
+    "noteParams": {
+      "cc-state-subsidy-2026": { "limitStateSubsidy": 1956 },
+      "cc-medi-cal-handoff": { "limitMediCal": 1835 }
+    },
+    "name": {
+      "en": "Covered California (discounted health plans)",
+      "es": "Covered California (planes de salud con descuento)"
+    },
+    "value": {
+      "en": "Monthly discounts on name-brand health plans — some plans still as little as $10/mo depending on income. In 2026 help phases out by about $5,216/mo income (single) / $10,716 (family of 4).",
+      "es": "Descuentos mensuales en planes de salud de marcas reconocidas — algunos planes desde $10/mes según el ingreso. En 2026 la ayuda termina alrededor de $5,216/mes de ingreso (soltero) / $10,716 (familia de 4)."
+    },
+    "apply": {
+      "url": "https://www.coveredca.com",
+      "phone": { "en": "(800) 300-1506", "es": "(800) 300-0213" },
+      "local": {
+        "en": "Free local enrollment help: coveredca.com 'Find Help' storefront/agent search, or 2-1-1",
+        "es": "Ayuda local gratuita para inscribirse: búsqueda de agentes y oficinas en coveredca.com ('Find Help'), o al 2-1-1"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Enhanced federal premium tax credits ended 2025-12-31 (\"that help ended on Dec. 31, 2025\"); some plans still as little as $10/month depending on plan and income",
+        "source": "https://www.coveredca.com/important-changes/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (health batch) + oracle live re-verification (verbatim)"
+      },
+      {
+        "claim": "PY2026: enhanced subsidies expired; CA state subsidy program ($190M) keeps premiums near 2025 levels up to 150% FPL ($23,475/1p, $48,225/4p) with partial help to 165% FPL; avg $45/mo for ~389,590 state-subsidized enrollees; 2026 avg rate change +10.3% preliminary",
+        "source": "https://www.coveredca.com/newsroom/news-releases/2026/02/26/as-enhanced-federal-subsidies-expire-covered-california-ends-open-enrollment-with-state-subsidies-keeping-renewals-steady-for-now-and-new-signups-down/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (all five figures exact)"
+      },
+      {
+        "claim": "PY2026 subsidy cliff at 400% FPL on the 2025 guidelines the marketplace uses ($15,650/1p, $32,150/4p — back-computed exactly from CoveredCA's printed 150% figures; ASPE 2025 page confirms all eight sizes); screener limits = 400% × 2025 FPL ÷ 12, floored",
+        "source": "https://www.coveredca.com/newsroom/news-releases/2026/02/26/as-enhanced-federal-subsidies-expire-covered-california-ends-open-enrollment-with-state-subsidies-keeping-renewals-steady-for-now-and-new-signups-down/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (FPL-year trap verified; every cell re-derived by hand)"
+      },
+      {
+        "claim": "2026 rate filing context and federal-extension uncertainty framing",
+        "source": "https://www.coveredca.com/newsroom/news-releases/2025/08/14/covered-california-rates-and-plans-for-2026-consumer-affordability-on-the-line-with-uncertainty-surrounding-federal-premium-tax-credit-extension/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (context-only)"
+      },
+      {
+        "claim": "Dedicated Spanish service line (800) 300-0213; English line (800) 300-1506",
+        "source": "https://www.coveredca.com/espanol/",
+        "verifiedAt": "2026-07-02",
+        "via": "oracle-qualify-review one-fetch upgrade (health verification item 8)"
+      }
+    ]
+  },
+  {
+    "id": "medicare-savings-programs",
+    "jurisdiction": "CA",
+    "category": "health",
+    "status": "check-first",
+    "test": {
+      "flagsAll": ["medicare"],
+      "limitsMonthly": {
+        "1": 1795,
+        "2": 2434,
+        "3": 2434,
+        "4": 2434,
+        "5": 2434,
+        "6": 2434,
+        "7": 2434,
+        "8": 2434,
+        "increment": 0
+      },
+      "overLimitRescue": "reason.own-income",
+      "specialNotes": ["msp-own-income", "msp-tiers", "msp-assets-2026"]
+    },
+    "thresholdsDisplay": { "1": 1795, "2": 2434 },
+    "noteParams": {
+      "msp-own-income": { "limitOwnIncome": 1795 },
+      "msp-tiers": { "limitQmb": 1330 },
+      "msp-assets-2026": { "limitAssets": 130000, "amountPerPerson": 65000 }
+    },
+    "name": {
+      "en": "Medicare Savings Programs (QMB/SLMB/QI)",
+      "es": "Programas de Ahorro de Medicare (QMB/SLMB/QI)"
+    },
+    "value": {
+      "en": "Puts the $202.90/mo Medicare Part B premium (2026) back in your Social Security check — the QMB tier also wipes out Medicare deductibles and copays, plus automatic prescription Extra Help",
+      "es": "Devuelve a su cheque del Seguro Social la prima de la Parte B de Medicare ($202.90/mes en 2026) — el nivel QMB también elimina los deducibles y copagos de Medicare, más Ayuda Adicional automática para medicamentos"
+    },
+    "apply": {
+      "url": "https://benefitscal.com",
+      "phone": { "en": "530-265-1340", "es": "530-265-1340" },
+      "local": {
+        "en": "Apply through Medi-Cal: BenefitsCal online, or Nevada County DSS offices (Nevada City · Grass Valley · Truckee)",
+        "es": "Solicite a través de Medi-Cal: BenefitsCal en línea, o las oficinas del DSS del condado de Nevada (Nevada City · Grass Valley · Truckee)"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "MSP tiers + 2026 monthly income limits: QMB $1,330/$1,804 (pays Part A+B premiums, deductibles, copays); SLMB $1,596/$2,165 (Part B premium); QI $1,796/$2,436 (Part B premium); QDWI $2,660/$3,608 (Part A premium); apply via BenefitsCal/mail/phone/county",
+        "source": "https://www.dhcs.ca.gov/individuals/Pages/Medicare-Savings-Programs-in-California.aspx",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (health batch) + oracle live re-verification"
+      },
+      {
+        "claim": "Asset limit reinstated for MSP: \"Starting January 1, 2026, the asset limits to determine MSP eligibility are $130,000 for an individual, and $65,000 for each additional household member up to 10.\"",
+        "source": "https://www.dhcs.ca.gov/individuals/Pages/Medicare-Savings-Programs-in-California.aspx",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (verbatim)"
+      },
+      {
+        "claim": "2026 Medicare Part B standard premium $202.90/mo (up $17.90 from $185.00); Part B annual deductible $283 (announced 2025-11-14)",
+        "source": "https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (CMS fact sheet verbatim)"
+      },
+      {
+        "claim": "Tier percentages QMB 100% / SLMB 120% / QI 135% FPL; DHCS 2026 FPL chart cross-checks the MSP page dollars exactly (screener floors 1795/2434 are ≤ DHCS 1796/2436); couple-cap keeps every rendered number real — household>2 gates on the couple limit and the own-income rescue carries the rest",
+        "source": "https://www.dhcs.ca.gov/services/medi-cal-resources/medi-cal-eligibility-division/all-county-welfare-directors-medi-cal-eligibility-division-information-letters/program-descriptions-by-fpl-enclosure-3/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle ruling: ENDORSE cap, AMEND rescue via overLimitRescue"
+      },
+      {
+        "claim": "MSP enrollment confers automatic Extra Help (Part D low-income subsidy)",
+        "source": "https://www.medicare.gov/basics/costs/help/drug-costs",
+        "verifiedAt": "2026-07-02",
+        "via": "oracle-qualify-review one-fetch upgrade (health verification item 8, verbatim)"
+      }
+    ]
   }
 ]

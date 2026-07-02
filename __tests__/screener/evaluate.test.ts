@@ -251,12 +251,92 @@ describe('evaluate — golden cases from the fact-check corpus', () => {
       )
     ).toBe('absent')
   })
-  it('part-2 flags are dormant elsewhere: medicare changes nothing today', () => {
-    const withMedicare = evaluate(
-      { ...base, flags: [...base.flags, 'medicare'] },
-      R
+  it('medicare flag activates MSP; unchecked, MSP is absent', () => {
+    const single: Answers = {
+      ...base,
+      householdSize: 1,
+      incomeMonthlyGross: 1500,
+      ages: {
+        under5: 0,
+        age5to17: 0,
+        age18to59: 0,
+        age60plus: 1,
+        age80plus: 0
+      },
+      flags: ['renter', 'medicare']
+    }
+    // $1,500 ≤ the real $1,795 single cap; check-first caps the bucket
+    expect(bucketOf(evaluate(single, R), 'medicare-savings-programs')).toBe(
+      'worthAsking'
     )
-    expect(withMedicare).toEqual(evaluate(base, R))
+    expect(
+      bucketOf(
+        evaluate({ ...single, flags: ['renter'] }, R),
+        'medicare-savings-programs'
+      )
+    ).toBe('absent')
+  })
+  it('MSP own-income rescue: over the couple-cap still surfaces, no number', () => {
+    // multigenerational: household gross high, but MSP tests own income
+    const multigen: Answers = {
+      ...base,
+      incomeMonthlyGross: 9000,
+      flags: [...base.flags, 'medicare']
+    }
+    const r = evaluate(multigen, R)
+    expect(bucketOf(r, 'medicare-savings-programs')).toBe('worthAsking')
+    const v = r.worthAsking.find(
+      (x) => x.ruleId === 'medicare-savings-programs'
+    )
+    expect(v?.reasons[0]?.key).toBe('reason.own-income')
+    for (const reason of v?.reasons ?? []) {
+      expect(reason.params?.limit, 'rescue must render no number').toBe(
+        undefined
+      )
+    }
+  })
+  it('pregnant flag activates the Medi-Cal pregnancy tier', () => {
+    const pregnantHH2: Answers = {
+      ...base,
+      householdSize: 2,
+      incomeMonthlyGross: 3000,
+      ages: {
+        under5: 0,
+        age5to17: 0,
+        age18to59: 2,
+        age60plus: 0,
+        age80plus: 0
+      },
+      flags: ['renter', 'pregnant']
+    }
+    // $3,000 is under 90% of the $3,841 HH2 limit → strong
+    expect(bucketOf(evaluate(pregnantHH2, R), 'medi-cal-pregnancy')).toBe(
+      'strong'
+    )
+    expect(
+      bucketOf(
+        evaluate({ ...pregnantHH2, flags: ['renter'] }, R),
+        'medi-cal-pregnancy'
+      )
+    ).toBe('absent')
+  })
+  it('Medi-Cal tiers: kids reach much higher income than adults', () => {
+    const r = evaluate(base, R) // HH4 @ $4,800
+    expect(bucketOf(r, 'medi-cal-kids')).toBe('strong') // ≤ $7,315, kid present
+    expect(bucketOf(r, 'medi-cal-adult')).toBe('absent') // over $3,795
+    const lower = evaluate({ ...base, incomeMonthlyGross: 3200 }, R)
+    expect(bucketOf(lower, 'medi-cal-adult')).toBe('strong')
+  })
+  it('Covered California: present under the 400% cliff, absent past it', () => {
+    expect(bucketOf(evaluate(base, R), 'covered-california')).toBe(
+      'worthAsking' // check-first cap
+    )
+    expect(
+      bucketOf(
+        evaluate({ ...base, incomeMonthlyGross: 10_800 }, R),
+        'covered-california'
+      )
+    ).toBe('absent') // $10,800 > the $10,716 HH4 cliff; no rescue declared
   })
   it('N4: waitlist-closed rules land in notNow with reason.waitlist-closed', () => {
     // synthetic drop-in shaped like the coming section-8 row
