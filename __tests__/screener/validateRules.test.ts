@@ -15,7 +15,7 @@ const good: Rule = {
   provenance: [
     {
       claim: 'income',
-      source: 'https://example.org',
+      source: 'https://example.org/eligibility',
       verifiedAt: '2026-07-01',
       via: 'test'
     }
@@ -48,5 +48,23 @@ describe('validateRules', () => {
   it('rejects missing Spanish strings', () => {
     const noEs = { ...good, name: { en: 'X', es: '' } }
     expect(validateRules([noEs], new Date('2026-07-02'))[0]).toMatch(/es/)
+  })
+  it('rejects a bare-origin provenance source (E4) unless grandfathered', () => {
+    const bare = {
+      ...good,
+      provenance: [{ ...good.provenance[0]!, source: 'https://example.org' }]
+    }
+    expect(validateRules([bare], new Date('2026-07-02'))[0]).toMatch(
+      /bare origin/
+    )
+    const notAUrl = {
+      ...good,
+      provenance: [
+        { ...good.provenance[0]!, source: 'https://example.org (some pages)' }
+      ]
+    }
+    expect(validateRules([notAUrl], new Date('2026-07-02'))[0]).toMatch(
+      /must be a URL/
+    )
   })
 })

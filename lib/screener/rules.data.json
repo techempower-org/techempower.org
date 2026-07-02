@@ -255,8 +255,8 @@
       "es": "LIHEAP (ayuda con calefacción — incluye propano, leña y petróleo)"
     },
     "value": {
-      "en": "Up to $1,500 once a year + crisis help with shut-off notices; never repaid",
-      "es": "Hasta $1,500 una vez al año + ayuda de crisis ante avisos de corte; no se devuelve"
+      "en": "Up to $1,000 a year through Project GO locally (statewide crisis cap $1,500) + crisis help with shut-off notices; never repaid",
+      "es": "Hasta $1,000 al año a través de Project GO localmente (tope estatal de crisis: $1,500) + ayuda de crisis ante avisos de corte; no se devuelve"
     },
     "apply": {
       "phone": {
@@ -267,16 +267,22 @@
     },
     "provenance": [
       {
-        "claim": "FFY2026 max $1,500 + crisis; CA monthly cap $6,407.16/4p state ceiling, local matrix lower — table uses CSD 60% SMI figures",
-        "source": "https://www.csd.ca.gov/Pages/LIHEAPProgram.aspx",
-        "verifiedAt": "2026-07-01",
-        "via": "ep4 wave: amp-liheap (State Plan §9)"
+        "claim": "Statewide FFY2026 crisis cap: \"Amount to resolve the crisis. $1,500\"; benefit matrix Minimum $94 – Maximum $1,500; income standard 60% State Median Income / 150% FPL (statutory text verbatim)",
+        "source": "https://www.csd.ca.gov/Shared%20Documents/2026-Final-LIHEAP-State-Plan.pdf",
+        "verifiedAt": "2026-07-02",
+        "via": "nebula E4 (static 8.6MB PDF, plain curl + pdftotext) — replaces the program-page cite for the dollar figures"
       },
       {
-        "claim": "Project GO = Nevada County agency",
-        "source": "https://www.projectgoinc.org",
+        "claim": "Project GO (Nevada + Placer Counties administrator): HEAP assistance ranges $350–$1,000 by household income and energy costs; ECIP crisis assistance up to $1,000 (e.g. 48-hour shut-off notice)",
+        "source": "https://www.projectgoinc.org/heap.html",
+        "verifiedAt": "2026-07-02",
+        "via": "nebula E4 — page 406s without an Accept header (browser-UA + Accept; not a JS wall, off the playwright list); ECIP figures on /ecip.html same-fetch"
+      },
+      {
+        "claim": "FFY2026 monthly income ceilings (60% SMI table, e.g. $6,407.16/4p) — dollar table is client-rendered on the CSD eligibility page; statutory standard covered by the State Plan cite above",
+        "source": "https://www.csd.ca.gov/Pages/LIHEAPProgram.aspx",
         "verifiedAt": "2026-07-01",
-        "via": "ep4 energy brief"
+        "via": "ep4 wave: amp-liheap; NOT re-verified in the E4 pass (JS-only table — single-page playwright recheck queued as E5)"
       }
     ]
   },
@@ -453,10 +459,16 @@
     "apply": { "phone": { "en": "530-477-0103", "es": "530-477-0103" } },
     "provenance": [
       {
-        "claim": "youth ≤17 free since 2025-11-01",
-        "source": "https://www.nevadacountyca.gov (transit pages)",
-        "verifiedAt": "2026-07-01",
-        "via": "ep4 wave: transit-west"
+        "claim": "\"Effective November 1, 2025, Youth ages 6 - 17 no longer pay a fare!\" — fare table shows Children ≤5 and Youth 6-17 free; youth not in the Discount-Fare-ID categories, so the no-paperwork claim holds",
+        "source": "https://www.nevadacountyca.gov/2259/Fares-and-Passes",
+        "verifiedAt": "2026-07-02",
+        "via": "ep4 wave: transit-west; nebula E4 deep-link pass 2026-07-02 (browser-UA curl; plain fetch 403s)"
+      },
+      {
+        "claim": "accessible one-page PDF twin of the same fare table",
+        "source": "https://www.nevadacountyca.gov/DocumentCenter/View/68826/Fares-and-Passes",
+        "verifiedAt": "2026-07-02",
+        "via": "nebula E4 deep-link pass 2026-07-02 (browser-UA curl; plain fetch 403s)"
       }
     ]
   },
@@ -477,10 +489,16 @@
     "apply": { "phone": { "en": "530-477-0103", "es": "530-477-0103" } },
     "provenance": [
       {
-        "claim": "80+ lifetime fixed-route pass",
-        "source": "https://www.nevadacountyca.gov (transit pages)",
-        "verifiedAt": "2026-07-01",
-        "via": "ep4 wave: transit-west"
+        "claim": "Golden Ticket = lifetime pass for seniors 80+, unlimited free rides on Nevada County Connects routes 1-7; proof of age (CA ID/DL) is the application; not valid on Nevada County Now paratransit",
+        "source": "https://www.nevadacountyca.gov/2259/Fares-and-Passes",
+        "verifiedAt": "2026-07-02",
+        "via": "ep4 wave: transit-west; nebula E4 deep-link pass 2026-07-02 (browser-UA curl; plain fetch 403s)"
+      },
+      {
+        "claim": "accessible one-page PDF twin of the same fare table",
+        "source": "https://www.nevadacountyca.gov/DocumentCenter/View/68826/Fares-and-Passes",
+        "verifiedAt": "2026-07-02",
+        "via": "nebula E4 deep-link pass 2026-07-02 (browser-UA curl; plain fetch 403s)"
       }
     ]
   },
@@ -495,8 +513,8 @@
       "es": "Pase de autobús para bajos ingresos (por referencia)"
     },
     "value": {
-      "en": "Six months of reduced/no-fare riding at a time via FREED, Social Services, or Behavioral Health referral",
-      "es": "Seis meses de tarifa reducida o gratuita mediante referencia de FREED, Servicios Sociales o Salud Conductual"
+      "en": "Six months of subsidized, reduced-fare riding at a time via FREED, Social Services, or Behavioral Health referral",
+      "es": "Seis meses de tarifa reducida (subsidiada) a la vez, mediante referencia de FREED, Servicios Sociales o Salud Conductual"
     },
     "apply": {
       "phone": {
@@ -506,10 +524,16 @@
     },
     "provenance": [
       {
-        "claim": "138-200% FPL, 6-month renewable, three referral agencies; 'fully free' pending phone confirm",
-        "source": "https://www.nevadacountyca.gov (transit pages)",
-        "verifiedAt": "2026-07-01",
-        "via": "ep4 wave: transit-west (free-status hedged)"
+        "claim": "Low-Income Pass Referral Program: a fare SUBSIDY via partner agency (FREED / DSS / Behavioral Health named), income 138-200% FPL, 6-month renewable",
+        "source": "https://www.nevadacountyca.gov/2259/Fares-and-Passes",
+        "verifiedAt": "2026-07-02",
+        "via": "ep4 wave: transit-west; nebula E4 deep-link pass 2026-07-02 (browser-UA curl; plain fetch 403s); subsidy framing per the county page — 'free rides' stays unclaimed"
+      },
+      {
+        "claim": "accessible one-page PDF twin of the same fare table",
+        "source": "https://www.nevadacountyca.gov/DocumentCenter/View/68826/Fares-and-Passes",
+        "verifiedAt": "2026-07-02",
+        "via": "nebula E4 deep-link pass 2026-07-02 (browser-UA curl; plain fetch 403s)"
       }
     ]
   },
