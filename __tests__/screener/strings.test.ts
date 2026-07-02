@@ -22,6 +22,10 @@ describe('strings', () => {
     const noteKeys = (rules as Rule[])
       .flatMap((r) => r.test.specialNotes ?? [])
       .map((k) => `note.${k}`)
+    // per-rule proxy reason keys are data-driven — derive from the corpus
+    const proxyKeys = (rules as Rule[])
+      .map((r) => r.test.proxyReasonKey)
+      .filter((k): k is string => k !== undefined)
     // the reason keys evaluate.ts emits — extend when the evaluator grows
     const reasonKeys = [
       'reason.under-limit',
@@ -33,9 +37,19 @@ describe('strings', () => {
     ]
     const enKeys = new Set(Object.keys(en))
     const esKeys = new Set(Object.keys(es))
-    for (const key of [...noteKeys, ...reasonKeys]) {
+    for (const key of [...noteKeys, ...proxyKeys, ...reasonKeys]) {
       expect(enKeys.has(key), `en missing ${key}`).toBe(true)
       expect(esKeys.has(key), `es missing ${key}`).toBe(true)
+    }
+  })
+  it('no literal dollar figures in the string tables — dollars live in rules noteParams (inside the provenance freshness regime)', () => {
+    for (const [name, table] of [
+      ['en', en],
+      ['es', es]
+    ] as const) {
+      for (const [k, v] of Object.entries(table)) {
+        expect(v, `${name}:${k}`).not.toMatch(/\$\s*\d/)
+      }
     }
   })
 })

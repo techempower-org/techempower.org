@@ -414,6 +414,9 @@
       "flagsAll": ["has-vehicle"],
       "specialNotes": ["retirement-failed-smog-tier"]
     },
+    "noteParams": {
+      "retirement-failed-smog-tier": { "amountFailedSmog": 1350 }
+    },
     "name": {
       "en": "Vehicle retirement (the state buys your car)",
       "es": "Retiro de vehículo (el estado le compra su auto)"

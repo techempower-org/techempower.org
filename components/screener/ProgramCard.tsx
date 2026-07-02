@@ -40,7 +40,7 @@ export function ProgramCard({
       {verdict.notes.length > 0 && (
         <ul className={styles.notes}>
           {verdict.notes.map((n) => (
-            <li key={n}>{t(lang, `note.${n}`)}</li>
+            <li key={n}>{t(lang, `note.${n}`, rule.noteParams?.[n])}</li>
           ))}
         </ul>
       )}

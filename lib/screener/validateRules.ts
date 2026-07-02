@@ -53,6 +53,15 @@ export function validateRules(rules: Rule[], now: Date): string[] {
           problems.push(`${where}: apply.${field}.es missing`)
       }
     }
+    // dollar figures for note templates live in noteParams so they sit inside
+    // this rule's provenance/freshness regime — every key must map to a
+    // declared specialNote (catches typos and orphaned numbers)
+    for (const key of Object.keys(r.noteParams ?? {})) {
+      if (!r.test.specialNotes?.includes(key))
+        problems.push(
+          `${where}: noteParams["${key}"] has no matching specialNotes entry`
+        )
+    }
   }
   return problems
 }

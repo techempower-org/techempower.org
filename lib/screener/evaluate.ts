@@ -68,6 +68,11 @@ export function evaluate(answers: Answers, rules: Rule[]): EvaluationResult {
     if (rule.jurisdiction === 'nevada-county' && answers.county !== 'nevada')
       continue
 
+    // categorical excludes — enrollment that DISQUALIFIES (GA is only for
+    // people who can't get CalWORKs/SSI; the inverse of an unlock)
+    if (t.categoricalExcludes?.some((x) => answers.enrolled.includes(x)))
+      continue
+
     // hard flag gates — program simply doesn't apply without them
     if (t.flagsAll?.length) {
       const missing = t.flagsAll.filter((f) => !answers.flags.includes(f))
@@ -92,14 +97,21 @@ export function evaluate(answers: Answers, rules: Rule[]): EvaluationResult {
       const margin = (rule.boundaryMarginPct ?? DEFAULT_MARGIN_PCT) / 100
       if (answers.incomeMonthlyGross <= limit) {
         include = true
-        reasons.push({
-          key: 'reason.under-limit',
-          params: {
-            income: answers.incomeMonthlyGross,
-            limit,
-            household: answers.householdSize
-          }
-        })
+        if (t.proxyReasonKey) {
+          // Numbers used for gating are not claims; numbers rendered are.
+          // A proxy/band limit gates visibility but must never print — emit
+          // the rule's no-number reason instead of reason.under-limit.
+          reasons.push({ key: t.proxyReasonKey })
+        } else {
+          reasons.push({
+            key: 'reason.under-limit',
+            params: {
+              income: answers.incomeMonthlyGross,
+              limit,
+              household: answers.householdSize
+            }
+          })
+        }
         // boundary → never strong; spec conservatism is unconditional
         // (oracle S2 removed a WIC-shaped age exemption here)
         if (answers.incomeMonthlyGross > limit * (1 - margin))

@@ -64,8 +64,16 @@ export interface RuleTest extends IncomeTest {
   ageAnyMax?: number // e.g. 4 (under 5), 17 (kids)
   flagsAll?: SituationFlag[]
   categoricalUnlocks?: Enrollment[]
+  /** Inverse of an unlock: enrollment in any of these DISQUALIFIES (e.g. GA
+   *  is only for people ineligible for CalWORKs/SSI). */
+  categoricalExcludes?: Enrollment[]
   /** Everyone passes (e.g. CA universal school meals w/ kids). Income ignored. */
   universal?: boolean
+  /** When set, the income limit is a proxy/band that GATES visibility but
+   *  must never RENDER: evaluate() emits this no-number reason key instead
+   *  of reason.under-limit. Numbers used for gating are not claims; numbers
+   *  rendered are. */
+  proxyReasonKey?: string
   /** Keys into strings for nuance rows rendered as Worth-Asking footnotes. */
   specialNotes?: string[]
 }
@@ -85,6 +93,10 @@ export interface Rule {
   test: RuleTest
   /** For reason strings, e.g. { "1": 2610, "4": 5360, "increment": 918 } (monthly $). */
   thresholdsDisplay?: Record<string, number>
+  /** Params for note.* templates, keyed by specialNotes key. Dollar figures
+   *  live HERE (not in the string tables) so they sit inside the rule's
+   *  provenance + 120-day freshness regime. */
+  noteParams?: Record<string, Record<string, string | number>>
   name: Record<Lang, string>
   value: Record<Lang, string>
   /** url is language-neutral; phone/local are user-facing prose (both langs). */
