@@ -2,15 +2,6 @@ import type { Rule } from './types'
 
 const MAX_AGE_DAYS = 120
 
-/** Wave-0 rows that predate the bare-origin rule (oracle E4) and still cite
- *  a homepage. Grandfathered until their deep links are verified by a
- *  research pass — this set only shrinks; new rules can never join it. */
-const BARE_ORIGIN_GRANDFATHERED = new Set([
-  'clca',
-  'freed-equipment',
-  'lsnc-legal'
-])
-
 /** Returns a list of human-readable problems; empty list = valid. */
 export function validateRules(rules: Rule[], now: Date): string[] {
   const problems: string[] = []
@@ -43,11 +34,7 @@ export function validateRules(rules: Rule[], now: Date): string[] {
         problems.push(
           `${where}: provenance source must be a URL ("${p.source}")`
         )
-      } else if (
-        (url.pathname === '' || url.pathname === '/') &&
-        !url.search &&
-        !BARE_ORIGIN_GRANDFATHERED.has(r.id)
-      ) {
+      } else if ((url.pathname === '' || url.pathname === '/') && !url.search) {
         problems.push(
           `${where}: provenance source is a bare origin ("${p.source}") — cite the page the claim lives on`
         )

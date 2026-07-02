@@ -49,7 +49,7 @@ describe('validateRules', () => {
     const noEs = { ...good, name: { en: 'X', es: '' } }
     expect(validateRules([noEs], new Date('2026-07-02'))[0]).toMatch(/es/)
   })
-  it('rejects a bare-origin provenance source (E4) unless grandfathered', () => {
+  it('rejects a bare-origin provenance source (E4)', () => {
     const bare = {
       ...good,
       provenance: [{ ...good.provenance[0]!, source: 'https://example.org' }]

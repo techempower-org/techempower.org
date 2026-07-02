@@ -360,7 +360,8 @@
     "test": {
       "incomePctFPL": 250,
       "flagsAll": ["has-vehicle"],
-      "specialNotes": ["clca-liability-only"]
+      "categoricalUnlocks": ["calfresh", "calworks", "medi-cal"],
+      "specialNotes": ["clca-liability-only", "clca-benefit-proof"]
     },
     "thresholdsDisplay": { "1": 3325, "4": 6875 },
     "name": {
@@ -380,10 +381,22 @@
     },
     "provenance": [
       {
-        "claim": "250% FPL ($39,900/1p, $82,500/4p), $199 Nevada County base, legal via Veh. Code §16056.1 carve-out",
-        "source": "https://www.mylowcostauto.com",
+        "claim": "Statutory program (Ins. Code §11629.7); SB 1273 exception to the 3-year-license rule; vehicle value cap raised from $20,000 to $25,000; legal via Veh. Code §16056.1 carve-out; apply via www.mylowcostauto.com / 1-866-602-8861",
+        "source": "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/01-auto/lca/",
+        "verifiedAt": "2026-07-02",
+        "via": "nebula E4 final-three (plain curl + WebFetch — CDI static primary)"
+      },
+      {
+        "claim": "CDI consumer pamphlet qualify bullets verbatim: valid California driver's license including AB60 for undocumented drivers; vehicle valued $25,000 or less; good driving record; meet household income guidelines. Benefit-based income proof accepted: CalFresh EBT / CalWORKs letter / Medi-Cal card / EDD / SS-pension letter — primary support for the categoricalUnlocks",
+        "source": "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/01-auto/lca/upload/Pamphlet-English-1.pdf",
+        "verifiedAt": "2026-07-02",
+        "via": "nebula E4 final-three (plain curl + pdftotext); oracle one-fetch confirmation folded into the final pass"
+      },
+      {
+        "claim": "250% FPL dollar table ($39,900/1p, $82,500/4p) + $199 Nevada County base premium",
+        "source": "https://www.mylowcostauto.com/eligibility",
         "verifiedAt": "2026-07-01",
-        "via": "ep4 wave: clca"
+        "via": "ep4 wave: clca; mylowcostauto.com and aipso.com serve Incapsula shells to every automated fetcher and archive.org holds no snapshot — dollar re-verification queued as E5 playwright, narrowed to this page"
       }
     ]
   },
@@ -596,10 +609,10 @@
     "apply": { "phone": { "en": "530-477-3333", "es": "530-477-3333" } },
     "provenance": [
       {
-        "claim": "free reuse program, device list, seniors + disabilities",
-        "source": "https://freed.org",
-        "verifiedAt": "2026-07-01",
-        "via": "ep5 wave: freed-lsnc (live contact page)"
+        "claim": "Verbatim: \"We offer refurbished medical equipment to seniors and individuals with disabilities free of charge. Items are donated from the community and refurbished by volunteers\" — wheelchairs, walkers, mobility devices, transfer boards, shower chairs, toilet seats, hospital beds, canes",
+        "source": "https://freed.org/services/assistive-technology/equipment-reuse/",
+        "verifiedAt": "2026-07-02",
+        "via": "ep5 wave: freed-lsnc; nebula E4 final-three deep link (browser-UA; static WordPress) — also strengthens the value line's device list"
       }
     ]
   },
@@ -630,10 +643,16 @@
     },
     "provenance": [
       {
-        "claim": "Auburn office serves Nevada County; case types; senior program via Area 4 AAA (soft framing)",
-        "source": "https://lsnc.net",
-        "verifiedAt": "2026-07-01",
-        "via": "ep5 wave: freed-lsnc"
+        "claim": "Auburn — local office serving Amador, Calaveras, El Dorado, Nevada, Placer and Sierra counties (LSNC's own service-area page)",
+        "source": "https://lsnc.net/how-contact-us",
+        "verifiedAt": "2026-07-02",
+        "via": "nebula E4 final-three (browser-UA; static today — the sweep's JS-shell finding did not reproduce; freshness passes should use a short timeout + one retry before declaring a wall)"
+      },
+      {
+        "claim": "Verbatim: \"Due to a special grant there are no income requirements for senior (age 60+) who reside in Nevada or Placer County\"; 190 Reamer Street, Auburn; (530) 823-7560 / (800) 660-6107; case areas incl. housing and public benefits (CalWORKs, CalFresh, Medi-Cal, GA, Social Security/SSI, UIB, SDI)",
+        "source": "https://www.lawhelpca.org/organization/legal-services-of-northern-california-auburn",
+        "verifiedAt": "2026-07-02",
+        "via": "nebula E4 final-three (WebFetch) — hard cite for the 60+ no-income rule the lsnc-senior-soft note describes"
       }
     ]
   },
