@@ -17,11 +17,11 @@ PROMPTER NOTES (do not read):
 - Dollar figures and stats are written out as spoken.
 - Plain-language rule: every program gets a short
   explanation the first time it's named. No bare acronyms.
-- Drafted July 1, 2026 from the five Ep5 research briefs.
-  ADVERSARIAL FACT-CHECK PASS STILL PENDING -- run the
-  claim-by-claim wave, apply every fix, then resolve every
-  [WEEK-OF RECHECK] cue before the August 17 record. NOTE:
-  this episode's week-of pass is a PHONE pass -- the two
+- Fact-checked July 1, 2026: 7-claim adversarial wave run
+  (cross-assigned verifiers), all fixes applied (see
+  fact-check-full-report.json). Resolve every [WEEK-OF
+  RECHECK] cue before the August 17 record. NOTE: this
+  episode's week-of pass is a PHONE pass -- the two
   farm-org websites block automated checking.
 ================================================================
 
