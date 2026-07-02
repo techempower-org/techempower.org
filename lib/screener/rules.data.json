@@ -78,6 +78,7 @@
         "increment": 876
       },
       "ageAnyMax": 4,
+      "memberFlagsAny": ["pregnant"],
       "categoricalUnlocks": ["medi-cal", "calfresh", "calworks"],
       "specialNotes": ["wic-caregivers", "wic-pregnant"]
     },
@@ -791,7 +792,11 @@
       },
       "proxyReasonKey": "reason.income-screen",
       "categoricalExcludes": ["calworks", "ssi"],
-      "specialNotes": ["ga-call-first", "ga-last-resort", "ga-repayable-work-rules"]
+      "specialNotes": [
+        "ga-call-first",
+        "ga-last-resort",
+        "ga-repayable-work-rules"
+      ]
     },
     "name": {
       "en": "Nevada County General Assistance (cash of last resort)",

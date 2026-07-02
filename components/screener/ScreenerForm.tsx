@@ -58,6 +58,8 @@ export function ScreenerForm({
   const [nid, setNid] = React.useState(false)
   const [vehicle, setVehicle] = React.useState(false)
   const [failedSmog, setFailedSmog] = React.useState(false)
+  const [pregnant, setPregnant] = React.useState(false)
+  const [medicare, setMedicare] = React.useState(false)
   const [enrolled, setEnrolled] = React.useState<Enrollment[]>([])
 
   function setAgeBand(band: keyof AgeBandCounts, raw: string) {
@@ -96,6 +98,8 @@ export function ScreenerForm({
     if (nid) flags.push('nid-water')
     if (vehicle) flags.push('has-vehicle')
     if (vehicle && failedSmog) flags.push('failed-smog')
+    if (pregnant) flags.push('pregnant')
+    if (medicare) flags.push('medicare')
     onSubmit({
       householdSize: size,
       incomeMonthlyGross:
@@ -314,6 +318,30 @@ export function ScreenerForm({
             />
             <label className={styles.choiceLabel} htmlFor='q-flag-smog'>
               {t(lang, 'form.flags.failedSmog')}
+            </label>
+          </div>
+          <div className={styles.checkItem}>
+            <input
+              id='q-flag-pregnant'
+              className={styles.checkbox}
+              type='checkbox'
+              checked={pregnant}
+              onChange={(e) => setPregnant(e.target.checked)}
+            />
+            <label className={styles.choiceLabel} htmlFor='q-flag-pregnant'>
+              {t(lang, 'form.flags.pregnant')}
+            </label>
+          </div>
+          <div className={styles.checkItem}>
+            <input
+              id='q-flag-medicare'
+              className={styles.checkbox}
+              type='checkbox'
+              checked={medicare}
+              onChange={(e) => setMedicare(e.target.checked)}
+            />
+            <label className={styles.choiceLabel} htmlFor='q-flag-medicare'>
+              {t(lang, 'form.flags.medicare')}
             </label>
           </div>
         </div>

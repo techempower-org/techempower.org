@@ -146,8 +146,12 @@ export function evaluate(answers: Answers, rules: Rule[]): EvaluationResult {
     // age dimension: ageAnyMax (a specific member, e.g. a child) is a hard
     // gate; ageAnyMin is a solo gate when it's the rule's only dimension and
     // an alternative qualifying route (weaker bucket) when income exists too.
+    // memberFlagsAny widens the member dimension only (e.g. WIC's pregnancy
+    // category) — every other gate, income included, still applies.
     if (age !== null) {
       const incomeDimension = limit !== null || t.universal || unlockHit
+      const memberViaFlag =
+        t.memberFlagsAny?.some((f) => answers.flags.includes(f)) ?? false
       if (age && !include) {
         if (!incomeDimension) {
           include = true
@@ -159,7 +163,12 @@ export function evaluate(answers: Answers, rules: Rule[]): EvaluationResult {
         }
       } else if (!age && !include) {
         continue // age-gated and no qualifying member
-      } else if (!age && include && t.ageAnyMax !== undefined) {
+      } else if (
+        !age &&
+        include &&
+        t.ageAnyMax !== undefined &&
+        !memberViaFlag
+      ) {
         // income passed but the required member (e.g. a child for WIC) is absent
         continue
       }
@@ -169,7 +178,12 @@ export function evaluate(answers: Answers, rules: Rule[]): EvaluationResult {
 
     if (rule.status === 'check-first') bucket = worst(bucket, 'worthAsking')
     if (rule.status === 'seasonal') bucket = worst(bucket, 'worthAsking')
-    if (rule.status === 'waitlist-closed') bucket = 'notNow'
+    if (rule.status === 'waitlist-closed') {
+      // Not-right-now still deserves an honest why (oracle N4); the card's
+      // value line carries the next move.
+      bucket = 'notNow'
+      reasons.push({ key: 'reason.waitlist-closed' })
+    }
 
     const verdict: Verdict = { ruleId: rule.id, bucket, reasons, notes }
     out[bucket].push(verdict)

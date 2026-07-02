@@ -23,6 +23,8 @@
   "form.flags.nid": "NID suministra el agua de mi casa",
   "form.flags.vehicle": "Hay un auto en el hogar",
   "form.flags.failedSmog": "…y reprobó su última prueba de smog",
+  "form.flags.pregnant": "¿Embarazada, o con un bebé en el hogar?",
+  "form.flags.medicare": "¿Tiene Medicare?",
   "form.enrolled": "¿Ya está inscrito en alguno de estos?",
   "form.enrolled.medi-cal": "Medi-Cal",
   "form.enrolled.calfresh": "CalFresh",

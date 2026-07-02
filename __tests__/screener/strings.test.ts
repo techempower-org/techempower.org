@@ -33,7 +33,8 @@ describe('strings', () => {
       'reason.age',
       'reason.universal',
       'reason.senior-net-test',
-      'reason.flag-match'
+      'reason.flag-match',
+      'reason.waitlist-closed'
     ]
     const enKeys = new Set(Object.keys(en))
     const esKeys = new Set(Object.keys(es))

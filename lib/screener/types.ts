@@ -31,6 +31,8 @@ export type SituationFlag =
   | 'nid-water'
   | 'has-vehicle'
   | 'failed-smog'
+  | 'pregnant'
+  | 'medicare'
 
 export interface AgeBandCounts {
   under5: number
@@ -67,6 +69,10 @@ export interface RuleTest extends IncomeTest {
   /** Inverse of an unlock: enrollment in any of these DISQUALIFIES (e.g. GA
    *  is only for people ineligible for CalWORKs/SSI). */
   categoricalExcludes?: Enrollment[]
+  /** Alternative to the ageAny member dimension: any of these flags also
+   *  satisfies it (e.g. WIC's pregnancy category alongside kids under 5).
+   *  Income and other gates still apply. */
+  memberFlagsAny?: SituationFlag[]
   /** Everyone passes (e.g. CA universal school meals w/ kids). Income ignored. */
   universal?: boolean
   /** When set, the income limit is a proxy/band that GATES visibility but

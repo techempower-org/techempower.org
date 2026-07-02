@@ -224,6 +224,66 @@ describe('evaluate — golden cases from the fact-check corpus', () => {
     )
     expect(bucketOf(over, 'eitc-caleitc')).toBe('absent')
   })
+  it('pregnant flag surfaces WIC without a kid under 5; flag off = absent', () => {
+    const pregnantNoKids: Answers = {
+      ...base,
+      householdSize: 2,
+      incomeMonthlyGross: 2500,
+      ages: {
+        under5: 0,
+        age5to17: 0,
+        age18to59: 2,
+        age60plus: 0,
+        age80plus: 0
+      },
+      flags: ['renter', 'pregnant']
+    }
+    // $2,500 is comfortably under WIC's $3,336 HH2 limit → strong
+    expect(bucketOf(evaluate(pregnantNoKids, R), 'wic')).toBe('strong')
+    expect(
+      bucketOf(evaluate({ ...pregnantNoKids, flags: ['renter'] }, R), 'wic')
+    ).toBe('absent')
+    // the flag rescues the member dimension only — income still gates
+    expect(
+      bucketOf(
+        evaluate({ ...pregnantNoKids, incomeMonthlyGross: 4000 }, R),
+        'wic'
+      )
+    ).toBe('absent')
+  })
+  it('part-2 flags are dormant elsewhere: medicare changes nothing today', () => {
+    const withMedicare = evaluate(
+      { ...base, flags: [...base.flags, 'medicare'] },
+      R
+    )
+    expect(withMedicare).toEqual(evaluate(base, R))
+  })
+  it('N4: waitlist-closed rules land in notNow with reason.waitlist-closed', () => {
+    // synthetic drop-in shaped like the coming section-8 row
+    const waitlisted: Rule = {
+      id: 'test-waitlist',
+      jurisdiction: 'CA',
+      category: 'housing',
+      status: 'waitlist-closed',
+      test: { universal: true },
+      name: { en: 'T', es: 'T' },
+      value: { en: 'v', es: 'v' },
+      apply: { url: 'https://example.org' },
+      provenance: [
+        {
+          claim: 'x',
+          source: 'https://example.org',
+          verifiedAt: '2026-07-02',
+          via: 'test'
+        }
+      ]
+    }
+    const r = evaluate(base, [waitlisted])
+    expect(bucketOf(r, 'test-waitlist')).toBe('notNow')
+    expect(
+      r.notNow[0]?.reasons.some((x) => x.key === 'reason.waitlist-closed')
+    ).toBe(true)
+  })
   it('wave-1 CalWORKs: applicant test = MBSAC+$450 band, child required', () => {
     const fam3: Answers = {
       ...base,
