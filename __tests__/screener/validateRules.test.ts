@@ -35,7 +35,7 @@ describe('validateRules', () => {
   it('rejects stale provenance (>120 days)', () => {
     const stale = {
       ...good,
-      provenance: [{ ...good.provenance[0], verifiedAt: '2026-01-01' }]
+      provenance: [{ ...good.provenance[0]!, verifiedAt: '2026-01-01' }]
     }
     expect(validateRules([stale], new Date('2026-07-02'))[0]).toMatch(/stale/)
   })

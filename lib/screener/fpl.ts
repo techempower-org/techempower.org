@@ -14,8 +14,8 @@ export function monthlyLimit(
   const annualTable = fpl.annual as Record<string, number>
   const base =
     size <= 8
-      ? annualTable[String(size)]
-      : annualTable['8'] + (size - 8) * fpl.increment
+      ? annualTable[String(size)]!
+      : annualTable['8']! + (size - 8) * fpl.increment
   return Math.floor((base * (pct / 100)) / 12)
 }
 
