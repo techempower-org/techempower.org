@@ -1,0 +1,503 @@
+================================================================
+WAIT, I QUALIFY?!  --  EPISODE 4
+"Home + Transportation" (bills, housing, the car, the bus)
+Record: Monday, August 3, 2026 -- Nevada County Media
+Hosts: SHAWNA (interviewer) + JEFF (expert)
+Target runtime: ~14 minutes dialogue (no guest; short is fine)
+----------------------------------------------------------------
+PROMPTER NOTES (do not read):
+- Lines in [BRACKETS] are cues, not dialogue.
+- Jingle, logo, and on-screen program cards are added in
+  post-edit. [POST: ...] cues are notes for the editor --
+  in studio, hold a beat and keep going.
+- Long phone numbers and web addresses go on screen as
+  program cards -- hosts say "the number is on your screen"
+  instead of reading digit strings aloud.
+- Dollar figures and stats are written out as spoken.
+- Plain-language rule: every program gets a short
+  explanation the first time it's named. No bare acronyms.
+- Fact-checked July 1, 2026: 11-claim adversarial pass run,
+  all fixes applied (see fact-check-full-report.json). The
+  [BRACKET] cues below mark the remaining week-of confirms
+  -- resolve every one before the August 3 record.
+================================================================
+
+
+[POST: JINGLE + LOGO INTRO -- in studio, hold one beat, then go]
+
+SHAWNA:
+Welcome back to "Wait, I Qualify?!" -- the show about
+unlocking aid for real people, right here in Nevada County.
+I'm Shawna.
+
+JEFF:
+And I'm Jeff. We're from TechEmpower dot org -- a local
+nonprofit that helps folks find the help and incentives
+they're entitled to, from the state, the federal government,
+and local organizations.
+
+SHAWNA:
+Today we're tackling the two biggest lines in almost
+anybody's budget: keeping your home running, and getting
+where you need to go. The power bill, the propane, the
+water. And the car -- because up here in the foothills, if
+the car dies, the job's at risk. There isn't a bus on every
+corner.
+
+JEFF:
+And the good news is there's a whole stack of help most
+people have no idea exists. Discounts on bills you're
+already paying. Free upgrades to your home. Money toward
+fixing your car -- or insuring it. And real rides, right
+here in Nevada County. Best part: a lot of these, you sign
+up once and the savings just keep coming.
+
+
+================================================================
+SEGMENT ONE: THE ENERGY BILLS
+================================================================
+
+SHAWNA:
+Start with the bill everybody dreads. Jeff -- the power
+bill.
+
+JEFF:
+Then let's start with the one you sign up for ONCE. It's
+called CARE -- California Alternate Rates for Energy -- a
+permanent discount on your P-G-and-E bill. Twenty percent
+or more off -- and on the electric side it often runs
+around a third off. Every month, as long as you qualify.
+
+SHAWNA:
+And who qualifies?
+
+JEFF:
+Two doors, and you only need one. The income door: a
+household of one or two can make up to about forty-three
+thousand a year -- a family of four, sixty-six thousand.
+Or the automatic door: if anyone in your home is on
+Medi-Cal -- the health coverage -- or CalFresh, the grocery
+money, or W-I-C, or S-S-I, you already qualify. No income
+math. Enrolling takes minutes, online or by phone, no
+documents up front, and the discount just shows up on the
+bill.
+
+SHAWNA:
+And if someone makes a little too much for CARE?
+
+JEFF:
+There's a second program right above it called FERA --
+Family Electric Rate Assistance. Eighteen percent off the
+electric side -- about forty-five dollars a month for a
+typical household. A family of four can make up to about
+eighty-two thousand and qualify. And a myth to bust: FERA
+used to be closed to households of one or two people. That
+rule is GONE -- singles and couples now qualify. One
+application covers both programs, and P-G-and-E puts you
+on whichever one fits.
+
+SHAWNA:
+Okay. And for someone who's already behind on the bill --
+not struggling with next month's, but BEHIND?
+
+JEFF:
+Two answers. If you're on CARE or FERA and you're ninety
+days or more behind, ask P-G-and-E about their debt
+forgiveness plan: pay your current bill on time for twelve
+months, and each month they erase a twelfth of the old
+debt -- up to eight thousand dollars, gone.
+
+SHAWNA:
+And answer two?
+
+JEFF:
+The heating-bill bailout: LIHEAP -- the Low Income Home
+Energy Assistance Program. A once-a-year payment on your
+energy bill, up to fifteen hundred dollars, plus separate
+crisis help if you're holding a shut-off notice. And
+listen, foothills folks: it covers PROPANE, WOOD, and OIL
+-- not just the power company. It never has to be paid
+back, and renters qualify too, even if utilities are
+folded into your rent. Locally it's run by a group called
+Project GO -- the number's on your screen, press two for
+Nevada County. One honest note: the money is first come,
+first served each year, so call and confirm funds are
+still available. And their voicemail only takes about
+forty calls a day -- so call first thing in the morning.
+
+[POST: PROGRAM CARD -- CARE / FERA: pge.com or
+1-877-660-6789 -- LIHEAP via Project GO: 1-888-524-5705,
+press 2 for Nevada County]
+
+[WEEK-OF RECHECK: LIHEAP funds still available? Project GO
+line + callback flow current? -- annual funding can run dry
+mid-year]
+
+SHAWNA:
+Now -- you said free upgrades. To the house itself.
+
+JEFF:
+Energy Savings Assistance. P-G-and-E will come to your
+home and do efficiency work for FREE -- insulation,
+weatherstripping, L-E-D lighting. If your fridge is
+fifteen years old or more, they may replace it. And if you
+own your home and the furnace or water heater is unsafe,
+they may repair or even replace it. Hundreds to several
+thousand dollars of work, free.
+Same income rules as the CARE and FERA discounts, renters
+welcome with the landlord's okay, and the home just needs
+to be at least five years old. And there's a SECOND free
+weatherization door -- the state's Weatherization
+Assistance Program, run by that same local agency, Project
+GO. Don't worry about which is which: one call to Project
+GO, and they sort out which program covers what.
+
+[POST: PROGRAM CARD -- Energy Savings Assistance: pge.com
+-- Weatherization: Project GO 1-888-524-5705, press 2]
+
+[WEEK-OF RECHECK: 1-800-655-7705 appears only in the 211
+record, not on Project GO's own site (they list
+916-782-3443) -- the 888 line is the safe sole on-air
+number; dial-test before adding any second number]
+
+SHAWNA:
+It's August in fire country -- I have to ask about power
+shutoffs.
+
+JEFF:
+Three quick ones for shutoff season. If anyone in your
+home relies on a medical device that needs electricity,
+get on P-G-and-E's Medical Baseline program -- that one is
+about medical need, NOT income: more power at the lowest
+rate, and extra warnings before a fire-weather shutoff.
+Some Medical Baseline folks qualify for a FREE backup
+battery -- P-G-and-E reaches out if you're pre-qualified,
+but you don't have to wait: call two-one-one, or FREED
+here in Grass Valley, and ask about the backup battery
+programs. Supplies are limited, so ask early.
+And if you're on CARE or FERA, there's up to five hundred
+dollars back on a generator or battery. We live in fire
+country -- but you don't have to face it alone.
+
+[POST: PROGRAM CARD -- Medical Baseline + battery help:
+pge.com -- batteries: dial 2-1-1 or FREED 530-477-3333 --
+rebates up to $500 for CARE/FERA customers]
+
+
+================================================================
+SEGMENT TWO: HOUSING -- THE HONEST VERSION
+================================================================
+
+SHAWNA:
+Okay. Housing. And Jeff, we promised people honesty on
+this show, so -- Section Eight. What's the real story in
+twenty twenty-six?
+
+JEFF:
+Here it is. Section Eight -- officially the Housing Choice
+Voucher -- is the big federal rent program: you pay about
+thirty percent of your income, and the voucher pays the
+rest, straight to your landlord. For our county it's run
+by the Regional Housing Authority. And the honest part:
+their Section Eight waiting list is CLOSED right now. Not
+"long" -- closed. Today, you can't even get in line.
+
+SHAWNA:
+So what do you tell somebody who was counting on it?
+
+JEFF:
+Three things. Watch the housing authority's website --
+lists reopen with little notice, and you want to apply the
+DAY it opens. The site's on your screen. Second: don't
+make a voucher your only plan -- even open lists can take
+years. And third: separate from Section Eight, some
+individual apartment buildings keep their own low-income
+waiting lists -- they're on that same website, each with
+its own contact. Call the property manager and ask what's
+open.
+
+[POST: PROGRAM CARD -- Regional Housing Authority:
+regionalha.org / 888-671-0220]
+
+[WEEK-OF RECHECK: Section 8 waitlist still closed? -- can
+reopen with little notice; check regionalha.org. Keep the
+tenant-voucher vs project-based distinction straight.]
+
+SHAWNA:
+And for somebody in crisis -- not "waiting list" trouble,
+but "where do I sleep TONIGHT" trouble?
+
+JEFF:
+Then don't research -- call two-one-one. That's the front
+door to the county's whole housing-crisis system: one
+call, they screen you, and every partner agency can pick
+you up from there. If you need shelter tonight in western
+Nevada County, it's Hospitality House in Grass Valley --
+call the shelter line FIRST, it's on your screen, and
+they'll walk you through check-in, which runs every day
+from four to five-thirty in the afternoon. On the Truckee
+side there's now a year-round Navigation Center with
+overnight beds -- it opened this February -- and
+two-one-one can connect you the same day.
+Families on CalWORKs -- the state aid program for families
+-- can get up to sixteen nights in a motel, once a year,
+through BenefitsCal, the state benefits website from our
+food episode. And there's more -- targeted help for
+veterans, for families, for folks fleeing violence -- and
+two-one-one knows all of it.
+
+[POST: PROGRAM CARD -- Housing crisis: dial 2-1-1 --
+Hospitality House shelter line 530-271-7144 (call first;
+check-in 4:00-5:30 pm daily) -- Truckee Navigation Center
+referrals 530-606-5457]
+
+[WEEK-OF RECHECK: Hospitality House screening -- the 211
+directory lists 45-day western-county residency, TB test,
+and Grass Valley PD clearance, none of which are on
+hhshelter.org; the aired "call first" line covers viewers
+either way. Confirm specifics at 530-271-7144. Also
+confirm the Truckee Navigation Center's current status +
+referral flow (530-606-5457; opened Feb 2026, one-year
+pilot)]
+
+
+================================================================
+SEGMENT THREE: THE CAR
+================================================================
+
+SHAWNA:
+The car. Up here it's not a luxury -- it's the job, the
+groceries, the doctor. Where's the help?
+
+JEFF:
+Four pieces, quick. Piece one: the smog check. If your car
+is a ninety-six or newer and it FAILS smog, the state's
+Bureau of Automotive Repair can put up to fourteen hundred
+fifty dollars into the repairs. Income-qualified -- about
+thirty-six thousand a year for one person, about
+seventy-four thousand for a family of four. Straight talk: you pay a
+co-pay of at least twenty percent of the repair bill, and
+the work happens at a state-certified smog shop -- they're
+called STAR stations.
+
+SHAWNA:
+And if the car's just... done?
+
+JEFF:
+Piece two: the state will BUY it. Vehicle retirement:
+if the car just FAILED its smog check, that's thirteen
+hundred fifty dollars, no income test at all. And if
+you're income-qualified, it's up to two thousand -- even
+for a car that passed. Both of these run on a state budget
+year that just restarted in July, so the money's as fresh
+as it gets.
+Apply at the state site on your screen.
+
+[POST: PROGRAM CARD -- Smog repair + vehicle retirement:
+bar.ca.gov/cap]
+
+[WEEK-OF RECHECK: BAR CAP new-fiscal-year funds still
+available; income caps refresh with the poverty guidelines
+-- re-pull current figures]
+
+SHAWNA:
+Now the new one you found -- insurance. Because liability
+insurance is the law, and it is NOT cheap anymore.
+
+JEFF:
+Piece three, and almost nobody's heard of it: California
+Low Cost Auto insurance -- a state-run program. A YEAR of
+liability coverage for roughly two hundred to under a
+thousand dollars, depending on your county -- and rural
+counties like ours sit near the LOW end. You need a valid
+California license, a car worth twenty-five thousand or
+less, and income under about thirty-nine thousand for one
+person -- about eighty-two thousand for a family of four.
+Even brand-new drivers can qualify. Now the honest part:
+it's liability ONLY. It covers the other person's car and
+injuries -- not your own car -- and the limits are lower
+than a standard policy. But it keeps you legal, insured,
+and on the road -- for hundreds instead of thousands.
+
+[POST: PROGRAM CARD -- CA Low Cost Auto Insurance:
+mylowcostauto.com / 1-866-602-8861]
+
+SHAWNA:
+And piece four?
+
+JEFF:
+Piece four comes with a Market Match-sized asterisk.
+There's a state program called Driving Clean that can put
+serious money -- up to ten thousand dollars -- toward
+swapping an old polluting car for a cleaner used one. But
+parts of it are closed right now, and the funding comes
+and goes -- so check the website, or ask us on Discord,
+before you count on it. While we're being honest: that
+two-thousand-dollar state e-bike voucher you may have
+heard about? It ended last December -- don't wait on it.
+And one more, for western-county P-G-and-E customers --
+Truckee, you're on your own utility -- if you're
+income-qualified and buy a used electric car, P-G-and-E
+has a four-thousand-dollar rebate.
+
+[POST: PROGRAM CARD -- Driving Clean Assistance Program:
+drivingcleanca.org (verify open) -- PG&E used-EV rebate
+(income-qualified $4,000): evrebates.pge.com]
+
+[WEEK-OF RECHECK: DCAP pathway/tier status -- financing
+tiers closed as of July 1, scrap-and-replace was open;
+verify live before air, do not send viewers to a closed
+pathway. Confirm PG&E income-qualified rebate terms.]
+
+SHAWNA:
+Before we get you on the bus -- one more bill at the
+house. Water.
+
+JEFF:
+Quick one. If N-I-D -- the Nevada Irrigation District --
+delivers your home's drinking water, and anyone in your
+home is on Medi-Cal, S-S-I, or that CARE discount we
+opened with, one yearly application knocks about nine
+dollars and fifty cents a month off your water bill. One
+call -- the number's on your screen.
+
+[POST: PROGRAM CARD -- NID Low Income Rate Assistance:
+530-273-6185]
+
+[VERIFIED July 1 from NID's own application PDF: flat
+$9.50/month, treated-water residential accounts only,
+reapply yearly (one secondary source shows $9.00) --
+phone-confirm the exact amount at 530-273-6185 week-of]
+
+
+================================================================
+SEGMENT FOUR: GETTING AROUND WITHOUT A CAR
+================================================================
+
+SHAWNA:
+And if there is no car -- or it's in the shop -- what's
+real, here, today?
+
+JEFF:
+More than people think, and it got cheaper this year. The
+bus system has a new name -- Nevada County Connects, the
+one folks knew as Gold Country Stage. A local ride is a
+dollar fifty, three dollars on the longer regional routes,
+transfers free. And the headline: since last November,
+anyone seventeen or UNDER rides completely free. No
+paperwork -- kids and teens just get on the bus.
+
+SHAWNA:
+And seniors?
+
+JEFF:
+Sixty-five and up ride half fare with a discount card from
+the transit office -- bring photo ID, and note the gotcha:
+a MediCARE card works as proof, but Medi-CAL is a
+different card. Same half fare if you have a disability.
+But here's my favorite fare in the county: if you're
+eighty or better, the Golden Ticket -- FREE on all the
+regular routes, for LIFE. Proof of age, that's it.
+
+SHAWNA:
+Free for life at eighty. I love that. And for folks in
+between -- too young for the deals, income's tight?
+
+JEFF:
+There's a Low-Income Pass -- six months at a time,
+renewable -- that takes the bus fare off your shoulders,
+through a referral from FREED, the local
+independent-living nonprofit, or county Social Services,
+or Behavioral Health. Ask any of them -- or two-one-one.
+
+SHAWNA:
+What about somebody who can't use a regular bus at all?
+
+JEFF:
+Door-to-door service: Nevada County Now -- it used to be
+called Gold Country Lift. If a disability keeps you off
+the regular bus, you apply and get certified, and you book
+those rides the day before -- no same-day -- with the
+return booked at the same time. Seniors sixty-five and up
+get something more flexible: an on-demand dial-a-ride. One
+simple application -- you can even hand it to the driver
+on your first trip -- and you can call for a same-day ride
+if there's room, though the certified rides get first
+dibs. Either way, it's four dollars each way.
+
+[POST: PROGRAM CARD -- Nevada County Connects: 530-477-0103
+-- Nevada County Now (door-to-door): 530-271-7433, book the
+day before]
+
+[WEEK-OF RECHECK: the $4 each-way dial-a-ride fare and
+the hand-to-driver application flow were verified on the
+live county page July 1 -- routine re-confirm. CONFIRM BY
+PHONE (530-477-0103) whether the Low-Income Pass makes
+riding fully FREE -- if yes, restore "free riding" to the
+spoken line. Confirm youth-free, Golden Ticket still
+active.]
+
+SHAWNA:
+Truckee side?
+
+JEFF:
+Truckee, you win this round: TART -- the Tahoe Truckee bus
+system -- and its on-demand door-to-door vans are FREE to
+ride right now, funded into next year. And one more,
+county-wide: if you're on Medi-Cal, rides to medical and
+dental appointments are a free benefit -- one phone
+number, book at least five days ahead. They'll even
+reimburse gas money for a friend who drives you.
+
+[POST: PROGRAM CARD -- TART + TART Connect (Truckee): free
+to ride -- Medi-Cal rides: Partnership HealthPlan
+866-828-2303, book 5+ days ahead]
+
+[WEEK-OF RECHECK: TART free-fare + summer on-demand hours
+current on tahoetruckeetransit.com; Partnership line +
+five-day booking rule current]
+
+
+================================================================
+CLOSE
+================================================================
+
+SHAWNA:
+Let's land the plane. Today: a permanent discount on the
+power bill that you sign up for once. A heating bailout
+that covers propane and firewood. Free upgrades to the
+house. The honest truth about Section Eight -- and the
+number to call in a housing crisis. The state paying to
+fix your car, retire it, or insure it. And kids riding
+free, seniors riding cheap, and eighty-plus riding free
+for LIFE.
+
+JEFF:
+Your home and your car are probably your two biggest
+expenses -- and there's help for both that you don't have
+to be destitute to get. But these programs only work if
+people claim them. So claim them. Dial two-one-one -- here
+that's two-one-one Connecting Point -- free, confidential,
+around the clock, English and Spanish. Online, go to
+findhelp dot org and type in your ZIP code. And us:
+techempower dot org -- click "Join our Discord," our free
+online chat community, and a real neighbor helps you
+one-on-one. A CARE application, a bus pass, a battery plan
+for fire season -- we answer.
+
+SHAWNA:
+Next time on "Wait, I Qualify?!" -- our season finale:
+nonprofits and farmers. The local groups that catch you
+when the big programs can't -- and the help growing right
+here in our own backyard.
+
+JEFF:
+Until then -- go find out what you qualify for. You might
+be surprised.
+
+[POST: OUTRO -- JINGLE + LOGO + END CARD: TECHEMPOWER.ORG /
+211 / FINDHELP.ORG. In studio: hold on smiles for a beat]
+
+================================================================
+END OF SCRIPT
+================================================================

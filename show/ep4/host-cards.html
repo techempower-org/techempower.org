@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Host Cards -- Wait, I Qualify?! Ep4</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23e8a13c'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' font-family='sans-serif' font-weight='bold' fill='%231f2421'%3EW%3F%3C/text%3E%3C/svg%3E">
+<style>
+  :root { --bg:#faf6ee; --ink:#2a2520; --dim:#8a857a; --shawna:#c25435; --jeff:#2e7d6e; --never:#a32020; --line:#d8cfbc; --accent:#b97a17; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0d0f0e; --ink:#f5f1e8; --dim:#8a857a; --shawna:#e87a5d; --jeff:#5da89b; --never:#e06060; --line:#3a423e; --accent:#e8a13c; }
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--ink); font-family:"DM Sans",system-ui,sans-serif; padding:24px; }
+  header { max-width:7.5in; margin:0 auto 18px; }
+  header h1 { font-size:20px; }
+  header p { color:var(--dim); font-size:14px; margin-top:4px; }
+  .card {
+    max-width:7.5in; height:4.85in; margin:0 auto 16px; padding:0.28in 0.34in;
+    border:2px solid var(--line); border-radius:10px; overflow:hidden;
+    display:flex; flex-direction:column; break-inside:avoid;
+  }
+  .card.shawna { border-color:var(--shawna); }
+  .card.jeff { border-color:var(--jeff); }
+  .card.never { border-color:var(--never); border-width:4px; border-style:double; }
+  .tag { font-weight:800; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px; display:flex; justify-content:space-between; }
+  .card.shawna .tag { color:var(--shawna); }
+  .card.jeff .tag { color:var(--jeff); }
+  .card.never .tag { color:var(--never); }
+  ul { list-style:none; flex:1; }
+  li { font-size:16px; line-height:1.38; margin-bottom:7px; padding-left:1em; text-indent:-1em; }
+  li.q::before { content:"Q  "; font-weight:800; }
+  li.beat::before { content:"\27A4  "; }
+  li.no::before { content:"X  "; font-weight:800; }
+  li.q { font-weight:600; }
+  li.no { font-weight:600; }
+  li .cue { color:var(--dim); font-style:italic; font-size:0.85em; }
+  li b { color:var(--accent); }
+  .card.never li b { color:var(--never); }
+  @media print {
+    /* B&W laser: high-contrast black ink; tell hosts apart by border STYLE,
+       not hue (coral vs teal both render as similar grays).
+       Shawna = SOLID, Jeff = DASHED, NEVER AD-LIB = heavy DOUBLE. */
+    :root { --bg:#fff; --ink:#000; --dim:#333; --shawna:#000; --jeff:#000; --never:#000; --line:#000; --accent:#000; }
+    @page { size: letter portrait; margin: 0.4in; }
+    * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    body { padding:0; }
+    header { display:none; }
+    .card { page-break-inside:avoid; margin:0 auto 0.2in; border-width:2.5px; }
+    .card.shawna { border-style:solid; }    /* Shawna = SOLID border */
+    .card.jeff   { border-style:dashed; }   /* Jeff   = DASHED border */
+    .card.never  { border-style:double; border-width:6px; }  /* NEVER AD-LIB = heavy DOUBLE */
+    .tag { color:#000; }
+    li .cue { color:#333; }
+    li b { color:#000; text-decoration:underline; }  /* keep stat emphasis in B&W */
+    .card.never li b { color:#000; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Host Cards -- "Wait, I Qualify?!" Episode 4 "Home + Transportation" -- record August 3, 2026</h1>
+  <p>Print (Ctrl+P, portrait -- two cards per sheet). Coral = Shawna (questions + reaction beats with
+  <i>listen-for</i> cues). Teal = Jeff's stat safety net -- ONLY scripted, verified numbers. Q = ask it,
+  arrow = scripted beat. B&amp;W print: Shawna = solid border, Jeff = dashed, NEVER AD-LIB = heavy double
+  border -- that last card goes on TOP of both stacks. Cards are backup -- the studio prompter carries
+  the full script.</p>
+</header>
+
+<div class="card never"><div class="tag"><span>Both hosts</span><span>NEVER AD-LIB</span></div><ul>
+  <li class="no">Never say Medical Baseline is "self-certify" -- first enrollment needs an <b>MD/NP/PA signature</b> (self-cert is renewal-only).</li>
+  <li class="no">Never promise same-day Medi-Cal rides -- <b>5-day rule</b>; urgent = call-ASAP, case-by-case.</li>
+  <li class="no">Never imply TART Connect drivers assist beyond the curb. Never extend the Golden Ticket to paratransit -- <b>fixed routes only</b>.</li>
+  <li class="no">Never say apartment waitlists "are open" -- say <b>"call the property manager."</b> Veterans housing (VASH) can mean relocating out of county -- keep it vague, route to 2-1-1.</li>
+  <li class="no">Never mention the dead county rent program, the ended e-bike voucher (past tense only), <b>888-809-1340</b>, or <b>1-800-655-7705</b>.</li>
+  <li class="no">$1,350 retirement needs a <b>FAILED</b> smog. ESA furnace work = <b>homeowners only</b>.</li>
+  <li class="no">Never quote income figures other than the scripted ones -- tables refresh annually. No number on these cards or the prompter = it does <b>not</b> go on air.</li>
+</ul></div>
+
+<div class="card shawna"><div class="tag"><span>Shawna - S1</span><span>Cold open</span></div><ul>
+  <li class="beat">"Welcome back to Wait, I Qualify?! ... I'm Shawna."</li>
+  <li class="beat">Today: the <b>two biggest lines</b> in the budget -- keeping the home running, and getting where you need to go. Power, propane, water. And the car -- up here, if the car dies, the job's at risk. There isn't a bus on every corner.</li>
+  <li class="beat"><span class="cue">listen for Jeff's stack -- bill discounts, free home upgrades, car money, real rides, "sign up once and the savings keep coming" -- then straight to S2.</span></li>
+</ul></div>
+
+<div class="card shawna"><div class="tag"><span>Shawna - S2</span><span>The energy bills</span></div><ul>
+  <li class="q">"Start with the bill everybody dreads. Jeff -- the power bill."</li>
+  <li class="q">"And who qualifies?"</li>
+  <li class="q">"And if someone makes a little too much for CARE?"</li>
+  <li class="q">"Okay. And for someone who's already behind on the bill -- not struggling with next month's, but BEHIND?"</li>
+  <li class="q"><span class="cue">after the debt-forgiveness beat ("...eight thousand dollars, gone") --</span> "And answer two?"</li>
+  <li class="beat"><span class="cue">Jeff lands on the 9am voicemail tip -- then free upgrades.</span></li>
+</ul></div>
+
+<div class="card shawna"><div class="tag"><span>Shawna - S3</span><span>Free upgrades</span></div><ul>
+  <li class="q">"Now -- you said free upgrades. To the house itself."</li>
+  <li class="beat"><span class="cue">one long Jeff beat: ESA measures, fridge 15+, own-home furnace, 5-year-old home, then the SECOND weatherization door. He lands on "one call to Project GO, and they sort out which program covers what" -- then fire season.</span></li>
+</ul></div>
+
+<div class="card shawna"><div class="tag"><span>Shawna - S4</span><span>Fire season</span></div><ul>
+  <li class="q">"It's August in fire country -- I have to ask about power shutoffs."</li>
+  <li class="beat"><span class="cue">Jeff's three quick ones: Medical Baseline (need, not income) / free backup battery -- don't wait, 2-1-1 or FREED / up to $500 back on a generator or battery. He lands on "you don't have to face it alone" -- then housing.</span></li>
+</ul></div>
+
+<div class="card shawna"><div class="tag"><span>Shawna - S5</span><span>Housing -- the honest version</span></div><ul>
+  <li class="q">"Okay. Housing. And Jeff, we promised people honesty on this show, so -- Section Eight. What's the real story in twenty twenty-six?"</li>
+  <li class="q"><span class="cue">after "you can't even get in line" --</span> "So what do you tell somebody who was counting on it?"</li>
+  <li class="q">"And for somebody in crisis -- not 'waiting list' trouble, but 'where do I sleep TONIGHT' trouble?"</li>
+  <li class="beat"><span class="cue">Jeff lands on "two-one-one knows all of it" -- then the car.</span></li>
+</ul></div>
+
+<div class="card shawna"><div class="tag"><span>Shawna - S6</span><span>The car -- four pieces</span></div><ul>
+  <li class="q">"The car. Up here it's not a luxury -- it's the job, the groceries, the doctor. Where's the help?"</li>
+  <li class="q"><span class="cue">after the smog-repair piece --</span> "And if the car's just... done?"</li>
+  <li class="q">"Now the new one you found -- insurance. Because liability insurance is the law, and it is NOT cheap anymore."</li>
+  <li class="q"><span class="cue">after "hundreds instead of thousands" --</span> "And piece four?"</li>
+</ul></div>
+
+<div class="card shawna"><div class="tag"><span>Shawna - S7</span><span>Water</span></div><ul>
+  <li class="q">"Before we get you on the bus -- one more bill at the house. Water."</li>
+  <li class="beat"><span class="cue">quick one -- N-I-D, one yearly application, ~$9.50/month off. Jeff lands on "the number's on your screen" -- then getting around.</span></li>
+</ul></div>
+
+<div class="card shawna"><div class="tag"><span>Shawna - S8</span><span>Getting around without a car</span></div><ul>
+  <li class="q">"And if there is no car -- or it's in the shop -- what's real, here, today?"</li>
+  <li class="q">"And seniors?"</li>
+  <li class="q"><span class="cue">react "Free for life at eighty. I love that." then --</span> "And for folks in between -- too young for the deals, income's tight?"</li>
+  <li class="q">"What about somebody who can't use a regular bus at all?"</li>
+  <li class="q"><span class="cue">after "four dollars each way" --</span> "Truckee side?"</li>
+</ul></div>
+
+<div class="card shawna"><div class="tag"><span>Shawna - S9</span><span>Close</span></div><ul>
+  <li class="beat">CLOSE -- "Let's land the plane." Recap: <b>permanent discount</b> on the power bill, sign up once. <b>Heating bailout</b> that covers propane and firewood. <b>Free upgrades</b> to the house. The honest truth about <b>Section Eight</b> -- and the number to call in a housing crisis. The state paying to <b>fix, retire, or insure</b> the car. Kids riding free, seniors riding cheap, eighty-plus riding free for LIFE.</li>
+  <li class="beat"><span class="cue">Jeff's three doors: 2-1-1 Connecting Point / findhelp.org + ZIP / techempower.org Discord -- "we answer."</span></li>
+  <li class="beat">Tease: "Next time -- our season finale: nonprofits and farmers. The local groups that catch you when the big programs can't -- and the help growing right here in our own backyard."</li>
+</ul></div>
+
+<div class="card jeff"><div class="tag"><span>Jeff - J1</span><span>Energy bills -- CARE / FERA / debt</span></div><ul>
+  <li class="beat">CARE: <b>20% or more</b> off the PG&amp;E bill -- electric often ~<b>a third</b> off. Permanent, sign up once.</li>
+  <li class="beat">Income door: ~<b>$43,000</b>/yr household of 1-2 / <b>$66,000</b> family of 4. Automatic door: anyone in the home on <b>Medi-Cal, CalFresh, W-I-C, or S-S-I</b> -- no income math. Minutes to enroll, no documents up front.</li>
+  <li class="beat">FERA (a little too much for CARE): <b>18%</b> off electric only, ~<b>$45/mo</b> typical / family of 4 up to ~<b>$82,000</b>. Myth: the 1-2-person exclusion is GONE -- singles + couples qualify.</li>
+  <li class="beat">ONE application covers both -- PG&amp;E puts you on whichever fits. <b>1-877-660-6789</b> / pge.com</li>
+  <li class="beat">Debt forgiveness: on CARE/FERA + <b>90 days</b> or more behind -- 12 on-time months, each month erases a twelfth -- up to <b>$8,000</b> gone.</li>
+</ul></div>
+
+<div class="card jeff"><div class="tag"><span>Jeff - J2</span><span>LIHEAP + free upgrades + fire season</span></div><ul>
+  <li class="beat">LIHEAP: once-a-year payment up to <b>$1,500</b> + separate crisis help (shut-off notice). Covers <b>propane, wood, oil</b>. Never repaid; renters qualify, even utilities-in-rent.</li>
+  <li class="beat">Project GO: <b>1-888-524-5705, press 2</b> for Nevada County. First come, first served -- confirm funds. Voicemail takes ~<b>40 calls/day</b> -- call first thing in the morning.</li>
+  <li class="beat">ESA free work: insulation, weatherstripping, LEDs. Fridge <b>15+ yrs</b> = may replace. Furnace/water heater: <b>homeowners</b>, unsafe units, "may" repair/replace. Home <b>5+ yrs old</b>; same income rules as CARE/FERA; renters w/ landlord's okay. One call to Project GO sorts ESA vs. WAP.</li>
+  <li class="beat">Medical Baseline: medical need, <b>NOT income</b> -- more power at the lowest rate + extra shutoff warnings.</li>
+  <li class="beat">Free backup battery: don't wait to be called -- <b>2-1-1</b> or FREED <b>530-477-3333</b>. Limited supply, ask early. Generator/battery rebate: up to <b>$500</b> back (CARE/FERA).</li>
+</ul></div>
+
+<div class="card jeff"><div class="tag"><span>Jeff - J3</span><span>The car -- smog repair + retirement (BAR)</span></div><ul>
+  <li class="beat">Repair: car is <b>'96 or newer</b> + <b>FAILS</b> smog -- state pays up to <b>$1,450</b> toward repairs.</li>
+  <li class="beat">Income: say "about <b>$36,000</b>" single / "about <b>$74,000</b>" family of 4 (live 2026 table: $35,910 / $74,250 -- never quote older figures).</li>
+  <li class="beat">Co-pay: <b>at least 20%</b> of the repair bill, paid at the shop. Work happens at state-certified <b>STAR</b> stations.</li>
+  <li class="beat">Retirement -- state BUYS the car: <b>$1,350</b> if it just FAILED smog, no income test / up to <b>$2,000</b> income-qualified, even if it passed.</li>
+  <li class="beat">Money runs on the state budget year that restarted in <b>July</b> -- as fresh as it gets. Apply: <b>bar.ca.gov/cap</b></li>
+</ul></div>
+
+<div class="card jeff"><div class="tag"><span>Jeff - J4</span><span>The car -- insurance + cleaner-car money + water</span></div><ul>
+  <li class="beat">CA Low Cost Auto: a YEAR of liability for roughly <b>$200 to under $1,000</b> -- Nevada County base is <b>$199/yr</b>, tied cheapest in the state.</li>
+  <li class="beat">Need: valid CA license / car worth <b>$25,000</b> or less / income ~<b>$39,000</b> single, ~<b>$82,000</b> family of 4. Brand-new drivers CAN qualify. Honest part: liability ONLY -- their car, not yours; lower limits -- but legal and on the road. <b>mylowcostauto.com</b> / 1-866-602-8861</li>
+  <li class="beat">Driving Clean: up to <b>$10,000</b> toward swapping an old car for a cleaner used one -- parts CLOSED, funding comes and goes -- "check the website or ask us on Discord."</li>
+  <li class="beat">E-bike voucher (<b>$2,000</b>): ENDED last December -- past tense only. PG&amp;E used-EV rebate: <b>$4,000</b> income-qualified, west-county PG&amp;E electric customers (Truckee = own utility).</li>
+  <li class="beat">Water: NID customers w/ <b>Medi-Cal, S-S-I, or CARE</b> in the home -- one yearly application, ~<b>$9.50/mo</b> off. <b>530-273-6185</b></li>
+</ul></div>
+
+<div class="card jeff"><div class="tag"><span>Jeff - J5</span><span>Bus -- west county (Nevada County Connects)</span></div><ul>
+  <li class="beat">New name: Nevada County Connects (was Gold Country Stage). Fares: <b>$1.50</b> local / <b>$3.00</b> longer regional routes / transfers FREE.</li>
+  <li class="beat">Headline: since last November, <b>17 and under ride FREE</b> -- no paperwork, just get on.</li>
+  <li class="beat">65+ and riders with a disability: <b>half fare</b> with a Discount Fare ID card from the transit office -- bring photo ID. Gotcha: Medi<b>CARE</b> card works as proof; Medi-<b>CAL</b> is a different card.</li>
+  <li class="beat">80 or better: the <b>Golden Ticket</b> -- FREE on all regular routes, for LIFE. Proof of age, that's it. (Fixed routes only.)</li>
+  <li class="beat">Low-Income Pass: <b>6 months</b> at a time, renewable -- referral from <b>FREED</b>, county Social Services, or Behavioral Health -- or ask 2-1-1. (Say "takes the fare off your shoulders" -- NOT "free" until the phone confirm.)</li>
+</ul></div>
+
+<div class="card jeff"><div class="tag"><span>Jeff - J6</span><span>Door-to-door + Truckee + Medi-Cal rides</span></div><ul>
+  <li class="beat">Nevada County Now (was Gold Country Lift): disability keeps you off the bus -- apply, get certified. Book <b>the day before</b>, no same-day, return booked at the same time.</li>
+  <li class="beat">Seniors 65+: on-demand <b>dial-a-ride</b> -- one simple application, hand it to the driver on the first trip. Same-day if there's room; certified rides get first dibs.</li>
+  <li class="beat">Either way: <b>$4.00 each way</b>. Connects office <b>530-477-0103</b> / Nevada County Now <b>530-271-7433</b>.</li>
+  <li class="beat">Truckee: TART + its on-demand vans are <b>FREE</b> to ride right now, funded into next year.</li>
+  <li class="beat">Medi-Cal rides to medical + dental: free benefit -- Partnership HealthPlan <b>866-828-2303</b>, book <b>5+ days</b> ahead. Gas money reimbursed for a friend who drives you (never for driving yourself).</li>
+</ul></div>
+
+<div class="card jeff"><div class="tag"><span>Jeff - J7</span><span>Housing numbers + key phones</span></div><ul>
+  <li class="beat">Section 8: you pay ~<b>30%</b> of income, voucher pays the rest straight to the landlord. Waiting list <b>CLOSED</b> -- watch <b>regionalha.org</b> (888-671-0220), apply the DAY it opens; local buildings: call the property manager listed.</li>
+  <li class="beat">Crisis TONIGHT: dial <b>2-1-1</b> -- one call screens you for the whole county system.</li>
+  <li class="beat">Hospitality House, Grass Valley: shelter line <b>530-271-7144</b> -- call FIRST; check-in <b>4:00-5:30 pm</b> daily. Truckee Navigation Center (year-round, opened Feb): referrals <b>530-606-5457</b>.</li>
+  <li class="beat">CalWORKs families: up to <b>16 motel nights</b>, once every 12 months -- BenefitsCal.</li>
+  <li class="beat">Close, three doors: dial <b>2-1-1</b> (Connecting Point -- free, confidential, 24/7, English + Spanish) / findhelp.org + your ZIP / techempower.org -- "Join our Discord," a real neighbor helps one-on-one.</li>
+</ul></div>
+
+</body>
+</html>

@@ -1,0 +1,904 @@
+{
+  "summary": "Adversarial verification of every claim group in the Ep4 'Home + Transportation' script (draft of 2026-07-01, adapted from JP's May 30 Notion blueprint + four July research briefs). 11 claim groups; verdicts heterogeneous in schema (post-OOM respawn wave) but complete.",
+  "agentCount": 11,
+  "logs": [
+    "11/11 claim groups verified 2026-07-01: 4 fully accurate (care-fera, clca, dcap-ev, transit-east-nemt), 7 with required fixes/tweaks — ALL 16 fixes applied to ep4-teleprompter.txt same day",
+    "Wave ran through one OOM kill and one API ECONNRESET storm; all verdicts written to disk before/despite worker deaths",
+    "Headline catches: Truckee overnight shelter is now the Navigation Center (opened Feb 2026; NTTHS framing was stale in brief AND May draft); BAR income table was two years stale (real 2026 limits HIGHER: $35,910/$74,250); $1,350 retirement tier requires FAILED smog; official $4 dial-a-ride fare found on live county page (senior flow more flexible than drafted); Low-Income Pass 'free' unconfirmed — hedged pending phone check",
+    "Wins baked in: Nevada County CLCA premium $199/yr = tied cheapest in state; Project GO 40-calls/day voicemail → call-at-9am tip aired; proactive battery path (211/FREED) added"
+  ],
+  "fixDecisions": {
+    "applied_2026_07_01": [
+      "header: fact-checked note replaces DRAFT note",
+      "liheap: kept 'up to fifteen hundred' (technically accurate; local awards $350-$1,000 noted in verdict) + added the 9am voicemail tip",
+      "weatherization card: consolidated to Project GO 1-888-524-5705 press 2; 800-655-7705 quarantined to a dial-test cue",
+      "esa: furnace/water-heater hedged ('own your home', 'may repair or even replace')",
+      "esa/wap: 'one call' anchored to Project GO",
+      "psps: proactive battery path added (2-1-1 / FREED 530-477-3333) + card updated",
+      "housing-s8: property-waitlist line rewritten to 'call the property manager' (every open list was Sutter County on Jul 1)",
+      "housing-crisis: 'call the shelter line FIRST' + Truckee Navigation Center replaces NTTHS + card adds 530-606-5457",
+      "car-bar: income figures updated to live 2026 table (~$36k/$74k — widens eligibility); retirement re-framed (failed-smog for the $1,350 tier)",
+      "transit-west: Low-Income Pass 'free riding' hedged pending phone confirm; senior dial-a-ride rewritten (one-page app, hand-to-driver, same-day-if-room, official $4 each way)"
+    ],
+    "notApplied": "amp-liheap's optional 'several hundred to a thousand' soften (kept the accurate 'up to fifteen hundred')"
+  },
+  "hostAdLibBlacklist": [
+    "Never say Medical Baseline is self-certify — initial enrollment needs an MD/NP/PA signature (self-cert is renewal-only)",
+    "Never promise same-day Medi-Cal rides — 5-day rule; urgent is call-ASAP case-by-case",
+    "Never imply TART Connect drivers assist beyond the curb (door-to-door is the town's wording; no driver-assistance promise)",
+    "Never say apartment/property waitlists 'are open' — every open list on Jul 1 was Sutter County; say 'call the property manager'",
+    "Never mention the dead county rent program, the ended e-bike voucher, 888-809-1340, or 1-800-655-7705 (until dial-tested)",
+    "Golden Ticket is fixed-route only — never extend it to paratransit",
+    "VASH for veterans can require relocating out of county — keep the veterans line vague, route to 211",
+    "The $1,350 retirement tier requires a FAILED smog check; ESA furnace work is homeowners-only",
+    "Never quote CARE/FERA/BAR/CLCA income figures other than the scripted ones (tables refresh annually)"
+  ],
+  "weekOfRecheck": {
+    "note": "Run the standard week-of pass Jul 27-31 (records Mon Aug 3). Every remaining confirm is cued inline in the txt.",
+    "pending": [
+      "PHONE 530-477-0103: does the Low-Income Pass make riding fully FREE? If yes, restore 'free riding'",
+      "PHONE 530-271-7144: Hospitality House screening specifics (45-day residency / TB / GVPD clearance per 211 dir)",
+      "Truckee Navigation Center status + referral flow 530-606-5457 (one-year pilot)",
+      "Section 8 waitlist still closed (regionalha.org — can reopen with little notice)",
+      "LIHEAP funds still available (Project GO 1-888-524-5705 press 2) + dial-test any weatherization number",
+      "DCAP pathway/tier status (drivingcleanca.org banner) + PG&E $4k income-qualified EV rebate terms",
+      "BAR CAP funds + income table (refreshed with poverty guidelines); CLCA rates+income (annual refresh)",
+      "NID $9.50 exact amount (530-273-6185); routine: fares, Golden Ticket, youth-free, TART free status"
+    ]
+  },
+  "result": [
+    {
+      "file": "amp-liheap.json",
+      "content": [
+        {
+          "claimId": "amp-mechanics",
+          "verdict": "VERIFIED",
+          "notes": "Live pge.com AMP page (fetched 2026-07-01): requires enrollment in CARE or FERA ✓; 'more than 90 days past due' ✓; 'Eligible customers who make 12 full monthly payments on time qualify for the full AMP forgiveness' with 1/12 of eligible debt deducted monthly ✓; 'The maximum amount eligible for AMP forgiveness is $8,000' ✓. Nuances the script compresses (acceptable given 'ask PG&E' framing): min debt $500 combined gas+electric ($250 gas-only); PG&E customer 6+ months; ≥1 prior on-time payment; NEM/solar and master-metered accounts excluded; grace = may miss up to 2 payments but not consecutive (2 consecutive or 3 total → withdrawn). Hairline: script says 'ninety days or more' vs PG&E's 'more than 90 days' — immaterial on air. Enroll: online account → Assistance Programs, or 1-877-660-6789. Source: https://www.pge.com/en/account/billing-and-assistance/financial-assistance/arrearage-management-plan-amp.html",
+          "scriptFix": null
+        },
+        {
+          "claimId": "liheap-max-1500",
+          "verdict": "VERIFIED-WITH-CAVEAT",
+          "notes": "'Up to $1,500' is the correct FFY2026 statewide program maximum: LIHEAP Clearinghouse CA profile (last updated 04/20/2026, fetched live via curl — site has a cert-chain issue): 'LIHEAP FY 2026 Benefit Heating: $94 minimum, $1,500 maximum; Cooling: $283–$932; Crisis: $1,500 maximum.' FFY2026 State Plan §2.6 payment matrix confirms $94/$1,500. CAVEAT for a Nevada County audience: the State Plan's county payment matrix shows Nevada County regular heating awards of $499–$837 by poverty group (among the highest in CA — cold-climate formula), and Project GO's own HEAP page says 'Annual utility bill assistance can range from $350 to $1000.' The $1,500 ceiling is reached via crisis/supplemental benefits, not the typical annual award. 'Up to' keeps the script honest, but expectations matter. Sources: https://liheapch.acf.gov/profiles/California.htm · https://www.csd.ca.gov/Shared%20Documents/2026-Final-LIHEAP-State-Plan.pdf · https://www.projectgoinc.org/heap.html",
+          "scriptFix": "Optional soften: 'a once-a-year payment on your energy bill — usually several hundred to a thousand dollars, up to fifteen hundred in a crisis' (or keep 'up to $1,500' as-is; it is technically accurate)."
+        },
+        {
+          "claimId": "liheap-crisis-component",
+          "verdict": "VERIFIED",
+          "notes": "Separate crisis help exists and a shut-off notice qualifies. Project GO ECIP page: crisis = 'a 48-hour shut-off notice,' and emergency assistance 'exceeds the annual HEAP limit.' CSD: ECIP serves households 'receiving a 24-48 hour disconnect notice or service termination.' FFY2026 State Plan §4.6: qualifying crises include 'Proof of utility shutoff notice… insufficient funds to pay a delinquent utility bill… insufficient funds to pay for essential firewood, oil or propane'; §4.4: intervention within 48 hours; Fast Track crisis payments capped at total bill or $1,500, whichever is less. Sources: https://www.projectgoinc.org/ecip.html · https://www.csd.ca.gov/pages/liheapprogram.aspx · State Plan §4",
+          "scriptFix": null
+        },
+        {
+          "claimId": "liheap-fuels-propane-wood-oil",
+          "verdict": "VERIFIED",
+          "notes": "CSD (live): LIHEAP helps with 'heating or cooling bills, even if you use wood, propane, or oil.' FFY2026 State Plan: ECIP WPO = 'Wood, propane and oil' payments; wood benefits = 1–3 cords or equivalent. Minor: Project GO's own HEAP page lists 'gas, electric, propane or firewood' (oil not named locally), but oil is covered under the state WPO component Project GO administers. Sources: https://www.csd.ca.gov/energybills · State Plan §2.5/§4.8 · https://www.projectgoinc.org/heap.html",
+          "scriptFix": null
+        },
+        {
+          "claimId": "liheap-never-repaid",
+          "verdict": "VERIFIED",
+          "notes": "LIHEAP is a grant benefit, not a loan — the FFY2026 CA State Plan contains no repayment provision anywhere; payment goes to the utility as a bill credit (or to the client, see renters claim). No CA page states 'never repaid' verbatim, but other states' official LIHEAP pages use exactly that framing ('This is a grant and does not have to be repaid' — PA DHS), and the federal program has no repayment mechanism. Safe on air. Sources: FFY2026 CA State Plan (full text reviewed) · https://www.pa.gov/agencies/dhs/resources/liheap (illustrative of federal program structure)",
+          "scriptFix": null
+        },
+        {
+          "claimId": "liheap-renters-utilities-in-rent",
+          "verdict": "VERIFIED",
+          "notes": "FFY2026 CA State Plan §9 (payments), exact language: 'In most cases, direct payments are issued to energy vendors. Occasionally, dual-party warrants are issued… On those few occasions when utilities are included in the rent or sub-metered, warrants are issued directly to the client,' with a letter stating the benefit amount. Heating-assistance section shows no differing/exclusionary eligibility policy for renters or renters with utilities in rent. So renters qualify, including utilities-folded-into-rent — and in that case the check goes to the renter directly. Source: https://www.csd.ca.gov/Shared%20Documents/2026-Final-LIHEAP-State-Plan.pdf §9.1",
+          "scriptFix": null
+        },
+        {
+          "claimId": "projectgo-agency-press2-phone",
+          "verdict": "VERIFIED",
+          "notes": "Triple-confirmed. FFY2026 State Plan official subrecipient list: 'Project Go, Inc., 801 Vernon St., Roseville, CA 95678' serving 'Nevada, Placer.' Project GO's own HEAP page (live): phone 1-888-524-5705, 'PRESS 1. If you reside in Placer County. PRESS 2. If you reside in Nevada County.' Calls returned in order within 24–48 hrs. PRACTICAL DETAIL WORTH AIRING: 'The mailbox only accepts up to 40 calls per day' — tell viewers to call right at/after 9am or retry next morning. Sources: State Plan subrecipient list · https://www.projectgoinc.org/heap.html",
+          "scriptFix": "Consider adding: 'their voicemail box fills up — only forty calls a day — so call first thing in the morning.'"
+        },
+        {
+          "claimId": "projectgo-weatherization-line-800-655-7705",
+          "verdict": "PARTIAL",
+          "notes": "1-800-655-7705 is tied to Project GO weatherization in 2-1-1/findhelp.org records (WAP serving Nevada, Placer, El Dorado, Sierra), but Project GO's OWN site (wap.html + FAQ) lists (916) 782-3443, Mon–Fri 9am–4pm, for weatherization — the 800 number appears nowhere on projectgoinc.org. The 800 line may be a legacy or intake alias; unverifiable from primary source. Sources: https://www.projectgoinc.org/wap.html · https://www.findhelp.org/project-go--roseville-ca--weatherization-assistance-program-(wap)/5653602216968192",
+          "scriptFix": "On the card, use 1-888-524-5705 (press 2) as the sole on-air number — it's Project GO's self-published line and routes Nevada County callers. If a weatherization number must appear, dial-test 1-800-655-7705 the week of Aug 3, else use (916) 782-3443."
+        },
+        {
+          "claimId": "liheap-fcfs-funds-available",
+          "verdict": "VERIFIED",
+          "notes": "FCFS: Project GO's own energy page: applicants 'selected on a first come first served basis, with priority given to those with the highest utility costs in relation to income, as well [as] vulnerable populations (elderly, handicapped and small children).' FUNDS AS OF 2026-07-01: FFY2026 IS funded and flowing — CSD: 'For Federal Fiscal Year 2026, California has received $236 million'; Clearinghouse (04/20/2026): FY2026 funding $242,108,452 incl. $5.3M IIJA; all components 'Year Round'; Project GO actively taking applications (40-calls/day mailbox), NO depletion/waitlist/closed notice on any Project GO or CSD page. WATCH ITEM: Project GO homepage carries a 'HELP SAVE LIHEAP — TELL CONGRESS' banner; saveliheapca.org says 'LIHEAP is set to be eliminated in the 2026 Federal Budget' — that is a threat to the NEXT federal budget cycle, not current-year money. FFY ends Sep 30, 2026, so late-summer local depletion is plausible — the script's 'call and confirm funds are still available' hedge is correct and must stay. Re-verify week of Aug 3. Sources: https://www.projectgoinc.org/energy.html · https://www.csd.ca.gov/pages/liheapprogram.aspx · https://liheapch.acf.gov/profiles/California.htm · https://saveliheapca.org/",
+          "scriptFix": null
+        }
+      ]
+    },
+    {
+      "file": "car-bar.json",
+      "content": {
+        "claim_group": "car-bar",
+        "episode": "Ep4 Home + Transportation",
+        "checked_at": "2026-07-01",
+        "record_date": "2026-08-03",
+        "method": "Live fetch of bar.ca.gov/cap, /cap/repair, /cap/retirement, /cap/income, /caponline (browser UA; /cap/income blocks non-browser fetchers — needed full Accept headers). Cross-checked income-table history via web.archive.org CDX + snapshots (2025-08-14, 2025-11-09, 2026-03-08).",
+        "overall_verdict": "MOSTLY CONFIRMED — two script fixes required: (1) income figures are two years stale (real limits are HIGHER), (2) the $1,350 retirement tier requires a FAILED smog check, which the script omits. Funding/timing claims check out as of 2026-07-01.",
+        "claims": [
+          {
+            "id": "repair-1450-my1996",
+            "script_text": "If your car is a ninety-six or newer and it FAILS smog, the state's Bureau of Automotive Repair can put up to fourteen hundred fifty dollars into the repairs.",
+            "verdict": "CONFIRMED",
+            "evidence": "bar.ca.gov/cap/repair (live 2026-07-01), verbatim: 'Model year 1996 or newer vehicles may qualify for up to $1,450 for emissions-related repairs.' and 'Your vehicle must have failed its biennial (every other year) Smog Check inspection.'",
+            "notes": "Failed-smog precondition is stated correctly. Minor: eligibility hinges on failing the BIENNIAL Smog Check (not e.g. a change-of-ownership smog); assistance covers emissions-related repairs only. MY 1976-1995 vehicles get up to $1,100 — not in script, no need to add.",
+            "source": "https://www.bar.ca.gov/cap/repair"
+          },
+          {
+            "id": "repair-income-table",
+            "script_text": "Income-qualified -- about thirty-three thousand a year for one person, about seventy thousand for a family of four.",
+            "verdict": "REFUTED-AS-STATED (criterion right, numbers stale — real limits are HIGHER)",
+            "evidence": "bar.ca.gov/cap/income (live 2026-07-01, verified in raw HTML): 'Income numbers are based on 225% of the federal poverty level.' Current table: 1 person $35,910/yr ($2,993/mo); family of 4 $74,250/yr ($6,188/mo); family of 2 $48,690; 3 $61,470; +$12,780 each extra person.",
+            "notes": "The 225%-FPL criterion is CONFIRMED. But the script's figures ($33,885 / $70,200 — also in vehicle.md as 'current 2026') are 225% of the 2024 HHS guidelines — TWO refresh cycles stale. Archive proof: Aug+Nov 2025 snapshots showed $35,212/$72,337 (2025 guidelines); by 2026-03-08 the table was $35,910/$74,250 (2026 guidelines), unchanged today. Direction of script error: it UNDERSTATES the limits (conservative — no false hope, but could wrongly discourage an eligible viewer making $34-36k single / $70-74k family of 4). FIX ON AIR: 'about thirty-six thousand for one person, about seventy-four thousand for a family of four' (rounding down from $35,910/$74,250 keeps the safe direction).",
+            "source": "https://www.bar.ca.gov/cap/income + web.archive.org snapshots 20250814233601, 20251109103150, 20260308112804"
+          },
+          {
+            "id": "repair-copay-20pct",
+            "script_text": "you pay a co-pay of at least twenty percent of the repair bill",
+            "verdict": "CONFIRMED",
+            "evidence": "bar.ca.gov/cap/repair (live): co-pay for MY1996+ is '20% of the total cost' when total diagnosis+repair cost is $1,812.50 or less; above $1,812.50 the co-pay is the total cost minus $1,450 (i.e., MORE than 20%). 'You must pay the STAR test-and-repair station co-payment. The co-payment applies to the total cost of diagnosis and emissions-related repairs.'",
+            "notes": "'At least twenty percent' is exactly right — 20% floor, rising above 20% once total cost exceeds $1,812.50. Micro-nuance: co-pay is on diagnosis + repairs, not repairs alone; 'repair bill' is acceptable plain language. Co-pay is paid directly to the station.",
+            "source": "https://www.bar.ca.gov/cap/repair"
+          },
+          {
+            "id": "repair-star-station",
+            "script_text": "the work happens at a state-certified smog shop -- they're called STAR stations",
+            "verdict": "CONFIRMED (small precision nuance)",
+            "evidence": "bar.ca.gov/cap/repair (live): 'CAP repairs are performed by STAR test-and-repair stations throughout the state.'",
+            "notes": "'State-certified' is a fair gloss (STAR is BAR's certification program). Nuance: it must be a STAR TEST-AND-REPAIR station — some STAR stations are test-only. Fine as scripted; the shop finder on bar.ca.gov filters correctly.",
+            "source": "https://www.bar.ca.gov/cap/repair"
+          },
+          {
+            "id": "retirement-amounts",
+            "script_text": "Vehicle retirement -- thirteen hundred fifty dollars to retire an older running car, and up to two thousand if you're income-qualified.",
+            "verdict": "AMOUNTS CONFIRMED / FRAMING NEEDS ONE FIX (missing failed-smog condition on the $1,350 tier)",
+            "evidence": "bar.ca.gov/cap/retirement (live, verbatim): '$1,350 incentive — You do not have to meet an income eligibility requirement and your vehicle must have failed its most recent Smog Check inspection.' '$1,500 incentive — You must meet an income eligibility requirement and your vehicle must have a completed Smog Check inspection (pass or fail) within 180 days prior to applying.' '$2,000 incentive — You must meet an income eligibility requirement and your vehicle must have failed its most recent Smog Check inspection.'",
+            "notes": "Dollar figures are right: $1,350 no-income-test, up to $2,000 income-eligible (three tiers; $1,500 is the income-eligible pass-OR-fail tier the script's 'up to' quietly covers). MATERIAL OMISSION: the $1,350 tier ALSO requires a FAILED most-recent Smog Check — the script implies any older running car gets $1,350. A car that PASSES smog can only be retired via the income-eligible $1,500 tier. Since this segment already leads with 'if it fails smog,' the cheapest fix is to keep retirement inside the failed-smog frame: e.g. 'or, instead of fixing it, retire it — thirteen fifty for anyone whose car failed smog, no income test; income-qualified, up to two thousand.'",
+            "source": "https://www.bar.ca.gov/cap/retirement"
+          },
+          {
+            "id": "retirement-running-car",
+            "script_text": "an older running car",
+            "verdict": "UNDERSELLS THE REQUIREMENTS (directionally true, two real tripwires)",
+            "evidence": "bar.ca.gov/cap/retirement (live): vehicle must 'drive forward a minimum of 10 yards under its own power' and pass an equipment/operational inspection at the BAR-contracted dismantler (all doors, hood lid, dashboard, windshield, at least one side window, driver's seat, at least one bumper, exhaust system, all side/quarter panels, one working headlight, tail light, brake light). Registration: 'currently registered with DMV with a valid and unexpired registration sticker OR have all fees paid to DMV' AND 'continuously registered with DMV without a lapse in registration for more than 120 days during the two consecutive years preceding the current registration sticker expiration date.'",
+            "notes": "(1) 'Older' — there is NO vehicle-age requirement; harmless color, keep or drop. (2) 'Running' — true but thin: the car must drive 10+ yards under its own power AND be substantially complete (doors, glass, panels, lights). (3) THE REAL TRAP for this audience: registration history — currently registered AND no lapse >120 days in the prior two years. A car that sat on expired tags most of a year is disqualified no matter how well it runs. Recommend one on-air line: 'it has to be registered and driveable — if the registration's been lapsed more than about four months, it won't qualify.'",
+            "source": "https://www.bar.ca.gov/cap/retirement"
+          },
+          {
+            "id": "fiscal-year-funding",
+            "script_text": "Both of these run on a state budget year that just restarted in July, so the money's as fresh as it gets.",
+            "verdict": "CONFIRMED (as of 2026-07-01) — recheck week of record",
+            "evidence": "bar.ca.gov/cap (live, verbatim): 'Participation is based on meeting eligibility requirements and the availability of funds each fiscal year (July 1-June 30).' FY 2026-27 began 2026-07-01. Availability sweep across /cap, /cap/repair, /cap/retirement, /cap/income found NO waitlist/pause/closed/exhausted-funds banner; the online application (bar.ca.gov/caponline/) returns HTTP 200 and renders the live form. Repair/retirement pages carry only the standing boilerplate: 'Participation is based on meeting eligibility requirements at the time you reapply and the availability of funds.'",
+            "notes": "CAP is ACCEPTING APPLICATIONS as of today — no waitlist. The 'just restarted in July' framing is literally correct for the Aug 3 record. Caveat: this was checked on day 1 of the fiscal year; CAP retirement funds historically draw down through the year but a pause 5 weeks into a fresh FY is unlikely. RE-VERIFY the /cap and /caponline pages the week of Aug 3 (per vehicle.md churn flag #4). Phone fallback for the card: (866) 272-9642, M-F 8:30-4:30.",
+            "source": "https://www.bar.ca.gov/cap + https://www.bar.ca.gov/caponline/"
+          },
+          {
+            "id": "card-url",
+            "script_text": "Card: bar.ca.gov/cap",
+            "verdict": "CONFIRMED",
+            "evidence": "https://bar.ca.gov/cap resolves to the CAP landing page (repair + retirement doors, income link, apply button).",
+            "notes": "Correct and stable URL.",
+            "source": "https://www.bar.ca.gov/cap"
+          }
+        ],
+        "required_script_fixes": [
+          "INCOME NUMBERS: change 'about thirty-three thousand ... about seventy thousand' → 'about thirty-six thousand ... about seventy-four thousand' (live 2026 table: $35,910 / $74,250 at 225% FPL). Script currently understates by ~$2.9k/$4.2k — could turn away eligible viewers. Also fix vehicle.md §5① which carries the stale 2024-guideline figures as 'current 2026'.",
+          "RETIREMENT FRAMING: the $1,350 no-income-test tier requires a FAILED most-recent Smog Check (pass-smog cars can only be retired via the income-eligible $1,500 tier). Keep retirement inside the failed-smog frame or add the condition."
+        ],
+        "recommended_additions": [
+          "One-line retirement caveat: car must be registered and driveable; registration lapse >120 days in the past two years disqualifies it.",
+          "Re-verify funding banner + caponline form live during week of Aug 3 (checked open on day 1 of FY 2026-27)."
+        ]
+      }
+    },
+    {
+      "file": "care-fera.json",
+      "content": {
+        "claimId": "care-fera",
+        "verdict": "accurate",
+        "notes": "All claims survived adversarial check against LIVE primary sources (fetched 2026-07-01). (1) CARE discount '20% or more off, electric often around a third off, every month' — ACCURATE & appropriately conservative: PG&E CARE page says '20% or more on gas and 35% or more on electricity'; CPUC (cpuc.ca.gov/care/) says '30-35% discount on electric, 20% on gas'. It is an ongoing monthly rate discount. (2) Income doors — ACCURATE: CPUC live table effective June 1, 2026 - May 31, 2027: HH 1-2 = $43,280 ('about forty-three thousand' ✓), HH 4 = $66,000 exactly ✓. Table is stable through record (Aug 3) and air (Aug 6-10). (3) Automatic enrollment via Medi-Cal/CalFresh/WIC/SSI — ACCURATE: all four are on PG&E's live categorical-eligibility list (also LIHEAP, CalWORKs/TANF, NSLP, Tribal Head Start, BIA GA). 'Minutes, online or by phone, no documents up front' — ACCURATE: PG&E: 'No additional documentation is needed at the time of application'; online at energyinsight.pge.com/carefera or by phone. (4) FERA — ACCURATE: '18 percent monthly discount on electric rates' (electric ONLY, no gas) per live PG&E FERA page; '$45/month typical' matches PG&E newsroom: 'Customers saved an average of more than $45 per month on their electric bill'; HH-4 limit $82,500 live on CPUC, so 'about eighty-two thousand' slightly UNDERstates = safe. (5) Myth-bust — ACCURATE: SB 1130 (2024) removed the 3-or-more-person minimum; 1-2 person households now eligible (~150,000 newly eligible PG&E customers); live FERA page shows NO household-size minimum. (6) One-application routing — VERIFIED VERBATIM on both live PG&E pages: CARE page: 'CARE and FERA share one application. If you do not qualify for CARE, we will check to see if you qualify for FERA' (FERA page has the mirror sentence). (7) Card — VERIFIED: 1-877-660-6789 appears live on the PG&E FERA page as an enrollment phone (alongside 1-800-743-5000); pge.com correct. AD-LIB BURN RISKS for Aug 3: (a) renewal is every 2 years — but 4 years if on fixed income; if mentioning renewal, say '2 years, 4 if you're on a fixed income' or just '2 years' (safe floor). PG&E mails a renewal form ~3 months before expiry. (b) SCOPE TRAP: CARE = gas AND electric; FERA = ELECTRIC ONLY — do not ad-lib 'FERA cuts your whole PG&E bill'. (c) 'No documents up front' is correct but PG&E may randomly select you to prove income LATER — don't harden into 'no verification ever'. (d) Do NOT quote $52,875 for FERA 1-2 person households (stale June-2025 press-release figure); current is $54,100. (e) Don't harden 'around a third' into a guaranteed 35% — CPUC states a 30-35% range. Sources: https://www.cpuc.ca.gov/care/ · https://www.pge.com/en/account/billing-and-assistance/financial-assistance/california-alternate-rates-for-energy-program.html · https://www.pge.com/en/account/billing-and-assistance/financial-assistance/family-electric-rate-assistance-program-fera.html · https://www.pge.com/en/newsroom/currents/energy-savings/more-pg-e-customers-eligible-for-18--electric-discount-under-new.html",
+        "scriptFix": ""
+      }
+    },
+    {
+      "file": "clca.json",
+      "content": {
+        "claimId": "clca",
+        "verdict": "accurate",
+        "notes": "ALL CLAIMS SURVIVED ADVERSARIAL CHECK against live primary sources (fetched 2026-07-01). (1) PREMIUM RANGE '$200 to under $1,000': official FAQ (https://www.mylowcostauto.com/faq) states $199-$986; independently confirmed by parsing the live rateCalculatorData embedded in mylowcostauto.com's homepage (290 rows, 58 counties): statewide min $199, max $986 (Santa Clara, minor tier). (2) NEVADA COUNTY RATE — the 'rural counties sit near the LOW end' claim is UNDERSTATED, not overstated: Nevada County base premium (licensed 3+ yrs, good record) is $199/yr, TIED FOR CHEAPEST IN THE STATE (one of 18 counties at the $199 floor; big metros are $448 base). Full Nevada County tier table from live data: $199 base / $249 unmarried-male-19-24 (+25%) / $308 new driver <3 yrs licensed (+55%) / $438 emancipated minor. (3) INCOME LIMITS: live FAQ shows 1p $39,900 / 2p $54,100 / 3p $68,300 / 4p $82,500 / 5p $96,700 (= 250% of 2026 FPL). Script's '$39k / $82k' rounds DOWN — the safe direction (understates eligibility, never invites false hope). Confirmed. (4) VEHICLE ≤$25,000: live qualifications page (https://www.mylowcostauto.com/get-started/qualifications) + statutory in Ins. Code §11629.71(f). (5) VALID CA LICENSE: required, per qualifications page (also: age 16+, under-18 must be emancipated). (6) 'EVEN BRAND-NEW DRIVERS CAN QUALIFY': TRUE — qualifications page says 'Have a Good Driving Record or be a New Driver' (SB 1273, 2015). Rate structure prices it as a discount-for-experience, not a surcharge; a Nevada County new driver pays $308 (not $199) — still inside the script's stated range, so the claim is fair as worded. (7) LIABILITY-ONLY 10/20/3: FAQ confirms $10k BI/person, $20k BI/accident, $3k PD, no comp/collision; med-pay & UM available +$38-$81/yr. Statutory in Ins. Code §11629.71(a). (8) 'KEEPS YOU LEGAL' — THE LOAD-BEARING CLAIM HOLDS POST-2025: standard minimums did rise to 30/60/15 on 2025-01-01 (SB 1107; Veh. Code §16056, §16430 verified on leginfo), BUT Veh. Code §16056.1 says 'Notwithstanding the coverage limits specified in Section 16056,' a policy described in Ins. Code §11629.71 is effective proof at 10/20/3 — and Veh. Code §4000.37(a)(1)(E) deems §11629.71 policies to meet §16056 for registration renewal. Both sections pre-date and survive SB 1107 unamended; the program's own live FAQ asserts it 'meets the state's financial responsibility laws.' (9) CARD: mylowcostauto.com + 1-866-602-8861 both confirmed on insurance.ca.gov CLCA page (https://www.insurance.ca.gov/01-consumers/105-type/95-guides/01-auto/lca/). BURN RISKS for Aug 3 record: (a) income table + county rates refresh annually with FPL — re-pull the week of record (figures above are current 2026); (b) EDGE CASE, not script-relevant: drivers court-ordered to file 'proof of financial responsibility' after DUI/suspension (Veh. Code §16430 context, SR-22) need 30/60/15 — such drivers fail CLCA's good-driving-record test anyway; (c) OPTIONAL nuance: 'state-run' — CDI calls it state-SPONSORED (created by Legislature, overseen by CDI, administered by CAARP, policies serviced by private insurers); 'state-sponsored' is bulletproof if anyone nitpicks; (d) if the host ad-libs a specific price for a NEW driver, use $308 (Nevada Co.), not $199.",
+        "scriptFix": ""
+      }
+    },
+    {
+      "file": "dcap-ev.json",
+      "content": {
+        "claimId": "dcap-ev",
+        "verdict": "accurate",
+        "notes": "All four spoken claims verified against LIVE primary sources 2026-07-01 (independent fetches; did not rely on the background briefs). (1) DCAP 'up to ten thousand dollars... swapping an old polluting car for a cleaner used one': drivingcleanca.org/about-us/dcap-eligibility/ (live) lists Clean Cars 4 All scrap-and-replace at 'Up to $10,000 + $2,000 Charge Card or $7,500 Mobility Option' (up to $12,000 in disadvantaged communities); the script's $10,000 matches the OPEN pathway and is conservative (omits the DAC $12k tier and the $2k charge-card add-on). (2) 'Parts of it are closed right now': drivingcleanca.org live banner (verbatim): 'Due to an extraordinary response and high demand, DCAP's Financing Assistance pathway is now closed to applicants that fall under tiers 2 and 3. DCAP's Scrap and Replace option, Clean Cars 4 All, is still open and accepting applications.' Script's hedged framing ('funding comes and goes — check the website') matches and stays true even if tier status shifts by Aug 3. Nevada County routing confirmed: ww2.arb.ca.gov/our-work/programs/clean-cars-4-all (live, browser-UA fetch) states CC4A runs in 'five participating air districts' and 'DCAP... expands the Clean Cars 4 All (CC4A) program to air districts that do not offer CC4A at the local level' — Nevada County (Northern Sierra AQMD, not one of the five) goes through statewide DCAP; DCAP eligibility page confirms any California resident (AB60/ITIN OK). Income-gate omission judged SAFE for the spoken line given the 'check the website before you count on it' hedge and the show's income-qualified framing — but DCAP is gated at <300% FPL (<$99,000/household of 4, per live eligibility page); RECOMMEND the drivingcleanca.org card carry 'income-qualified' as cheap insurance. (3) E-bike voucher: CARB's own page (ww2.arb.ca.gov/our-work/programs/california-e-bike-incentive-project, live via browser-UA; blocks plain fetch with 405) now reads in PAST TENSE: 'provided up to $2,000 in voucher incentives to low-income California residents... The Project began in December 2022 and concluded in December 2025.' So '$2,000' ✓ and 'ended last December' ✓ (Dec 2025; record is Aug 2026). No 2026 window: remaining ~$18M redirected to Clean Cars 4 All, expected third round never funded (capradio.org 2025-11-21; cal.streetsblog.org 2025-10-30; calbike.org response post). (4) PG&E: evrebates.pge.com/program-requirements (live): Standard $1,000 / Rebate Plus income-qualified $4,000, pre-owned BEV/PHEV on the CA HOV-eligibility list, must be an active PG&E residential ELECTRIC customer — and verbatim: 'PG&E gas-only residential customers who receive electric service from a municipality are ineligible,' which is exactly Truckee (TDPUD electric), so 'Truckee, you're on your own utility' ✓. Deliberate omission of the $1,000 standard tier CONFIRMED still right at air time: 'Beginning September 1, 2026, the program will no longer accept Standard rebate applications' — at the Aug 3 record it has under 4 weeks left and will be closed for most viewers by broadcast; the income-qualified $4,000 tier continues past that date. AD-LIB BURN RISKS: (a) application window — currently 180 days from purchase, but starting Jul 30, 2026 new PG&E applications must be filed within 90 DAYS; never ad-lib 'you have six months to apply.' (b) Don't ad-lib the $1,000 standard PG&E tier as available — it's dying Aug 31. (c) PG&E vehicle must be on the CA HOV list and stay CA-registered 20 months — don't ad-lib 'any used EV counts.' (d) Don't inflate DCAP to $12,000 or add the $2,000 charge card on air — $12k is DAC-tract-only (most of Nevada County isn't) and totals invite 'up to $14,000' creep. (e) Don't name which DCAP tiers are closed — tier status is the most churn-prone fact; the script's vague 'parts of it are closed' is deliberately robust. RE-VERIFY WEEK OF AUG 3: the drivingcleanca.org banner (biggest risk: scrap-and-replace itself closing) and that the PG&E Rebate Plus tier hasn't paused. Sources: https://drivingcleanca.org/ · https://drivingcleanca.org/about-us/dcap-eligibility/ · https://ww2.arb.ca.gov/our-work/programs/clean-cars-4-all · https://ww2.arb.ca.gov/our-work/programs/california-e-bike-incentive-project · https://evrebates.pge.com/program-requirements · https://www.capradio.org/articles/2025/11/21/california-scraps-popular-e-bike-incentive-program-redirects-18m-to-electric-car-incentives/ · https://cal.streetsblog.org/2025/10/30/carb-quietly-ends-the-statewide-e-bike-voucher-program",
+        "scriptFix": ""
+      }
+    },
+    {
+      "file": "esa-wap.json",
+      "content": {
+        "claim_group": "esa-wap",
+        "episode": "Ep4 Home + Transportation",
+        "record_date": "2026-08-03",
+        "checked": "2026-07-01",
+        "checker": "adversarial fact-check vs LIVE primary sources (pge.com, cpuc.ca.gov, csd.ca.gov, projectgoinc.org, 2-1-1 records)",
+        "overall_verdict": "PASS_WITH_TWEAKS",
+        "overall_note": "Every factual claim in the passage is grounded in a live primary source. Two lines slightly overpromise and deserve a soft hedge before air: (1) furnace/water-heater repair-or-replace is HOMEOWNERS-only and 'may be available' — the script states it flatly right after welcoming renters; (2) 'one call and they sort out which program covers what' is only true if the one call is to Project GO — applying through PG&E's ESA portal does not automatically loop in WAP.",
+        "claims": [
+          {
+            "claim": "ESA exists; PG&E does efficiency work in your home for FREE",
+            "verdict": "VERIFIED",
+            "evidence": "Live pge.com ESA page: 'free home upgrades' / improvements 'at no charge'. PG&E ESA brochure (2025, CRS-0625-4919): 'provides qualified customers with home improvements at no cost'. Nit: work is performed by PG&E-authorized contractors, not PG&E staff — fine for broadcast, PG&E markets it the same way.",
+            "sources": [
+              "https://www.pge.com/en/save-energy-and-money/energy-saving-programs/energy-savings-assistance-program.html",
+              "https://www.pge.com/assets/pge/docs/save-energy-and-money/energy-savings-programs/ESAP_LargePrint_E.pdf.coredownload.pdf"
+            ]
+          },
+          {
+            "claim": "Measures include insulation, weatherstripping, LED lighting",
+            "verdict": "VERIFIED",
+            "evidence": "CPUC ESAP page lists 'Attic insulation ... Weatherstripping, Caulking'. PG&E brochure: 'Insulation and weatherproofing services' and 'ENERGY STAR Advanced LED light bulbs that use up to 80 percent less energy'.",
+            "sources": [
+              "https://www.cpuc.ca.gov/esap/",
+              "https://www.pge.com/assets/pge/docs/save-energy-and-money/energy-savings-programs/ESAP_LargePrint_E.pdf.coredownload.pdf"
+            ]
+          },
+          {
+            "claim": "Fridge 15 years or older may be replaced",
+            "verdict": "VERIFIED",
+            "evidence": "Live pge.com ESA page, exact wording: 'Refrigerators need to be at least 15 years old to be replaced.' Script's hedge 'they may replace it' is correctly calibrated.",
+            "sources": [
+              "https://www.pge.com/en/save-energy-and-money/energy-saving-programs/energy-savings-assistance-program.html"
+            ]
+          },
+          {
+            "claim": "If your furnace or water heater is unsafe, they repair or replace it",
+            "verdict": "VERIFIED_WITH_CAVEAT",
+            "evidence": "Live pge.com: 'Furnace and water heater repair or replacement may be available to eligible HOMEOWNERS if PG&E determines that existing natural gas units are inoperable or unsafe.' Three softenings the script drops: homeowners-only (script says this right after 'renters welcome'), 'may be available' (not guaranteed), and natural-gas units.",
+            "on_air_fix": "Say 'if you OWN and your furnace or water heater is unsafe, they can repair or even replace it' — or at minimum change 'they repair or replace it' to 'they may repair or replace it' (matching the fridge hedge).",
+            "sources": [
+              "https://www.pge.com/en/save-energy-and-money/energy-saving-programs/energy-savings-assistance-program.html",
+              "https://www.pge.com/assets/pge/docs/save-energy-and-money/energy-savings-programs/ESAP_LargePrint_E.pdf.coredownload.pdf"
+            ]
+          },
+          {
+            "claim": "Hundreds to several thousand dollars of work, free",
+            "verdict": "VERIFIED_AS_FAIR_CHARACTERIZATION",
+            "evidence": "No official PG&E/CPUC published per-home value exists (the old '$8,000' draft figure remains unsourceable — correctly dropped). The range is defensible: LED bulbs/weatherstripping jobs run hundreds; refrigerator plus furnace/water-heater replacement runs several thousand at retail. Does not overstate; a CPUC-filed 2024 PG&E pilot ('Pilot Plus/Pilot Deep') averaged ~$33k/home, so 'several thousand' is if anything conservative for deep treatments.",
+            "sources": [
+              "https://liob.cpuc.ca.gov/wp-content/uploads/sites/14/2025/10/PGE-ESA-CARE-Annual-Report_Corrected.pdf",
+              "https://www.cpuc.ca.gov/esap/"
+            ]
+          },
+          {
+            "claim": "Same income rules as the CARE and FERA discounts",
+            "verdict": "VERIFIED_WITH_CAVEAT",
+            "evidence": "CPUC ESAP page: ESA 'serves consumers who meet the CARE or FERA income limits' — 2026-27 ESA thresholds $39,900 (1 person) to $139,300 (8 people) = 250% FPG, the FERA ceiling; PG&E's ESA table is valid through May 31, 2027 (stable across record date). PG&E also waives proof of income for participants in CalFresh, Medi-Cal, SSI, TANF etc. Technical edge: ESA's table is per-household-size while CARE lumps 1-2 person households, so a SINGLE person earning between ~$39,900 and $43,280 can hold CARE but miss ESA's 1-person row. Acceptable broadcast simplification; not worth air time.",
+            "sources": [
+              "https://www.cpuc.ca.gov/esap/",
+              "https://www.pge.com/en/save-energy-and-money/energy-saving-programs/energy-savings-assistance-program.html"
+            ]
+          },
+          {
+            "claim": "Renters welcome with the landlord's okay",
+            "verdict": "VERIFIED",
+            "evidence": "Live pge.com: program serves 'Renters and homeowners'; PG&E brochure: 'Both renters and owners are eligible.' Landlord's okay is real: PG&E Property Owner Waiver (POW) form must be signed by the owner before contractors install measures in a rental; PG&E Help Center confirms tenant eligibility with owner approval for certain improvements.",
+            "sources": [
+              "https://www.pge.com/en/save-energy-and-money/energy-saving-programs/energy-savings-assistance-program.html",
+              "https://pgesupport.zendesk.com/hc/en-us/articles/360059911652-Am-I-eligible-for-assistance-programs-if-I-am-a-tenant",
+              "https://qcsca.com/wp-content/uploads/2023/10/PGE-POW-2022.pdf"
+            ]
+          },
+          {
+            "claim": "Home just needs to be at least five years old",
+            "verdict": "VERIFIED",
+            "evidence": "Live pge.com: homes must be 'at least five years old'. PG&E brochure: 'Your house, apartment or mobile home must be at least five years old.'",
+            "sources": [
+              "https://www.pge.com/en/save-energy-and-money/energy-saving-programs/energy-savings-assistance-program.html",
+              "https://www.pge.com/assets/pge/docs/save-energy-and-money/energy-savings-programs/ESAP_LargePrint_E.pdf.coredownload.pdf"
+            ]
+          },
+          {
+            "claim": "A second free weatherization door: the state's Weatherization Assistance Program (WAP)",
+            "verdict": "VERIFIED",
+            "evidence": "Live csd.ca.gov: CSD administers DOE WAP in partnership with the U.S. Dept. of Energy, delivering free energy-efficiency services (sealing, insulation, window repair/replacement, HVAC, water-heater repair/replacement) via 'community-based local service providers throughout the state', serving both homeowners and renters. Nit: it's a federal (DOE) program run BY the state — 'the state's' is close enough for air.",
+            "sources": [
+              "https://www.csd.ca.gov/Pages/Residential-Energy-Efficiency.aspx"
+            ]
+          },
+          {
+            "claim": "WAP run by that same local agency, Project GO (Nevada County)",
+            "verdict": "VERIFIED",
+            "evidence": "Project GO's own WAP page lists service counties 'Placer, Nevada, El Dorado and Sierra'. findhelp.org and the 2-1-1 record independently list Project GO (Roseville) as the WAP/weatherization provider for Nevada County. Same agency as the episode's LIHEAP/HEAP referral — consistent with 'that same local agency'.",
+            "sources": [
+              "https://www.projectgoinc.org/wap.html",
+              "https://www.findhelp.org/project-go--roseville-ca--weatherization-assistance-program-(wap)/5653602216968192?postal=95667",
+              "http://www.icarol.info/resourceview2.aspx?org=2265&agencynum=13871002"
+            ]
+          },
+          {
+            "claim": "One call, and they sort out which program covers what (ESA/WAP coordination)",
+            "verdict": "VERIFIED_WITH_CAVEAT",
+            "evidence": "Fair IF the one call is to Project GO: their energy page says programs are 'supported through Federal Block Grants and Utility Partnerships', and their history page documents PG&E low-income weatherization contracts 1983-1995 and 'again in 2014' (~10,400 homes treated on PG&E grant funds) — i.e., the same agency touches both the DOE/WAP money and the PG&E utility money, and WAP intake does 'a full assessment of all weatherization measures that are available'. NOT symmetric: applying only through PG&E's ESA portal/1-800-933-9555 does not automatically loop in WAP. The script gives the Project GO number on the card, so the promise holds as staged.",
+            "on_air_fix": "Optional micro-hedge: 'one call to Project GO, and they'll sort out which program covers what.' Keeps the promise anchored to the number on screen.",
+            "sources": [
+              "https://www.projectgoinc.org/energy.html",
+              "https://www.projectgoinc.org/about.html",
+              "https://www.csd.ca.gov/Pages/Residential-Energy-Efficiency.aspx"
+            ]
+          },
+          {
+            "claim": "CARD: pge.com + Project GO 1-800-655-7705",
+            "verdict": "VERIFIED_WITH_CAVEAT",
+            "evidence": "1-800-655-7705 is Project GO's dedicated weatherization line per the official 2-1-1 resource record ('For weatherization, call 1-800-655-7705', toll-free; utility-bill line is 1-888-524-5705; main office 916-782-3443). Caveat: Project GO's own wap.html currently shows only the main office (916) 782-3443, 9am-4pm M-F — the 800 number does not appear on their site. pge.com is correct for ESA (apply at energyinsight.pge.com/esaApplication or 1-800-933-9555).",
+            "on_air_fix": "Keep 1-800-655-7705 but CALL IT week-of-record to confirm it still answers for weatherization; fallback (916) 782-3443. Consider adding PG&E's ESA line 1-800-933-9555 to the card notes.",
+            "sources": [
+              "http://www.icarol.info/resourceview2.aspx?org=2265&agencynum=13871002",
+              "https://211ca.org/detail/?idServiceAtLocation=211grassva-80126920",
+              "https://www.projectgoinc.org/wap.html"
+            ]
+          }
+        ],
+        "week_of_record_checks": [
+          "Call 1-800-655-7705 to confirm it still answers as Project GO weatherization (their own site only lists 916-782-3443)",
+          "ESA income table valid through May 31, 2027 — stable across Aug 3 record; no recheck needed",
+          "WAP is federally funded (DOE) — like LIHEAP, confirm Project GO has weatherization funds/waitlist open"
+        ]
+      }
+    },
+    {
+      "file": "housing-crisis.json",
+      "content": {
+        "claim_group": "housing-crisis",
+        "episode": "Ep4 Home + Transportation — 'Wait, I Qualify?!'",
+        "checked": "2026-07-01",
+        "record_date": "2026-08-03",
+        "method": "Adversarial re-verification against live primary sources: hhshelter.org (WebFetch + raw curl), nevadacountyca.gov pages 3836/1574 + newsflash 8608 (browser-UA curl, verbatim extraction), cdss.ca.gov CalWORKs Homeless Assistance, 211connectingpoint.org, 211 CDE/iCarol directory entry for Hospitality House, ntthomelessservices.com, TTHAC/news coverage for Truckee Navigation Center.",
+        "overall_verdict": "MOSTLY CONFIRMED — one REFUTED-AS-STATED claim (Truckee 'shelter tonight' = NTTHS is outdated; the overnight beds are now the Truckee Navigation Center, opened Feb 2026) and one material OMISSION burn-risk (Hospitality House screening requirements incl. 45-day residency, TB test, and Grass Valley PD clearance per the 211 directory).",
+        "claims": [
+          {
+            "id": "211-coordinated-entry",
+            "script_text": "call two-one-one. That's the front door to the county's whole housing-crisis system: one call, they screen you, and every partner agency can pick you up from there.",
+            "verdict": "CONFIRMED",
+            "evidence": "Nevada County Housing Resources page, verbatim (fetched live 2026-07-01, browser UA): 'In Nevada County, 211 Connecting Point is the access point for Coordinated Entry. Anyone experiencing a housing crisis can call 2-1-1 (or 877-847-0499) and speak with a call specialist who will walk them through various questions and provide referrals for shelter, food, healthcare, and other services. 211 then enters the data into the Homeless Management Information System (HMIS), which can be accessed only by designated organizations that provide housing services in Nevada County.' 211connectingpoint.org (live): OPEN 24/7, FREE, CONFIDENTIAL; serves Nevada County, Tahoe/Truckee, Placer.",
+            "nuance": "'Every partner agency' is a fair colloquialism for 'designated organizations that provide housing services in Nevada County' via HMIS. 211's own site lists 1-833-DIAL211 (and TTY 1-844-521-6697) as the alternate number; the county page lists 877-847-0499. Both dial variants exist — on a card, plain 2-1-1 is safest and correct.",
+            "sources": [
+              "https://www.nevadacountyca.gov/3836/Housing-Resources",
+              "https://211connectingpoint.org"
+            ]
+          },
+          {
+            "id": "hospitality-house-western-shelter",
+            "script_text": "If you need shelter tonight in western Nevada County, it's Hospitality House in Grass Valley",
+            "verdict": "CONFIRMED",
+            "evidence": "211 Connecting Point directory entry (cde.211connectingpoint.org/resource/4661715): 'year-round, temporary, overnight emergency shelter for homeless residents of Western Nevada County.' hhshelter.org (live): Utah's Place, 1262 Sutton Way, serves up to 69 homeless individuals and families. County Housing Resources page: 'Hospitality House provides Emergency Overnight Shelter and other services. Shelter Line (530) 271-7144.'",
+            "sources": [
+              "https://hhshelter.org/programs-services/utahs-place/",
+              "https://cde.211connectingpoint.org/resource/4661715/",
+              "https://www.nevadacountyca.gov/3836/Housing-Resources"
+            ]
+          },
+          {
+            "id": "hh-checkin-window-and-line",
+            "script_text": "check-in is every day, four to five-thirty in the afternoon, and the shelter line is on your screen. [CARD: Hospitality House 530-271-7144, check-in 4:00-5:30pm daily]",
+            "verdict": "CONFIRMED",
+            "evidence": "hhshelter.org Utah's Place page, verbatim (raw fetch): 'Each day, guests must check in between 4:00 p.m. and 5:30 p.m. for admittance to the shelter.' Same page: 'Shelter Line: (530) 271-7144.' County page repeats the same number. 7-day intake: 211/iCarol directory: intakes '7 days a week (based on availability)' — note this phrase appears in the 211 directory, not on hhshelter.org itself.",
+            "nuance": "iCarol entry also lists program/office hours 'Mon-Sun 8:30am-4pm' and says guests check in 4:00-5:30 'after completing the registration process' — i.e., 4:00-5:30 is admittance for registered guests; first-time registration happens earlier in the day. Supports phrasing 'call the shelter line first.'",
+            "sources": [
+              "https://hhshelter.org/programs-services/utahs-place/",
+              "https://www.icarol.info/ResourceView2.aspx?org=2265&agencynum=4661715"
+            ]
+          },
+          {
+            "id": "hh-omitted-requirements-burn-risk",
+            "script_text": "(omission — script gives no admission requirements)",
+            "verdict": "BURN RISK — MATERIAL OMISSION",
+            "evidence": "The 211 Connecting Point directory entry — the exact record a 2-1-1 screener works from — states requirements the script omits: (1) 'homeless residents of Western Nevada County who have lived in the county for 45 days or more. ID not required'; (2) registration requires 'proof of a negative TB test (or signing up for testing at the center)'; (3) 'All participants are required to be cleared by Grass Valley Police Department before entering any of our shelter programs'; (4) agree to the Mutual Respect Policy; (5) intakes 'based on availability' (69-bed capacity). Third-party listings (shelterlistings.org, findhelp.org) additionally cite alcohol breath-test / random drug testing (zero-tolerance) as an admittance condition — NOT confirmed on hhshelter.org or the 211 entry.",
+            "caveat": "hhshelter.org's live page lists ONLY the Mutual Respect Agreement and chores — the 45-day residency, TB, and GVPD-clearance requirements come from the 211/iCarol directory, which could lag reality. They are nonetheless what 211 screeners see. CONFIRM BY PHONE (530-271-7144) week-of Aug 3.",
+            "burn_scenario": "A viewer new to the county (or un-registered) shows up at 4:00 p.m. and is turned away — under 45 days county residency, no TB test on file, not yet GVPD-cleared, or simply no bed available that night.",
+            "fix": "Script already routes viewers to the shelter line; sharpen it to 'call the shelter line FIRST — they'll walk you through registration' rather than implying walk-up admittance at 4:00. Do not enumerate the requirements on air unless phone-confirmed; 'call first, they'll tell you what you need' is accurate and safe.",
+            "sources": [
+              "https://cde.211connectingpoint.org/resource/4661715/",
+              "https://www.icarol.info/ResourceView2.aspx?org=2265&agencynum=4661715",
+              "https://hhshelter.org/programs-services/utahs-place/",
+              "https://www.shelterlistings.org/details/38909/"
+            ]
+          },
+          {
+            "id": "truckee-side-ntths",
+            "script_text": "On the Truckee side, it's North Tahoe Truckee Homeless Services.",
+            "verdict": "REFUTED AS STATED (outdated for a 'shelter tonight' framing)",
+            "evidence": "The overnight shelter on the east side is now the TRUCKEE NAVIGATION CENTER — opened Feb 13, 2026 (county newsflash posted Feb 25, 2026, fetched live): 12315 Deerfield Drive, Truckee (behind Taco Bell); 'operates 24 hours a day, seven days a week, year-round'; 10 shelter beds + 6 interim housing beds; day-use services; drop-in Day Center noon-3pm weekdays; 'Referrals for shelter beds can be made by calling 530-606-5457.' Run by Tahoe Truckee Homeless Action Coalition (TTHAC); daily operations managed by Volunteers of America. NTTHS's own site (ntthomelessservices.com) lists its services as Outreach Lunches (Tue-Fri 1-2:45pm, Joseph Center), Street Outreach, and Case Management & Housing Support — it links to the Navigation Center as a coalition project but does not itself operate overnight beds; its old role was the winter-only Emergency Warming Center (contact email is literally TruckeeEWC@gmail.com). Per KUNR (Feb 2026): 'Previously, emergency shelter in the region meant a temporary warming center that opened only during severe winter storms.'",
+            "burn_scenario": "A Truckee viewer needing shelter tonight in August calls NTTHS — an outreach-lunch/case-management org whose warming center is winter-only — instead of the Navigation Center referral line, and sleeps outside.",
+            "fix": "Replace with: 'On the Truckee side, it's the new Truckee Navigation Center — open year-round; the referral line is 530-606-5457' (or simply route east-county viewers to 2-1-1, which serves Tahoe/Truckee and is the Coordinated Entry point). CAVEAT: it is a ONE-YEAR PILOT (opened Feb 2026 → funded into early 2027, and only 10 shelter beds, ~91% utilization) — re-verify open status and the referral number week-of Aug 3.",
+            "sources": [
+              "https://nevadacountyca.gov/m/newsflash/home/detail/8608",
+              "https://www.ntthomelessservices.com/services",
+              "https://tthomelesscoalition.org/navigation-center/",
+              "https://www.kunr.org/local-stories/2026-02-27/new-shelter-part-of-broader-homelessness-strategy-in-truckee-north-tahoe"
+            ]
+          },
+          {
+            "id": "calworks-homeless-assistance",
+            "script_text": "Families on CalWORKs -- the state aid program for families -- can get up to sixteen nights in a motel, once a year, through BenefitsCal",
+            "verdict": "CONFIRMED ('once a year' is fair — technically 'once every 12 months, with exceptions')",
+            "evidence": "CDSS CalWORKs Homeless Assistance page (live): temporary HA provides '16 days of temporary shelter with exceptions, including hotel or motel costs ($85 per day for a family of four or fewer + $15 for each additional family member, up to $145 daily)', available 'once every 12 months with exceptions', for 'CalWORKs recipients or apparently eligible CalWORKs applicants, who are homeless or at risk of homelessness.' Nevada County Housing Resources page (live): 'Families eligible to CalWORKs benefits may qualify for up to 16 consecutive nights in a hotel. This is now available every 12 months. Please apply online at BenefitsCal.org if you do not have CalWORKs; this specialty program requires a separate determination. Please call 530-265-1340 for more information.'",
+            "nuance": "(1) 'Once a year' vs 'once every 12 months with exceptions': the exceptions (e.g., DV, medical, uninhabitability) allow it MORE often — the script errs in the safe/conservative direction. (2) CDSS's canonical application channel is the county welfare office (form CW-42); BenefitsCal is the county's own stated online route, so the script matches the county's instruction — fine. (3) 'apparently eligible CalWORKs applicants' also qualify — the script's 'even if you're not on CalWORKs yet you can apply' framing (if used) is supported by the county page. (4) Script says 'families on CalWORKs' — slightly narrower than reality (applicants qualify too); acceptable, or soften to 'families who qualify for CalWORKs.'",
+            "sources": [
+              "https://www.cdss.ca.gov/inforesources/cdss-programs/housing-programs/calworks-homeless-assistance",
+              "https://www.nevadacountyca.gov/3836/Housing-Resources"
+            ]
+          },
+          {
+            "id": "veterans-dv-targeted-help",
+            "script_text": "And there's more -- targeted help for veterans, for families, for folks fleeing violence -- and two-one-one knows all of it.",
+            "verdict": "CONFIRMED (with a veterans caveat)",
+            "evidence": "DV: county Housing Resources page (live): 'Community Beyond Violence provides Emergency confidential shelter where necessary for survivors of domestic violence and/or sexual assault and their children who are in immediate danger. The shelter is open to people of all genders.' Veterans: county Permanent Housing Resources page (live): 'VASH provides rental assistance for homeless veterans. Nevada County veterans must be willing to relocate to a county that offers VASH vouchers. Please call the National Homeless Veteran Call Center at 877-424-3838'; county Housing Resources page also lists 'Veterans Services can assist Veterans with housing and placement needs.' Families: Booth Family Center (Salvation Army, 530-274-3500) + CalWORKs HA above. '211 knows all of it' is supported by 211's Coordinated Entry role and HMIS.",
+            "nuance": "VASH caveat: Nevada County veterans 'must be willing to relocate to a county that offers VASH vouchers' — the local VASH path involves leaving the county. The script's vague 'targeted help for veterans' survives because county Veterans Services does assist locally, but do NOT sharpen it to 'VASH vouchers here' on air.",
+            "sources": [
+              "https://www.nevadacountyca.gov/3836/Housing-Resources",
+              "https://www.nevadacountyca.gov/1574/Permanent-Housing-Resources"
+            ]
+          },
+          {
+            "id": "card-accuracy",
+            "script_text": "CARD: 2-1-1 + Hospitality House 530-271-7144, check-in 4:00-5:30pm daily",
+            "verdict": "CONFIRMED — but ADD the Truckee Navigation Center referral line if the Truckee beat stays",
+            "evidence": "Both numbers and the window verified live on hhshelter.org and the county page (see above). If the script keeps an east-county 'shelter tonight' line, the card should carry 530-606-5457 (Truckee Navigation Center referrals) rather than sending Truckee viewers to the Grass Valley shelter line.",
+            "sources": [
+              "https://hhshelter.org/programs-services/utahs-place/",
+              "https://nevadacountyca.gov/m/newsflash/home/detail/8608"
+            ]
+          }
+        ],
+        "week_of_air_recheck": [
+          "Hospitality House: phone-confirm (530-271-7144) the 45-day residency, TB-test, and GVPD-clearance requirements and the 4:00-5:30 window (directory data, not on their own site)",
+          "Truckee Navigation Center: confirm the one-year pilot is still operating and 530-606-5457 still the referral line (10 beds, ~91% full — availability language matters)",
+          "211: confirm 877-847-0499 vs 1-833-DIAL211 as the on-card alternate if one is shown"
+        ]
+      }
+    },
+    {
+      "file": "housing-s8.json",
+      "content": {
+        "claim_group": "housing-s8",
+        "episode": "Ep4 Home + Transportation — 'Wait, I Qualify?!'",
+        "checked_at": "2026-07-01",
+        "checked_by": "adversarial fact-check vs LIVE primary sources (regionalha.org, hud.gov, nevadacountyca.gov)",
+        "overall_verdict": "PASS_WITH_ONE_FIX",
+        "overall_note": "Every core claim verified against live primary sources today. One burn-risk requires a script tweak: the 'some of those ARE open' property-waitlist line — as of 2026-07-01, ALL waitlists showing 'Open' on regionalha.org are outside Nevada County (Live Oak/Yuba City, Sutter Co.). All four Nevada County properties show 'Inquire With Property' with no open/closed status on the site.",
+        "claims": [
+          {
+            "id": "tenant-pays-about-30pct",
+            "script_text": "you pay about thirty percent of your income",
+            "verdict": "VERIFIED",
+            "hedge_adequate": true,
+            "evidence": [
+              {
+                "source": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+                "fetched": "2026-07-01 (live, browser-UA curl)",
+                "quote": "This is usually 30% of your adjusted monthly income. However, your rent may be as high as 40% of your adjusted monthly income."
+              },
+              {
+                "source": "https://regionalha.org/programs/housing-choice-voucher",
+                "fetched": "2026-07-01 (live)",
+                "quote": "Tenants typically pay a minimum of 30% of this amount toward rent and utilities."
+              }
+            ],
+            "analysis": "'About thirty percent' is an adequate broadcast hedge. Technically: 30% of ADJUSTED monthly income (after deductions), it is a MINIMUM (RHA's wording), and can run up to 40% in the first year if the chosen unit's rent exceeds the payment standard. 'About' absorbs all three nuances; saying 'exactly 30%' would not. Do NOT strip the word 'about'.",
+            "fix": null
+          },
+          {
+            "id": "voucher-paid-direct-to-landlord",
+            "script_text": "the voucher pays the rest, straight to your landlord",
+            "verdict": "VERIFIED",
+            "evidence": [
+              {
+                "source": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+                "quote": "rent partially covered by a subsidy paid directly to the landlord ... The Public Housing Agency (PHA) pays the housing assistance payment (HAP), which is the difference between the payment standard and your family rent portion, directly paid to the landlord."
+              },
+              {
+                "source": "https://regionalha.org/programs/housing-choice-voucher",
+                "quote": "vouchers amounts are paid directly to the landlord by RHA on behalf of the participating family"
+              },
+              {
+                "source": "https://www.nevadacountyca.gov/548/Housing-Choice-Vouchers",
+                "quote": "A housing subsidy is paid to the landlord directly by the Housing Authority on behalf of the participating family."
+              }
+            ],
+            "analysis": "Confirmed by HUD, RHA, and the county — 'straight to your landlord' is exactly right. Micro-nuance (no fix needed): 'pays the rest' = up to the payment standard; if the tenant picks a unit priced above the payment standard, the tenant pays the difference. The 'about 30%' hedge already covers this.",
+            "fix": null
+          },
+          {
+            "id": "rha-serves-nevada-county",
+            "script_text": "For our county it's run by the Regional Housing Authority",
+            "verdict": "VERIFIED",
+            "evidence": [
+              {
+                "source": "https://regionalha.org/ and https://regionalha.org/programs/housing-choice-voucher",
+                "quote": "RHA administers several Low-Income Housing programs for qualified residents of Colusa, Nevada, Sutter, and Yuba Counties."
+              },
+              {
+                "source": "https://www.nevadacountyca.gov/548/Housing-Choice-Vouchers",
+                "quote": "Housing choice vouchers for Nevada County are administered by the Regional Housing Authority of Sutter and Nevada Counties."
+              }
+            ],
+            "analysis": "Correct agency, correct name as it appears on its own site ('Regional Housing Authority'). Office is in Yuba City (1455 Butte House Road, Yuba City, CA 95993; office hours Mon–Thu 8am–12pm) — worth knowing if a viewer plans to apply in person. Not the Nevada state agency and not Reno Housing Authority.",
+            "fix": null
+          },
+          {
+            "id": "phone-numbers",
+            "script_text": "Card: regionalha.org / 888-671-0220",
+            "verdict": "VERIFIED",
+            "evidence": [
+              {
+                "source": "https://regionalha.org/programs/housing-choice-voucher",
+                "quote": "Main: (530) 671-0220; Toll-Free: (888) 671-0220; TTY: (800) 927-9275"
+              },
+              {
+                "source": "https://www.nevadacountyca.gov/548/Housing-Choice-Vouchers",
+                "quote": "Telephone: (530) 671-0220 Toll free: 888-671-0220"
+              }
+            ],
+            "analysis": "Both numbers live-confirmed on RHA's own HCV page AND the county's page. Card is correct. Note RHA phone hours are limited (office Mon–Thu 8am–12pm).",
+            "fix": null
+          },
+          {
+            "id": "hcv-waitlist-closed-today",
+            "script_text": "their Section Eight waiting list is CLOSED right now. Not 'long' — closed. Today, you can't even get in line",
+            "verdict": "VERIFIED_AS_OF_2026-07-01",
+            "evidence": [
+              {
+                "source": "https://regionalha.org/programs/housing-choice-voucher",
+                "fetched": "2026-07-01 (live)",
+                "quote": "The waiting list for Housing Choice Voucher is CLOSED at this time"
+              }
+            ],
+            "analysis": "Verbatim confirmed live today on RHA's HCV page. 'You can't even get in line' is accurate for the tenant-based HCV list. MANDATORY: re-verify this exact page the week of Aug 3 recording — lists reopen with little notice and the line 'CLOSED right now' becomes false the moment it opens. Pedant-proofing (optional, not required): homeless veterans can pursue HUD-VASH vouchers outside this waitlist via 877-424-3838 — a different pipe, doesn't refute the claim.",
+            "fix": "RE-VERIFY week of Aug 3 (record date). One page, ten seconds: https://regionalha.org/programs/housing-choice-voucher"
+          },
+          {
+            "id": "reopening-announcement-mechanism",
+            "script_text": "Watch the housing authority's website — lists reopen with little notice, and you want to apply the DAY it opens",
+            "verdict": "VERIFIED",
+            "evidence": [
+              {
+                "source": "https://regionalha.org/programs/housing-choice-voucher",
+                "quote": "When the waiting list is re-opened, a public announcement is placed in area newspapers and information posted on this website."
+              },
+              {
+                "source": "https://regionalha.org/ (homepage)",
+                "quote": "To check the status of any of our Wait Lists for Low-Income Housing, Project-Based Voucher, or Housing Choice Voucher (Section 8) Programs, log in to our Resident Portal or register for a free account through our Applicant Portal."
+              }
+            ],
+            "analysis": "'Watch the website' matches RHA's own stated mechanism (website + area newspapers). Even better actionable upgrade: register a FREE Applicant Portal account NOW at regionalha.org, so the day the list opens you can check status and apply online immediately. Applications are also accepted in person at the Yuba City office.",
+            "fix": "OPTIONAL UPGRADE: add 'you can register a free applicant account on their site today, so you're ready the day it opens.'"
+          },
+          {
+            "id": "voucher-not-only-plan",
+            "script_text": "don't make a voucher your only plan",
+            "verdict": "VERIFIED_SOUND_ADVICE",
+            "evidence": [
+              {
+                "source": "https://regionalha.org/programs/housing-choice-voucher",
+                "quote": "The waiting list for Housing Choice Voucher is CLOSED at this time"
+              }
+            ],
+            "analysis": "With the list closed and rural CA voucher waits commonly running years even when open, this is responsible framing. No refutation.",
+            "fix": null
+          },
+          {
+            "id": "property-waitlists-some-open",
+            "script_text": "separate from Section Eight, some individual apartment buildings keep their own low-income waiting lists, and some of those ARE open — they're listed on that same website",
+            "verdict": "TRUE_BUT_MISLEADING_FOR_LOCAL_AUDIENCE",
+            "burn_risk": "HIGH — this is the one line that can send a Nevada County viewer to a dead end.",
+            "evidence": [
+              {
+                "source": "https://regionalha.org/ (homepage waitlist table, live 2026-07-01)",
+                "quote_open_properties": [
+                  "Live Oak — Butte View Estates — 1BR Open (28), 2BR Open (4) — 62+/Disabled — apply directly to RHA",
+                  "Live Oak — Centennial Arms — 1BR Open (16), 2BR Open (5) — apply directly to RHA",
+                  "Yuba City — Richland Housing RD — 190 Residential Open — AGRICULTURE WORKERS only",
+                  "Yuba City — Kingwood Commons — 34 2BR Open",
+                  "Yuba City — Yolo Apartments — 3 1BR Open"
+                ],
+                "quote_nevada_county_properties": [
+                  "Nevada City — Cashin's Field — 'Inquire With Property' — contact Winn Residential",
+                  "Penn Valley — Courtyards at Penn Valley — 'Inquire With Property' — contact FPI Management",
+                  "Grass Valley — Grass Valley Terrace Apartments — 'Inquire With Property' — contact MBS Property Management",
+                  "Truckee — Truckee Artist Lofts — 'Inquire With Property'"
+                ],
+                "site_text": "The properties below were developed/rehabilitated in partnership with RHA but are managed by independent property management companies. Please direct all inquiries to the companies listed."
+              }
+            ],
+            "analysis": "Adversarial finding: every waitlist showing 'Open' on regionalha.org TODAY is in Live Oak or Yuba City (Sutter County) — an hour-plus from Grass Valley, and one of the five (Richland, the biggest at 190 units) is agriculture-workers-only. All FOUR Nevada County properties (Cashin's Field/Nevada City, Courtyards at Penn Valley, Grass Valley Terrace, Truckee Artist Lofts) show NO open/closed status on RHA's site — they are third-party-managed 'Inquire With Property' listings where you must call the management company directly. So: (a) 'some buildings keep their own lists' — TRUE, that's exactly the Nevada County situation; (b) 'they're listed on that same website' — TRUE, all four appear on regionalha.org with manager contacts; (c) 'some of those ARE open' — TRUE site-wide but FALSE-as-heard by a local viewer, who will reasonably infer an open list near them. A Grass Valley viewer who goes looking finds only distant Sutter County lists marked open — the dead-end scenario the burn-risk question asked about. Also minor: the 'Open' properties are RHA-run lists (apply directly to RHA), not 'their own' lists — the buildings that keep their own lists are precisely the ones with no status shown.",
+            "fix": "REQUIRED REWRITE of one beat. Suggested: 'And separate from Section Eight, some individual apartment buildings keep their own low-income waiting lists — they're on that same website. For the buildings here in Nevada County, the site lists the property manager to call and ask directly — and some lists elsewhere in the region are open right now.' Alternative minimum fix: drop 'and some of those ARE open' or qualify it ('some — mostly in neighboring counties — are open right now; for the local buildings, call the property manager listed'). Re-check the homepage table week of Aug 3 — statuses can change."
+          }
+        ],
+        "burn_risk_summary": {
+          "dead_end_scenarios": [
+            {
+              "risk": "Viewer hears 'some property lists ARE open,' visits regionalha.org expecting a local open list, finds all 'Open' entries are in Live Oak/Yuba City (Sutter Co.) and the biggest is ag-workers-only; Nevada County buildings show no status at all.",
+              "severity": "HIGH",
+              "mitigation": "Rewrite per property-waitlists-some-open fix: point Nevada County viewers to 'call the property manager listed on the site' rather than promising open local lists."
+            },
+            {
+              "risk": "HCV list reopens (or the site wording changes) between 2026-07-01 and the Aug 3 record date, making 'CLOSED right now — you can't even get in line' false on air.",
+              "severity": "MEDIUM (framing hedges with 'right now'; still must re-verify)",
+              "mitigation": "Re-fetch https://regionalha.org/programs/housing-choice-voucher week of Aug 3."
+            },
+            {
+              "risk": "Viewer calls 888-671-0220 outside RHA's narrow office hours (Mon–Thu 8am–12pm) and concludes the number is dead.",
+              "severity": "LOW",
+              "mitigation": "Optional: on-air or card note 'mornings, Monday–Thursday.'"
+            }
+          ],
+          "no_burn_found_in": [
+            "'about 30%' hedge (correct and necessary)",
+            "direct-to-landlord payment",
+            "RHA as Nevada County's agency",
+            "both phone numbers",
+            "regionalha.org as the watch-this site (matches RHA's own stated announcement mechanism: website + area newspapers + Applicant Portal)"
+          ]
+        },
+        "reverify_before_air": [
+          "HCV waitlist status: https://regionalha.org/programs/housing-choice-voucher (week of Aug 3)",
+          "Homepage property waitlist table statuses: https://regionalha.org/ (week of Aug 3)"
+        ],
+        "sources_fetched_live": [
+          "https://regionalha.org/programs/housing-choice-voucher (WebFetch, 2026-07-01)",
+          "https://regionalha.org/ (WebFetch + browser-UA curl raw HTML, 2026-07-01)",
+          "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants (browser-UA curl, 2026-07-01)",
+          "https://www.nevadacountyca.gov/548/Housing-Choice-Vouchers (browser-UA curl, 2026-07-01)"
+        ]
+      }
+    },
+    {
+      "file": "psps.json",
+      "content": {
+        "claim_group": "psps",
+        "episode": "Ep4 Home + Transportation",
+        "record_date": "2026-08-03",
+        "checked": "2026-07-01",
+        "checker": "adversarial fact-check vs LIVE primary sources (pge.com pages fetched live; PG&E PBP fact sheet PDF dated 03/09/2026; guide.pge.com; freed.org via 211 records)",
+        "overall_verdict": "VERIFIED_WITH_ONE_REQUIRED_ADDITION — every stated fact checks out against live pge.com; but 'PG&E reaches out if you're pre-qualified' is true-yet-incomplete and risks stranding viewers: an official proactive path exists (call 211 / FREED in Grass Valley) and MUST be added to script or card.",
+        "claims": [
+          {
+            "id": "psps-1",
+            "script_text": "get on P-G-and-E's Medical Baseline program -- that one is about medical need, NOT income",
+            "verdict": "VERIFIED",
+            "evidence": "pge.com Medical Baseline page (live 2026-07-01), near-verbatim: \"Eligibility for the Medical Baseline Program is based on medical conditions or needs—NOT on income.\" Qualifying devices include respirator/oxygen concentrator, CPAP, dialysis, motorized wheelchair, or a condition requiring heating/cooling to sustain life.",
+            "source": "https://www.pge.com/en/account/billing-and-assistance/financial-assistance/medical-baseline-program.html"
+          },
+          {
+            "id": "psps-2",
+            "script_text": "more power at the lowest rate",
+            "verdict": "VERIFIED (fair simplification)",
+            "evidence": "Live page: an extra ~\"500 kilowatt-hours (kWh) of electricity and/or 25 therms of gas per month\" billed at the lowest-priced tier of the customer's rate. Nuance: customers on E-ELEC (Electric Home), E-TOU-D, or EV2-A get a 12% D-MEDICAL discount on electric charges INSTEAD of the allowance. 'More power at the lowest rate' is defensible on air for the general case; no correction needed.",
+            "adlib_guardrail": "Don't quantify beyond '~500 extra kilowatt-hours a month' — and don't promise a specific % discount; on some newer rate plans it's a 12% discount instead of the allowance.",
+            "source": "https://www.pge.com/en/account/billing-and-assistance/financial-assistance/medical-baseline-program.html"
+          },
+          {
+            "id": "psps-3",
+            "script_text": "extra warnings before a fire-weather shutoff",
+            "verdict": "VERIFIED",
+            "evidence": "Live page: Medical Baseline customers get \"additional alerts. This may include multiple texts, phone calls or even a door-bell ring\" on top of standard PSPS notifications (48 hr / 24 hr / just before shutoff). PG&E attempts a door knock if you don't confirm the alert.",
+            "source": "https://www.pge.com/en/account/billing-and-assistance/financial-assistance/medical-baseline-program.html"
+          },
+          {
+            "id": "psps-4",
+            "script_text": "(not in script — AD-LIB RISK) how you enroll in Medical Baseline",
+            "verdict": "GUARDRAIL — DO NOT AD-LIB 'self-certify' or 'no doctor needed'",
+            "evidence": "Initial enrollment REQUIRES a licensed medical practitioner's signature (Part B of the application — physician, surgeon, nurse practitioner, or physician assistant). Self-certification exists ONLY at renewal: permanent conditions self-certify every 4 years; non-permanent conditions need practitioner recertification every 2 years. Apply at pge.com/mblapp. CONTRAST TRAP: the separate DDAR program explicitly needs NO doctor (\"A doctor is not needed to verify disability or condition\") — don't blur the two on air.",
+            "on_air_safe_line": "Your doctor, nurse practitioner, or PA signs one form — apply at pge.com/mblapp.",
+            "source": "https://www.pge.com/en/account/billing-and-assistance/financial-assistance/medical-baseline-program.html"
+          },
+          {
+            "id": "psps-5",
+            "script_text": "Some Medical Baseline folks qualify for a FREE backup battery",
+            "verdict": "VERIFIED ('some' is exactly right; 'free' defensible)",
+            "evidence": "Portable Battery Program (live page + official fact sheet CCC-0326-6321 dated 03/09/2026): qualify if (a) Medical Baseline OR Self-Identified Vulnerable customer, (b) rely on a medical device / assistive technology / durable medical equipment, AND (c) experienced ≥1 PSPS since 2024 OR ≥3 EPSS outages since 2024. No income/CARE/FERA test on the current program. 'Free': the main pge.com page never states a price, but PG&E's own Energy Action Guide says the program \"provides a free battery to power select medical devices during an outage,\" the 2020 launch release said no-cost, and the fact sheet describes delivery with no customer payment — 'free' is defensible.",
+            "adlib_guardrail": "Old articles (incl. PG&E's own 2020 launch release titled 'for Income Qualifying Customers') describe an income test — that's OUTDATED; the current program is Medical Baseline/vulnerable-status + outage history, not income. Also note guide.pge.com still shows stale outage thresholds (1 PSPS since 2021 / 5 EPSS since 2022); the current standard is the 'since 2024' language above.",
+            "sources": [
+              "https://www.pge.com/en/account/billing-and-assistance/financial-assistance/portable-battery-program.html",
+              "https://www.pge.com/assets/pge/docs/outages-and-safety/outage-preparedness-and-support/cwsp-portable-battery-fact-sheet.pdf",
+              "https://guide.pge.com/resources?resource_id=5"
+            ]
+          },
+          {
+            "id": "psps-6",
+            "script_text": "P-G-and-E reaches out if you're pre-qualified",
+            "verdict": "TRUE BUT INCOMPLETE — REQUIRED FIX (stranding risk)",
+            "evidence": "Live page, verbatim: \"If you are pre-qualified, no action is needed. Our program partners will reach out directly to conduct assessments.\" So the script line is accurate. BUT the official 03/2026 fact sheet adds a proactive path the web page omits: \"To check if you qualify, contact 211 or Disability Disaster Access and Resources Program. They can help you apply.\" and \"Our partners at 211 and Disability Disaster Access and Resources can help you apply for a portable battery. If you don't qualify... they can help you apply for other backup power programs.\" A viewer who only hears 'PG&E will call you' may wait forever for a call that never comes (bad contact info, not pre-identified). Nevada County's PBP resource partner is Richard Heath and Associates / Resource Innovations (559-214-1190, pgebatteryprogram@resource-innovations.com); the local DDAR center is FREED in Grass Valley, which notes battery supply is 'very limited, first come, first served' — all the more reason to be proactive.",
+            "required_script_fix": "Add one line after 'PG&E reaches out if you're pre-qualified': \"...but don't wait by the phone — call 2-1-1 or FREED in Grass Valley at 530-477-3333 and they'll help you apply.\" (Or put 211 + FREED 530-477-3333 on the get-help card.)",
+            "fallback_note": "If power needs exceed a portable battery, PG&E refers customers to the DDAR program (hotel stays, food, accessible rides during shutoffs; no income test, no doctor's note; apply at disabilitydisasteraccess.org or via FREED, 435 Sutton Way, Grass Valley, 530-477-3333 / 800-655-7732, serves Nevada County).",
+            "sources": [
+              "https://www.pge.com/en/account/billing-and-assistance/financial-assistance/portable-battery-program.html",
+              "https://www.pge.com/assets/pge/docs/outages-and-safety/outage-preparedness-and-support/cwsp-portable-battery-fact-sheet.pdf",
+              "https://freed.org/psps/",
+              "https://www.pge.com/en/outages-and-safety/outage-preparedness-and-support/health-and-accessibility-support/disability-disaster-access-and-resources-program.html"
+            ]
+          },
+          {
+            "id": "psps-7",
+            "script_text": "if you're on CARE or FERA, there's up to five hundred dollars back on a generator or battery (card: 'pge.com, rebates up to $500 for CARE/FERA customers')",
+            "verdict": "VERIFIED (with two producer caveats)",
+            "evidence": "Generator and Battery Rebate Program, live page: $300 base rebate + \"additional $200\" for CARE/FERA participants = up to $500 for CARE/FERA customers ($300 for everyone else). Math and card wording check out exactly.",
+            "caveats": [
+              "LOCATION GATE (unstated in script): address must be in HFTD Tier 2/3, a High Fire Risk Area, OR on an EPSS circuit. Most of western Nevada County (Grass Valley/Nevada City) qualifies, but a viewer should verify at pge.com's Wildfire Safety Progress Map (pge.com/progressmap). Low risk for this audience; fine to leave out of the spoken line, good to note on the card or in show notes.",
+              "IT'S A REIMBURSEMENT, NOT A COUPON: buy a qualifying product first (CARB-compliant generator on PG&E's qualified product list, or portable battery 290–1,000 Wh — USB power banks excluded), then submit the receipt at energyinsight.pge.com/eRebateApplication. One rebate per household.",
+              "DEADLINE / SUNSET: \"Applications must be submitted within 12 months from the purchase date or by December 31, 2026, whichever date is sooner.\" The program appears to sunset end of 2026 — actually strengthens the on-air urgency, and MUST be rechecked week-of-record in case terms change."
+            ],
+            "source": "https://www.pge.com/en/outages-and-safety/outage-preparedness-and-support/general-outage-resources/generator-and-battery-rebate-program.html"
+          }
+        ],
+        "change_watch_before_aug_3": [
+          "Generator & Battery Rebate: confirm the $300/$200 amounts and the Dec 31, 2026 deadline language still stand (program is in its sunset year).",
+          "Portable Battery Program: confirm outage-history thresholds are still '≥1 PSPS since 2024 / ≥3 EPSS since 2024' (these have rolled forward annually before).",
+          "FREED battery supply is 'very limited, first come, first served' — worth a quick call to FREED (530-477-3333) week-of to confirm they're still taking battery applications."
+        ],
+        "get_help_card_suggestions": {
+          "medical_baseline": "pge.com/mblapp · 1-877-660-6789",
+          "free_battery_proactive": "Call 2-1-1 (or text PREPARE to 211-211) · FREED Grass Valley 530-477-3333",
+          "generator_battery_rebate": "pge.com → 'Generator and Battery Rebate' · up to $500 for CARE/FERA · apply by Dec 31, 2026"
+        }
+      }
+    },
+    {
+      "file": "transit-east-nemt.json",
+      "content": {
+        "claim_group": "transit-east-nemt",
+        "episode": "Ep4 Home + Transportation (records Mon 2026-08-03)",
+        "checked_at": "2026-07-01T16:16:58-07:00 (PDT)",
+        "method": "Adversarial re-verification against LIVE primary sources (browser-UA curl where WebFetch 403'd). No claim accepted from the brief without an independent live fetch or primary-source document.",
+        "overall_verdict": "AIRWORTHY — all script claims verified against live primary sources. One wording caveat (door-to-door vs curb-to-curb, resolved in script's favor via Town of Truckee's own page) and three ad-lib guardrails below.",
+        "script_line": "Truckee, you win this round: TART -- the Tahoe Truckee bus system -- and its on-demand door-to-door vans are FREE to ride right now, funded into next year. And one more, county-wide: if you're on Medi-Cal, rides to medical and dental appointments are a free benefit -- one phone number, book at least five days ahead. They'll even reimburse gas money for a friend who drives you.",
+        "claims": [
+          {
+            "id": "tart-fixed-free",
+            "claim": "TART fixed-route buses are free to ride right now",
+            "verdict": "VERIFIED",
+            "evidence": "tahoetruckeetransit.com/fares (fetched live 2026-07-01): 'Free to all Passengers' for BOTH the Mainline/HWY 89/HWY 267 routes AND the Truckee Fixed Route.",
+            "sources": [
+              "https://www.tahoetruckeetransit.com/fares"
+            ],
+            "notes": "TART = Tahoe Truckee Area Regional Transit; script's 'the Tahoe Truckee bus system' gloss is fine. NOT free: Truckee TART Dial-A-Ride ($6 adult / $2 senior-disabled-under-12 / free only if ADA-certified) — script doesn't mention it, keep it that way or price it correctly."
+          },
+          {
+            "id": "tart-connect-free-ondemand",
+            "claim": "TART Connect (the on-demand vans) is free, on-demand microtransit",
+            "verdict": "VERIFIED",
+            "evidence": "tahoetruckeetransit.com/tart-connect (raw HTML fetched 2026-07-01): 'TART Connect FREE, ON-DEMAND, MICROTRANSIT ... offers curb-to-curb, on-demand service, for any trip within the defined service areas.' Book via app or (530) 553-0653.",
+            "sources": [
+              "https://www.tahoetruckeetransit.com/tart-connect"
+            ],
+            "notes": "Truckee summer schedule Jun 18–Sep 7 is live and covers the Aug 3 record date. TART site lists Truckee hours as '6:30am-12pm daily' — almost certainly a site typo for 12am/midnight (separate 'Northstar night service 6pm–11pm' line implies evening ops). DO NOT quote hours on air without a phone confirm (530-553-0653)."
+          },
+          {
+            "id": "tart-connect-door-to-door",
+            "claim": "TART Connect vans are 'door-to-door'",
+            "verdict": "VERIFIED_WITH_CAVEAT",
+            "evidence": "Sources split: tahoetruckeetransit.com/tart-connect says 'curb-to-curb'; Town of Truckee's own page townoftruckee.gov/282/TART-Connect (fetched 2026-07-01) says 'TART Connect serves all areas of Truckee, providing free, door-to-door, on-demand rides.' Since the script line is Truckee-specific, the operator-town's own 'door-to-door' wording supports it.",
+            "sources": [
+              "https://www.townoftruckee.gov/282/TART-Connect",
+              "https://www.tahoetruckeetransit.com/tart-connect"
+            ],
+            "notes": "AD-LIB GUARDRAIL: 'door-to-door' here means picks-you-up-at-your-address, NOT driver-assists-you-from-your-front-door. Do not imply the driver helps riders in/out of the house — assisted service is Truckee Dial-A-Ride/ADA paratransit or Medi-Cal NEMT. Safer on-air paraphrase if re-recording: 'vans that pick you up right where you are.'"
+          },
+          {
+            "id": "tart-connect-ada",
+            "claim": "TART Connect is ADA-accessible",
+            "verdict": "VERIFIED",
+            "evidence": "tahoetruckeetransit.com/tart-connect: 'TART Connect is ADA-accessible.' (Verbatim.)",
+            "sources": [
+              "https://www.tahoetruckeetransit.com/tart-connect"
+            ]
+          },
+          {
+            "id": "tart-funding-horizon",
+            "claim": "Free fares are 'funded into next year' (i.e., into 2027, said in Aug 2026)",
+            "verdict": "VERIFIED — safe understatement",
+            "evidence": "Placer County BOS voted unanimously (Nov 2025) to extend free-to-the-rider TART service for two years beginning Dec 12, 2025, funded by $275,000/yr in TOT funds THROUGH THE END OF 2027 (placer.ca.gov news + Placer Sentinel 2025-11-19). Placer's TART Connect zones separately extended to 2027 (placer.ca.gov/9816). Truckee side: Town of Truckee 'TART Fare Free Program' grant ($126,594) keeps Truckee Fixed Route + Truckee TART Connect free; town pages confirm free today with no announced end date.",
+            "sources": [
+              "https://www.placer.ca.gov/10569/TART-systems-update-and-free-rides",
+              "https://www.placersentinel.com/2025/11/19/554908/free-ridership-extended-to-2027-alongside-new-systems-plan-for-truckee-tahoe-area-regional-transit",
+              "https://www.placer.ca.gov/9816/TART-Connect-extended-to-2027",
+              "https://www.townoftruckee.gov/278/Public-Transportation"
+            ],
+            "notes": "Script's 'into next year' understates the documented end-of-2027 horizon → safe. BRIEF ERRATUM: transit.md said the two-year extension started 'Dec 12 (2024)' — it began Dec 12, 2025. Its 'through end of 2027' conclusion was right. Only the regional (Placer) horizon is documented to end-2027; Truckee-side free fares are grant-funded with no published end date — another reason 'into next year' beats 'through 2027' on air. Keep the understatement."
+          },
+          {
+            "id": "phc-covers-nevada-county",
+            "claim": "County-wide: Medi-Cal members' ride benefit = Partnership HealthPlan (the Medi-Cal managed-care plan covering Nevada County)",
+            "verdict": "VERIFIED",
+            "evidence": "partnershiphp.org About page (fetched 2026-07-01, browser UA): 'Partnership now provides services in 24 Northern California counties: ... Nevada, Placer ...'. PHC is a COHS (County Organized Health System) — the sole Medi-Cal managed-care plan in its counties; Nevada County transitioned to PHC effective Jan 1, 2024 (25,000+ members).",
+            "sources": [
+              "https://www.partnershiphp.org/About/Pages/default.aspx",
+              "https://yubanet.com/regional/new-managed-care-plan-for-medi-cal-recipients-living-in-nevada-county/",
+              "https://www.sierrasun.com/news/new-managed-care-plan-for-nv-county-medi-cal-recipients/"
+            ],
+            "notes": "'County-wide' is correct — PHC covers the whole county (both Truckee and west county). Because COHS = single plan, 'if you're on Medi-Cal [in Nevada County]' safely implies PHC membership; exceptions (e.g., some fee-for-service beneficiaries) are edge cases, and even FFS Medi-Cal has NEMT/NMT via DHCS — so no viewer is misled."
+          },
+          {
+            "id": "phc-phone-hours",
+            "claim": "One phone number to book: 866-828-2303",
+            "verdict": "VERIFIED",
+            "evidence": "Live PHC Transportation Services page (fetched 2026-07-01, browser UA — WebFetch 403s, curl works): 'Partnership's Transportation Services Department is available Monday – Friday, 7 a.m. – 7 p.m. You can call us at (866) 828-2303.' Same single line handles NEMT, NMT, gas-mileage reimbursement, and travel-related expenses — 'one phone number' is accurate.",
+            "sources": [
+              "https://www.partnershiphp.org/Members/Medi-Cal/Pages/Transportation-Services.aspx"
+            ],
+            "notes": "Hours M–F 7am–7pm. General benefits line (800) 863-4155 is separate — don't swap them. Emergencies = 911 (ambulance covered at no cost)."
+          },
+          {
+            "id": "phc-5-day-rule",
+            "claim": "Book at least five days ahead",
+            "verdict": "VERIFIED",
+            "evidence": "Live PHC page states for each service: 'Please call at least 5 days before your appointment' (NEMT, NMT, and gas mileage reimbursement each carry the 5-day language). PHC flyer CC039_051123 repeats: 'Call ... at least 5 days before your visit.'",
+            "sources": [
+              "https://www.partnershiphp.org/Members/Medi-Cal/Pages/Transportation-Services.aspx",
+              "https://www.partnershiphp.org/Members/Medi-Cal/Documents/TransportationFlyer_ENG.pdf"
+            ],
+            "notes": "It's '5 days', not '5 business days', on both live sources — script's 'at least five days ahead' matches verbatim."
+          },
+          {
+            "id": "phc-urgent-handling",
+            "claim": "(Ad-lib risk) What happens for urgent appointments",
+            "verdict": "VERIFIED — with guardrail",
+            "evidence": "PHC's own flyer (TransportationFlyer_ENG.pdf, fetched 2026-07-01): 'Please call as soon as possible for urgent visits' (NEMT) and 'Please call as soon as possible if your need is urgent' (NMT). PHC transportation policy docs: short-notice requests reviewed case-by-case. NOTE: the main Transportation-Services web page itself says only 'at least 5 days' with no urgent language.",
+            "sources": [
+              "https://www.partnershiphp.org/Members/Medi-Cal/Documents/TransportationFlyer_ENG.pdf",
+              "https://www.partnershiphp.org/Members/Medi-Cal/Pages/Transportation-Services.aspx"
+            ],
+            "notes": "AD-LIB GUARDRAIL: safe = 'if it's urgent, call as soon as you can — they'll try to help.' NOT safe = promising same-day or guaranteed urgent rides; short-notice is case-by-case."
+          },
+          {
+            "id": "phc-scope-medical-dental",
+            "claim": "Rides to 'medical and dental appointments'",
+            "verdict": "VERIFIED — safe undersell",
+            "evidence": "Live PHC page: benefit covers 'medically necessary, Medi-Cal covered services'; NMT criteria explicitly reference 'medical or dental services.' Full scope also includes mental-health and substance-use appointments and prescription/medical-supply pickup (Medi-Cal NEMT/NMT standard scope).",
+            "sources": [
+              "https://www.partnershiphp.org/Members/Medi-Cal/Pages/Transportation-Services.aspx"
+            ],
+            "notes": "Undersell is fine per brief policy. AD-LIB GUARDRAIL: do not say 'ONLY medical and dental' — if riffing, the accurate expansion is 'any Medi-Cal-covered care, including mental health and picking up prescriptions.'"
+          },
+          {
+            "id": "phc-gas-mileage",
+            "claim": "They'll reimburse gas money for a friend who drives you",
+            "verdict": "VERIFIED",
+            "evidence": "Live PHC page: 'A friend or family member may be eligible to receive gas mileage reimbursement for using a personal vehicle to transport you to your Medi-Cal covered services.' Driver must first submit valid driver's license, vehicle registration, and insurance; member submits an attendance-verification document after the appointment. 'You cannot be reimbursed for driving yourself.' Call at least 5 days before. Flyer adds: 'In most cases, members cannot be paid directly.'",
+            "sources": [
+              "https://www.partnershiphp.org/Members/Medi-Cal/Pages/Transportation-Services.aspx",
+              "https://www.partnershiphp.org/Members/Medi-Cal/Documents/TransportationFlyer_ENG.pdf"
+            ],
+            "notes": "Script wording is accurate ('a friend who drives you' — correctly not self-driving). AD-LIB GUARDRAIL: it's reimbursement with advance paperwork (driver credentials before, attendance proof after), not cash on the spot — the reimbursement goes to the DRIVER, and the 5-day advance call applies here too."
+          }
+        ],
+        "card_check": {
+          "card": "TART free + Partnership HealthPlan 866-828-2303, book 5+ days ahead",
+          "verdict": "VERIFIED — all three elements match live sources verbatim."
+        },
+        "errata_for_brief": [
+          "transit.md line ~137: Placer free-fare extension began Dec 12, 2025 (not 2024). 'Through end of 2027' conclusion stands.",
+          "transit.md says Truckee TART Connect summer hours '6:30am–12am' — the live TART page literally prints '6:30am-12pm daily' (likely their typo for midnight). Confirm by phone before quoting hours anywhere."
+        ],
+        "reverify_before_record": [
+          "Week of Jul 27–Aug 3: re-load tahoetruckeetransit.com/fares + /tart-connect (free status + summer schedule still covers Aug 3).",
+          "One call to 866-828-2303 to confirm line + hours unchanged (M–F 7a–7p)."
+        ]
+      }
+    },
+    {
+      "file": "transit-west.json",
+      "content": {
+        "claimId": "transit-west",
+        "verdict": "needs_fix",
+        "notes": "Fact-checked 2026-07-01 against LIVE county pages fetched with browser UA (site 403s bots); raw HTML/text/PDFs archived in factcheck/pages/. VERIFIED ACCURATE: (1) Fares — Adult $1.50 Zone 1 / $3.00 Zone 2 (Zone 2 = regional routes 5 Auburn, 6 Penn Valley, 7 North San Juan), transfers FREE, verbatim on nevadacountyca.gov/2259 Fares-and-Passes and its accessible PDF (/DocumentCenter/View/68826). Transfer nuance (one-way, same direction, no round trips, possible extra fare crossing zones) is fine for a broadcast summary. (2) Youth free — 'Effective November 1, 2025, Youth ages 6-17 no longer pay a fare!' + table shows Children ≤5 AND Youth 6-17 FREE, so 'anyone 17 or under rides completely free since last November' is correct (record date Aug 3 2026). 'No paperwork' holds: youth are NOT in the Discount Fare ID card categories (only Senior 65+/Disabled/Veteran); county publishes no youth ID/card requirement. (3) Senior 65+ half fare — $0.75/$1.50 = exactly half; Discount Fare ID card required ('All discount Fare users will be required to obtain a Discount Fare ID card'), issued at Transit Services office or Tinloy Transit Center, 'All applicants must have and show a valid photo ID'; Medicare gotcha VERBATIM: 'A valid Medicare card (not Medi-Cal)'. Disabled same discount row. (4) Golden Ticket — 'Lifetime Pass for seniors aged 80 and over... unlimited free rides on all Nevada County Connects routes (1-7)... proof of age (valid California ID card or Driver's License)... not for use on Nevada County Now paratransit services.' Script's 'all the regular routes' is ADEQUATE scoping (fixed route only, excludes paratransit). Nit: proof of age = CA ID/DL specifically. (5) Low-Income Pass mechanics — 138-200% FPL, 6-month eligibility, renewable via new referral, partner agencies named as 'FREED, Nevada County Department of Social Services, and Nevada County Department of Behavioral Health' (page says 'examples of partner agencies', so the three named are examples, not an exhaustive gate) — all on /2259. (6) FREED descriptor — freed.org: 'a nonprofit serving older adults and people with disabilities' + Center for Independent Living, Nevada City office (county page /1491); 'local independent-living nonprofit' is fair (technically regional: Nevada/Sierra/Sutter/Yuba/Colusa counties). (7) Nevada County Now ADA — 'must complete an ADA application form and be certified as eligible' (/2262); senior 65+ On-Demand Dial-A-Ride confirmed with 'simple one-page application' + proof of age, can be handed to the driver on first trip (/3578 Senior-Dial-A-Ride-Service). (8) Day-before/no-same-day/book-return rules verbatim on /2262 — but see FIX 1. (9) Phones 530-477-0103 (Connects office, ext 1003) and 530-271-7433 (Nevada County Now reservations, toll-free 855-314-7433) both live. NEEDS FIX — 4 items: [FIX 1, HIGH] 'Book it the day before — no same-day rides' is misattributed to senior dial-a-ride. /2262's reservation rules are headed 'Reservations for ADA Paratransit Trips (not On-Demand-Dial-A-Ride)'; the Dial-A-Ride page /3578 says the opposite for seniors: 'Rides may be requested for the same day, but all Senior Dial-a-Ride trips will be provided on an available capacity basis only, with ADA-mandated trips taking priority.' As scripted, the sentence follows the senior dial-a-ride line and tells seniors they can't get same-day rides — contradicted by the county's own page. [FIX 2, MEDIUM] 'a few dollars each way' — an OFFICIAL per-trip fare now exists: 'Fee per Ride: There is a $4.00 one-way trip fee' on /3578 (page covers ADA-certified + Senior Dial-A-Ride service). The May draft's $4 matches this. Say four dollars; note /2262 (day-before ADA trips) still publishes no fare — one phone call (530-271-7433) during week-of re-verify confirms whether $4 covers ADA corridor trips too (supersedes benefitscheckup's stale $3/$5). [FIX 3, MEDIUM] 'free riding' for the Low-Income Pass is NOT stated by any official source. County page calls it 'Low-Income Pass Referral Program'; the county's own referral form and the Caltrans FY24-25 LCTOP award list (dot.ca.gov new-fy24-25-lctop-award-list, project 24-25-D03-018, $86,775) call it a 'Low-Income Pass FARE SUBSIDY Program' — 'The subsidy would be offered to persons who are referred via a partner agency...'; Jan 21 2026 Transit Services Commission packet (nevadacountyca.gov/DocumentCenter/View/61218) tracks 'Total LCTOP Subsidized Passes'. Almost certainly a no-cost pass in practice, but 'free riding' on air is an overstatement until confirmed — phone 530-477-0103 week-of; fallback wording provided. [FIX 4, LOW] 'The bus system has a new name' — the rebrand happened in 2022, four years before air: KNCO 'Nevada County Transit System Turns 50' (July 3 2025): 'in 2022, the system was re-branded as Nevada County Connects'; YubaNet (June 26 2025) same. Rename lineage itself is solid (county's own Facebook video 'Gold Country Stage is now Nevada County Connects!', transit.wiki/Gold_Country_Stage now titled Nevada County Connects; Gold Country Lift → Nevada County Now corroborated by icarol.info records + Grass Valley Chamber directory; NO 'Gold Country' text remains anywhere on live county transit pages). Just drop the recency implication. URLS: https://www.nevadacountyca.gov/2259/Fares-and-Passes · https://www.nevadacountyca.gov/2262/Nevada-County-Now-Paratransit-Services · https://www.nevadacountyca.gov/3578/Senior-Dial-A-Ride-Service · https://www.nevadacountyca.gov/4146 (Transit Services, hours) · https://www.nevadacountyca.gov/1491 (FREED) · https://www.nevadacountyca.gov/DocumentCenter/View/68826/Fares-and-Passes · https://www.nevadacountyca.gov/DocumentCenter/View/61218 (TSC packet 1/21/26) · https://dot.ca.gov/-/media/dot-media/programs/rail-mass-transportation/documents/lctop/new-fy24-25-lctop-award-list-a11y.pdf · https://knco.com/nevada-county-transit-system-turns-50/ · https://yubanet.com/regional/nevada-county-connects-50-years-of-public-transit-going-strong/ · https://freed.org/. No wayback snapshots exist for the county transit pages (checked /2259, /2262 with and without slugs) — the live fetches in factcheck/pages/ are the archive.",
+        "scriptFix": "The bus system goes by a new name these days — Nevada County Connects, the one folks knew as Gold Country Stage. [...keep fares/youth/senior/Golden Ticket beats as written...] There's a Low-Income Pass — six months at a time, renewable — that takes the fare off your shoulders [CONFIRM 'free' BY PHONE 530-477-0103 WEEK-OF; if confirmed, restore 'free riding'], through a referral from FREED, the local independent-living nonprofit, or county Social Services, or Behavioral Health... Nevada County Now — it used to be called Gold Country Lift. If a disability keeps you off the regular bus, you apply and get certified — and those ADA rides you book the day before, no same-day, and you book your return trip at the same time. Seniors sixty-five and up get something more flexible: an on-demand dial-a-ride. Fill out a simple one-page application — you can even hand it to the driver on your first trip — and you can call for a same-day ride if there's room, though the ADA trips get first dibs. Either way, it's four dollars each way."
+      }
+    }
+  ]
+}
