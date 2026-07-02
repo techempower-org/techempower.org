@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teleprompter — Wait, I Qualify?! Ep5</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23e8a13c'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' font-family='sans-serif' font-weight='bold' fill='%231f2421'%3EW%3F%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #0d0f0e;
+    --text: #f5f1e8;
+    --dim: #8a857a;
+    --shawna: #e87a5d;
+    --jeff: #5da89b;
+    --chip-bg: #1f2421;
+    --chip-border: #3a423e;
+    --bar-bg: rgba(13, 15, 14, 0.92);
+    --accent: #e8a13c;
+  }
+  @media (prefers-color-scheme: light) {
+    body:not(.force-dark):not(.force-light) {
+      --bg: #faf6ee;
+      --text: #2a2520;
+      --dim: #9a948a;
+      --shawna: #c25435;
+      --jeff: #2e7d6e;
+      --chip-bg: #f0e9db;
+      --chip-border: #d8cfbc;
+      --bar-bg: rgba(250, 246, 238, 0.94);
+    }
+  }
+  body.force-light {
+    --bg: #faf6ee;
+    --text: #2a2520;
+    --dim: #9a948a;
+    --shawna: #c25435;
+    --jeff: #2e7d6e;
+    --chip-bg: #f0e9db;
+    --chip-border: #d8cfbc;
+    --bar-bg: rgba(250, 246, 238, 0.94);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { background: var(--bg); color: var(--text); font-family: "DM Sans", system-ui, sans-serif; overflow: hidden; }
+
+  #viewport { height: 100vh; overflow-y: scroll; scrollbar-width: none; }
+  #viewport::-webkit-scrollbar { display: none; }
+  body.mirror #viewport { transform: scaleX(-1); }
+
+  #scriptArea {
+    max-width: 25ch;
+    font-size: var(--fs, 54px);
+    line-height: 1.45;
+    margin: 0 auto;
+    padding: 45vh 0.5em 80vh;
+    font-weight: 500;
+  }
+  .speaker { display: block; font-weight: 800; letter-spacing: 0.06em; margin: 1.1em 0 0.15em; font-size: 0.72em; }
+  .speaker.shawna { color: var(--shawna); }
+  .speaker.jeff { color: var(--jeff); }
+  p.line { margin-bottom: 0.45em; }
+  p.line.shawna-line { border-left: 0.12em solid var(--shawna); padding-left: 0.4em; }
+  p.line.jeff-line { border-left: 0.12em solid var(--jeff); padding-left: 0.4em; }
+  .cue, .cue-inline { color: var(--dim); font-style: italic; font-weight: 400; }
+  .cue { display: block; font-size: 0.6em; border: 1px dashed var(--chip-border); border-radius: 0.5em; padding: 0.5em 0.8em; margin: 1.2em 0; }
+  .section { display: block; text-align: center; font-size: 0.55em; font-weight: 800; letter-spacing: 0.12em; color: var(--accent); background: var(--chip-bg); border: 1px solid var(--chip-border); border-radius: 0.6em; padding: 0.7em 1em; margin: 2em 0 1.2em; text-transform: uppercase; }
+  #title { text-align: center; padding-top: 8vh; }
+  #title h1 { font-size: 1.3em; color: var(--accent); margin-bottom: 0.3em; }
+  #title p { font-size: 0.55em; color: var(--dim); margin-bottom: 0.4em; }
+
+  /* fixed eye-line marker */
+  #eyeline { position: fixed; top: 38vh; left: 0; right: 0; pointer-events: none; }
+  #eyeline::before, #eyeline::after { content: "▶"; position: absolute; color: var(--accent); font-size: 22px; opacity: 0.85; }
+  #eyeline::before { left: 12px; }
+  #eyeline::after { right: 12px; content: "◀"; }
+
+  #topfade, #botfade { position: fixed; left: 0; right: 0; height: 14vh; pointer-events: none; z-index: 5; }
+  #topfade { top: 0; background: linear-gradient(var(--bg), transparent); }
+  #botfade { bottom: 0; background: linear-gradient(transparent, var(--bg)); }
+
+  #bar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+    display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;
+    padding: 10px 14px; background: var(--bar-bg); backdrop-filter: blur(6px);
+    transition: opacity 0.4s; font-size: 15px;
+  }
+  body.playing #bar { opacity: 0; }
+  body.playing #bar:hover { opacity: 1; }
+  #bar button {
+    background: var(--chip-bg); color: var(--text); border: 1px solid var(--chip-border);
+    border-radius: 8px; padding: 7px 13px; font-size: 15px; cursor: pointer; font-family: inherit;
+  }
+  #bar button:hover { border-color: var(--accent); }
+  #bar .stat { color: var(--dim); padding: 0 6px; font-variant-numeric: tabular-nums; }
+  #bar .stat b { color: var(--text); }
+  #playBtn { min-width: 110px; font-weight: 700; }
+  #help { position: fixed; bottom: 10px; right: 14px; z-index: 10; color: var(--dim); font-size: 13px; transition: opacity 0.4s; }
+  body.playing #help { opacity: 0; }
+  #sigil { position: fixed; bottom: 10px; left: 14px; z-index: 10; color: var(--accent); font-size: 13px; opacity: 0.9; transition: opacity 0.4s; font-variant-numeric: tabular-nums; }
+  body.playing #sigil { opacity: 0.45; }
+</style>
+</head>
+<body>
+<div id="bar">
+  <button id="playBtn">▶ Start</button>
+  <button id="slower">− speed</button>
+  <button id="faster">+ speed</button>
+  <span class="stat">est. total <b id="est">–</b></span>
+  <span class="stat">elapsed <b id="timer">0:00</b></span>
+  <button id="fsmall">A−</button>
+  <button id="fbig">A+</button>
+  <button id="mirrorBtn">Mirror</button>
+  <button id="themeBtn">Theme</button>
+  <button id="fsBtn">Fullscreen</button>
+  <button id="topBtn">⇤ Top</button>
+</div>
+<div id="eyeline"></div>
+<div id="topfade"></div><div id="botfade"></div>
+<div id="viewport"><div id="scriptArea">
+  <div id="title">
+    <h1>WAIT, I QUALIFY?!</h1>
+    <p>Episode 5 — “Nonprofits + Farmers”</p>
+    <p>Record: Mon July 6, 2026 · Nevada County Media</p>
+    <p>Press SPACE to start / pause · ↑↓ speed · F fullscreen</p>
+  </div>
+  <div id="content"></div>
+</div></div>
+
+<script type="text/plain" id="rawScript">
+[POST: JINGLE + LOGO INTRO -- in studio, hold one beat, then go]
+
+SHAWNA:
+Welcome back to "Wait, I Qualify?!" -- the show about
+unlocking aid for real people, right here in Nevada
+County. I'm Shawna -- and Jeff, this one's special.
+
+JEFF:
+It is. I'm Jeff, from TechEmpower dot org -- a local
+nonprofit that helps folks find the help and incentives
+they're entitled to, from the state, the federal
+government, and local organizations. And today is our
+season finale -- episode five of five.
+
+SHAWNA:
+Every August, the county fair fills these foothills with
+four-H kids and prize goats and that one zucchini the
+size of a canoe. And every August, somebody walks through
+that livestock barn and thinks -- could I do that? Could
+I grow something, raise something, make a little living
+off a little land? And then they talk themselves out of
+it before the corn dog is even gone.
+
+JEFF:
+That's today. Our finale is about two kinds of neighbors:
+the local groups that catch you when the big programs
+can't -- and the help that's growing, literally, in our
+own backyard. Money to start a small farm. A local group
+that matches farmers to land. Free medical equipment. A
+free lawyer. And at the end, we'll finally introduce you
+to the neighbors behind a phone number you've heard us
+say all season long.
+
+
+================================================================
+SEGMENT ONE: MONEY TO START A SMALL FARM
+================================================================
+
+SHAWNA:
+Start with the farm dream. Someone's watching right now
+with an acre out back and a plan they keep scribbling on
+napkins. Where does the money come from?
+
+JEFF:
+From the U-S Department of Agriculture -- and this
+surprises people. Their Farm Service Agency -- the
+U-S-D-A's lending arm -- makes what they call a
+microloan: up to fifty thousand dollars to start or run a
+small farm, with an application that's been stripped down
+on purpose for first-timers, small operations, and the
+niche stuff -- market gardens, organic growers, even
+beekeepers. And there's no minimum, either: if all you
+need is a few thousand dollars for fencing, that's a
+perfectly good microloan.
+
+SHAWNA:
+Okay -- but what does a federal loan want from someone
+who's never farmed?
+
+JEFF:
+Less than you'd fear -- but more than a napkin. Here's
+the honest version. You do NOT need to own land: a lease
+works fine. You do NOT need years of farming behind you:
+an apprenticeship, or working with an approved mentor,
+can count in place of experience. What you DO need is
+real. A written business plan. A credit history you can
+defend -- there's no minimum score, they look at whether
+you pay people back. And collateral -- which can be the
+crop, the livestock, or the equipment the loan itself
+buys. Interest runs around five percent right now -- it
+resets every month, so check the current rate -- and you
+can take up to seven years to pay it back.
+
+SHAWNA:
+What will it actually pay for?
+
+JEFF:
+Almost everything a small operation needs: seed, feed,
+livestock, bees, fencing, hoop houses, irrigation, tools
+-- even the cost of getting certified organic.
+
+SHAWNA:
+And if the dream is bigger -- actually BUYING a farm one
+day?
+
+JEFF:
+There's a sister version of the microloan for exactly
+that: same fifty-thousand-dollar cap, pointed at buying
+or improving a farm instead of running one. The
+experience bar is higher on that one, so most folks start
+with the operating loan and grow into it. And one honesty
+note that surprises people: these loans exist for farmers
+who CAN'T get a regular bank loan yet. That's not a
+loophole -- that's the program working as designed.
+
+SHAWNA:
+And once somebody HAS land -- improving it?
+
+JEFF:
+That's federal door number two: a cost-share program
+called E-QUIP -- the Environmental Quality Incentives
+Program -- run by the U-S-D-A's soil-and-water agency.
+You agree on a conservation project -- irrigation
+upgrades, livestock fencing, a high tunnel to stretch the
+growing season, clearing brush for fire safety -- and the
+government pays you back up to seventy-five percent of
+the cost. If you're a beginning farmer -- and your first
+ten years running a farm count as beginning -- that can
+rise to as much as ninety percent. And beginners can get at least half the
+money UP FRONT, before the work starts, so you're not
+floating it. This isn't theory, either: that program has
+put more than four million dollars into Nevada County
+land since the nineteen-nineties.
+
+SHAWNA:
+So where's OUR door for all this federal money?
+
+JEFF:
+Closer than you'd think. For the conservation money, the
+soil-and-water folks keep a real office in Grass Valley,
+on Presley Way -- a district conservationist who answers
+the phone. The number's on your screen. For the loan,
+offices are regional -- so use the office locator at
+farmers dot gov, or dial two-one-one and say the word
+"farm."
+
+[POST: PROGRAM CARD -- Conservation cost-share (NRCS),
+Grass Valley: 113 Presley Way, Suite 1 -- Valerie Bullard
+530-798-5527 -- Farm microloans (FSA): find your farm-loan
+office at farmers.gov/service-center-locator]
+
+[WEEK-OF RECHECK: FSA interest rates repost August 1 --
+confirm "around five percent" is still fair before air.
+The FSA farm-loan office serving Nevada County is
+UNCONFIRMED -- locator + 211 only, do NOT name an office
+on air or on the card. Confirm EQIP California ranking
+cutoff dates with the Grass Valley NRCS office
+(530-798-5527). Check for any Farm Bill / federal
+farm-loan rule changes over the summer.]
+
+
+================================================================
+SEGMENT TWO: THE LOCAL FARM DOOR (+ OPTIONAL GUEST)
+================================================================
+
+SHAWNA:
+So that's the federal money. But between a napkin plan
+and a loan application there's a lot of learning -- and a
+lot of paperwork. Who actually helps with that, here?
+
+JEFF:
+Two local doors, and I love them both. Door one: Sierra
+Harvest -- the Nevada County food nonprofit -- runs a Farm
+Institute whose whole job is launching farmers. Mentors
+who actually farm here. Grant coaching -- real humans who
+help you chase farm money. And that's not a brochure
+promise: the federal government gave them about
+three-quarters of a million dollars to do exactly this
+for beginning farmers in our region.
+
+SHAWNA:
+And you told me something earlier about LAND. Because
+that's the part I can't picture -- land is the expensive
+part.
+
+JEFF:
+This might be my favorite program of the whole season.
+It's called Land Match. There are landowners in this
+county sitting on good, cleared, watered ground they
+don't use -- and Sierra Harvest plays matchmaker. You
+tell them what you're looking for, and they connect you
+with a neighbor's idle land. The deal itself is between
+the two of you -- sometimes a regular lease, sometimes
+lease-to-own, sometimes a work trade where the rent gets
+paid in vegetables. Nobody is handing out free land. But
+since twenty sixteen, by their own count, they've matched
+twenty-nine farmers onto more than a hundred acres -- and
+thirteen farm businesses have launched out of that work.
+
+SHAWNA:
+People in this county are farming ground they don't own.
+
+JEFF:
+Right now, this season. And if you're the one SITTING on
+idle ground -- same number. They'd love to hear from you.
+Then there's the classroom piece: their Farm Biz course
+-- six weeks, online, budgeting and business planning.
+That's where people build the exact business plan the
+microloan application asks for. It runs each winter, so
+the move TODAY is to get on their interest list. Classes
+are low-cost, and there's a scholarship application if
+the fee is a problem.
+Door two: the University of California's farm advisors --
+Foothill Farming, the cooperative extension serving
+Placer and Nevada counties. Workshops and field days,
+free or cheap, taught by the university's own advisors --
+and once a year, a two-day Beginning Farming Academy, a
+crash course in starting on a sound footing. Their Grass
+Valley office is at the Veterans Memorial Hall on South
+Auburn Street -- open Tuesdays and Thursdays -- and the
+number's on your screen.
+And don't just take our word for it: the county's own
+farmer-resources page points new farmers to these same
+two doors.
+
+SHAWNA:
+One more -- say the garden's already overflowing. What if
+somebody just wants to SELL what they grow?
+
+JEFF:
+Then your door is the county's own agriculture
+department, up on Maidu Avenue in Nevada City. That's the
+office that handles the farmers-market and farm-stand
+certificates, organic registration, even beekeeper
+registration. When the hobby is ready to become a
+business, they'll tell you exactly what you need -- that
+number's on your screen too.
+
+[POST: PROGRAM CARD -- Sierra Harvest Farm Institute:
+sierraharvest.org / 530-265-2343 -- UCCE Foothill Farming:
+530-273-4563 (office open Tue + Thu) -- Nevada County Dept
+of Agriculture: 530-470-2690]
+
+[WEEK-OF RECHECK -- PHONE PASS REQUIRED, both org websites
+block this network: Sierra Harvest 530-265-2343 (Land
+Match currently taking land-seekers? winter Farm Biz
+interest list open? current class costs -- air NO dollar
+figures -- scholarships still offered? confirm current
+office: the May 2026 990 says 380 Sierra College Dr,
+Grass Valley; older records say Railroad Ave, Nevada
+City). UCCE 530-273-4563
+Tue/Thu (fall workshop dates; next Beginning Farming
+Academy date; confirm the South Auburn St address for the
+card). Advisor guardrail: current advisors are Olivia
+Henry and Andrea Warner -- NEVER name Dan Macon, he moved
+regions. County ag dept services list: nevadacountyca.gov
+/1064 (live). Do NOT mention Nevada County Grown -- its
+website is dead.]
+
+[OPTIONAL GUEST BLOCK -- Lindsey Pratt, Farm Institute
+Director, Sierra Harvest. Invite by mid-July:
+lindsey@sierraharvest.org / 530-265-2343. If no guest,
+skip this block -- the segment stands alone. Suggested
+questions for Shawna:
+ 1. Someone's watching from their kitchen table with an
+    acre and a dream. What's the literal first step?
+ 2. Walk us through a real land match -- who calls you,
+    and what does a typical arrangement look like?
+ 3. Of the twenty-nine farmers you've matched, tell us
+    one story that stuck with you.
+ 4. Earlier we said the U-S-D-A will lend a beginner
+    fifty thousand dollars, and pay most of the cost of
+    land improvements. If someone watching wants that
+    federal money -- can you walk them through getting
+    help with the application? Will your grant coaches
+    sit with them on the paperwork?
+ 5. What should somebody do TODAY if they want a seat in
+    the winter Farm Biz course?
+Note: question 4 must stay a QUESTION -- whether Sierra
+Harvest hand-holds FSA applications is undocumented; let
+the guest's on-camera answer carry it.]
+
+
+================================================================
+SEGMENT THREE: THE NONPROFIT SAFETY NET
+================================================================
+
+SHAWNA:
+Okay -- from the land to the safety net. You promised me
+local nonprofits doing things nobody believes are
+actually free.
+
+JEFF:
+Two of them. Both real, both one phone call. First:
+FREED, the independent-living nonprofit in Grass Valley
+-- you've heard us mention them before on this show.
+Here's the service that stops people cold: equipment
+reuse. Donated medical equipment, checked over and given
+away FREE. Wheelchairs. Walkers. Shower chairs. Hospital
+beds. And more. If you have a disability -- any age -- or
+you're an older adult, you call, you tell them what you
+need, and if they have it, it's yours. No bill. And if
+they don't have your device on the shelf, they can point
+you to California's statewide reuse listings to track one
+down. Think about what a hospital bed costs a family that
+just brought somebody home from the hospital. The
+number's on your screen.
+
+SHAWNA:
+And the free lawyer. Because when I hear "free lawyer," I
+assume there's a catch.
+
+JEFF:
+The only catch is what kind of case. Legal Services of
+Northern California -- their Auburn office covers Nevada
+County -- is free civil legal aid. That's the stuff that
+wrecks families: an eviction notice. A landlord who won't
+fix the heat. A benefits denial -- CalFresh, Medi-Cal,
+S-S-I. A debt collector who won't quit. Clearing an old
+record that's blocking a job. It's free if money's tight
+-- and if you're sixty or older, just call. There's a
+special senior program, and the intake folks will tell
+you exactly what you qualify for. What they DON'T do:
+criminal defense, divorce and custody, personal injury.
+So call for the civil stuff -- and there's even an
+evening intake line if you work days.
+
+[POST: PROGRAM CARD -- FREED (free medical equipment):
+530-477-3333 -- Legal Services of Northern California:
+530-823-7560 -- evening intake 866-815-5990]
+
+[WEEK-OF RECHECK: FREED 530-477-3333 -- confirm equipment
+reuse is still free and who qualifies (any age? which
+devices -- ramps and hearing/vision aids are NOT confirmed,
+don't add them). THREE conflicting street addresses exist
+in sources -- air NO address, phone number only. LSNC
+530-823-7560 -- confirm the senior sixty-plus program is
+funded for this year, and ASK whether "no income test for
+sixty-plus" is their own wording; until they say it, the
+soft "just call" line stays.]
+
+
+================================================================
+CLOSE: THE REVEAL + SEASON WRAP
+================================================================
+
+SHAWNA:
+Season finale, Jeff. Land the plane -- and start with the
+secret you've been sitting on all year.
+
+JEFF:
+All season, every single episode, we've said the same
+three digits: dial two-one-one. Today you finally meet
+who's behind them. It's called Connecting Point -- and
+it's not some faraway national call center. It's a public
+agency your own counties created, headquartered right
+here in Grass Valley. Since two thousand three it's been
+connecting folks to in-home care, and in twenty eleven it
+took on the county's two-one-one line. And the phone line
+is just one program: this same agency matches in-home
+caregivers with folks who need care at home, runs job
+help for parents on CalWORKs, and puts on free caregiver
+trainings and wellness classes. All of it local. Free,
+confidential -- and they know every program we've covered
+this season, plus the ones we never got to.
+
+SHAWNA:
+Five episodes. Give us the season in one breath.
+
+JEFF:
+Episode one, we busted the myths: this help isn't
+charity, it's yours -- and more than sixty billion
+dollars of it goes unclaimed in this country every single
+year, not because people don't qualify, but because they
+never find out they do. Episode two, we got you online.
+Episode three, food on the table. Episode four, we kept
+the lights on and the wheels turning. And today: the
+neighbors who catch you, and the land that might just
+feed you. Some of that sixty billion has your name on it.
+It still does.
+
+SHAWNA:
+So if somebody watched all five episodes and still hasn't
+made a single call...
+
+JEFF:
+Then make it the easy one. Dial two-one-one -- free,
+confidential, around the clock, English and Spanish.
+Online, go to findhelp dot org and type in your ZIP code.
+And us: techempower dot org -- every episode of this
+season lives at techempower dot org slash show -- and
+click "Join our Discord," our free online chat community,
+where a real neighbor helps you one-on-one. Whatever door
+you pick -- pick one. One call, one ZIP code, one click.
+That's the whole homework -- and it's the last homework
+we'll ever assign you.
+
+SHAWNA:
+Five episodes, and no tease this time -- just this. To
+everyone who watched, who shared the show, or who made
+one brave phone call because of it: thank you. It's been
+an honor.
+
+JEFF:
+Thank you for letting us into your living rooms all
+season. Now -- go find out what you qualify for. You
+might be surprised.
+
+[POST: OUTRO -- JINGLE + LOGO + END CARD: TECHEMPOWER.ORG
+/SHOW / 211 / FINDHELP.ORG. In studio: hold on smiles for
+an extra beat -- it's the season wrap]
+
+[WEEK-OF RECHECK: phone-confirm Connecting Point
+two-one-one live-answer hours + Spanish line (530-274-5601)
+BEFORE any ad-lib about "real people answering" -- the
+scripted line stops at "public agency, headquartered in
+Grass Valley." NEVER call Connecting Point a nonprofit or
+charity -- it is a county-created public authority. Do NOT
+credit Market Match to them -- Sierra Harvest administers
+it.]
+
+================================================================
+END OF SCRIPT
+================================================================
+</script>
+
+<div id="sigil" title="script version sigil — changes whenever the script text changes">✦ Oxidized Spark · 3b27ace</div>
+<div id="help">SPACE play/pause · ↑↓ speed · PgUp/PgDn or clicker jump · A−/A+ font · M mirror · T theme · F fullscreen · Home top</div>
+
+<script>
+(function () {
+  const raw = document.getElementById('rawScript').textContent;
+  const content = document.getElementById('content');
+  const blocks = raw.split(/\n\s*\n/).map(b => b.trim()).filter(Boolean);
+  let currentSpeaker = null;
+  const frag = document.createDocumentFragment();
+
+  for (const block of blocks) {
+    const lines = block.split('\n').map(l => l.trim());
+    // section banner: lines of ='s around a title
+    if (lines.some(l => /^=+$/.test(l))) {
+      const titles = lines.filter(l => !/^=+$/.test(l));
+      if (titles.length) {
+        const s = document.createElement('span');
+        s.className = 'section';
+        s.textContent = titles.join(' ');
+        frag.appendChild(s);
+        currentSpeaker = null;
+      }
+      continue;
+    }
+    let text = lines.join(' ');
+    // standalone cue block
+    if (/^\[[^\]]+\]$/.test(text)) {
+      const c = document.createElement('span');
+      c.className = 'cue';
+      c.textContent = text;
+      frag.appendChild(c);
+      continue;
+    }
+    // speaker tag at start of block
+    const m = text.match(/^(SHAWNA|JEFF):\s*(.*)$/);
+    if (m) {
+      currentSpeaker = m[1].toLowerCase();
+      const tag = document.createElement('span');
+      tag.className = 'speaker ' + currentSpeaker;
+      tag.textContent = m[1];
+      frag.appendChild(tag);
+      text = m[2];
+      if (!text) continue;
+    }
+    const p = document.createElement('p');
+    p.className = 'line' + (currentSpeaker ? ' ' + currentSpeaker + '-line' : '');
+    for (const part of text.split(/(\[[^\]]+\])/)) {
+      if (!part) continue;
+      if (/^\[[^\]]+\]$/.test(part)) {
+        const c = document.createElement('span');
+        c.className = 'cue-inline';
+        c.textContent = part;
+        p.appendChild(c);
+      } else {
+        p.appendChild(document.createTextNode(part));
+      }
+    }
+    frag.appendChild(p);
+  }
+  content.appendChild(frag);
+
+  // ---- engine ----
+  const vp = document.getElementById('viewport');
+  const area = document.getElementById('scriptArea');
+  const playBtn = document.getElementById('playBtn');
+  const timerEl = document.getElementById('timer');
+  const estEl = document.getElementById('est');
+  let playing = false, speed = null, speedKey = 'tp-speed', fontSize = 54, elapsed = 0, lastT = null;
+
+  function maxScroll() { return vp.scrollHeight - vp.clientHeight; }
+  function fmt(s) { s = Math.round(s); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+  function updateEst() { estEl.textContent = speed > 0 ? '~' + fmt(maxScroll() / speed) : '–'; }
+  function applyFont() { area.style.setProperty('--fs', fontSize + 'px'); requestAnimationFrame(updateEst); }
+
+  function defaults() {
+    fontSize = parseFloat(localStorage.getItem('tp-font')) || 54;
+    applyFont();
+    // count only spoken words (skip cue blocks, section banners, inline cues)
+    let words = 0;
+    content.querySelectorAll('p.line').forEach((p) => {
+      const t = p.cloneNode(true);
+      t.querySelectorAll('.cue-inline').forEach((c) => c.remove());
+      words += (t.textContent.match(/\S+/g) || []).length;
+    });
+    // saved speed is keyed to the script's word count, so a script change
+    // re-baselines the pace instead of reusing a stale saved setting
+    speedKey = 'tp-speed-' + words;
+    const saved = parseFloat(localStorage.getItem(speedKey));
+    // default pace: ~150 spoken words per minute across the full scroll
+    const targetSec = Math.max(60, (words / 150) * 60);
+    speed = saved > 0 ? saved : Math.max(8, maxScroll() / targetSec);
+    updateEst();
+  }
+
+  function setPlaying(p) {
+    playing = p;
+    document.body.classList.toggle('playing', p);
+    playBtn.textContent = p ? '⏸ Pause' : '▶ Start';
+    lastT = null;
+    if (p) requestAnimationFrame(tick);
+  }
+  function tick(t) {
+    if (!playing) return;
+    if (lastT !== null) {
+      const dt = (t - lastT) / 1000;
+      vp.scrollTop += speed * dt;
+      elapsed += dt;
+      timerEl.textContent = fmt(elapsed);
+      if (vp.scrollTop >= maxScroll() - 1) setPlaying(false);
+    }
+    lastT = t;
+    requestAnimationFrame(tick);
+  }
+  function bumpSpeed(f) {
+    speed = Math.min(400, Math.max(4, speed * f));
+    localStorage.setItem(speedKey, speed);
+    updateEst();
+  }
+  function bumpFont(d) {
+    fontSize = Math.min(120, Math.max(24, fontSize + d));
+    localStorage.setItem('tp-font', fontSize);
+    applyFont();
+  }
+  function toTop() { setPlaying(false); vp.scrollTop = 0; elapsed = 0; timerEl.textContent = '0:00'; }
+  function toggleTheme() {
+    const b = document.body;
+    if (b.classList.contains('force-light')) { b.classList.remove('force-light'); b.classList.add('force-dark'); }
+    else if (b.classList.contains('force-dark')) { b.classList.remove('force-dark'); }
+    else { b.classList.add('force-light'); }
+  }
+
+  playBtn.onclick = () => setPlaying(!playing);
+  document.getElementById('slower').onclick = () => bumpSpeed(1 / 1.18);
+  document.getElementById('faster').onclick = () => bumpSpeed(1.18);
+  document.getElementById('fsmall').onclick = () => bumpFont(-4);
+  document.getElementById('fbig').onclick = () => bumpFont(4);
+  document.getElementById('mirrorBtn').onclick = () => document.body.classList.toggle('mirror');
+  document.getElementById('themeBtn').onclick = toggleTheme;
+  document.getElementById('topBtn').onclick = toTop;
+  document.getElementById('fsBtn').onclick = () =>
+    document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+
+  document.addEventListener('keydown', (e) => {
+    if (e.code === 'Space') { e.preventDefault(); setPlaying(!playing); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); bumpSpeed(1.18); }
+    else if (e.key === 'ArrowDown') { e.preventDefault(); bumpSpeed(1 / 1.18); }
+    else if (e.key === 'Home') toTop();
+    else if (e.key === 'm' || e.key === 'M') document.body.classList.toggle('mirror');
+    else if (e.key === 't' || e.key === 'T') toggleTheme();
+    else if (e.key === 'f' || e.key === 'F')
+      document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+    else if (e.key === '[') bumpFont(-4);
+    else if (e.key === ']') bumpFont(4);
+    // USB presenter clickers send PageDown/PageUp (some send Right/Left):
+    // small jumps so an operator can keep the scroll glued to the actual
+    // conversation pace without touching the keyboard
+    else if (e.key === 'PageDown' || e.key === 'ArrowRight') { e.preventDefault(); vp.scrollTop += vp.clientHeight * 0.25; }
+    else if (e.key === 'PageUp' || e.key === 'ArrowLeft') { e.preventDefault(); vp.scrollTop -= vp.clientHeight * 0.25; }
+  });
+
+  defaults();
+})();
+</script>
+</body>
+</html>

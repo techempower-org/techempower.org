@@ -87,17 +87,41 @@ QA'd 2026-07-01 against those sources: every figure re-traced; one fix applied
 | 10 | nid-water-bill | $9.50/mo fixed | phone-confirm 530-273-6185 ("still $9.50?") | before each posting |
 | 11 | worst-is-a-no | (no figures) — immigration caveat MUST survive edits | public-charge rule status | if re-recording 2027+ |
 
-## Batch 2 — TODO
+## Batch 2 (this directory, 12–20)
 
-Write after the Ep4 and Ep5 fact-check waves complete. Candidates already
-verified or in flight: LIHEAP propane/wood ($1,500), AMP debt forgiveness
-($8,000), Medical Baseline (need-based not income), smog-repair $1,450 /
-retirement up to $2,000, CA Low Cost Auto, Medi-Cal free rides (NEMT), TART
-free fares, Ep5 nonprofit/farm topics. Same rule: only claims that passed
-their wave. Plus Ep2 connection claims after it airs.
+Sources: Ep4 teleprompter (`show/ep4/ep4-teleprompter.txt`, post-fix version)
++ Ep4 fact-check report (`show/ep4/fact-check-full-report.json`) — verified
+claims only, written 2026-07-01. Every `hostAdLibBlacklist` item obeyed
+(failed-smog condition on the $1,350 retirement tier, ESA furnace work
+omitted as homeowners-only, "call the property manager" instead of "lists
+are open", no 1-800-655-7705, only scripted income figures).
+
+### Freshness index (verify before recording or re-posting)
+
+| # | File | Load-bearing figures | Re-verify | Hard date |
+|---|------|----------------------|-----------|-----------|
+| 12 | pge-debt-forgiveness-8000 | $8,000 cap; 90+ days behind; 12 on-time payments | pge.com AMP page | — (standing; re-check before re-posting) |
+| 13 | medical-baseline-free-battery | no income test; free battery for SOME | pge.com Medical Baseline; phone FREED 530-477-3333 (battery stock) | before each posting (battery supply) |
+| 14 | car-insurance-199 | $199/yr Nevada Co. (new driver $308); ~$39k/1p ~$82k/4p; car ≤$25k | mylowcostauto.com FAQ (annual FPL refresh) | after Jan 2027 |
+| 15 | failed-smog-1450 | $1,450; ~$36k/1p ~$74k/4p; ≥20% co-pay | bar.ca.gov/cap/income + funds banner | after Jan 2027 + FY-funds check each posting |
+| 16 | state-buys-the-car | $1,350 failed-smog only; up to $2,000 income-qual.; 120-day reg-lapse rule | bar.ca.gov/cap/retirement + funds | after Jan 2027 + FY-funds check each posting |
+| 17 | liheap-propane-firewood | up to $1,500; 40-call voicemail; FCFS funds | phone Project GO 1-888-524-5705 press 2 (funds!) | before EACH posting; FFY ends Sep 30 2026; FFY2027 elimination proposed |
+| 18 | pge-free-home-upgrades | fridge ≥15 yrs; home ≥5 yrs; CARE-level income rules | pge.com ESA page | after May 31 2027 |
+| 19 | truckee-bus-free | free fares; "funded into next year" | tahoetruckeetransit.com/fares | re-phrase "next year" after Dec 2026; check before each posting |
+| 20 | section-8-closed | waitlist CLOSED (verbatim, Jul 1 2026) | regionalha.org HCV page + homepage property table | STALE THE DAY IT REOPENS — check before EVERY posting |
+
+## Batch 3 — TODO
+
+Write after the Ep5 fact-check wave completes. Candidates already verified
+or in flight: Medi-Cal free rides (NEMT, Partnership 866-828-2303), FERA
+(18% electric, singles/couples now eligible), CARE/FERA generator + battery
+rebate (up to $500, sunsets Dec 31 2026 — short-lived by design), CalWORKs
+16 motel nights, Ep5 nonprofit/farm topics. Same rule: only claims that
+passed their wave. Plus Ep2 connection claims after it airs.
 
 Ep4-wave refinements already locked in (2026-07-01, `car-bar.json` +
-`transit-west.json`) — batch-2 writers use THESE, not the older briefs:
+`transit-west.json`) — applied in batch 2; future writers use THESE, not
+the older briefs:
 
 - **BAR income limits**: live 2026 table is **$35,910 (1p) / $74,250 (4p)** —
   say "about thirty-six thousand / seventy-four thousand." The ~$33k/~$70k

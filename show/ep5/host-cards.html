@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Host Cards -- Wait, I Qualify?! Ep5</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23e8a13c'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' font-family='sans-serif' font-weight='bold' fill='%231f2421'%3EW%3F%3C/text%3E%3C/svg%3E">
+<style>
+  :root { --bg:#faf6ee; --ink:#2a2520; --dim:#8a857a; --shawna:#c25435; --jeff:#2e7d6e; --never:#a32020; --line:#d8cfbc; --accent:#b97a17; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0d0f0e; --ink:#f5f1e8; --dim:#8a857a; --shawna:#e87a5d; --jeff:#5da89b; --never:#e06060; --line:#3a423e; --accent:#e8a13c; }
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--ink); font-family:"DM Sans",system-ui,sans-serif; padding:24px; }
+  header { max-width:7.5in; margin:0 auto 18px; }
+  header h1 { font-size:20px; }
+  header p { color:var(--dim); font-size:14px; margin-top:4px; }
+  .card {
+    max-width:7.5in; height:4.85in; margin:0 auto 16px; padding:0.28in 0.34in;
+    border:2px solid var(--line); border-radius:10px; overflow:hidden;
+    display:flex; flex-direction:column; break-inside:avoid;
+  }
+  .card.shawna { border-color:var(--shawna); }
+  .card.jeff { border-color:var(--jeff); }
+  .card.never { border-color:var(--never); border-width:4px; border-style:double; }
+  .tag { font-weight:800; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px; display:flex; justify-content:space-between; }
+  .card.shawna .tag { color:var(--shawna); }
+  .card.jeff .tag { color:var(--jeff); }
+  .card.never .tag { color:var(--never); }
+  ul { list-style:none; flex:1; }
+  li { font-size:16px; line-height:1.38; margin-bottom:7px; padding-left:1em; text-indent:-1em; }
+  li.q::before { content:"Q  "; font-weight:800; }
+  li.beat::before { content:"\27A4  "; }
+  li.no::before { content:"X  "; font-weight:800; }
+  li.q { font-weight:600; }
+  li.no { font-weight:600; }
+  li .cue { color:var(--dim); font-style:italic; font-size:0.85em; }
+  li b { color:var(--accent); }
+  .card.never li b { color:var(--never); }
+  .finale-footer { max-width:7.5in; margin:6px auto 0; text-align:center; color:var(--dim);
+    font-size:13px; letter-spacing:0.14em; text-transform:uppercase; break-inside:avoid; }
+  @media print {
+    /* B&W laser: high-contrast black ink; tell hosts apart by border STYLE,
+       not hue (coral vs teal both render as similar grays).
+       Shawna = SOLID, Jeff = DASHED, NEVER AD-LIB = heavy DOUBLE. */
+    :root { --bg:#fff; --ink:#000; --dim:#333; --shawna:#000; --jeff:#000; --never:#000; --line:#000; --accent:#000; }
+    @page { size: letter portrait; margin: 0.4in; }
+    * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    body { padding:0; }
+    header { display:none; }
+    .card { page-break-inside:avoid; margin:0 auto 0.2in; border-width:2.5px; }
+    .card.shawna { border-style:solid; }    /* Shawna = SOLID border */
+    .card.jeff   { border-style:dashed; }   /* Jeff   = DASHED border */
+    .card.never  { border-style:double; border-width:6px; }  /* NEVER AD-LIB = heavy DOUBLE */
+    .tag { color:#000; }
+    li .cue { color:#333; }
+    li b { color:#000; text-decoration:underline; }  /* keep stat emphasis in B&W */
+    .card.never li b { color:#000; }
+    .finale-footer { color:#333; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Host Cards -- "Wait, I Qualify?!" Episode 5 "Nonprofits + Farmers" -- SEASON FINALE -- record August 17, 2026</h1>
+  <p>Print (Ctrl+P, portrait -- two cards per sheet). Coral = Shawna (questions + reaction beats with
+  <i>listen-for</i> cues). Teal = Jeff's stat safety net -- ONLY scripted, verified numbers. Q = ask it,
+  arrow = scripted beat. B&amp;W print: Shawna = solid border, Jeff = dashed, NEVER AD-LIB = heavy double
+  border -- that last card goes on TOP of both stacks. The GUEST card prints in Shawna's stack between
+  S3 and S4 -- pull it if Lindsey Pratt isn't booked. Cards are backup -- the studio prompter carries
+  the full script.</p>
+</header>
+
+<div class="card never"><div class="tag"><span>Both hosts</span><span>NEVER AD-LIB</span></div><ul>
+  <li class="no">Never imply <b>free land</b> -- Land Match is matchmaking: lease, lease-to-own, or work trade.</li>
+  <li class="no">Never name <b>Dan Macon</b> as a UCCE advisor (moved regions; the current advisors' names stay off air by design).</li>
+  <li class="no">Never mention <b>Nevada County Grown</b> (dead website) or <b>KARE Crisis Nursery</b> (closed Nov 2025).</li>
+  <li class="no">Never hard-claim <b>"no income test"</b> at sixty-plus for the free lawyer -- the aired line is "if you're sixty or older, just call."</li>
+  <li class="no">Never call Connecting Point a <b>nonprofit</b> or charity -- it's a public agency. Never credit <b>Market Match</b> to them (Sierra Harvest runs it).</li>
+  <li class="no">"Around the clock" = the 2-1-1 <b>PHONE</b> line only -- text/chat keep business hours.</li>
+  <li class="no">Never quote a hard <b>FSA rate</b> (reposts Aug 1) or name an FSA office -- farmers.gov locator + 2-1-1 only. EQIP percentages always wear <b>"up to"</b>; the grant stays <b>"about three-quarters of a million."</b></li>
+</ul></div>
+
+<div class="card shawna"><div class="tag"><span>Shawna - S1</span><span>Cold open -- the fair</span></div><ul>
+  <li class="beat">"Welcome back to Wait, I Qualify?! ... I'm Shawna -- and Jeff, this one's special." <span class="cue">(Jeff: season finale -- episode five of five.)</span></li>
+  <li class="beat">The fair beat: every August the fair fills these foothills -- <b>four-H kids</b>, prize goats, that one zucchini the size of a canoe. Somebody walks the livestock barn thinking "could I do that?" -- and talks themselves out of it before the corn dog is even gone.</li>
+  <li class="beat"><span class="cue">listen for Jeff's stack -- money to start a small farm / a local group that matches farmers to land / free medical equipment / a free lawyer / "the neighbors behind a phone number you've heard us say all season" -- then straight to farm money.</span></li>
+</ul></div>
+
+<div class="card shawna"><div class="tag"><span>Shawna - S2</span><span>Money to start a farm</span></div><ul>
+  <li class="q">"Start with the farm dream. Someone's watching right now with an acre out back and a plan they keep scribbling on napkins. Where does the money come from?"</li>
+  <li class="q">"Okay -- but what does a federal loan want from someone who's never farmed?"</li>
+  <li class="q">"What will it actually pay for?"</li>
+  <li class="q">"And if the dream is bigger -- actually BUYING a farm one day?"</li>
+  <li class="q">"And once somebody HAS land -- improving it?"</li>
+  <li class="q">"So where's OUR door for all this federal money?" <span class="cue">Jeff lands on "farmers dot gov" + dial 2-1-1 and say "farm" -- then the local doors.</span></li>
+</ul></div>
+
+<div class="card shawna"><div class="tag"><span>Shawna - S3</span><span>Land Match + local doors</span></div><ul>
+  <li class="q">"So that's the federal money. But between a napkin plan and a loan application there's a lot of learning -- and a lot of paperwork. Who actually helps with that, here?"</li>
+  <li class="q">"And you told me something earlier about LAND. Because that's the part I can't picture -- land is the expensive part."</li>
+  <li class="beat">React: "People in this county are farming ground they don't own." <span class="cue">(Jeff: "Right now, this season" -- then landowners, winter Farm Biz, and door two: the UC farm advisors.)</span></li>
+  <li class="q">"One more -- say the garden's already overflowing. What if somebody just wants to SELL what they grow?"</li>
+  <li class="beat"><span class="cue">Jeff lands on "that number's on your screen too" -- GUEST BLOCK next if Lindsey's in studio (pick up the guest card); no guest = straight to the safety net.</span></li>
+</ul></div>
+
+<div class="card shawna"><div class="tag"><span>Shawna - GUEST</span><span>Lindsey Pratt (if booked)</span></div><ul>
+  <li class="beat"><span class="cue">Optional block after S3 -- Lindsey Pratt, Farm Institute Director, Sierra Harvest. No guest? Pull this card -- the segment stands alone.</span></li>
+  <li class="q">"Someone's watching from their kitchen table with an acre and a dream. What's the literal first step?"</li>
+  <li class="q">"Walk us through a real land match -- who calls you, and what does a typical arrangement look like?"</li>
+  <li class="q">"Of the twenty-nine farmers you've matched, tell us one story that stuck with you."</li>
+  <li class="q">"Earlier we said the U-S-D-A will lend a beginner fifty thousand dollars, and pay most of the cost of land improvements. If someone watching wants that federal money -- will your grant coaches sit with them on the paperwork?"</li>
+  <li class="q">"What should somebody do TODAY if they want a seat in the winter Farm Biz course?"</li>
+  <li class="beat"><span class="cue">Q4 stays a QUESTION -- whether they hand-hold federal applications is undocumented; let her on-camera answer carry it.</span></li>
+</ul></div>
+
+<div class="card shawna"><div class="tag"><span>Shawna - S4</span><span>The safety net</span></div><ul>
+  <li class="q">"Okay -- from the land to the safety net. You promised me local nonprofits doing things nobody believes are actually free."</li>
+  <li class="q">"And the free lawyer. Because when I hear 'free lawyer,' I assume there's a catch."</li>
+  <li class="beat"><span class="cue">Jeff's "only catch is what kind of case" list ends on criminal defense / divorce + custody / personal injury, then the evening intake line -- then the reveal.</span></li>
+</ul></div>
+
+<div class="card shawna"><div class="tag"><span>Shawna - S5</span><span>&#9733; The reveal + season wrap</span></div><ul>
+  <li class="q">"Season finale, Jeff. Land the plane -- and start with the secret you've been sitting on all year."</li>
+  <li class="q">"Five episodes. Give us the season in one breath."</li>
+  <li class="q">"So if somebody watched all five episodes and still hasn't made a single call..."</li>
+  <li class="beat">Final word: "Five episodes, and no tease this time -- just this. To everyone who watched, who shared the show, or who made one brave phone call because of it: <b>thank you</b>. It's been an honor."</li>
+  <li class="beat"><span class="cue">hold on smiles for an extra beat -- it's the season wrap.</span></li>
+</ul></div>
+
+<div class="card jeff"><div class="tag"><span>Jeff - J1</span><span>Farm money -- FSA microloan</span></div><ul>
+  <li class="beat">Microloan (FSA -- the U-S-D-A's lending arm): up to <b>$50,000</b> to start or run a small farm, <b>no minimum</b> -- a few thousand for fencing is a perfectly good microloan. Application stripped down for first-timers, small operations, niche -- market gardens, organic growers, beekeepers.</li>
+  <li class="beat">NOT needed: land (<b>a lease works</b>) or farm years (<b>apprenticeship / approved mentor</b> counts instead).</li>
+  <li class="beat">IS needed: a written <b>business plan</b> + credit you can defend (<b>no minimum score</b> -- do you pay people back) + collateral, which can be <b>what the loan buys</b> (crop, livestock, equipment).</li>
+  <li class="beat">Interest "<b>around five percent</b>" -- resets every month, say "check the current rate." Repay <b>up to 7 years</b>.</li>
+  <li class="beat">Pays for: seed, feed, livestock, bees, fencing, hoop houses, irrigation, tools -- even <b>organic certification</b>.</li>
+  <li class="beat">Buying a farm: sister microloan, same <b>$50,000</b> cap, higher experience bar -- start with operating. Honesty beat: these exist for folks who <b>can't get a bank loan yet</b> -- the program working as designed.</li>
+</ul></div>
+
+<div class="card jeff"><div class="tag"><span>Jeff - J2</span><span>EQIP + the federal doors</span></div><ul>
+  <li class="beat">E-QUIP (Environmental Quality Incentives Program -- the U-S-D-A's soil-and-water agency): agree on a conservation project -- irrigation upgrades, livestock fencing, a high tunnel, fire-safety brush clearing.</li>
+  <li class="beat">Pays back <b>up to 75%</b> of the cost -- beginning farmers (<b>first 10 years</b> count) can rise to <b>as much as 90%</b>. Both numbers ALWAYS wear "up to."</li>
+  <li class="beat">Beginners get <b>at least half up front</b>, before the work starts -- "so you're not floating it."</li>
+  <li class="beat">Local proof: <b>more than $4 million</b> into Nevada County land <b>since the nineteen-nineties</b>.</li>
+  <li class="beat">Doors: NRCS Grass Valley -- <b>113 Presley Way, Suite 1</b> (Valerie Bullard, district conservationist) <b>530-798-5527</b>. Farm-LOAN office: <b>farmers.gov</b> locator or <b>2-1-1</b> + say "farm" -- never name an office.</li>
+</ul></div>
+
+<div class="card jeff"><div class="tag"><span>Jeff - J3</span><span>Sierra Harvest + Land Match</span></div><ul>
+  <li class="beat">Sierra Harvest -- the <b>Nevada County</b> food nonprofit. Farm Institute's whole job: launching farmers -- mentors who actually farm here + <b>grant coaching</b>. Federal grant: "<b>about three-quarters of a million dollars</b>" -- never a harder number.</li>
+  <li class="beat">Land Match: matchmaking with a neighbor's idle land -- regular lease, lease-to-own, or work trade where rent gets paid in vegetables. <b>Nobody is handing out free land.</b></li>
+  <li class="beat">Since <b>twenty sixteen</b>, "<b>by their own count</b>": <b>29 farmers</b> matched onto <b>more than a hundred acres</b> -- <b>13</b> farm businesses launched.</li>
+  <li class="beat">Sitting on idle ground? <b>Same number</b> -- they'd love to hear from you.</li>
+  <li class="beat">Farm Biz course: <b>six weeks</b>, online, each <b>winter</b> -- builds the exact business plan the microloan asks for. Today's move: the <b>interest list</b>. Low-cost + scholarship application -- air NO dollar figures.</li>
+  <li class="beat"><b>530-265-2343</b> / sierraharvest.org</li>
+</ul></div>
+
+<div class="card jeff"><div class="tag"><span>Jeff - J4</span><span>UCCE + county ag dept</span></div><ul>
+  <li class="beat">UCCE Foothill Farming -- the University of California's own farm advisors, serving <b>Placer + Nevada</b> counties. Workshops + field days, <b>free or cheap</b> -- never strengthen to "free."</li>
+  <li class="beat">Once a year: a <b>two-day</b> Beginning Farming Academy -- a crash course in starting on a sound footing. No date on air until the phone confirm.</li>
+  <li class="beat">Office: Veterans Memorial Hall, <b>South Auburn St</b>, Grass Valley -- open <b>Tue + Thu</b> -- <b>530-273-4563</b>.</li>
+  <li class="beat">Selling what you grow: county <b>Dept of Agriculture</b>, <b>Maidu Ave</b>, Nevada City -- farmers-market + farm-stand certificates, organic registration, even beekeeper registration. <b>530-470-2690</b>.</li>
+  <li class="beat">Backup beat: the county's own farmer-resources page points new farmers to <b>these same two doors</b>.</li>
+</ul></div>
+
+<div class="card jeff"><div class="tag"><span>Jeff - J5</span><span>FREED + free lawyer</span></div><ul>
+  <li class="beat">FREED -- the independent-living nonprofit in Grass Valley: equipment reuse -- donated medical equipment, checked over, given away <b>FREE</b>. On-air device list: <b>wheelchairs, walkers, shower chairs, hospital beds</b> "and more" -- add nothing else.</li>
+  <li class="beat">Who: a disability -- <b>any age</b> -- or an older adult. Not on the shelf? They point to California's <b>statewide reuse listings</b>.</li>
+  <li class="beat"><b>530-477-3333</b> -- phone only, NO street address on air.</li>
+  <li class="beat">Legal Services of Northern California -- free CIVIL legal aid, <b>Auburn office covers Nevada County</b>: eviction, landlord who won't fix the heat, benefits denials (<b>CalFresh, Medi-Cal, S-S-I</b>), debt collectors, clearing an old record.</li>
+  <li class="beat">Free if money's tight; <b>sixty or older -- "just call"</b> (special senior program, intake sorts it). What they DON'T do: criminal defense, divorce + custody, personal injury.</li>
+  <li class="beat"><b>530-823-7560</b> -- evening intake <b>866-815-5990</b> if you work days.</li>
+</ul></div>
+
+<div class="card jeff"><div class="tag"><span>Jeff - J6</span><span>&#9733; Connecting Point + the close</span></div><ul>
+  <li class="beat">The reveal: two-one-one = <b>Connecting Point</b> -- not a faraway national call center, a <b>public agency your own counties created</b>, headquartered in Grass Valley (<b>208 Sutton Way</b> -- <b>530-274-5601</b>).</li>
+  <li class="beat">Since <b>two thousand three</b>: connecting folks to in-home care. In <b>twenty eleven</b>: took on the county's two-one-one line.</li>
+  <li class="beat">Beyond the phone line: matches <b>in-home caregivers</b> with folks who need care, job help for parents on <b>CalWORKs</b>, free <b>caregiver trainings</b> + wellness classes. All local.</li>
+  <li class="beat">Three doors: <b>2-1-1</b> -- free, confidential, around the clock (phone), English + Spanish / <b>findhelp.org</b> + ZIP code / <b>techempower.org/show</b> + "Join our Discord."</li>
+  <li class="beat">The callback: <b>more than sixty billion dollars</b> unclaimed every single year. "Some of that sixty billion has your name on it. <b>It still does.</b>"</li>
+</ul></div>
+
+<div class="finale-footer">&#9733; season wrap -- hold on smiles for an extra beat &#9733;</div>
+
+</body>
+</html>
