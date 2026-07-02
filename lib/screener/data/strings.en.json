@@ -51,6 +51,7 @@
   "reason.waitlist-closed": "The waiting list is closed right now — the card shows the honest next move",
   "reason.income-screen": "Your income looks low enough that a call is worth it — the county sets, and doesn't publish, the exact limits",
   "reason.income-band": "Your income is in the range where this credit may apply — the exact cap depends on filing status and number of kids",
+  "reason.own-income": "This program counts only the applying person's own income (and their spouse's), not the whole household's — being over the household limit doesn't rule it out",
   "note.senior-net-test": "60+ in the home? Only net income counts — ask when you apply.",
   "note.student-rules": "College students have extra rules — work, work-study, or parenting can qualify you.",
   "note.expedited-3-day": "True emergency? Say so — CalFresh has a 3-day expedited track.",

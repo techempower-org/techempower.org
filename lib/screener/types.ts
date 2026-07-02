@@ -80,6 +80,11 @@ export interface RuleTest extends IncomeTest {
    *  of reason.under-limit. Numbers used for gating are not claims; numbers
    *  rendered are. */
   proxyReasonKey?: string
+  /** When set, income OVER the household limit does not omit the rule —
+   *  it lands in worthAsking with this no-number reason key. For programs
+   *  that test the applicant's OWN income, not the household's (MSP,
+   *  ssi-ssp): the multigenerational case must not be silently hidden. */
+  overLimitRescue?: string
   /** Keys into strings for nuance rows rendered as Worth-Asking footnotes. */
   specialNotes?: string[]
 }

@@ -22,9 +22,9 @@ describe('strings', () => {
     const noteKeys = (rules as Rule[])
       .flatMap((r) => r.test.specialNotes ?? [])
       .map((k) => `note.${k}`)
-    // per-rule proxy reason keys are data-driven — derive from the corpus
+    // per-rule proxy/rescue reason keys are data-driven — derive from corpus
     const proxyKeys = (rules as Rule[])
-      .map((r) => r.test.proxyReasonKey)
+      .flatMap((r) => [r.test.proxyReasonKey, r.test.overLimitRescue])
       .filter((k): k is string => k !== undefined)
     // the reason keys evaluate.ts emits — extend when the evaluator grows
     const reasonKeys = [

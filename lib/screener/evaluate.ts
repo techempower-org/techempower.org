@@ -116,6 +116,13 @@ export function evaluate(answers: Answers, rules: Rule[]): EvaluationResult {
         // (oracle S2 removed a WIC-shaped age exemption here)
         if (answers.incomeMonthlyGross > limit * (1 - margin))
           bucket = worst(bucket, 'likely')
+      } else if (t.overLimitRescue) {
+        // over the HOUSEHOLD limit, but the rule tests the applicant's OWN
+        // income (oracle health item 4) — an omitted card renders no note,
+        // so the multigen case surfaces as a question, never a claim
+        include = true
+        bucket = worst(bucket, 'worthAsking')
+        reasons.push({ key: t.overLimitRescue })
       } else if (
         notes.includes('senior-net-test') &&
         answers.ages.age60plus > 0

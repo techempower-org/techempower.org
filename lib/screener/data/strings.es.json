@@ -51,6 +51,7 @@
   "reason.waitlist-closed": "La lista de espera está cerrada por ahora — la tarjeta muestra el siguiente paso honesto",
   "reason.income-screen": "Sus ingresos parecen lo bastante bajos como para que valga la pena llamar — el condado fija los límites exactos y no los publica",
   "reason.income-band": "Sus ingresos están en el rango donde este crédito puede aplicar — el límite exacto depende del estado civil tributario y del número de hijos",
+  "reason.own-income": "Este programa cuenta solo los ingresos propios de la persona que solicita (y los de su cónyuge), no los de todo el hogar — pasarse del límite del hogar no lo descarta",
   "note.senior-net-test": "¿Hay alguien de 60+ en casa? Solo cuentan los ingresos netos — pregunte al solicitar.",
   "note.student-rules": "Los estudiantes universitarios tienen reglas adicionales — trabajar, work-study o criar hijos puede calificarlo.",
   "note.expedited-3-day": "¿Emergencia real? Dígalo — CalFresh tiene una vía acelerada de 3 días.",
