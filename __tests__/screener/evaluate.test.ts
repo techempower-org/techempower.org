@@ -338,31 +338,83 @@ describe('evaluate — golden cases from the fact-check corpus', () => {
       )
     ).toBe('absent') // $10,800 > the $10,716 HH4 cliff; no rescue declared
   })
-  it('N4: waitlist-closed rules land in notNow with reason.waitlist-closed', () => {
-    // synthetic drop-in shaped like the coming section-8 row
-    const waitlisted: Rule = {
-      id: 'test-waitlist',
-      jurisdiction: 'CA',
-      category: 'housing',
-      status: 'waitlist-closed',
-      test: { universal: true },
-      name: { en: 'T', es: 'T' },
-      value: { en: 'v', es: 'v' },
-      apply: { url: 'https://example.org' },
-      provenance: [
-        {
-          claim: 'x',
-          source: 'https://example.org',
-          verifiedAt: '2026-07-02',
-          via: 'test'
-        }
-      ]
-    }
-    const r = evaluate(base, [waitlisted])
-    expect(bucketOf(r, 'test-waitlist')).toBe('notNow')
+  it('N4: section-8 (real row) lands in notNow with reason.waitlist-closed', () => {
+    const r = evaluate(base, R) // HH4 @ $4,800 ≤ the $5,212 VLI ceiling
+    expect(bucketOf(r, 'section8-hcv')).toBe('notNow')
+    const v = r.notNow.find((x) => x.ruleId === 'section8-hcv')
+    expect(v?.reasons.some((x) => x.key === 'reason.waitlist-closed')).toBe(
+      true
+    )
+    // county-gated like every nevada-county rule
     expect(
-      r.notNow[0]?.reasons.some((x) => x.key === 'reason.waitlist-closed')
-    ).toBe(true)
+      bucketOf(
+        evaluate({ ...base, county: 'other-ca' as const }, R),
+        'section8-hcv'
+      )
+    ).toBe('absent')
+  })
+  it('memberGate: SSI omitted on income-pass without a qualifying member', () => {
+    const single: Answers = {
+      ...base,
+      householdSize: 1,
+      incomeMonthlyGross: 1000,
+      ages: {
+        under5: 0,
+        age5to17: 0,
+        age18to59: 1,
+        age60plus: 0,
+        age80plus: 0
+      }
+    }
+    // income passes ($1,000 ≤ $1,233) but no 65+/disability member → omit
+    expect(bucketOf(evaluate(single, R), 'ssi-ssp')).toBe('absent')
+    // the disability flag satisfies the member dimension
+    const withDisability = evaluate(
+      { ...single, flags: ['renter', 'disability'] },
+      R
+    )
+    expect(bucketOf(withDisability, 'ssi-ssp')).toBe('worthAsking') // check-first
+  })
+  it('memberGate: own-income rescue fires ONLY when a member passes', () => {
+    const overLimit: Answers = {
+      ...base,
+      householdSize: 1,
+      incomeMonthlyGross: 3000,
+      ages: {
+        under5: 0,
+        age5to17: 0,
+        age18to59: 1,
+        age60plus: 0,
+        age80plus: 0
+      }
+    }
+    // over the couple-cap AND no member → the rescue must stay dead
+    expect(bucketOf(evaluate(overLimit, R), 'ssi-ssp')).toBe('absent')
+    const elder = evaluate(
+      {
+        ...overLimit,
+        ages: { ...overLimit.ages, age18to59: 0, age60plus: 1 }
+      },
+      R
+    )
+    expect(bucketOf(elder, 'ssi-ssp')).toBe('worthAsking')
+    const v = elder.worthAsking.find((x) => x.ruleId === 'ssi-ssp')
+    expect(v?.reasons[0]?.key).toBe('reason.own-income')
+    expect(v?.reasons[0]?.params?.limit).toBe(undefined)
+  })
+  it('school-meals: universal with a school-age kid; absent without kids', () => {
+    expect(bucketOf(evaluate(base, R), 'school-meals')).toBe('strong')
+    const noKids: Answers = {
+      ...base,
+      ages: {
+        under5: 0,
+        age5to17: 0,
+        age18to59: 2,
+        age60plus: 0,
+        age80plus: 0
+      }
+    }
+    expect(bucketOf(evaluate(noKids, R), 'school-meals')).toBe('absent')
   })
   it('wave-1 CalWORKs: applicant test = MBSAC+$450 band, child required', () => {
     const fam3: Answers = {

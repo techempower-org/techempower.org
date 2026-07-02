@@ -32,7 +32,7 @@ describe('rules.data.json', () => {
       expect(ids.has(id), `missing ${id}`).toBe(true)
     }
   })
-  it('contains the wave-1 oracle-verified money + health programs (corpus = 25)', () => {
+  it('contains the complete wave-1 verified corpus (28 rules)', () => {
     const ids = new Set((rules as Rule[]).map((r) => r.id))
     for (const id of [
       'eitc-caleitc',
@@ -42,10 +42,13 @@ describe('rules.data.json', () => {
       'medi-cal-kids',
       'medi-cal-pregnancy',
       'covered-california',
-      'medicare-savings-programs'
+      'medicare-savings-programs',
+      'ssi-ssp',
+      'section8-hcv',
+      'school-meals'
     ]) {
       expect(ids.has(id), `missing ${id}`).toBe(true)
     }
-    expect((rules as Rule[]).length).toBe(25)
+    expect((rules as Rule[]).length).toBe(28)
   })
 })

@@ -20,6 +20,9 @@
       "specialNotes": ["senior-net-test", "student-rules", "expedited-3-day"]
     },
     "thresholdsDisplay": { "1": 2610, "4": 5360 },
+    "noteParams": {
+      "expedited-3-day": { "limitExpedited": 150, "limitLiquid": 100 }
+    },
     "name": {
       "en": "CalFresh (grocery money / SNAP)",
       "es": "CalFresh (dinero para comida / SNAP)"
@@ -57,6 +60,12 @@
         "source": "https://www.cdss.ca.gov/inforesources/calfresh/supplemental-security-income",
         "verifiedAt": "2026-07-01",
         "via": "ep3 wave: cf-ssi-seniors"
+      },
+      {
+        "claim": "Expedited service entitlement: (1) gross monthly income < $150 AND liquid resources ≤ $100; (2) combined monthly gross income + liquid resources less than monthly rent/mortgage + utilities; (3) destitute migrant/seasonal farmworker with liquid resources ≤ $100. Benefits available no later than the 3rd calendar day after application (MPP 63-301.5; weekend counts as one calendar day)",
+        "source": "https://cdss.ca.gov/Portals/9/Additional-Resources/Letters-and-Notices/ACINs/2025/I-35_25.pdf",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 mixed batch (ACIN I-35-25, CalFresh Timeliness Standards) + oracle: all four claims confirmed verbatim"
       }
     ]
   },
@@ -1179,6 +1188,196 @@
         "source": "https://www.medicare.gov/basics/costs/help/drug-costs",
         "verifiedAt": "2026-07-02",
         "via": "oracle-qualify-review one-fetch upgrade (health verification item 8, verbatim)"
+      }
+    ]
+  },
+  {
+    "id": "ssi-ssp",
+    "jurisdiction": "CA",
+    "category": "money",
+    "status": "check-first",
+    "test": {
+      "limitsMonthly": {
+        "1": 1233,
+        "2": 2098,
+        "3": 2098,
+        "4": 2098,
+        "5": 2098,
+        "6": 2098,
+        "7": 2098,
+        "8": 2098,
+        "increment": 0
+      },
+      "ageAnyMin": 65,
+      "memberFlagsAny": ["disability"],
+      "memberGate": true,
+      "overLimitRescue": "reason.own-income",
+      "specialNotes": [
+        "ssi-aged-disabled",
+        "ssi-own-income",
+        "ssi-earned-disregards",
+        "ssi-resources"
+      ]
+    },
+    "thresholdsDisplay": { "1": 1233, "2": 2098 },
+    "noteParams": {
+      "ssi-earned-disregards": { "amountDisregard": 65 },
+      "ssi-resources": {
+        "limitResourcesSingle": 2000,
+        "limitResourcesCouple": 3000
+      }
+    },
+    "name": {
+      "en": "SSI + State Supplement (monthly cash, 65+ or disabled)",
+      "es": "SSI + Suplemento Estatal (dinero mensual, 65+ o con discapacidad)"
+    },
+    "value": {
+      "en": "Monthly cash up to $1,233.94 (single) or $2,098.83 (couple) in California for people 65+ or blind/disabled with low income — the state adds a supplement on top of federal SSI",
+      "es": "Dinero mensual de hasta $1,233.94 (soltero) o $2,098.83 (pareja) en California para personas de 65+ o ciegas/con discapacidad y bajos ingresos — el estado añade un suplemento al SSI federal"
+    },
+    "apply": {
+      "url": "https://www.ssa.gov/apply",
+      "phone": { "en": "1-800-772-1213", "es": "1-800-772-1213" },
+      "local": {
+        "en": "Find your Social Security office: ssa.gov/locator · 2-1-1 for local application help",
+        "es": "Encuentre su oficina del Seguro Social: ssa.gov/locator · 2-1-1 para ayuda local con la solicitud"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "CA combined SSI/SSP payment standards eff. 2026-01-01 (Rev. 1/26 grid): aged/disabled independent-living $1,233.94 individual ($994.00 federal + $239.94 SSP) / $2,098.83 couple ($1,491.00 + $607.83); blind $1,318.32 / $2,324.35. Federal portion = 2026 FBR $994/$1,491 (2.8% COLA; ssa.gov/oact/cola/SSI.html 403s automated fetchers — FBR arithmetic-confirmed from both CA charts)",
+        "source": "https://cdss.ca.gov/Portals/13/SHD/ParaRegIndex/SSI%20Monthly%20Payment%20Amounts%202026.pdf",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 mixed batch + oracle live re-verification — CDSS ParaReg PDF is the durable effective primary"
+      },
+      {
+        "claim": "Identical standards on the DHCS ACWDL SSI/SSP payment-standards enclosure (original source of record)",
+        "source": "https://www.dhcs.ca.gov/services/medi-cal-resources/medi-cal-eligibility-division/all-county-welfare-directors-medi-cal-eligibility-division-information-letters/ssi-ssp-payment-standards-effective-january-1-2026/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research fetched it successfully 2026-07-02; 404 at the oracle sweep hours later (DHCS WordPress migration) — retained as source of record, CDSS chart is the durable primary"
+      },
+      {
+        "claim": "SSI countable-resource limit: \"The limit for countable resources is $2,000 for an individual and $3,000 for a couple\" (home and usually one vehicle excluded) — live page https://www.ssa.gov/ssi/text-resources-ussi.htm (403s automated fetchers)",
+        "source": "https://web.archive.org/web/20260522032513/https://www.ssa.gov/ssi/text-resources-ussi.htm",
+        "verifiedAt": "2026-07-02",
+        "via": "archive ruling (oracle mixed): immutable timestamped snapshot as source, live URL in claim; snapshot re-fetched and quote verified verbatim by integrator 2026-07-02"
+      }
+    ]
+  },
+  {
+    "id": "section8-hcv",
+    "jurisdiction": "nevada-county",
+    "category": "housing",
+    "status": "waitlist-closed",
+    "test": {
+      "limitsMonthly": {
+        "1": 3650,
+        "2": 4170,
+        "3": 4691,
+        "4": 5212,
+        "5": 5629,
+        "6": 6050,
+        "7": 6466,
+        "8": 6883,
+        "increment": 414
+      },
+      "specialNotes": [
+        "s8-watch-reopen",
+        "s8-eli-priority",
+        "s8-property-waitlists",
+        "s8-other-counties"
+      ]
+    },
+    "thresholdsDisplay": { "1": 3650, "4": 5212 },
+    "noteParams": {
+      "s8-eli-priority": { "limitEliSingle": 2191, "limitEliFour": 3129 }
+    },
+    "name": {
+      "en": "Section 8 / Housing Choice Voucher (rent help)",
+      "es": "Sección 8 / Vale de Elección de Vivienda (ayuda con la renta)"
+    },
+    "value": {
+      "en": "When you have a voucher, you pay about 30% of your adjusted income and the voucher pays the rest straight to your landlord. The Nevada County waiting list is CLOSED right now — you can't get in line today, but there are honest next moves.",
+      "es": "Con un vale, usted paga alrededor del 30% de su ingreso ajustado y el vale paga el resto directamente a su arrendador. La lista de espera del condado de Nevada está CERRADA ahora — hoy no es posible anotarse, pero hay pasos honestos que dar."
+    },
+    "apply": {
+      "url": "https://regionalha.org/programs/housing-choice-voucher",
+      "phone": { "en": "888-671-0220", "es": "888-671-0220" },
+      "local": {
+        "en": "Regional Housing Authority (Yuba City; serves Nevada Co.) · office hours Mon-Thu 8am-12pm · watch regionalha.org + local papers for reopening · 2-1-1",
+        "es": "Regional Housing Authority (Yuba City; sirve al condado de Nevada) · horario lun-jue 8am-12pm · vigile regionalha.org y los periódicos locales para la reapertura · 2-1-1"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Waiting list status: \"The waiting list for Housing Choice Voucher is CLOSED at this time\"; reopening announced via area newspapers + the RHA website; phones 530-671-0220 / 888-671-0220 / TTY 800-927-9275; tenant-payment mechanics (30% adjusted income, up to 40% first year) on the same RHA page",
+        "source": "https://regionalha.org/programs/housing-choice-voucher",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 mixed batch + oracle live re-verification (linchpin re-fetched; 30/40 mechanics double-sourced here per mixed report)"
+      },
+      {
+        "claim": "HUD FY2026 income limits, Nevada County CA (median $140,400): Very Low (50%) $43,800/1p … $62,550/4p … $82,600/8p; Extremely Low (30%) $26,300/1p … $37,550/4p (ELI 6-8p sit on the 2026 poverty-guideline caps 44,360/50,040/55,720). Monthly values = annual ÷ 12 floored; increment $414 (HUD's +8%-of-4-person rule, floored)",
+        "source": "https://www.huduser.gov/portal/datasets/il/il26/Section8-FY26.xlsx",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 mixed batch (workbook parsed directly) + oracle (all 8 floors re-derived; HUD↔ASPE↔fpl-2026.json three-way reproduced)"
+      },
+      {
+        "claim": "Tenant pays ~30% of adjusted monthly income (minimum; up to 40% first year); subsidy paid directly to landlord",
+        "source": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 fact-check wave (housing-s8), reused by wave-1; NOT re-fetched in the mixed pass — RHA's own page (row above) double-sources the mechanics"
+      },
+      {
+        "claim": "RHA administers HCV for Colusa, Nevada, Sutter, and Yuba Counties (office: 1455 Butte House Road, Yuba City)",
+        "source": "https://www.nevadacountyca.gov/548/Housing-Choice-Vouchers",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 fact-check wave (housing-s8), reused by wave-1"
+      }
+    ]
+  },
+  {
+    "id": "school-meals",
+    "jurisdiction": "CA",
+    "category": "food",
+    "status": "open",
+    "test": {
+      "universal": true,
+      "ageAnyMax": 17,
+      "specialNotes": ["meals-no-application", "meals-public-charter-only"]
+    },
+    "name": {
+      "en": "Free school meals (every TK-12 student)",
+      "es": "Comidas escolares gratis (todo estudiante de TK-12)"
+    },
+    "value": {
+      "en": "Two free meals a day — breakfast and lunch — for every TK-12 student at public and charter schools, no application and no income requirement",
+      "es": "Dos comidas gratis al día — desayuno y almuerzo — para todo estudiante de TK-12 en escuelas públicas y chárter, sin solicitud y sin requisito de ingresos"
+    },
+    "apply": {
+      "url": "https://www.cde.ca.gov/ls/nu/sn/cauniversalmeals.asp",
+      "local": {
+        "en": "Nothing to sign up for — meals are served at school. Ask your school office about breakfast times.",
+        "es": "No hay que inscribirse — las comidas se sirven en la escuela. Pregunte en la oficina escolar por los horarios del desayuno."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "EC §49501.5 verbatim: school districts, county offices of education, and charter schools \"shall make available… a breakfast and… lunch free of charge\" to any pupil each school day, regardless of free/reduced-price eligibility",
+        "source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=EDC&sectionNum=49501.5.",
+        "verifiedAt": "2026-07-02",
+        "via": "oracle mixed verification — statute is the stronger primary (the CDE page returned a JS shell at sweep time)"
+      },
+      {
+        "claim": "Universal Meals program mechanics: public districts, county offices of education, and charter schools; all TK-12 students; since SY2022-23 (EC §§49501.5, 49564.3)",
+        "source": "https://www.cde.ca.gov/ls/nu/sn/cauniversalmeals.asp",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 mixed batch (page last reviewed 2025-11-04)"
+      },
+      {
+        "claim": "2026-27 state budget (signed 2026-06-29) continues universal school meals funding",
+        "source": "https://www.gov.ca.gov/2026/06/29/signedbudget/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 mixed batch + oracle (continuation verbatim); freshness rhythm: re-check each June with the annual budget"
       }
     ]
   }

@@ -18,6 +18,15 @@ describe('strings', () => {
       t('en', 'reason.under-limit', { income: 4800, limit: 5360, household: 4 })
     ).toContain('$5,360')
   })
+  it('t() renders the expedited-CalFresh dollars from noteParams', () => {
+    const rendered = t('en', 'note.expedited-3-day', {
+      limitExpedited: 150,
+      limitLiquid: 100
+    })
+    expect(rendered).toContain('$150')
+    expect(rendered).toContain('$100')
+    expect(rendered).not.toContain('{')
+  })
   it('every referenced key is defined: note.* from rules, reason.* from evaluate', () => {
     const noteKeys = (rules as Rule[])
       .flatMap((r) => r.test.specialNotes ?? [])
