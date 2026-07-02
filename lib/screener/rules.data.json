@@ -48,9 +48,9 @@
       },
       {
         "claim": "max/min allotments FY2026",
-        "source": "https://www.usda.gov/sites/default/files/guidance-documents/fns.snap-cola-fy26memo.pdf",
-        "verifiedAt": "2026-07-01",
-        "via": "ep3 wave: cf-amounts (primary PDF)"
+        "source": "https://www.fns.usda.gov/snap/allotment/COLA",
+        "verifiedAt": "2026-07-02",
+        "via": "ep3 wave: cf-amounts; re-cited 2026-07-02 after the original USDA memo PDF went dead — oracle corpus sweep (E1) confirmed both figures live at the FNS COLA page"
       },
       {
         "claim": "SSI eligible since 2019",
@@ -104,7 +104,7 @@
     },
     "provenance": [
       {
-        "claim": "185% FPL table eff. 2026-05-01→2027-06-30 ($29,526/1p, $61,050/4p annual → monthly floor)",
+        "claim": "185% FPL table eff. 2026-05-01→2027-06-30 ($29,526/1p, $61,050/4p annual); monthly cells = floor(annual ÷ 12), each ≤ the site's printed rounded column — never overstating (derivation rule per oracle corpus sweep E3)",
         "source": "https://myfamily.wic.ca.gov/Home/AmIEligible",
         "verifiedAt": "2026-07-01",
         "via": "ep3 wave: wic-eligibility (CDPH WPPM 980-1060)"
@@ -181,8 +181,8 @@
       "es": "CARE (20%+ de descuento en PG&E, cada mes)"
     },
     "value": {
-      "en": "20%+ off gas and ~30-35% off electric, permanently while eligible",
-      "es": "20%+ de descuento en gas y ~30-35% en electricidad, de forma permanente mientras califique"
+      "en": "20%+ off gas and 35%+ off electric, permanently while eligible",
+      "es": "20%+ de descuento en gas y 35%+ en electricidad, de forma permanente mientras califique"
     },
     "apply": {
       "url": "https://www.pge.com/carefera",
@@ -193,10 +193,10 @@
     },
     "provenance": [
       {
-        "claim": "200% FPG tables eff. 2026-06-01→2027-05-31 ($43,280/1-2p, $66,000/4p annual)",
+        "claim": "200% FPG tables eff. 2026-06-01→2027-05-31 ($43,280/1-2p, $66,000/4p annual); electric discount \"35% or more\" per the live page",
         "source": "https://www.pge.com/en/account/billing-and-assistance/financial-assistance/california-alternate-rates-for-energy-program.html",
-        "verifiedAt": "2026-07-01",
-        "via": "ep4 wave: care-fera"
+        "verifiedAt": "2026-07-02",
+        "via": "ep4 wave: care-fera; oracle corpus sweep (E2) re-verified 2026-07-02 — prior ~30-35% value line understated"
       }
     ]
   },
