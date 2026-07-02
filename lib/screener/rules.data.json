@@ -1,0 +1,571 @@
+[
+  {
+    "id": "calfresh",
+    "jurisdiction": "CA",
+    "category": "food",
+    "status": "open",
+    "test": {
+      "limitsMonthly": {
+        "1": 2610,
+        "2": 3526,
+        "3": 4442,
+        "4": 5360,
+        "5": 6276,
+        "6": 7192,
+        "7": 8110,
+        "8": 9026,
+        "increment": 918
+      },
+      "categoricalUnlocks": ["ssi", "calworks"],
+      "specialNotes": ["senior-net-test", "student-rules", "expedited-3-day"]
+    },
+    "thresholdsDisplay": { "1": 2610, "4": 5360 },
+    "name": {
+      "en": "CalFresh (grocery money / SNAP)",
+      "es": "CalFresh (dinero para comida / SNAP)"
+    },
+    "value": {
+      "en": "Up to $298/mo (1 person) or $994/mo (family of 4) on an EBT card",
+      "es": "Hasta $298/mes (1 persona) o $994/mes (familia de 4) en una tarjeta EBT"
+    },
+    "apply": {
+      "url": "https://benefitscal.com",
+      "phone": "1-877-847-3663",
+      "local": "Nevada County DSS 530-265-1340 · Nevada City or Truckee offices"
+    },
+    "provenance": [
+      {
+        "claim": "200% FPL gross limits FFY2026",
+        "source": "https://calfresh.dss.ca.gov/food/eligibility/index.html",
+        "verifiedAt": "2026-07-01",
+        "via": "ep3 wave: cf-mechanics-income (ACIN I-46-25)"
+      },
+      {
+        "claim": "max/min allotments FY2026",
+        "source": "https://www.usda.gov/sites/default/files/guidance-documents/fns.snap-cola-fy26memo.pdf",
+        "verifiedAt": "2026-07-01",
+        "via": "ep3 wave: cf-amounts (primary PDF)"
+      },
+      {
+        "claim": "SSI eligible since 2019",
+        "source": "https://www.cdss.ca.gov/inforesources/calfresh/supplemental-security-income",
+        "verifiedAt": "2026-07-01",
+        "via": "ep3 wave: cf-ssi-seniors"
+      }
+    ]
+  },
+  {
+    "id": "wic",
+    "jurisdiction": "CA",
+    "category": "food",
+    "status": "open",
+    "test": {
+      "limitsMonthly": {
+        "1": 2460,
+        "2": 3336,
+        "3": 4212,
+        "4": 5087,
+        "5": 5963,
+        "6": 6839,
+        "7": 7714,
+        "8": 8590,
+        "increment": 876
+      },
+      "ageAnyMax": 4,
+      "categoricalUnlocks": ["medi-cal", "calfresh", "calworks"],
+      "specialNotes": ["wic-caregivers", "wic-pregnant"]
+    },
+    "thresholdsDisplay": { "1": 2460, "4": 5087 },
+    "name": {
+      "en": "WIC (food money for pregnancy + kids under 5)",
+      "es": "WIC (dinero para alimentos: embarazo y niños menores de 5)"
+    },
+    "value": {
+      "en": "$26/mo produce money per child (1-5), $48-52 while pregnant/breastfeeding, plus healthy staples",
+      "es": "$26/mes en frutas y verduras por niño (1-5), $48-52 durante el embarazo/lactancia, más alimentos básicos"
+    },
+    "apply": {
+      "url": "https://myfamily.wic.ca.gov",
+      "phone": "1-800-852-5770",
+      "local": "Grass Valley 530-265-1454 · Truckee 530-582-7814"
+    },
+    "provenance": [
+      {
+        "claim": "185% FPL table eff. 2026-05-01→2027-06-30 ($29,526/1p, $61,050/4p annual → monthly floor)",
+        "source": "https://myfamily.wic.ca.gov/Home/AmIEligible",
+        "verifiedAt": "2026-07-01",
+        "via": "ep3 wave: wic-eligibility (CDPH WPPM 980-1060)"
+      },
+      {
+        "claim": "CVB amounts Apr-2026",
+        "source": "https://myfamily.wic.ca.gov/Home/FruitsVegBenefits",
+        "verifiedAt": "2026-07-01",
+        "via": "ep3 wave: wic-benefits"
+      }
+    ]
+  },
+  {
+    "id": "lifeline-ca",
+    "jurisdiction": "CA",
+    "category": "utilities",
+    "status": "open",
+    "test": {
+      "limitsMonthly": {
+        "1": 2050,
+        "2": 2050,
+        "3": 2358,
+        "4": 4233,
+        "increment": 725
+      },
+      "householdFloor": 2,
+      "categoricalUnlocks": ["medi-cal", "calfresh", "ssi", "wic"],
+      "specialNotes": ["lifeline-two-apps"]
+    },
+    "thresholdsDisplay": { "1": 2050, "4": 4233 },
+    "name": {
+      "en": "Free/discount phone service (federal Lifeline + CA LifeLine)",
+      "es": "Servicio telefónico gratis o con descuento (Lifeline federal + CA LifeLine)"
+    },
+    "value": {
+      "en": "Up to ~$28/mo combined discounts — free phone plans exist from participating carriers",
+      "es": "Hasta ~$28/mes en descuentos combinados — hay planes gratis con operadores participantes"
+    },
+    "apply": {
+      "url": "https://www.californialifeline.com",
+      "phone": "califone providers via site"
+    },
+    "provenance": [
+      {
+        "claim": "CA LifeLine income $24,600/1-2p, $50,800/4p annual (thru 2027-05-31) → monthly floors",
+        "source": "https://www.cpuc.ca.gov/consumer-support/financial-assistance-savings-and-discounts/lifeline/california-lifeline-eligibility",
+        "verifiedAt": "2026-06-29",
+        "via": "ep2 wave + week-of recheck"
+      },
+      {
+        "claim": "$9.25 federal + up to $19 CA stack",
+        "source": "https://www.cpuc.ca.gov/-/media/cpuc-website/divisions/communications-division/documents/lifeline/lifeline-stat-sheet-051126.pdf",
+        "verifiedAt": "2026-07-01",
+        "via": "ep2 final pre-shoot sweep"
+      }
+    ]
+  },
+  {
+    "id": "care",
+    "jurisdiction": "CA",
+    "category": "utilities",
+    "status": "open",
+    "test": {
+      "incomePctFPL": 200,
+      "householdFloor": 2,
+      "flagsAll": ["pge-customer"],
+      "categoricalUnlocks": ["medi-cal", "calfresh", "ssi", "wic", "calworks"]
+    },
+    "thresholdsDisplay": { "2": 3606, "4": 5500 },
+    "name": {
+      "en": "CARE (20%+ off PG&E, every month)",
+      "es": "CARE (20%+ de descuento en PG&E, cada mes)"
+    },
+    "value": {
+      "en": "20%+ off gas and ~30-35% off electric, permanently while eligible",
+      "es": "20%+ de descuento en gas y ~30-35% en electricidad, de forma permanente mientras califique"
+    },
+    "apply": {
+      "url": "https://www.pge.com/carefera",
+      "phone": "1-877-660-6789"
+    },
+    "provenance": [
+      {
+        "claim": "200% FPG tables eff. 2026-06-01→2027-05-31 ($43,280/1-2p, $66,000/4p annual)",
+        "source": "https://www.pge.com/en/account/billing-and-assistance/financial-assistance/california-alternate-rates-for-energy-program.html",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 wave: care-fera"
+      }
+    ]
+  },
+  {
+    "id": "fera",
+    "jurisdiction": "CA",
+    "category": "utilities",
+    "status": "open",
+    "test": {
+      "incomePctFPL": 250,
+      "householdFloor": 2,
+      "flagsAll": ["pge-customer"]
+    },
+    "thresholdsDisplay": { "2": 4508, "4": 6875 },
+    "name": {
+      "en": "FERA (18% off PG&E electric)",
+      "es": "FERA (18% de descuento en electricidad PG&E)"
+    },
+    "value": {
+      "en": "~18% off the electric side (~$45/mo typical) if you make a bit too much for CARE",
+      "es": "~18% de descuento en electricidad (~$45/mes típico) si gana un poco más del límite de CARE"
+    },
+    "apply": {
+      "url": "https://www.pge.com/carefera",
+      "phone": "1-877-660-6789"
+    },
+    "provenance": [
+      {
+        "claim": "250% FPG; SB1130 opened 1-2p households; one application routes CARE/FERA",
+        "source": "https://www.pge.com/en/account/billing-and-assistance/financial-assistance/family-electric-rate-assistance-program.html",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 wave: care-fera"
+      }
+    ]
+  },
+  {
+    "id": "liheap",
+    "jurisdiction": "federal",
+    "category": "utilities",
+    "status": "check-first",
+    "test": {
+      "limitsMonthly": {
+        "1": 2916,
+        "2": 3813,
+        "3": 4711,
+        "4": 5608,
+        "increment": 897
+      }
+    },
+    "thresholdsDisplay": { "4": 5608 },
+    "name": {
+      "en": "LIHEAP (heating-bill help — covers propane, wood, oil)",
+      "es": "LIHEAP (ayuda con calefacción — incluye propano, leña y petróleo)"
+    },
+    "value": {
+      "en": "Up to $1,500 once a year + crisis help with shut-off notices; never repaid",
+      "es": "Hasta $1,500 una vez al año + ayuda de crisis ante avisos de corte; no se devuelve"
+    },
+    "apply": {
+      "phone": "Project GO 1-888-524-5705 (press 2 for Nevada County — call at 9am, ~40 calls/day)",
+      "url": "https://csd.ca.gov"
+    },
+    "provenance": [
+      {
+        "claim": "FFY2026 max $1,500 + crisis; CA monthly cap $6,407.16/4p state ceiling, local matrix lower — table uses CSD 60% SMI figures",
+        "source": "https://www.csd.ca.gov/Pages/LIHEAPProgram.aspx",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 wave: amp-liheap (State Plan §9)"
+      },
+      {
+        "claim": "Project GO = Nevada County agency",
+        "source": "https://www.projectgoinc.org",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 energy brief"
+      }
+    ]
+  },
+  {
+    "id": "esa",
+    "jurisdiction": "CA",
+    "category": "utilities",
+    "status": "open",
+    "test": {
+      "incomePctFPL": 200,
+      "householdFloor": 2,
+      "flagsAll": ["pge-customer"],
+      "categoricalUnlocks": ["medi-cal", "calfresh", "ssi"]
+    },
+    "name": {
+      "en": "Free home energy upgrades (ESA)",
+      "es": "Mejoras de energía gratis para el hogar (ESA)"
+    },
+    "value": {
+      "en": "Free insulation, LEDs, weatherstripping — sometimes fridge/furnace help; renters welcome with landlord OK",
+      "es": "Aislamiento, focos LED y sellado gratis — a veces refrigerador/calefacción; inquilinos con permiso del dueño"
+    },
+    "apply": { "url": "https://www.pge.com/esa" },
+    "provenance": [
+      {
+        "claim": "measures + renters + home 5+ yrs; income aligned to CARE/FERA",
+        "source": "https://www.pge.com/en/account/billing-and-assistance/financial-assistance/energy-savings-assistance-program.html",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 wave: esa-wap"
+      }
+    ]
+  },
+  {
+    "id": "nid-lira",
+    "jurisdiction": "nevada-county",
+    "category": "utilities",
+    "status": "open",
+    "test": {
+      "flagsAll": ["nid-water"],
+      "categoricalUnlocks": ["medi-cal", "ssi"],
+      "specialNotes": ["nid-care-chain"]
+    },
+    "name": {
+      "en": "NID water-bill discount (LIRA)",
+      "es": "Descuento en la factura de agua NID (LIRA)"
+    },
+    "value": {
+      "en": "Flat $9.50/month off treated (drinking) water — one yearly application",
+      "es": "Descuento fijo de $9.50/mes en agua potable — una solicitud al año"
+    },
+    "apply": { "phone": "530-273-6185" },
+    "provenance": [
+      {
+        "claim": "flat $9.50/mo, treated-water residential, qualify via Medi-Cal A&B/SSI/CARE/BIA-GA",
+        "source": "https://nidwater.specialdistrict.org/files/21a126b95/LIRA+App.pdf",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 gap-fill audit (application PDF) + ep4 energy addendum"
+      }
+    ]
+  },
+  {
+    "id": "clca",
+    "jurisdiction": "CA",
+    "category": "transport",
+    "status": "open",
+    "test": {
+      "incomePctFPL": 250,
+      "flagsAll": ["has-vehicle"],
+      "specialNotes": ["clca-liability-only"]
+    },
+    "thresholdsDisplay": { "1": 3325, "4": 6875 },
+    "name": {
+      "en": "CA Low Cost Auto Insurance ($199/yr in Nevada County)",
+      "es": "Seguro de auto de bajo costo de CA ($199/año en el condado de Nevada)"
+    },
+    "value": {
+      "en": "A year of liability coverage from $199 (Nevada County base) — car ≤$25k, valid CA license",
+      "es": "Un año de cobertura de responsabilidad desde $199 (base del condado) — auto ≤$25k, licencia de CA vigente"
+    },
+    "apply": {
+      "url": "https://www.mylowcostauto.com",
+      "phone": "1-866-602-8861"
+    },
+    "provenance": [
+      {
+        "claim": "250% FPL ($39,900/1p, $82,500/4p), $199 Nevada County base, legal via Veh. Code §16056.1 carve-out",
+        "source": "https://www.mylowcostauto.com",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 wave: clca"
+      }
+    ]
+  },
+  {
+    "id": "bar-cap-repair",
+    "jurisdiction": "CA",
+    "category": "transport",
+    "status": "open",
+    "test": {
+      "limitsMonthly": {
+        "1": 2992,
+        "2": 4041,
+        "3": 5091,
+        "4": 6187,
+        "increment": 1008
+      },
+      "flagsAll": ["has-vehicle", "failed-smog"]
+    },
+    "thresholdsDisplay": { "1": 2992, "4": 6187 },
+    "name": {
+      "en": "Smog-repair help (BAR CAP, up to $1,450)",
+      "es": "Ayuda para reparación de smog (BAR CAP, hasta $1,450)"
+    },
+    "value": {
+      "en": "Up to $1,450 toward emissions repairs after a failed smog check — you pay at least 20%",
+      "es": "Hasta $1,450 para reparaciones tras reprobar el smog — usted paga al menos 20%"
+    },
+    "apply": { "url": "https://www.bar.ca.gov/cap" },
+    "provenance": [
+      {
+        "claim": "225% FPL 2026 table ($35,910/1p, $74,250/4p annual), ≥20% copay, MY1996+",
+        "source": "https://www.bar.ca.gov/consumer/consumer-assistance-program",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 wave: car-bar (live 2026 table)"
+      }
+    ]
+  },
+  {
+    "id": "bar-retirement",
+    "jurisdiction": "CA",
+    "category": "transport",
+    "status": "open",
+    "test": {
+      "flagsAll": ["has-vehicle"],
+      "specialNotes": ["retirement-failed-smog-tier"]
+    },
+    "name": {
+      "en": "Vehicle retirement (the state buys your car)",
+      "es": "Retiro de vehículo (el estado le compra su auto)"
+    },
+    "value": {
+      "en": "$1,350 if it failed smog (no income test) — up to $2,000 income-qualified even if it passed",
+      "es": "$1,350 si reprobó el smog (sin prueba de ingresos) — hasta $2,000 con ingresos calificados aunque haya pasado"
+    },
+    "apply": { "url": "https://www.bar.ca.gov/cap" },
+    "provenance": [
+      {
+        "claim": "$1,350 failed-smog tier / $2,000 ≤225% FPL; FY funds from Jul 1 2026",
+        "source": "https://www.bar.ca.gov/consumer/consumer-assistance-program",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 wave: car-bar"
+      }
+    ]
+  },
+  {
+    "id": "bus-youth-free",
+    "jurisdiction": "nevada-county",
+    "category": "transport",
+    "status": "open",
+    "test": { "ageAnyMax": 17, "universal": false },
+    "name": {
+      "en": "Kids & teens ride the bus FREE (Nevada County Connects)",
+      "es": "Niños y adolescentes viajan GRATIS en el autobús (Nevada County Connects)"
+    },
+    "value": {
+      "en": "Everyone 17 and under rides free since Nov 2025 — no paperwork",
+      "es": "Todos los menores de 18 viajan gratis desde nov 2025 — sin trámites"
+    },
+    "apply": { "phone": "530-477-0103" },
+    "provenance": [
+      {
+        "claim": "youth ≤17 free since 2025-11-01",
+        "source": "https://www.nevadacountyca.gov (transit pages)",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 wave: transit-west"
+      }
+    ]
+  },
+  {
+    "id": "bus-golden-ticket",
+    "jurisdiction": "nevada-county",
+    "category": "transport",
+    "status": "open",
+    "test": { "ageAnyMin": 80 },
+    "name": {
+      "en": "Golden Ticket — free bus for life at 80+",
+      "es": "Golden Ticket — autobús gratis de por vida a los 80+"
+    },
+    "value": {
+      "en": "Lifetime free rides on all regular routes; proof of age is the whole application",
+      "es": "Viajes gratis de por vida en rutas regulares; solo se requiere comprobante de edad"
+    },
+    "apply": { "phone": "530-477-0103" },
+    "provenance": [
+      {
+        "claim": "80+ lifetime fixed-route pass",
+        "source": "https://www.nevadacountyca.gov (transit pages)",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 wave: transit-west"
+      }
+    ]
+  },
+  {
+    "id": "bus-low-income-pass",
+    "jurisdiction": "nevada-county",
+    "category": "transport",
+    "status": "check-first",
+    "test": { "incomePctFPL": 200 },
+    "name": {
+      "en": "Low-Income Bus Pass (referral)",
+      "es": "Pase de autobús para bajos ingresos (por referencia)"
+    },
+    "value": {
+      "en": "Six months of reduced/no-fare riding at a time via FREED, Social Services, or Behavioral Health referral",
+      "es": "Seis meses de tarifa reducida o gratuita mediante referencia de FREED, Servicios Sociales o Salud Conductual"
+    },
+    "apply": {
+      "phone": "FREED 530-477-3333 · county DSS 530-265-1340 · or 2-1-1"
+    },
+    "provenance": [
+      {
+        "claim": "138-200% FPL, 6-month renewable, three referral agencies; 'fully free' pending phone confirm",
+        "source": "https://www.nevadacountyca.gov (transit pages)",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 wave: transit-west (free-status hedged)"
+      }
+    ]
+  },
+  {
+    "id": "medical-baseline",
+    "jurisdiction": "CA",
+    "category": "utilities",
+    "status": "open",
+    "test": {
+      "flagsAll": ["pge-customer"],
+      "specialNotes": ["medical-baseline-device"]
+    },
+    "name": {
+      "en": "PG&E Medical Baseline (not income-based)",
+      "es": "Medical Baseline de PG&E (no depende de ingresos)"
+    },
+    "value": {
+      "en": "Extra power at the lowest rate + early fire-season shutoff warnings if someone relies on a medical device",
+      "es": "Más electricidad a la tarifa más baja + avisos tempranos de cortes si alguien depende de un equipo médico"
+    },
+    "apply": { "url": "https://www.pge.com/mblapp" },
+    "provenance": [
+      {
+        "claim": "medical need not income; MD/NP/PA signs initial enrollment",
+        "source": "https://www.pge.com/en/account/billing-and-assistance/financial-assistance/medical-baseline-program.html",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 wave: psps"
+      }
+    ]
+  },
+  {
+    "id": "freed-equipment",
+    "jurisdiction": "nevada-county",
+    "category": "devices",
+    "status": "open",
+    "test": {
+      "specialNotes": ["freed-any-age-disability"],
+      "universal": false,
+      "flagsAll": [],
+      "categoricalUnlocks": [],
+      "ageAnyMin": 60
+    },
+    "name": {
+      "en": "Free medical equipment (FREED reuse)",
+      "es": "Equipo médico gratis (reutilización FREED)"
+    },
+    "value": {
+      "en": "Donated wheelchairs, walkers, shower chairs, hospital beds — checked over and free; disability any age or older adults",
+      "es": "Sillas de ruedas, andadores, sillas de ducha, camas de hospital — revisados y gratis; discapacidad a cualquier edad o adultos mayores"
+    },
+    "apply": { "phone": "530-477-3333" },
+    "provenance": [
+      {
+        "claim": "free reuse program, device list, seniors + disabilities",
+        "source": "https://freed.org",
+        "verifiedAt": "2026-07-01",
+        "via": "ep5 wave: freed-lsnc (live contact page)"
+      }
+    ]
+  },
+  {
+    "id": "lsnc-legal",
+    "jurisdiction": "CA",
+    "category": "legal",
+    "status": "open",
+    "test": {
+      "incomePctFPL": 125,
+      "ageAnyMin": 60,
+      "specialNotes": ["lsnc-senior-soft"]
+    },
+    "name": {
+      "en": "Free civil legal aid (LSNC)",
+      "es": "Ayuda legal civil gratuita (LSNC)"
+    },
+    "value": {
+      "en": "Evictions, benefits denials, debt, record clearing — free if money's tight; 60+ just call",
+      "es": "Desalojos, negación de beneficios, deudas, limpieza de antecedentes — gratis si el dinero no alcanza; 60+ solo llame"
+    },
+    "apply": {
+      "phone": "530-823-7560 · evenings 866-815-5990",
+      "url": "https://lsnc.net"
+    },
+    "provenance": [
+      {
+        "claim": "Auburn office serves Nevada County; case types; senior program via Area 4 AAA (soft framing)",
+        "source": "https://lsnc.net",
+        "verifiedAt": "2026-07-01",
+        "via": "ep5 wave: freed-lsnc"
+      }
+    ]
+  }
+]
