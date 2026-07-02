@@ -602,5 +602,232 @@
         "via": "ep5 wave: freed-lsnc"
       }
     ]
+  },
+  {
+    "id": "eitc-caleitc",
+    "jurisdiction": "CA",
+    "category": "money",
+    "status": "check-first",
+    "test": {
+      "limitsMonthly": {
+        "1": 1592,
+        "2": 4202,
+        "3": 4796,
+        "4": 5369,
+        "5": 5722,
+        "6": 5722,
+        "7": 5722,
+        "8": 5722,
+        "increment": 0
+      },
+      "proxyReasonKey": "reason.income-band",
+      "specialNotes": [
+        "eitc-annual-basis",
+        "eitc-kid-count-bands",
+        "eitc-itin",
+        "eitc-investment-cap",
+        "eitc-retro-years"
+      ]
+    },
+    "thresholdsDisplay": { "1": 1592, "4": 5369 },
+    "noteParams": {
+      "eitc-kid-count-bands": {
+        "limitSingle": 19104,
+        "limitMarried": 26214,
+        "limitCaleitc": 32900
+      },
+      "eitc-investment-cap": { "limitInvestment": 11950 }
+    },
+    "name": {
+      "en": "EITC + CalEITC (tax-time cash back)",
+      "es": "EITC + CalEITC (crédito tributario por ingreso del trabajo)"
+    },
+    "value": {
+      "en": "Cash back when you file taxes — up to $8,046 federal EITC + up to $3,756 CalEITC + up to $1,189 Young Child Tax Credit (kid under 6). Paid even if you owe $0 tax.",
+      "es": "Dinero al presentar sus impuestos — hasta $8,046 del EITC federal + hasta $3,756 del CalEITC + hasta $1,189 del Crédito Tributario por Hijos Menores (niño menor de 6 años). Se paga aunque no deba impuestos."
+    },
+    "apply": {
+      "url": "https://www.ftb.ca.gov/file/personal/credits/california-earned-income-tax-credit.html",
+      "phone": { "en": "1-800-906-9887", "es": "1-800-906-9887" },
+      "local": {
+        "en": "Free tax prep (VITA): dial 2-1-1 (Connecting Point) for Nevada County sites",
+        "es": "Preparación de impuestos gratis (VITA): marque 2-1-1 (Connecting Point) para sitios en el condado de Nevada"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Federal EITC TY2025 AGI limits ($19,104–$68,675 by kids/filing status), max credits ($649–$8,046), investment income cap $11,950",
+        "source": "https://www.irs.gov/credits-deductions/individuals/earned-income-tax-credit/earned-income-and-earned-income-tax-credit-eitc-tables",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (nebula-w1c-money) + oracle live re-verification"
+      },
+      {
+        "claim": "CalEITC TY2025 up to $3,756, earned income ≤ $32,900; claimable up to four prior years",
+        "source": "https://www.ftb.ca.gov/file/personal/credits/california-earned-income-tax-credit.html",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle live re-verification"
+      },
+      {
+        "claim": "YCTC TY2025 up to $1,189 per return, qualifying child under 6, income ≤ $32,900 (net-loss exception to $35,640)",
+        "source": "https://www.ftb.ca.gov/file/personal/credits/young-child-tax-credit.html",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle live re-verification"
+      },
+      {
+        "claim": "CalEITC accepts SSN or ITIN; age 18+ or qualifying child; TY2025 per-kid-count credit table (federal figures cross-check IRS exactly)",
+        "source": "https://www.ftb.ca.gov/file/personal/credits/caleitc/eligibility-and-credit-information.html",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle live re-verification"
+      },
+      {
+        "claim": "Official Spanish names: Crédito Tributario por Ingreso del Trabajo de California (CalEITC); Crédito Tributario por Hijos Menores (YCTC); VITA 1-800-906-9887",
+        "source": "https://www.ftb.ca.gov/file/personal/credits/california-earned-income-tax-credit-es.html",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (VITA number confirmed on irs.gov)"
+      }
+    ]
+  },
+  {
+    "id": "calworks",
+    "jurisdiction": "CA",
+    "category": "money",
+    "status": "check-first",
+    "test": {
+      "limitsMonthly": {
+        "1": 1364,
+        "2": 1951,
+        "3": 2309,
+        "4": 2661,
+        "5": 2979,
+        "6": 3289,
+        "7": 3560,
+        "8": 3847,
+        "increment": 37
+      },
+      "ageAnyMax": 17,
+      "specialNotes": [
+        "calworks-earned-disregard",
+        "calworks-pregnant",
+        "calworks-region",
+        "calworks-assets"
+      ]
+    },
+    "thresholdsDisplay": { "1": 1364, "4": 2661 },
+    "noteParams": {
+      "calworks-earned-disregard": { "amountDisregard": 450 },
+      "calworks-assets": { "limitAssets": 12552, "limitAssetsSenior": 18829 }
+    },
+    "name": {
+      "en": "CalWORKs (monthly cash aid for families with kids)",
+      "es": "CalWORKs (ayuda mensual en efectivo para familias con niños)"
+    },
+    "value": {
+      "en": "Up to $1,115–$1,248/mo for a family of 3 in Nevada County, plus child care, housing help, and job support — and it unlocks other programs",
+      "es": "Hasta $1,115–$1,248/mes para una familia de 3 en el condado de Nevada, más cuidado infantil, ayuda de vivienda y apoyo laboral — y abre la puerta a otros programas"
+    },
+    "apply": {
+      "url": "https://benefitscal.com",
+      "phone": { "en": "530-265-1340", "es": "530-265-1340" },
+      "local": {
+        "en": "Nevada County DSS 530-265-1340 · Nevada City or Truckee offices",
+        "es": "DSS del condado de Nevada 530-265-1340 · oficinas en Nevada City o Truckee"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "MBSAC FY2026-27 Region 2 chart (applicant income test), 3.59% COLA effective 2026-07-01: HH1 $914 … HH8 $3,397, +$37/person over 10",
+        "source": "https://www.cdss.ca.gov/Portals/9/Additional-Resources/Letters-and-Notices/ACLs/2026/26-39.pdf",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle live re-verification (ACL 26-39 fetched at drafted path)"
+      },
+      {
+        "claim": "Applicant gross income test = gross income minus $450 per employed person compared to MBSAC (AB 135, eff. 2022-07-01); Sacramento (Region 2) fact sheet rev. July 2026 shows MBSAC values matching ACL 26-39",
+        "source": "https://ha.saccounty.gov/content/dam/ha/docs/calworks/CalWORKs%20Fact%20Sheet%20July%202026.pdf",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (county-official; CDSS ACL cite not chased — declared caveat)"
+      },
+      {
+        "claim": "Nevada County is CalWORKs Region 2 (statutory region lists, AB 908/1996)",
+        "source": "https://www.cdss.ca.gov/research/res/pdf/calreports/MAP-MBSAC.pdf",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (CDSS Region 2 county list extracted)"
+      },
+      {
+        "claim": "MAP last increased 0.3% effective 2024-10-01 (CDSS); current Region 2 MAP family-of-3: $1,115 non-exempt / $1,248 exempt",
+        "source": "https://www.cdss.ca.gov/inforesources/calworks-summary/program-services-utilization/service-and-benefit-levels",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (dollar chart via Sacramento County fact sheet July 2026)"
+      },
+      {
+        "claim": "Resource limit $12,552, or $18,829 with a 60+/disabled member, effective 2026-01-01",
+        "source": "https://www.cdss.ca.gov/Portals/9/Additional-Resources/Letters-and-Notices/ACLs/2025/25-65.pdf",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (ACL 25-65)"
+      },
+      {
+        "claim": "Child under 18 (or 18 finishing high school before 19); pregnant people qualify at any stage of pregnancy (Pregnant Person Only cases); apply via BenefitsCal.com or county office",
+        "source": "https://www.cdss.ca.gov/calworks",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (pregnancy detail: county handbooks + LSNC reg summary)"
+      }
+    ]
+  },
+  {
+    "id": "county-general-assistance",
+    "jurisdiction": "nevada-county",
+    "category": "money",
+    "status": "check-first",
+    "test": {
+      "limitsMonthly": {
+        "1": 695,
+        "2": 884,
+        "3": 1115,
+        "4": 1346,
+        "5": 1578,
+        "6": 1808,
+        "7": 2039,
+        "8": 2271,
+        "increment": 230
+      },
+      "proxyReasonKey": "reason.income-screen",
+      "categoricalExcludes": ["calworks", "ssi"],
+      "specialNotes": ["ga-call-first", "ga-last-resort", "ga-repayable-work-rules"]
+    },
+    "name": {
+      "en": "Nevada County General Assistance (cash of last resort)",
+      "es": "Asistencia General del Condado de Nevada (efectivo de último recurso)"
+    },
+    "value": {
+      "en": "A small county cash grant when nothing else applies — the county sets the (modest) amounts and limits, and it's usually a repayable grant. Costs nothing to call and ask.",
+      "es": "Un pequeño subsidio en efectivo del condado cuando nada más aplica — el condado fija los montos y límites (modestos), y normalmente es un subsidio reembolsable. Llamar y preguntar no cuesta nada."
+    },
+    "apply": {
+      "url": "https://benefitscal.com",
+      "phone": { "en": "530-265-1340", "es": "530-265-1340" },
+      "local": {
+        "en": "Eric Rood Center (Nevada City) · Brighton Greens (Grass Valley) · Joseph Center (Truckee) — staff speak English + Spanish",
+        "es": "Eric Rood Center (Nevada City) · Brighton Greens (Grass Valley) · Joseph Center (Truckee) — el personal habla inglés y español"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Program shape: supplemental aid for people ineligible for CalWORKs or SSI/SSP; emergency, last-resort; a repayable grant, not an entitlement; Cal-JOBS registration + weekly job search mandatory for employables",
+        "source": "https://www.nevadacountyca.gov/1626/Cash-Assistance-for-Individuals",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle live re-verification (browser-UA fetch; plain fetch 403s)"
+      },
+      {
+        "claim": "Apply via BenefitsCal.com or in person; three offices (Nevada City, Grass Valley, Truckee); main line 530-265-1340; English + Spanish staff",
+        "source": "https://www.nevadacountyca.gov/903/Public-Assistance-Offices",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle"
+      },
+      {
+        "claim": "PROXY INCOME SCREEN — county publishes no GA income limits or grant amounts (county site, code, and BOS-resolution search 2026-07-02 found none). Screen uses the verified CalWORKs Region 2 non-exempt MAP chart (10/1/2024 levels) as a below-the-cash-floor visibility gate; it is NOT an official GA limit, never renders (proxyReasonKey), and the row is check-first only",
+        "source": "https://www.cdss.ca.gov/inforesources/calworks-summary/program-services-utilization/service-and-benefit-levels",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle ruling (b): numbers used for gating are not claims; numbers rendered are"
+      }
+    ]
   }
 ]

@@ -32,4 +32,15 @@ describe('rules.data.json', () => {
       expect(ids.has(id), `missing ${id}`).toBe(true)
     }
   })
+  it('contains the wave-1 oracle-verified money programs (corpus = 20)', () => {
+    const ids = new Set((rules as Rule[]).map((r) => r.id))
+    for (const id of [
+      'eitc-caleitc',
+      'calworks',
+      'county-general-assistance'
+    ]) {
+      expect(ids.has(id), `missing ${id}`).toBe(true)
+    }
+    expect((rules as Rule[]).length).toBe(20)
+  })
 })

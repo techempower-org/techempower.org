@@ -164,4 +164,82 @@ describe('evaluate — golden cases from the fact-check corpus', () => {
     expect(bucketOf(elsewhere, 'bus-youth-free')).toBe('absent')
     expect(bucketOf(elsewhere, 'freed-equipment')).toBe('absent')
   })
+  it('wave-1 GA: proxy limit gates visibility but NEVER renders a number', () => {
+    const single: Answers = {
+      ...base,
+      householdSize: 1,
+      incomeMonthlyGross: 600,
+      ages: { under5: 0, age5to17: 0, age18to59: 1, age60plus: 0, age80plus: 0 }
+    }
+    const r = evaluate(single, R)
+    // check-first caps at worthAsking; $600 is under the $695 proxy floor
+    expect(bucketOf(r, 'county-general-assistance')).toBe('worthAsking')
+    const v = r.worthAsking.find(
+      (x) => x.ruleId === 'county-general-assistance'
+    )
+    expect(v?.reasons[0]?.key).toBe('reason.income-screen')
+    for (const reason of v?.reasons ?? []) {
+      // the proxy MAP chart gates but is not an official GA limit — no
+      // verdict may carry it as a renderable number
+      expect(reason.params?.limit, 'GA must never carry a limit param').toBe(
+        undefined
+      )
+    }
+    // GA is nevada-county-jurisdiction: gone for other-ca users
+    const away = evaluate({ ...single, county: 'other-ca' as const }, R)
+    expect(bucketOf(away, 'county-general-assistance')).toBe('absent')
+  })
+  it('wave-1 GA: CalWORKs/SSI enrollment excludes it (inverse of an unlock)', () => {
+    const single: Answers = {
+      ...base,
+      householdSize: 1,
+      incomeMonthlyGross: 600,
+      ages: { under5: 0, age5to17: 0, age18to59: 1, age60plus: 0, age80plus: 0 }
+    }
+    const r = evaluate({ ...single, enrolled: ['ssi'] }, R)
+    expect(bucketOf(r, 'county-general-assistance')).toBe('absent')
+  })
+  it('wave-1 EITC: band gates with a no-number reason; over-band is absent', () => {
+    // base HH4 @ $4,800 is inside the $5,369 broadest-honest band
+    const r = evaluate(base, R)
+    expect(bucketOf(r, 'eitc-caleitc')).toBe('worthAsking')
+    const v = r.worthAsking.find((x) => x.ruleId === 'eitc-caleitc')
+    expect(v?.reasons[0]?.key).toBe('reason.income-band')
+    expect(v?.reasons[0]?.params?.limit).toBe(undefined)
+    // single filer over every configuration's cap ($1,592 band for HH1)
+    const over = evaluate(
+      {
+        ...base,
+        householdSize: 1,
+        incomeMonthlyGross: 2000,
+        ages: {
+          under5: 0,
+          age5to17: 0,
+          age18to59: 1,
+          age60plus: 0,
+          age80plus: 0
+        }
+      },
+      R
+    )
+    expect(bucketOf(over, 'eitc-caleitc')).toBe('absent')
+  })
+  it('wave-1 CalWORKs: applicant test = MBSAC+$450 band, child required', () => {
+    const fam3: Answers = {
+      ...base,
+      householdSize: 3,
+      incomeMonthlyGross: 2200,
+      ages: { under5: 1, age5to17: 0, age18to59: 2, age60plus: 0, age80plus: 0 }
+    }
+    // $2,200 ≤ $2,309 (R2 MBSAC $1,859 + $450 disregard); check-first cap
+    expect(bucketOf(evaluate(fam3, R), 'calworks')).toBe('worthAsking')
+    expect(
+      bucketOf(evaluate({ ...fam3, incomeMonthlyGross: 2400 }, R), 'calworks')
+    ).toBe('absent')
+    const noKid: Answers = {
+      ...fam3,
+      ages: { under5: 0, age5to17: 0, age18to59: 3, age60plus: 0, age80plus: 0 }
+    }
+    expect(bucketOf(evaluate(noKid, R), 'calworks')).toBe('absent')
+  })
 })
