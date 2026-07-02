@@ -508,8 +508,8 @@
 
   .applyBtn {
     background: none;
-    color: var(--te-bark-900);
-    border: 1px solid var(--te-bark-400);
+    color: #1c1210;
+    border: 1px solid #a08979;
   }
 
   /* paper can't be clicked — surface the actual destinations */
@@ -519,5 +519,63 @@
     font-weight: 400;
     font-size: 0.8rem;
     word-break: break-all;
+  }
+
+  /* Paper is always light — re-pin the light-theme literals (oracle S3).
+   * A dark-mode visitor otherwise prints remapped near-white text on a
+   * white sheet, since backgrounds don't print by default. */
+  .results,
+  .bucketHeading,
+  .cardTitle {
+    color: #1c1210;
+  }
+
+  .cardValue,
+  .notes li,
+  .standingThree,
+  .phone,
+  .local,
+  .empty {
+    color: #44302a;
+  }
+
+  .card {
+    background: #ffffff;
+    border-color: #e0d6cc;
+  }
+
+  .card[data-bucket='strong'] {
+    border-left-color: #0f766e;
+  }
+
+  .card[data-bucket='likely'] {
+    border-left-color: #d97706;
+  }
+
+  .card[data-bucket='worthAsking'] {
+    border-left-color: #a08979;
+  }
+
+  .card[data-bucket='notNow'] {
+    border-left-color: #f43f5e;
+  }
+
+  .notes li {
+    background: #ffffff;
+    border-left-color: #f59e0b;
+  }
+
+  .empty {
+    background: #ffffff;
+    border-color: #e0d6cc;
+    border-left-color: #d97706;
+  }
+
+  .provenance a {
+    color: #5c4236;
+  }
+
+  .resultsFooter {
+    border-top-color: #e0d6cc;
   }
 }

@@ -175,7 +175,18 @@ export const fathomConfig = fathomId
 
 export const posthogId = process.env.NEXT_PUBLIC_POSTHOG_ID
 export const posthogConfig: Partial<PostHogConfig> = {
-  api_host: 'https://app.posthog.com'
+  api_host: 'https://app.posthog.com',
+  // /qualify carries a printed promise: answers never leave the device.
+  // Autocapture would record clicked option labels there, so the screener
+  // is excluded outright, and before_send drops any event that still
+  // originates from it. Prod currently sets no PostHog id at all — this is
+  // belt and suspenders for whenever one appears.
+  autocapture: { url_ignorelist: [/\/qualify/] },
+  before_send: (event) => {
+    if (!event) return null
+    const url = String(event.properties.$current_url ?? '')
+    return url.includes('/qualify') ? null : event
+  }
 }
 
 function cleanPageUrlMap(
