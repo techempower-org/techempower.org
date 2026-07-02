@@ -37,7 +37,16 @@ fact-checks flagged, hedged, or killed. Standing examples:
   (ended Sep 30, 2025).
 - **No unsourceable figures** — e.g. the "$8,000 ESA value"; no "one-third off"
   for the NID water discount (it's a flat $9.50/mo).
-- **No paratransit fares** — not published by the county; unverified.
+- **No KARE** — never passed any wave's verification; nothing traceable in any
+  fact-check output. Do not cite.
+- **No "free riding" on the Low-Income Pass** — no official source says free;
+  the county/Caltrans paperwork calls it a "Fare Subsidy Program." Hedged
+  pending the week-of phone check (530-477-0103).
+- **Dial-a-ride fares** — west county now has an OFFICIAL $4.00 one-way fee
+  (county page /3578, Senior + ADA-certified dial-a-ride); never quote the
+  stale third-party $3/$5. Whether $4 covers day-before ADA corridor trips is
+  pending the week-of phone check. East county TART Dial-A-Ride is $6 adult /
+  $2 senior-disabled — a different service; don't mix them.
 
 Before recording a batch, run each file's **Freshness** line. Shorts are
 evergreen on YouTube — expired numbers keep misinforming long after air.
@@ -51,18 +60,50 @@ evergreen on YouTube — expired numbers keep misinforming long after air.
   (~2.5 words/sec).
 - Vertical framing; hook must land inside the first ~2 seconds — don't burn
   the open on a greeting.
+- **Recording after a short's freshness date?** Re-verify its numbers against
+  the file's Source line first — the freshness table below is the quick index.
 
 ## Batch 1 (this directory, 01–11)
 
 Sources: Ep1 + Ep3 fact-check reports (`show/ep{1,3}/fact-check-full-report.json`),
 Ep4 verified briefs + factcheck JSONs
 (`~/.claude/projects/-home-jp/scratch/ep4-home-transpo/`).
+QA'd 2026-07-01 against those sources: every figure re-traced; one fix applied
+(07: "new name" → 2022 rebrand, per Ep4 transit-west FIX 4).
+
+### Freshness index (verify before recording or re-posting)
+
+| # | File | Load-bearing figures | Re-verify | Hard date |
+|---|------|----------------------|-----------|-----------|
+| 01 | family-of-four-66k | $33k FPL / $66k double / HUD ~$100k | FPL each Jan; HUD limits each spring | after Jan 2027 |
+| 02 | 60-billion-unclaimed | $60B+/yr; 1-in-5 CalFresh (CA); 1-in-5 EITC | annually; entitlement claim if federal law changes | — (durable) |
+| 03 | ssi-calfresh-ban-ended | June 2019 (AB 1811) | evergreen; re-scan CDSS on federal food-rule changes | — |
+| 04 | wic-not-just-for-moms | HH2 ~$40k ($40,034) | WIC table at myfamily.wic.ca.gov | after Jun 30 2027 |
+| 05 | fridge-empty-tonight | no income test / no paperwork | phone-confirm IFM 530-273-8132 + FBNC 530-272-3796 still operating | — (hours omitted by design) |
+| 06 | calfresh-3-days | 3 calendar days (expedited) | standing CDSS/USDA policy; re-scan on SNAP changes | — |
+| 07 | kids-ride-free | youth 0–17 free (Nov 2025); $1.50/$3.00 | nevadacountyca.gov/2259 (grant-funded, can sunset) | before each posting |
+| 08 | golden-ticket-80 | 80+ lifetime free; 65+ half fare | nevadacountyca.gov/2259 | before each posting |
+| 09 | care-pge-discount | 20%+ / ~⅓ electric; $43,280 HH1–2 / $66,000 HH4 | CPUC/PG&E table (eff. Jun 1 2026) | after May 31 2027 |
+| 10 | nid-water-bill | $9.50/mo fixed | phone-confirm 530-273-6185 ("still $9.50?") | before each posting |
+| 11 | worst-is-a-no | (no figures) — immigration caveat MUST survive edits | public-charge rule status | if re-recording 2027+ |
 
 ## Batch 2 — TODO
 
 Write after the Ep4 and Ep5 fact-check waves complete. Candidates already
 verified or in flight: LIHEAP propane/wood ($1,500), AMP debt forgiveness
 ($8,000), Medical Baseline (need-based not income), smog-repair $1,450 /
-retirement $2,000, CA Low Cost Auto, Medi-Cal free rides (NEMT), TART free
-fares, Ep5 nonprofit/farm topics. Same rule: only claims that passed their
-wave.
+retirement up to $2,000, CA Low Cost Auto, Medi-Cal free rides (NEMT), TART
+free fares, Ep5 nonprofit/farm topics. Same rule: only claims that passed
+their wave. Plus Ep2 connection claims after it airs.
+
+Ep4-wave refinements already locked in (2026-07-01, `car-bar.json` +
+`transit-west.json`) — batch-2 writers use THESE, not the older briefs:
+
+- **BAR income limits**: live 2026 table is **$35,910 (1p) / $74,250 (4p)** —
+  say "about thirty-six thousand / seventy-four thousand." The ~$33k/~$70k
+  figures floating in vehicle.md §5① are 225% of the 2024 guidelines — stale.
+- **BAR retirement**: the $1,350 no-income tier **requires a FAILED most-recent
+  smog check** (pass-smog cars only qualify via the income-eligible $1,500
+  tier); registration lapse >120 days in the prior two years disqualifies.
+- **Dial-a-ride**: $4.00 one-way is the official west-county figure (see the
+  verified-sources rule above).
