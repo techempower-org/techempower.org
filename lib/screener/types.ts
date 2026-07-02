@@ -87,7 +87,12 @@ export interface Rule {
   thresholdsDisplay?: Record<string, number>
   name: Record<Lang, string>
   value: Record<Lang, string>
-  apply: { url?: string; phone?: string; local?: string }
+  /** url is language-neutral; phone/local are user-facing prose (both langs). */
+  apply: {
+    url?: string
+    phone?: Record<Lang, string>
+    local?: Record<Lang, string>
+  }
   provenance: Provenance[]
   boundaryMarginPct?: number // default 10
 }

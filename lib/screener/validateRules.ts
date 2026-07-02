@@ -43,6 +43,16 @@ export function validateRules(rules: Rule[], now: Date): string[] {
     }
     if (!r.apply.url && !r.apply.phone)
       problems.push(`${where}: apply needs url or phone`)
+    // apply prose is user-facing — when present it must carry both languages
+    for (const field of ['phone', 'local'] as const) {
+      const prose = r.apply[field]
+      if (prose) {
+        if (!prose.en?.trim())
+          problems.push(`${where}: apply.${field}.en missing`)
+        if (!prose.es?.trim())
+          problems.push(`${where}: apply.${field}.es missing`)
+      }
+    }
   }
   return problems
 }

@@ -18,6 +18,11 @@ export function ProgramCard({
       .map((p) => p.verifiedAt)
       .toSorted()
       .at(-1) ?? ''
+  const phone = rule.apply.phone?.[lang]
+  const local = rule.apply.local?.[lang]
+  // "Call:" prefix only when the prose is an actual number (oracle N2) —
+  // some rows carry agency instructions ("Project GO …", "FREED …") instead.
+  const phoneIsNumber = phone !== undefined && /^[\d+(]/.test(phone)
   return (
     <article className={styles.card} data-bucket={verdict.bucket}>
       <h3 className={styles.cardTitle}>{rule.name[lang]}</h3>
@@ -51,14 +56,12 @@ export function ProgramCard({
             {t(lang, 'card.apply')}
           </a>
         )}
-        {rule.apply.phone && (
+        {phone && (
           <span className={styles.phone}>
-            {t(lang, 'card.call')}: {rule.apply.phone}
+            {phoneIsNumber ? `${t(lang, 'card.call')}: ${phone}` : phone}
           </span>
         )}
-        {rule.apply.local && (
-          <span className={styles.local}>{rule.apply.local}</span>
-        )}
+        {local && <span className={styles.local}>{local}</span>}
       </div>
 
       <footer className={styles.provenance}>

@@ -30,8 +30,14 @@
     },
     "apply": {
       "url": "https://benefitscal.com",
-      "phone": "1-877-847-3663",
-      "local": "Nevada County DSS 530-265-1340 · Nevada City or Truckee offices"
+      "phone": {
+        "en": "1-877-847-3663",
+        "es": "1-877-847-3663"
+      },
+      "local": {
+        "en": "Nevada County DSS 530-265-1340 · Nevada City or Truckee offices",
+        "es": "DSS del condado de Nevada 530-265-1340 · oficinas en Nevada City o Truckee"
+      }
     },
     "provenance": [
       {
@@ -86,8 +92,14 @@
     },
     "apply": {
       "url": "https://myfamily.wic.ca.gov",
-      "phone": "1-800-852-5770",
-      "local": "Grass Valley 530-265-1454 · Truckee 530-582-7814"
+      "phone": {
+        "en": "1-800-852-5770",
+        "es": "1-800-852-5770"
+      },
+      "local": {
+        "en": "Grass Valley 530-265-1454 · Truckee 530-582-7814",
+        "es": "Grass Valley 530-265-1454 · Truckee 530-582-7814"
+      }
     },
     "provenance": [
       {
@@ -131,7 +143,10 @@
     },
     "apply": {
       "url": "https://www.californialifeline.com",
-      "phone": "apply through a participating carrier — provider list on the site"
+      "local": {
+        "en": "apply through a participating carrier — provider list on the site",
+        "es": "solicite a través de un operador participante — la lista de proveedores está en el sitio"
+      }
     },
     "provenance": [
       {
@@ -170,7 +185,10 @@
     },
     "apply": {
       "url": "https://www.pge.com/carefera",
-      "phone": "1-877-660-6789"
+      "phone": {
+        "en": "1-877-660-6789",
+        "es": "1-877-660-6789"
+      }
     },
     "provenance": [
       {
@@ -202,7 +220,10 @@
     },
     "apply": {
       "url": "https://www.pge.com/carefera",
-      "phone": "1-877-660-6789"
+      "phone": {
+        "en": "1-877-660-6789",
+        "es": "1-877-660-6789"
+      }
     },
     "provenance": [
       {
@@ -237,7 +258,10 @@
       "es": "Hasta $1,500 una vez al año + ayuda de crisis ante avisos de corte; no se devuelve"
     },
     "apply": {
-      "phone": "Project GO 1-888-524-5705 (press 2 for Nevada County — call at 9am, ~40 calls/day)",
+      "phone": {
+        "en": "Project GO 1-888-524-5705 (press 2 for Nevada County — call at 9am, ~40 calls/day)",
+        "es": "Project GO 1-888-524-5705 (presione 2 para el condado de Nevada — llame a las 9am, ~40 llamadas por día)"
+      },
       "url": "https://csd.ca.gov"
     },
     "provenance": [
@@ -302,7 +326,7 @@
       "en": "Flat $9.50/month off treated (drinking) water — one yearly application",
       "es": "Descuento fijo de $9.50/mes en agua potable — una solicitud al año"
     },
-    "apply": { "phone": "530-273-6185" },
+    "apply": { "phone": { "en": "530-273-6185", "es": "530-273-6185" } },
     "provenance": [
       {
         "claim": "flat $9.50/mo, treated-water residential, qualify via Medi-Cal A&B/SSI/CARE/BIA-GA",
@@ -333,7 +357,10 @@
     },
     "apply": {
       "url": "https://www.mylowcostauto.com",
-      "phone": "1-866-602-8861"
+      "phone": {
+        "en": "1-866-602-8861",
+        "es": "1-866-602-8861"
+      }
     },
     "provenance": [
       {
@@ -419,7 +446,7 @@
       "en": "Everyone 17 and under rides free since Nov 2025 — no paperwork",
       "es": "Todos los menores de 18 viajan gratis desde nov 2025 — sin trámites"
     },
-    "apply": { "phone": "530-477-0103" },
+    "apply": { "phone": { "en": "530-477-0103", "es": "530-477-0103" } },
     "provenance": [
       {
         "claim": "youth ≤17 free since 2025-11-01",
@@ -443,7 +470,7 @@
       "en": "Lifetime free rides on all regular routes; proof of age is the whole application",
       "es": "Viajes gratis de por vida en rutas regulares; solo se requiere comprobante de edad"
     },
-    "apply": { "phone": "530-477-0103" },
+    "apply": { "phone": { "en": "530-477-0103", "es": "530-477-0103" } },
     "provenance": [
       {
         "claim": "80+ lifetime fixed-route pass",
@@ -468,7 +495,10 @@
       "es": "Seis meses de tarifa reducida o gratuita mediante referencia de FREED, Servicios Sociales o Salud Conductual"
     },
     "apply": {
-      "phone": "FREED 530-477-3333 · county DSS 530-265-1340 · or 2-1-1"
+      "phone": {
+        "en": "FREED 530-477-3333 · county DSS 530-265-1340 · or 2-1-1",
+        "es": "FREED 530-477-3333 · DSS del condado 530-265-1340 · o al 2-1-1"
+      }
     },
     "provenance": [
       {
@@ -526,7 +556,7 @@
       "en": "Donated wheelchairs, walkers, shower chairs, hospital beds — checked over and free; disability any age or older adults",
       "es": "Sillas de ruedas, andadores, sillas de ducha, camas de hospital — revisados y gratis; discapacidad a cualquier edad o adultos mayores"
     },
-    "apply": { "phone": "530-477-3333" },
+    "apply": { "phone": { "en": "530-477-3333", "es": "530-477-3333" } },
     "provenance": [
       {
         "claim": "free reuse program, device list, seniors + disabilities",
@@ -555,7 +585,10 @@
       "es": "Desalojos, negación de beneficios, deudas, limpieza de antecedentes — gratis si el dinero no alcanza; 60+ solo llame"
     },
     "apply": {
-      "phone": "530-823-7560 · evenings 866-815-5990",
+      "phone": {
+        "en": "530-823-7560 · evenings 866-815-5990",
+        "es": "530-823-7560 · por las noches 866-815-5990"
+      },
       "url": "https://lsnc.net"
     },
     "provenance": [

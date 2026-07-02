@@ -19,10 +19,20 @@ const RULES = rulesData as Rule[]
 
 // Trust footer: the OLDEST verifiedAt across the whole corpus — "every
 // number on this page is at least this fresh" is the honest claim.
-const VERIFIED_AS_OF =
+const VERIFIED_ISO =
   RULES.flatMap((rule) =>
     rule.provenance.map((p) => p.verifiedAt)
   ).toSorted()[0] ?? ''
+
+// Localized long date (oracle N3). Fixed locale strings + a pinned UTC zone
+// keep it deterministic across server and client (an ISO date parses as UTC
+// midnight — without the pin, a PDT server renders the previous day).
+function verifiedAsOfLabel(lang: Lang): string {
+  return new Date(VERIFIED_ISO).toLocaleDateString(
+    lang === 'es' ? 'es-US' : 'en-US',
+    { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }
+  )
+}
 
 // Site chrome (Header, Footer, chat) lives outside screener.module.css, and
 // Next's CSS modules reject :global-only selectors — so its print hiding is
@@ -129,7 +139,7 @@ export default function QualifyPage() {
           )}
 
           <p className={styles.verified}>
-            {t(lang, 'page.verifiedAsOf', { date: VERIFIED_AS_OF })}
+            {t(lang, 'page.verifiedAsOf', { date: verifiedAsOfLabel(lang) })}
           </p>
         </div>
       </section>
