@@ -1,0 +1,146 @@
+import type {
+  Answers,
+  Bucket,
+  EvaluationResult,
+  Reason,
+  Rule,
+  Verdict
+} from './types'
+import { monthlyLimit } from './fpl'
+
+const DEFAULT_MARGIN_PCT = 10
+
+function incomeLimitFor(rule: Rule, householdSize: number): number | null {
+  const t = rule.test
+  if (t.limitsMonthly) {
+    const size = Math.max(householdSize, t.householdFloor ?? 1)
+    const table = t.limitsMonthly
+    if (table[String(size)] !== undefined) return table[String(size)]!
+    const increment = table.increment ?? 0
+    const known = Object.keys(table)
+      .filter((k) => k !== 'increment')
+      .map(Number)
+    const maxKnown = Math.max(...known)
+    return table[String(maxKnown)]! + (size - maxKnown) * increment
+  }
+  if (t.incomePctFPL !== undefined)
+    return monthlyLimit(householdSize, t.incomePctFPL, t.householdFloor ?? 1)
+  return null
+}
+
+function agePasses(rule: Rule, a: Answers): boolean | null {
+  const t = rule.test
+  if (t.ageAnyMin === undefined && t.ageAnyMax === undefined) return null
+  let pass = false
+  if (t.ageAnyMin !== undefined) {
+    if (t.ageAnyMin >= 80) pass ||= a.ages.age80plus > 0
+    else if (t.ageAnyMin >= 60) pass ||= a.ages.age60plus > 0
+    else pass ||= a.ages.age18to59 + a.ages.age60plus > 0
+  }
+  if (t.ageAnyMax !== undefined) {
+    if (t.ageAnyMax <= 4) pass ||= a.ages.under5 > 0
+    else if (t.ageAnyMax <= 17) pass ||= a.ages.under5 + a.ages.age5to17 > 0
+  }
+  return pass
+}
+
+function worst(a: Bucket, b: Bucket): Bucket {
+  const order: Bucket[] = ['strong', 'likely', 'worthAsking', 'notNow']
+  return order[Math.max(order.indexOf(a), order.indexOf(b))]!
+}
+
+export function evaluate(answers: Answers, rules: Rule[]): EvaluationResult {
+  const out: EvaluationResult = {
+    strong: [],
+    likely: [],
+    worthAsking: [],
+    notNow: []
+  }
+
+  for (const rule of rules) {
+    const t = rule.test
+    const reasons: Reason[] = []
+    const notes: string[] = [...(t.specialNotes ?? [])]
+    let bucket: Bucket = 'strong'
+    let include = false
+
+    // hard flag gates — program simply doesn't apply without them
+    if (t.flagsAll?.length) {
+      const missing = t.flagsAll.filter((f) => !answers.flags.includes(f))
+      if (missing.length > 0) continue
+    }
+
+    const age = agePasses(rule, answers)
+    const unlockHit = (t.categoricalUnlocks ?? []).find((u) =>
+      answers.enrolled.includes(u)
+    )
+    const limit = incomeLimitFor(rule, answers.householdSize)
+
+    if (t.universal) {
+      include = true
+      reasons.push({ key: 'reason.universal' })
+    }
+
+    if (unlockHit) {
+      include = true
+      reasons.push({ key: 'reason.unlock', params: { program: unlockHit } })
+    } else if (limit !== null) {
+      const margin = (rule.boundaryMarginPct ?? DEFAULT_MARGIN_PCT) / 100
+      if (answers.incomeMonthlyGross <= limit) {
+        include = true
+        reasons.push({
+          key: 'reason.under-limit',
+          params: {
+            income: answers.incomeMonthlyGross,
+            limit,
+            household: answers.householdSize
+          }
+        })
+        // boundary → never strong, UNLESS a passing age band anchors the
+        // match categorically (e.g. WIC with a child under 5)
+        if (answers.incomeMonthlyGross > limit * (1 - margin) && age !== true)
+          bucket = worst(bucket, 'likely')
+      } else if (
+        notes.includes('senior-net-test') &&
+        answers.ages.age60plus > 0
+      ) {
+        // over gross limit but senior nuance applies — worth asking
+        include = true
+        bucket = worst(bucket, 'worthAsking')
+        reasons.push({ key: 'reason.senior-net-test', params: { limit } })
+      }
+    }
+
+    // age dimension: ageAnyMax (a specific member, e.g. a child) is a hard
+    // gate; ageAnyMin is a solo gate when it's the rule's only dimension and
+    // an alternative qualifying route (weaker bucket) when income exists too.
+    if (age !== null) {
+      const incomeDimension = limit !== null || t.universal || unlockHit
+      if (age && !include) {
+        if (!incomeDimension) {
+          include = true
+          reasons.push({ key: 'reason.age' })
+        } else if (t.ageAnyMin !== undefined) {
+          include = true
+          bucket = worst(bucket, 'worthAsking')
+          reasons.push({ key: 'reason.age' })
+        }
+      } else if (!age && !include) {
+        continue // age-gated and no qualifying member
+      } else if (!age && include && t.ageAnyMax !== undefined) {
+        // income passed but the required member (e.g. a child for WIC) is absent
+        continue
+      }
+    }
+
+    if (!include) continue
+
+    if (rule.status === 'check-first') bucket = worst(bucket, 'worthAsking')
+    if (rule.status === 'seasonal') bucket = worst(bucket, 'worthAsking')
+    if (rule.status === 'waitlist-closed') bucket = 'notNow'
+
+    const verdict: Verdict = { ruleId: rule.id, bucket, reasons, notes }
+    out[bucket].push(verdict)
+  }
+  return out
+}
