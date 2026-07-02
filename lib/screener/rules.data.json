@@ -112,12 +112,11 @@
     "test": {
       "limitsMonthly": {
         "1": 2050,
-        "2": 2050,
-        "3": 2358,
+        "2": 2775,
+        "3": 3508,
         "4": 4233,
         "increment": 725
       },
-      "householdFloor": 2,
       "categoricalUnlocks": ["medi-cal", "calfresh", "ssi", "wic"],
       "specialNotes": ["lifeline-two-apps"]
     },
@@ -136,10 +135,10 @@
     },
     "provenance": [
       {
-        "claim": "CA LifeLine income $24,600/1-2p, $50,800/4p annual (thru 2027-05-31) → monthly floors",
+        "claim": "per-household annual limits $24,600(1)/$33,300(2)/$42,100(3)/$50,800(4)+$8,700, eff 2026-06-01→2027-05-31",
         "source": "https://www.cpuc.ca.gov/consumer-support/financial-assistance-savings-and-discounts/lifeline/california-lifeline-eligibility",
-        "verifiedAt": "2026-06-29",
-        "via": "ep2 wave + week-of recheck"
+        "verifiedAt": "2026-07-02",
+        "via": "oracle live re-verification (B1) + builder independent re-fetch"
       },
       {
         "claim": "$9.25 federal + up to $19 CA stack",

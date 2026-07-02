@@ -45,7 +45,9 @@ describe('evaluate — golden cases from the fact-check corpus', () => {
   it('WIC needs a child under 5 (or pregnancy note) — no kid, no WIC', () => {
     const noKid = { ...base, ages: { ...base.ages, under5: 0 } }
     expect(bucketOf(evaluate(noKid, R), 'wic')).toBe('absent')
-    expect(bucketOf(evaluate(base, R), 'wic')).toBe('strong')
+    // $4,800 sits inside the 10% boundary of WIC's $5,087 limit — the
+    // conservative demotion is unconditional (oracle S2), so LIKELY.
+    expect(bucketOf(evaluate(base, R), 'wic')).toBe('likely')
   })
   it('Medi-Cal enrollment makes WIC strong regardless of income', () => {
     const r = evaluate(
@@ -109,5 +111,57 @@ describe('evaluate — golden cases from the fact-check corpus', () => {
     const r = evaluate({ ...base, flags: [...base.flags, 'has-vehicle'] }, R)
     expect(bucketOf(r, 'bar-retirement')).toBe('worthAsking')
     expect(bucketOf(r, 'bar-cap-repair')).toBe('absent')
+  })
+  it('B1: HH2 @ $2,600 gets CA LifeLine — inside the real $2,775 limit, boundary → likely', () => {
+    // The pre-fix row ($2,050 for HH2) wrongly screened this household out.
+    const hh2 = evaluate(
+      {
+        ...base,
+        householdSize: 2,
+        incomeMonthlyGross: 2600,
+        ages: {
+          under5: 0,
+          age5to17: 0,
+          age18to59: 2,
+          age60plus: 0,
+          age80plus: 0
+        }
+      },
+      R
+    )
+    expect(bucketOf(hh2, 'lifeline-ca')).toBe('likely')
+  })
+  it('B1: HH2 @ $2,400 is comfortably under the LifeLine limit — strong', () => {
+    const hh2 = evaluate(
+      {
+        ...base,
+        householdSize: 2,
+        incomeMonthlyGross: 2400,
+        ages: {
+          under5: 0,
+          age5to17: 0,
+          age18to59: 2,
+          age60plus: 0,
+          age80plus: 0
+        }
+      },
+      R
+    )
+    expect(bucketOf(hh2, 'lifeline-ca')).toBe('strong')
+  })
+  it('S1: county gate — other-ca keeps CA programs, drops nevada-county ones', () => {
+    const withElder = {
+      ...base,
+      ages: { ...base.ages, age18to59: 1, age60plus: 1 }
+    }
+    const home = evaluate(withElder, R)
+    expect(bucketOf(home, 'bus-youth-free')).toBe('strong')
+    expect(bucketOf(home, 'freed-equipment')).not.toBe('absent')
+
+    const elsewhere = evaluate({ ...withElder, county: 'other-ca' as const }, R)
+    expect(bucketOf(elsewhere, 'calfresh')).not.toBe('absent')
+    expect(bucketOf(elsewhere, 'care')).not.toBe('absent')
+    expect(bucketOf(elsewhere, 'bus-youth-free')).toBe('absent')
+    expect(bucketOf(elsewhere, 'freed-equipment')).toBe('absent')
   })
 })

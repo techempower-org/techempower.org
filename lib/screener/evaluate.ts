@@ -64,6 +64,10 @@ export function evaluate(answers: Answers, rules: Rule[]): EvaluationResult {
     let bucket: Bucket = 'strong'
     let include = false
 
+    // county gate (oracle S1): nevada-county programs don't exist elsewhere
+    if (rule.jurisdiction === 'nevada-county' && answers.county !== 'nevada')
+      continue
+
     // hard flag gates — program simply doesn't apply without them
     if (t.flagsAll?.length) {
       const missing = t.flagsAll.filter((f) => !answers.flags.includes(f))
@@ -96,9 +100,9 @@ export function evaluate(answers: Answers, rules: Rule[]): EvaluationResult {
             household: answers.householdSize
           }
         })
-        // boundary → never strong, UNLESS a passing age band anchors the
-        // match categorically (e.g. WIC with a child under 5)
-        if (answers.incomeMonthlyGross > limit * (1 - margin) && age !== true)
+        // boundary → never strong; spec conservatism is unconditional
+        // (oracle S2 removed a WIC-shaped age exemption here)
+        if (answers.incomeMonthlyGross > limit * (1 - margin))
           bucket = worst(bucket, 'likely')
       } else if (
         notes.includes('senior-net-test') &&
