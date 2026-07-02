@@ -33,6 +33,7 @@ export type SituationFlag =
   | 'failed-smog'
   | 'pregnant'
   | 'medicare'
+  | 'disability'
 
 export interface AgeBandCounts {
   under5: number
@@ -73,6 +74,12 @@ export interface RuleTest extends IncomeTest {
    *  satisfies it (e.g. WIC's pregnancy category alongside kids under 5).
    *  Income and other gates still apply. */
   memberFlagsAny?: SituationFlag[]
+  /** Makes the member dimension (ageAny bands ∪ memberFlagsAny) HARD:
+   *  member-fail omits the rule even when income passes, and
+   *  overLimitRescue only fires when a member passes (oracle mixed ruling —
+   *  SSI is categorically 65+/disabled; without this, ageAnyMin+income
+   *  rules include on income alone and the rescue fires member-blind). */
+  memberGate?: boolean
   /** Everyone passes (e.g. CA universal school meals w/ kids). Income ignored. */
   universal?: boolean
   /** When set, the income limit is a proxy/band that GATES visibility but

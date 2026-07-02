@@ -60,6 +60,7 @@ export function ScreenerForm({
   const [failedSmog, setFailedSmog] = React.useState(false)
   const [pregnant, setPregnant] = React.useState(false)
   const [medicare, setMedicare] = React.useState(false)
+  const [disability, setDisability] = React.useState(false)
   const [enrolled, setEnrolled] = React.useState<Enrollment[]>([])
 
   function setAgeBand(band: keyof AgeBandCounts, raw: string) {
@@ -100,6 +101,7 @@ export function ScreenerForm({
     if (vehicle && failedSmog) flags.push('failed-smog')
     if (pregnant) flags.push('pregnant')
     if (medicare) flags.push('medicare')
+    if (disability) flags.push('disability')
     onSubmit({
       householdSize: size,
       incomeMonthlyGross:
@@ -342,6 +344,18 @@ export function ScreenerForm({
             />
             <label className={styles.choiceLabel} htmlFor='q-flag-medicare'>
               {t(lang, 'form.flags.medicare')}
+            </label>
+          </div>
+          <div className={styles.checkItem}>
+            <input
+              id='q-flag-disability'
+              className={styles.checkbox}
+              type='checkbox'
+              checked={disability}
+              onChange={(e) => setDisability(e.target.checked)}
+            />
+            <label className={styles.choiceLabel} htmlFor='q-flag-disability'>
+              {t(lang, 'form.flags.disability')}
             </label>
           </div>
         </div>

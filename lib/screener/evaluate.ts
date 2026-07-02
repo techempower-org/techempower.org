@@ -80,6 +80,15 @@ export function evaluate(answers: Answers, rules: Rule[]): EvaluationResult {
     }
 
     const age = agePasses(rule, answers)
+    const memberViaFlag =
+      t.memberFlagsAny?.some((f) => answers.flags.includes(f)) ?? false
+
+    // memberGate (oracle mixed ruling): the member dimension is HARD — no
+    // qualifying member (age band or member flag) means the rule is omitted
+    // before income is even considered, so overLimitRescue can never fire
+    // member-blind.
+    if (t.memberGate && age !== null && !age && !memberViaFlag) continue
+
     const unlockHit = (t.categoricalUnlocks ?? []).find((u) =>
       answers.enrolled.includes(u)
     )
@@ -157,8 +166,6 @@ export function evaluate(answers: Answers, rules: Rule[]): EvaluationResult {
     // category) — every other gate, income included, still applies.
     if (age !== null) {
       const incomeDimension = limit !== null || t.universal || unlockHit
-      const memberViaFlag =
-        t.memberFlagsAny?.some((f) => answers.flags.includes(f)) ?? false
       if (age && !include) {
         if (!incomeDimension) {
           include = true

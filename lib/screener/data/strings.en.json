@@ -25,6 +25,7 @@
   "form.flags.failedSmog": "…and it failed its last smog check",
   "form.flags.pregnant": "Pregnant, or a baby in the household?",
   "form.flags.medicare": "On Medicare?",
+  "form.flags.disability": "Does anyone in the household have a disability?",
   "form.enrolled": "Already enrolled in any of these?",
   "form.enrolled.medi-cal": "Medi-Cal",
   "form.enrolled.calfresh": "CalFresh",
