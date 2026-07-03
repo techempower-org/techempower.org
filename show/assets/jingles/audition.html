@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jingle Audition — “Wait, I Qualify?!”</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%232d6a63'/%3E%3Cpath d='M40 14v24.5a7.5 7.5 0 1 1-3-6V22l-12 3v18.5a7.5 7.5 0 1 1-3-6V19l18-5z' fill='%23e8a33d'/%3E%3C/svg%3E">
+<style>
+  /* ── Warm earth-tone design tokens (TechEmpower house palette) ─────────── */
+  :root {
+    --cream:        #faf6ef;
+    --paper:        #f3ecdf;
+    --card:         #fffdf8;
+    --bark:         #3b2f27;
+    --bark-soft:    #6b5d51;
+    --bark-faint:   #9c8d7f;
+    --teal:         #2d6a63;
+    --teal-soft:    #e2edea;
+    --amber:        #c07b28;
+    --amber-bright: #e8a33d;
+    --amber-soft:   #f7e8d2;
+    --coral:        #c05b45;
+    --line:         #e4dac9;
+    --shadow:       0 1px 3px rgba(59, 47, 39, .07), 0 8px 24px rgba(59, 47, 39, .06);
+    --shadow-lift:  0 2px 6px rgba(59, 47, 39, .10), 0 14px 34px rgba(59, 47, 39, .12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --cream:        #1d1712;
+      --paper:        #241d17;
+      --card:         #2b231c;
+      --bark:         #f0e7da;
+      --bark-soft:    #c4b5a4;
+      --bark-faint:   #8d7e6e;
+      --teal:         #6fb5aa;
+      --teal-soft:    #22322f;
+      --amber:        #e8a33d;
+      --amber-bright: #f2b95c;
+      --amber-soft:   #3a2d1c;
+      --coral:        #e08268;
+      --line:         #3a3128;
+      --shadow:       0 1px 3px rgba(0, 0, 0, .35), 0 8px 24px rgba(0, 0, 0, .30);
+      --shadow-lift:  0 2px 6px rgba(0, 0, 0, .45), 0 14px 34px rgba(0, 0, 0, .40);
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { color-scheme: light dark; }
+
+  body {
+    font-family: "Seravek", "Gill Sans", "Gill Sans MT", "Trebuchet MS", "DejaVu Sans", Verdana, sans-serif;
+    background:
+      radial-gradient(1100px 500px at 85% -10%, var(--amber-soft) 0%, transparent 60%),
+      radial-gradient(900px 600px at -10% 110%, var(--teal-soft) 0%, transparent 55%),
+      var(--cream);
+    color: var(--bark);
+    min-height: 100vh;
+    padding: 2.5rem 1.25rem 9rem;
+    line-height: 1.5;
+  }
+
+  .sleeve { max-width: 860px; margin: 0 auto; }
+
+  /* ── Masthead ──────────────────────────────────────────────────────────── */
+  header { margin-bottom: 2.25rem; }
+
+  .kicker {
+    display: inline-flex; align-items: center; gap: .55rem;
+    font-size: .72rem; font-weight: 700; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--teal);
+  }
+  .kicker::before {
+    content: ""; width: 2.2rem; height: 2px;
+    background: var(--amber); border-radius: 2px;
+  }
+
+  h1 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-size: clamp(2.1rem, 5.5vw, 3.1rem);
+    font-weight: 700; letter-spacing: -.015em; line-height: 1.12;
+    margin: .4rem 0 .55rem;
+  }
+  h1 em { font-style: italic; color: var(--amber); }
+
+  .lede { color: var(--bark-soft); max-width: 46rem; font-size: .98rem; }
+  .lede kbd {
+    font-family: ui-monospace, "DejaVu Sans Mono", Menlo, Consolas, monospace;
+    font-size: .82em; font-weight: 700;
+    background: var(--card); color: var(--bark);
+    border: 1px solid var(--line); border-bottom-width: 2px;
+    border-radius: 5px; padding: .1em .45em;
+  }
+
+  /* ── Track list ────────────────────────────────────────────────────────── */
+  .tracks { list-style: none; display: grid; gap: .65rem; }
+
+  .track {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3.4rem 1fr minmax(230px, 300px) auto;
+    align-items: center;
+    gap: 1rem;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 4px solid transparent;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: .85rem 1.1rem .85rem .9rem;
+    transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+    animation: rise .5s cubic-bezier(.2, .7, .3, 1) backwards;
+  }
+  .track:nth-child(1) { animation-delay: .03s; }
+  .track:nth-child(2) { animation-delay: .09s; }
+  .track:nth-child(3) { animation-delay: .15s; }
+  .track:nth-child(4) { animation-delay: .21s; }
+  .track:nth-child(5) { animation-delay: .27s; }
+  .track:nth-child(6) { animation-delay: .33s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
+  @media (prefers-reduced-motion: reduce) { .track { animation: none; } }
+
+  .track:hover { box-shadow: var(--shadow-lift); transform: translateY(-1px); }
+
+  .track.playing {
+    border-color: var(--amber);
+    border-left-color: var(--amber);
+    box-shadow: var(--shadow-lift);
+  }
+  .track.picked { border-left-color: var(--teal); }
+  .track.picked.playing { border-left-color: var(--amber); }
+
+  /* Big serif ordinal, record-sleeve style — doubles as the hotkey label */
+  .ordinal {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 2rem; font-weight: 700; font-style: italic;
+    color: var(--bark-faint); text-align: center; line-height: 1;
+    user-select: none;
+  }
+  .track.playing .ordinal { color: var(--amber); }
+  .ordinal small {
+    display: block; font-family: inherit; font-style: normal;
+    font-size: .55rem; font-weight: 400; letter-spacing: .14em;
+    text-transform: uppercase; margin-top: .3rem; color: var(--bark-faint);
+  }
+
+  .meta { min-width: 0; }
+  .name {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 1.18rem; font-weight: 700; letter-spacing: -.01em;
+  }
+  .file {
+    font-family: ui-monospace, "DejaVu Sans Mono", Menlo, Consolas, monospace;
+    font-size: .72rem; color: var(--bark-faint);
+    overflow-wrap: anywhere;
+  }
+
+  .badge {
+    display: inline-block; vertical-align: 2px;
+    margin-left: .5rem; padding: .12rem .55rem;
+    font-size: .64rem; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--teal); background: var(--teal-soft);
+    border: 1px solid color-mix(in srgb, var(--teal) 30%, transparent);
+    border-radius: 999px; white-space: nowrap;
+  }
+
+  /* Tiny CSS equalizer — only animates while its row is .playing */
+  .eq { display: inline-flex; gap: 2px; align-items: flex-end; height: .8rem; margin-left: .5rem;
+        vertical-align: -1px; visibility: hidden; }
+  .track.playing .eq { visibility: visible; }
+  .eq i { width: 3px; background: var(--amber); border-radius: 2px; height: 30%; }
+  .track.playing .eq i { animation: bounce .55s ease-in-out infinite alternate; }
+  .eq i:nth-child(2) { animation-delay: .18s; }
+  .eq i:nth-child(3) { animation-delay: .32s; }
+  @keyframes bounce { from { height: 25%; } to { height: 100%; } }
+  @media (prefers-reduced-motion: reduce) { .eq i { animation: none; height: 70%; } }
+
+  audio { width: 100%; height: 2.15rem; border-radius: 999px; }
+
+  /* Pick control */
+  .pick {
+    display: inline-flex; align-items: center; gap: .5rem;
+    font-size: .82rem; font-weight: 700; color: var(--bark-soft);
+    cursor: pointer; white-space: nowrap;
+    padding: .45rem .8rem; border: 1px dashed var(--line); border-radius: 999px;
+    transition: color .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .pick:hover { color: var(--teal); border-color: var(--teal); }
+  .pick input { accent-color: var(--teal); width: 1.05rem; height: 1.05rem; cursor: pointer; }
+  .track.picked .pick {
+    color: var(--teal); border: 1px solid var(--teal); background: var(--teal-soft);
+  }
+
+  /* ── Sticky footer: the verdict line ───────────────────────────────────── */
+  footer {
+    position: fixed; inset: auto 0 0 0; z-index: 10;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid var(--line);
+    padding: .9rem 1.25rem;
+  }
+  .verdict {
+    max-width: 860px; margin: 0 auto;
+    display: flex; align-items: center; gap: .8rem; flex-wrap: wrap;
+  }
+  .verdict-label {
+    font-size: .7rem; font-weight: 700; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--amber);
+  }
+  #pickline {
+    flex: 1; min-width: 220px;
+    font-family: ui-monospace, "DejaVu Sans Mono", Menlo, Consolas, monospace;
+    font-size: .95rem; font-weight: 700; color: var(--bark);
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: .55rem .8rem;
+  }
+  #copybtn {
+    font: inherit; font-size: .85rem; font-weight: 700;
+    color: var(--cream); background: var(--teal);
+    border: none; border-radius: 10px; padding: .6rem 1.15rem;
+    cursor: pointer; transition: background .15s ease, transform .1s ease;
+  }
+  #copybtn:hover { background: color-mix(in srgb, var(--teal) 85%, var(--bark) 15%); }
+  #copybtn:active { transform: scale(.97); }
+  #copybtn.copied { background: var(--amber); }
+
+  /* ── Small screens: stack the row ──────────────────────────────────────── */
+  @media (max-width: 640px) {
+    .track { grid-template-columns: 2.6rem 1fr; grid-template-rows: auto auto; }
+    .ordinal { font-size: 1.5rem; grid-row: span 2; align-self: start; }
+    audio { grid-column: 2; }
+    .pick { grid-column: 2; justify-self: start; }
+  }
+</style>
+</head>
+<body>
+<div class="sleeve">
+  <header>
+    <span class="kicker">Wait, I Qualify?! · Series Jingle</span>
+    <h1>The Audition — <em>pick the one</em></h1>
+    <p class="lede">
+      Press <kbd>1</kbd>–<kbd>6</kbd> to play (or restart) a candidate — tap two numbers
+      back-to-back for a fast A/B. <kbd>Space</kbd> stops everything. When your ears decide,
+      hit its <strong>pick</strong> button and copy the verdict below.
+    </p>
+  </header>
+
+  <ol class="tracks" id="tracks">
+    <li class="track picked" data-slug="jingle_01_warm-piano">
+      <div class="ordinal">1<small>key</small></div>
+      <div class="meta">
+        <div class="name">Warm Piano
+          <span class="badge">current pick · used in Ep1</span>
+          <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <div class="file">jingle_01_warm-piano.mp3</div>
+      </div>
+      <audio controls preload="metadata" src="jingle_01_warm-piano.mp3"></audio>
+      <label class="pick"><input type="radio" name="pick" value="jingle_01_warm-piano" checked> pick this one</label>
+    </li>
+
+    <li class="track" data-slug="jingle_02_bright-marimba">
+      <div class="ordinal">2<small>key</small></div>
+      <div class="meta">
+        <div class="name">Bright Marimba
+          <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <div class="file">jingle_02_bright-marimba.mp3</div>
+      </div>
+      <audio controls preload="metadata" src="jingle_02_bright-marimba.mp3"></audio>
+      <label class="pick"><input type="radio" name="pick" value="jingle_02_bright-marimba"> pick this one</label>
+    </li>
+
+    <li class="track" data-slug="jingle_03_hopeful-arp">
+      <div class="ordinal">3<small>key</small></div>
+      <div class="meta">
+        <div class="name">Hopeful Arp
+          <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <div class="file">jingle_03_hopeful-arp.mp3</div>
+      </div>
+      <audio controls preload="metadata" src="jingle_03_hopeful-arp.mp3"></audio>
+      <label class="pick"><input type="radio" name="pick" value="jingle_03_hopeful-arp"> pick this one</label>
+    </li>
+
+    <li class="track" data-slug="jingle_04_acoustic-folk">
+      <div class="ordinal">4<small>key</small></div>
+      <div class="meta">
+        <div class="name">Acoustic Folk
+          <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <div class="file">jingle_04_acoustic-folk.mp3</div>
+      </div>
+      <audio controls preload="metadata" src="jingle_04_acoustic-folk.mp3"></audio>
+      <label class="pick"><input type="radio" name="pick" value="jingle_04_acoustic-folk"> pick this one</label>
+    </li>
+
+    <li class="track" data-slug="jingle_05_soft-fanfare">
+      <div class="ordinal">5<small>key</small></div>
+      <div class="meta">
+        <div class="name">Soft Fanfare
+          <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <div class="file">jingle_05_soft-fanfare.mp3</div>
+      </div>
+      <audio controls preload="metadata" src="jingle_05_soft-fanfare.mp3"></audio>
+      <label class="pick"><input type="radio" name="pick" value="jingle_05_soft-fanfare"> pick this one</label>
+    </li>
+
+    <li class="track" data-slug="jingle_06_uke-whistle">
+      <div class="ordinal">6<small>key</small></div>
+      <div class="meta">
+        <div class="name">Uke &amp; Whistle
+          <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <div class="file">jingle_06_uke-whistle.mp3</div>
+      </div>
+      <audio controls preload="metadata" src="jingle_06_uke-whistle.mp3"></audio>
+      <label class="pick"><input type="radio" name="pick" value="jingle_06_uke-whistle"> pick this one</label>
+    </li>
+  </ol>
+</div>
+
+<footer>
+  <div class="verdict">
+    <span class="verdict-label">Verdict</span>
+    <input id="pickline" type="text" readonly value="PICK: jingle_01_warm-piano" aria-label="Selected pick, copyable">
+    <button id="copybtn" type="button">Copy</button>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var rows    = Array.prototype.slice.call(document.querySelectorAll(".track"));
+  var players = rows.map(function (r) { return r.querySelector("audio"); });
+  var radios  = rows.map(function (r) { return r.querySelector("input[type=radio]"); });
+  var pickline = document.getElementById("pickline");
+  var copybtn  = document.getElementById("copybtn");
+
+  function stopAll(except) {
+    players.forEach(function (a) {
+      if (a !== except) { a.pause(); a.currentTime = 0; }
+    });
+  }
+
+  function playTrack(i) {
+    var a = players[i];
+    if (!a) return;
+    stopAll(a);
+    a.currentTime = 0;           // restart even if already playing → instant A/B
+    a.play();
+  }
+
+  // Row highlight follows actual playback state (covers mouse + keyboard).
+  players.forEach(function (a, i) {
+    a.addEventListener("play", function () {
+      stopAll(a);                // one voice at a time
+      rows.forEach(function (r) { r.classList.remove("playing"); });
+      rows[i].classList.add("playing");
+    });
+    ["pause", "ended"].forEach(function (ev) {
+      a.addEventListener(ev, function () { rows[i].classList.remove("playing"); });
+    });
+  });
+
+  // Keyboard: 1–6 play/restart, Space stops everything.
+  window.addEventListener("keydown", function (e) {
+    if (e.ctrlKey || e.altKey || e.metaKey) return;
+    if (e.key >= "1" && e.key <= "6") {
+      e.preventDefault();        // don't let a focused <audio> or radio swallow it
+      playTrack(Number(e.key) - 1);
+    } else if (e.key === " " || e.code === "Space") {
+      e.preventDefault();        // no page scroll, no native audio toggle fight
+      players.forEach(function (a) { a.pause(); });
+    }
+  });
+
+  // Radio → verdict line + picked styling.
+  radios.forEach(function (radio, i) {
+    radio.addEventListener("change", function () {
+      if (!radio.checked) return;
+      rows.forEach(function (r) { r.classList.remove("picked"); });
+      rows[i].classList.add("picked");
+      pickline.value = "PICK: " + radio.value;
+      copybtn.textContent = "Copy";
+      copybtn.classList.remove("copied");
+    });
+  });
+
+  // Copy with clipboard API, execCommand fallback for file:// edge cases.
+  function flashCopied() {
+    copybtn.textContent = "Copied ✓";
+    copybtn.classList.add("copied");
+    setTimeout(function () {
+      copybtn.textContent = "Copy";
+      copybtn.classList.remove("copied");
+    }, 1600);
+  }
+  copybtn.addEventListener("click", function () {
+    var text = pickline.value;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(flashCopied, fallbackCopy);
+    } else {
+      fallbackCopy();
+    }
+    function fallbackCopy() {
+      pickline.focus();
+      pickline.select();
+      try { document.execCommand("copy"); flashCopied(); } catch (err) { /* selection left for manual Ctrl+C */ }
+    }
+  });
+})();
+</script>
+</body>
+</html>

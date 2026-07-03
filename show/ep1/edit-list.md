@@ -29,6 +29,14 @@ Total cut: ~26.1 seconds. No overlaps between any cuts.
 
 No overlaps between any overlays or between cuts and overlays.
 
+**Overlay assets** live in the repo at `show/assets/logo/ep1-overlays/`
+(`~/Videos/logo` is a symlink there, so Resolve's media links still
+resolve). July 3 corrections: Shawna's lower third now reads **Shawna
+Hein** (matching Jeff's), and the book card credits the verified author
+**Clara E. Mattei** (the June 29 render said Matthew Desmond — wrong
+author). Regenerate any overlay with `show/assets/generate-ep1-overlays.py`.
+If Resolve still shows the old text: Playback → Delete Render Cache.
+
 ## Audio review flags (check in Resolve)
 
 - SRT #2: "techandpower.org" vs "TechEmpower.org" — transcription error or actual misspeak?
