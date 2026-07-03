@@ -1,0 +1,17 @@
+{
+  "year": 2026,
+  "annual": {
+    "1": 15960,
+    "2": 21640,
+    "3": 27320,
+    "4": 33000,
+    "5": 38680,
+    "6": 44360,
+    "7": 50040,
+    "8": 55720
+  },
+  "increment": 5680,
+  "source": "https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines",
+  "verifiedAt": "2026-07-01",
+  "via": "cross-checked against Ep3 WIC verification (185% = $29,526/1p, $61,050/4p) and Ep4 CLCA verification (250% = $39,900/1p, $82,500/4p)"
+}

@@ -1,0 +1,1419 @@
+[
+  {
+    "id": "calfresh",
+    "jurisdiction": "CA",
+    "category": "food",
+    "status": "open",
+    "test": {
+      "limitsMonthly": {
+        "1": 2610,
+        "2": 3526,
+        "3": 4442,
+        "4": 5360,
+        "5": 6276,
+        "6": 7192,
+        "7": 8110,
+        "8": 9026,
+        "increment": 918
+      },
+      "categoricalUnlocks": ["ssi", "calworks"],
+      "specialNotes": ["senior-net-test", "student-rules", "expedited-3-day"]
+    },
+    "thresholdsDisplay": { "1": 2610, "4": 5360 },
+    "noteParams": {
+      "expedited-3-day": { "limitExpedited": 150, "limitLiquid": 100 }
+    },
+    "name": {
+      "en": "CalFresh (grocery money / SNAP)",
+      "es": "CalFresh (dinero para comida / SNAP)"
+    },
+    "value": {
+      "en": "Up to $298/mo (1 person) or $994/mo (family of 4) on an EBT card",
+      "es": "Hasta $298/mes (1 persona) o $994/mes (familia de 4) en una tarjeta EBT"
+    },
+    "apply": {
+      "url": "https://benefitscal.com",
+      "phone": {
+        "en": "1-877-847-3663",
+        "es": "1-877-847-3663"
+      },
+      "local": {
+        "en": "Nevada County DSS 530-265-1340 · Nevada City or Truckee offices",
+        "es": "DSS del condado de Nevada 530-265-1340 · oficinas en Nevada City o Truckee"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "200% FPL gross limits FFY2026",
+        "source": "https://calfresh.dss.ca.gov/food/eligibility/index.html",
+        "verifiedAt": "2026-07-01",
+        "via": "ep3 wave: cf-mechanics-income (ACIN I-46-25)"
+      },
+      {
+        "claim": "max/min allotments FY2026",
+        "source": "https://www.fns.usda.gov/snap/allotment/COLA",
+        "verifiedAt": "2026-07-02",
+        "via": "ep3 wave: cf-amounts; re-cited 2026-07-02 after the original USDA memo PDF went dead — oracle corpus sweep (E1) confirmed both figures live at the FNS COLA page"
+      },
+      {
+        "claim": "SSI eligible since 2019",
+        "source": "https://www.cdss.ca.gov/inforesources/calfresh/supplemental-security-income",
+        "verifiedAt": "2026-07-01",
+        "via": "ep3 wave: cf-ssi-seniors"
+      },
+      {
+        "claim": "Expedited service entitlement: (1) gross monthly income < $150 AND liquid resources ≤ $100; (2) combined monthly gross income + liquid resources less than monthly rent/mortgage + utilities; (3) destitute migrant/seasonal farmworker with liquid resources ≤ $100. Benefits available no later than the 3rd calendar day after application (MPP 63-301.5; weekend counts as one calendar day)",
+        "source": "https://cdss.ca.gov/Portals/9/Additional-Resources/Letters-and-Notices/ACINs/2025/I-35_25.pdf",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 mixed batch (ACIN I-35-25, CalFresh Timeliness Standards) + oracle: all four claims confirmed verbatim"
+      }
+    ]
+  },
+  {
+    "id": "wic",
+    "jurisdiction": "CA",
+    "category": "food",
+    "status": "open",
+    "test": {
+      "limitsMonthly": {
+        "1": 2460,
+        "2": 3336,
+        "3": 4212,
+        "4": 5087,
+        "5": 5963,
+        "6": 6839,
+        "7": 7714,
+        "8": 8590,
+        "increment": 876
+      },
+      "ageAnyMax": 4,
+      "memberFlagsAny": ["pregnant"],
+      "categoricalUnlocks": ["medi-cal", "calfresh", "calworks"],
+      "specialNotes": ["wic-caregivers", "wic-pregnant"]
+    },
+    "thresholdsDisplay": { "1": 2460, "4": 5087 },
+    "name": {
+      "en": "WIC (food money for pregnancy + kids under 5)",
+      "es": "WIC (dinero para alimentos: embarazo y niños menores de 5)"
+    },
+    "value": {
+      "en": "$26/mo produce money per child (1-5), $48-52 while pregnant/breastfeeding, plus healthy staples",
+      "es": "$26/mes en frutas y verduras por niño (1-5), $48-52 durante el embarazo/lactancia, más alimentos básicos"
+    },
+    "apply": {
+      "url": "https://myfamily.wic.ca.gov",
+      "phone": {
+        "en": "1-800-852-5770",
+        "es": "1-800-852-5770"
+      },
+      "local": {
+        "en": "Grass Valley 530-265-1454 · Truckee 530-582-7814",
+        "es": "Grass Valley 530-265-1454 · Truckee 530-582-7814"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "185% FPL table eff. 2026-05-01→2027-06-30 ($29,526/1p, $61,050/4p annual); monthly cells = floor(annual ÷ 12), each ≤ the site's printed rounded column — never overstating (derivation rule per oracle corpus sweep E3)",
+        "source": "https://myfamily.wic.ca.gov/Home/AmIEligible",
+        "verifiedAt": "2026-07-01",
+        "via": "ep3 wave: wic-eligibility (CDPH WPPM 980-1060)"
+      },
+      {
+        "claim": "CVB amounts Apr-2026",
+        "source": "https://myfamily.wic.ca.gov/Home/FruitsVegBenefits",
+        "verifiedAt": "2026-07-01",
+        "via": "ep3 wave: wic-benefits"
+      }
+    ]
+  },
+  {
+    "id": "lifeline-ca",
+    "jurisdiction": "CA",
+    "category": "utilities",
+    "status": "open",
+    "test": {
+      "limitsMonthly": {
+        "1": 2050,
+        "2": 2775,
+        "3": 3508,
+        "4": 4233,
+        "increment": 725
+      },
+      "categoricalUnlocks": ["medi-cal", "calfresh", "ssi", "wic"],
+      "specialNotes": ["lifeline-carrier-signup"]
+    },
+    "thresholdsDisplay": { "1": 2050, "4": 4233 },
+    "name": {
+      "en": "Free/discount phone service (federal Lifeline + CA LifeLine)",
+      "es": "Servicio telefónico gratis o con descuento (Lifeline federal + CA LifeLine)"
+    },
+    "value": {
+      "en": "Up to ~$28/mo combined discounts — free phone plans exist from participating carriers",
+      "es": "Hasta ~$28/mes en descuentos combinados — hay planes gratis con operadores participantes"
+    },
+    "apply": {
+      "url": "https://www.californialifeline.com",
+      "local": {
+        "en": "sign up on the carrier's own website — Assurance Wireless and SafeLink Wireless are the main ones; full provider list on the site",
+        "es": "inscríbase en el sitio web del operador — Assurance Wireless y SafeLink Wireless son los principales; la lista completa de proveedores está en el sitio"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "per-household annual limits $24,600(1)/$33,300(2)/$42,100(3)/$50,800(4)+$8,700, eff 2026-06-01→2027-05-31",
+        "source": "https://www.cpuc.ca.gov/consumer-support/financial-assistance-savings-and-discounts/lifeline/california-lifeline-eligibility",
+        "verifiedAt": "2026-07-02",
+        "via": "oracle live re-verification (B1) + builder independent re-fetch"
+      },
+      {
+        "claim": "$9.25 federal + up to $19 CA stack",
+        "source": "https://www.cpuc.ca.gov/-/media/cpuc-website/divisions/communications-division/documents/lifeline/lifeline-stat-sheet-051126.pdf",
+        "verifiedAt": "2026-07-01",
+        "via": "ep2 final pre-shoot sweep"
+      }
+    ]
+  },
+  {
+    "id": "care",
+    "jurisdiction": "CA",
+    "category": "utilities",
+    "status": "open",
+    "test": {
+      "incomePctFPL": 200,
+      "householdFloor": 2,
+      "flagsAll": ["pge-customer"],
+      "categoricalUnlocks": ["medi-cal", "calfresh", "ssi", "wic", "calworks"]
+    },
+    "thresholdsDisplay": { "2": 3606, "4": 5500 },
+    "name": {
+      "en": "CARE (20%+ off PG&E, every month)",
+      "es": "CARE (20%+ de descuento en PG&E, cada mes)"
+    },
+    "value": {
+      "en": "20%+ off gas and 35%+ off electric, permanently while eligible",
+      "es": "20%+ de descuento en gas y 35%+ en electricidad, de forma permanente mientras califique"
+    },
+    "apply": {
+      "url": "https://www.pge.com/carefera",
+      "phone": {
+        "en": "1-877-660-6789",
+        "es": "1-877-660-6789"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "200% FPG tables eff. 2026-06-01→2027-05-31 ($43,280/1-2p, $66,000/4p annual); electric discount \"35% or more\" per the live page",
+        "source": "https://www.pge.com/en/account/billing-and-assistance/financial-assistance/california-alternate-rates-for-energy-program.html",
+        "verifiedAt": "2026-07-02",
+        "via": "ep4 wave: care-fera; oracle corpus sweep (E2) re-verified 2026-07-02 — prior ~30-35% value line understated"
+      }
+    ]
+  },
+  {
+    "id": "fera",
+    "jurisdiction": "CA",
+    "category": "utilities",
+    "status": "open",
+    "test": {
+      "incomePctFPL": 250,
+      "householdFloor": 2,
+      "flagsAll": ["pge-customer"]
+    },
+    "thresholdsDisplay": { "2": 4508, "4": 6875 },
+    "name": {
+      "en": "FERA (18% off PG&E electric)",
+      "es": "FERA (18% de descuento en electricidad PG&E)"
+    },
+    "value": {
+      "en": "~18% off the electric side (~$45/mo typical) if you make a bit too much for CARE",
+      "es": "~18% de descuento en electricidad (~$45/mes típico) si gana un poco más del límite de CARE"
+    },
+    "apply": {
+      "url": "https://www.pge.com/carefera",
+      "phone": {
+        "en": "1-877-660-6789",
+        "es": "1-877-660-6789"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "250% FPG; SB1130 opened 1-2p households; one application routes CARE/FERA; 18% electric discount, bands valid through 2027-05-31",
+        "source": "https://www.pge.com/en/account/billing-and-assistance/financial-assistance/family-electric-rate-assistance-program-fera.html",
+        "verifiedAt": "2026-07-03",
+        "via": "E5 playwright pass (page renamed with -fera suffix; old URL 404s; pge.com/carefera vanity still routes)"
+      }
+    ]
+  },
+  {
+    "id": "liheap",
+    "jurisdiction": "federal",
+    "category": "utilities",
+    "status": "check-first",
+    "test": {
+      "limitsMonthly": {
+        "1": 3331,
+        "2": 4356,
+        "3": 5382,
+        "4": 6407,
+        "5": 7432,
+        "6": 8457,
+        "7": 8649,
+        "8": 8841,
+        "increment": 192
+      }
+    },
+    "thresholdsDisplay": { "4": 6407 },
+    "name": {
+      "en": "LIHEAP (heating-bill help — covers propane, wood, oil)",
+      "es": "LIHEAP (ayuda con calefacción — incluye propano, leña y petróleo)"
+    },
+    "value": {
+      "en": "Up to $1,000 a year through Project GO locally (statewide crisis cap $1,500) + crisis help with shut-off notices; never repaid",
+      "es": "Hasta $1,000 al año a través de Project GO localmente (tope estatal de crisis: $1,500) + ayuda de crisis ante avisos de corte; no se devuelve"
+    },
+    "apply": {
+      "phone": {
+        "en": "Project GO 1-888-524-5705 (press 2 for Nevada County — call at 9am, ~40 calls/day)",
+        "es": "Project GO 1-888-524-5705 (presione 2 para el condado de Nevada — llame a las 9am, ~40 llamadas por día)"
+      },
+      "url": "https://csd.ca.gov"
+    },
+    "provenance": [
+      {
+        "claim": "Statewide FFY2026 crisis cap: \"Amount to resolve the crisis. $1,500\"; benefit matrix Minimum $94 – Maximum $1,500; income standard 60% State Median Income / 150% FPL (statutory text verbatim)",
+        "source": "https://www.csd.ca.gov/Shared%20Documents/2026-Final-LIHEAP-State-Plan.pdf",
+        "verifiedAt": "2026-07-02",
+        "via": "nebula E4 (static 8.6MB PDF, plain curl + pdftotext) — replaces the program-page cite for the dollar figures"
+      },
+      {
+        "claim": "Project GO (Nevada + Placer Counties administrator): HEAP assistance ranges $350–$1,000 by household income and energy costs; ECIP crisis assistance up to $1,000 (e.g. 48-hour shut-off notice)",
+        "source": "https://www.projectgoinc.org/heap.html",
+        "verifiedAt": "2026-07-02",
+        "via": "nebula E4 — page 406s without an Accept header (browser-UA + Accept; not a JS wall, off the playwright list); ECIP figures on /ecip.html same-fetch"
+      },
+      {
+        "claim": "2026 monthly income ceilings, live table: $3,331.66/1p, $4,356.83/2p, $5,382.00/3p, $6,407.16/4p … $8,841.83/8p, then ~$192.21 steps (7p+ increments are NON-uniform vs the ~$1,025 1p-6p steps; >10p add $192.21/person); statutory 60% SMI standard covered by the State Plan cite above",
+        "source": "https://www.csd.ca.gov/Pages/LIHEAP-Income-Eligibility.aspx",
+        "verifiedAt": "2026-07-03",
+        "via": "E5 playwright pass (client-rendered table, headless chromium)"
+      }
+    ]
+  },
+  {
+    "id": "esa",
+    "jurisdiction": "CA",
+    "category": "utilities",
+    "status": "open",
+    "test": {
+      "incomePctFPL": 250,
+      "flagsAll": ["pge-customer"],
+      "categoricalUnlocks": ["medi-cal", "calfresh", "ssi"]
+    },
+    "name": {
+      "en": "Free home energy upgrades (ESA)",
+      "es": "Mejoras de energía gratis para el hogar (ESA)"
+    },
+    "value": {
+      "en": "Free insulation, LEDs, weatherstripping — sometimes fridge/furnace help; renters welcome with landlord OK",
+      "es": "Aislamiento, focos LED y sellado gratis — a veces refrigerador/calefacción; inquilinos con permiso del dueño"
+    },
+    "apply": { "url": "https://www.pge.com/esa" },
+    "provenance": [
+      {
+        "claim": "measures + renters + home 5+ yrs; income is the 250% FPG per-person table ($39,900/1p, $82,500/4p, +$14,200/person), valid through 2027-05-31 — true 1-person row, no 1-2 band",
+        "source": "https://www.pge.com/en/save-energy-and-money/energy-saving-programs/energy-savings-assistance-program.html",
+        "verifiedAt": "2026-07-03",
+        "via": "E5 playwright pass (page moved out of financial-assistance section; old URL 404s)"
+      }
+    ]
+  },
+  {
+    "id": "nid-lira",
+    "jurisdiction": "nevada-county",
+    "category": "utilities",
+    "status": "open",
+    "test": {
+      "flagsAll": ["nid-water"],
+      "categoricalUnlocks": ["medi-cal", "ssi"],
+      "specialNotes": ["nid-care-chain"]
+    },
+    "name": {
+      "en": "NID water-bill discount (LIRA)",
+      "es": "Descuento en la factura de agua NID (LIRA)"
+    },
+    "value": {
+      "en": "Flat $9.50/month off treated (drinking) water — one yearly application",
+      "es": "Descuento fijo de $9.50/mes en agua potable — una solicitud al año"
+    },
+    "apply": { "phone": { "en": "530-273-6185", "es": "530-273-6185" } },
+    "provenance": [
+      {
+        "claim": "flat $9.50/mo, treated-water residential, qualify via Medi-Cal A&B/SSI/CARE/BIA-GA",
+        "source": "https://nidwater.specialdistrict.org/files/21a126b95/LIRA+App.pdf",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 gap-fill audit (application PDF) + ep4 energy addendum"
+      }
+    ]
+  },
+  {
+    "id": "clca",
+    "jurisdiction": "CA",
+    "category": "transport",
+    "status": "open",
+    "test": {
+      "incomePctFPL": 250,
+      "flagsAll": ["has-vehicle"],
+      "categoricalUnlocks": ["calfresh", "calworks", "medi-cal"],
+      "specialNotes": ["clca-liability-only", "clca-benefit-proof"]
+    },
+    "thresholdsDisplay": { "1": 3325, "4": 6875 },
+    "name": {
+      "en": "CA Low Cost Auto Insurance ($199/yr in Nevada County)",
+      "es": "Seguro de auto de bajo costo de CA ($199/año en el condado de Nevada)"
+    },
+    "value": {
+      "en": "A year of liability coverage from $199 (Nevada County base) — car ≤$25k, valid CA license",
+      "es": "Un año de cobertura de responsabilidad desde $199 (base del condado) — auto ≤$25k, licencia de CA vigente"
+    },
+    "apply": {
+      "url": "https://www.mylowcostauto.com",
+      "phone": {
+        "en": "1-866-602-8861",
+        "es": "1-866-602-8861"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Statutory program (Ins. Code §11629.7); SB 1273 exception to the 3-year-license rule; vehicle value cap raised from $20,000 to $25,000; legal via Veh. Code §16056.1 carve-out; apply via www.mylowcostauto.com / 1-866-602-8861",
+        "source": "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/01-auto/lca/",
+        "verifiedAt": "2026-07-02",
+        "via": "nebula E4 final-three (plain curl + WebFetch — CDI static primary)"
+      },
+      {
+        "claim": "CDI consumer pamphlet qualify bullets verbatim: valid California driver's license including AB60 for undocumented drivers; vehicle valued $25,000 or less; good driving record; meet household income guidelines. Benefit-based income proof accepted: CalFresh EBT / CalWORKs letter / Medi-Cal card / EDD / SS-pension letter — primary support for the categoricalUnlocks",
+        "source": "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/01-auto/lca/upload/Pamphlet-English-1.pdf",
+        "verifiedAt": "2026-07-02",
+        "via": "nebula E4 final-three (plain curl + pdftotext); oracle one-fetch confirmation folded into the final pass"
+      },
+      {
+        "claim": "250% FPL dollar table ($39,900/1p, $82,500/4p) + $199 Nevada County base premium",
+        "source": "https://www.mylowcostauto.com/eligibility",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 wave: clca; mylowcostauto.com and aipso.com serve Incapsula shells to every automated fetcher and archive.org holds no snapshot — dollar re-verification queued as E5 playwright, narrowed to this page"
+      }
+    ]
+  },
+  {
+    "id": "bar-cap-repair",
+    "jurisdiction": "CA",
+    "category": "transport",
+    "status": "open",
+    "test": {
+      "limitsMonthly": {
+        "1": 2992,
+        "2": 4058,
+        "3": 5123,
+        "4": 6187,
+        "increment": 1065
+      },
+      "flagsAll": ["has-vehicle", "failed-smog"]
+    },
+    "thresholdsDisplay": { "1": 2992, "4": 6187 },
+    "name": {
+      "en": "Smog-repair help (BAR CAP, up to $1,450)",
+      "es": "Ayuda para reparación de smog (BAR CAP, hasta $1,450)"
+    },
+    "value": {
+      "en": "Up to $1,450 toward emissions repairs after a failed smog check ($1,100 for 1976–95 model years) — you pay at least 20%",
+      "es": "Hasta $1,450 para reparaciones tras reprobar el smog ($1,100 para modelos 1976–95) — usted paga al menos 20%"
+    },
+    "apply": { "url": "https://www.bar.ca.gov/cap" },
+    "provenance": [
+      {
+        "claim": "MY1996+ up to $1,450 / MY1976-1995 up to $1,100 for emissions-related repairs; copay 20% of total when ≤$1,812.50, else total minus $1,450",
+        "source": "https://www.bar.ca.gov/cap/repair",
+        "verifiedAt": "2026-07-03",
+        "via": "E5 playwright pass (accordion DOM; old consumer/consumer-assistance-program URL now redirects to /cap)"
+      },
+      {
+        "claim": "225% FPL 2026 income table ($35,910/1p, $74,250/4p annual; BAR's printed monthly column $2,993/1p, $4,058/2p, $5,123/3p, $6,188/4p, +$1,065/person 9+)",
+        "source": "https://www.bar.ca.gov/cap/income",
+        "verifiedAt": "2026-07-03",
+        "via": "E5 playwright pass (screenshot j2-bar-income.png; row keeps conservative floors for 1p/4p)"
+      }
+    ]
+  },
+  {
+    "id": "bar-retirement",
+    "jurisdiction": "CA",
+    "category": "transport",
+    "status": "open",
+    "test": {
+      "flagsAll": ["has-vehicle"],
+      "specialNotes": ["retirement-failed-smog-tier"]
+    },
+    "noteParams": {
+      "retirement-failed-smog-tier": {
+        "amountFailedSmog": 1350,
+        "amountIncomePass": 1500
+      }
+    },
+    "name": {
+      "en": "Vehicle retirement (the state buys your car)",
+      "es": "Retiro de vehículo (el estado le compra su auto)"
+    },
+    "value": {
+      "en": "$1,350 if it failed smog (no income test) — income-qualified: $2,000 if it failed, $1,500 even if it passed",
+      "es": "$1,350 si reprobó el smog (sin prueba de ingresos) — con ingresos calificados: $2,000 si reprobó, $1,500 aunque haya pasado"
+    },
+    "apply": { "url": "https://www.bar.ca.gov/cap" },
+    "provenance": [
+      {
+        "claim": "$1,350 tier: no income test, failed smog required / income-qualified ≤225% FPL: $2,000 failed smog, $1,500 with any completed Smog Check (pass or fail) within 180 days; FY funds Jul 1–Jun 30",
+        "source": "https://www.bar.ca.gov/cap/retirement",
+        "verifiedAt": "2026-07-03",
+        "via": "E5 playwright pass (accordion DOM verbatim; /cap/income cross-confirms the $1,350 no-income tier)"
+      }
+    ]
+  },
+  {
+    "id": "bus-youth-free",
+    "jurisdiction": "nevada-county",
+    "category": "transport",
+    "status": "open",
+    "test": { "ageAnyMax": 17, "universal": false },
+    "name": {
+      "en": "Kids & teens ride the bus FREE (Nevada County Connects)",
+      "es": "Niños y adolescentes viajan GRATIS en el autobús (Nevada County Connects)"
+    },
+    "value": {
+      "en": "Everyone 17 and under rides free since Nov 2025 — no paperwork",
+      "es": "Todos los menores de 18 viajan gratis desde nov 2025 — sin trámites"
+    },
+    "apply": { "phone": { "en": "530-477-0103", "es": "530-477-0103" } },
+    "provenance": [
+      {
+        "claim": "\"Effective November 1, 2025, Youth ages 6 - 17 no longer pay a fare!\" — fare table shows Children ≤5 and Youth 6-17 free; youth not in the Discount-Fare-ID categories, so the no-paperwork claim holds",
+        "source": "https://www.nevadacountyca.gov/2259/Fares-and-Passes",
+        "verifiedAt": "2026-07-02",
+        "via": "ep4 wave: transit-west; nebula E4 deep-link pass 2026-07-02 (browser-UA curl; plain fetch 403s)"
+      },
+      {
+        "claim": "accessible one-page PDF twin of the same fare table",
+        "source": "https://www.nevadacountyca.gov/DocumentCenter/View/68826/Fares-and-Passes",
+        "verifiedAt": "2026-07-02",
+        "via": "nebula E4 deep-link pass 2026-07-02 (browser-UA curl; plain fetch 403s)"
+      }
+    ]
+  },
+  {
+    "id": "bus-golden-ticket",
+    "jurisdiction": "nevada-county",
+    "category": "transport",
+    "status": "open",
+    "test": { "ageAnyMin": 80 },
+    "name": {
+      "en": "Golden Ticket — free bus for life at 80+",
+      "es": "Golden Ticket — autobús gratis de por vida a los 80+"
+    },
+    "value": {
+      "en": "Lifetime free rides on all regular routes; proof of age is the whole application",
+      "es": "Viajes gratis de por vida en rutas regulares; solo se requiere comprobante de edad"
+    },
+    "apply": { "phone": { "en": "530-477-0103", "es": "530-477-0103" } },
+    "provenance": [
+      {
+        "claim": "Golden Ticket = lifetime pass for seniors 80+, unlimited free rides on Nevada County Connects routes 1-7; proof of age (CA ID/DL) is the application; not valid on Nevada County Now paratransit",
+        "source": "https://www.nevadacountyca.gov/2259/Fares-and-Passes",
+        "verifiedAt": "2026-07-02",
+        "via": "ep4 wave: transit-west; nebula E4 deep-link pass 2026-07-02 (browser-UA curl; plain fetch 403s)"
+      },
+      {
+        "claim": "accessible one-page PDF twin of the same fare table",
+        "source": "https://www.nevadacountyca.gov/DocumentCenter/View/68826/Fares-and-Passes",
+        "verifiedAt": "2026-07-02",
+        "via": "nebula E4 deep-link pass 2026-07-02 (browser-UA curl; plain fetch 403s)"
+      }
+    ]
+  },
+  {
+    "id": "bus-low-income-pass",
+    "jurisdiction": "nevada-county",
+    "category": "transport",
+    "status": "check-first",
+    "test": { "incomePctFPL": 200 },
+    "name": {
+      "en": "Low-Income Bus Pass (referral)",
+      "es": "Pase de autobús para bajos ingresos (por referencia)"
+    },
+    "value": {
+      "en": "Six months of subsidized, reduced-fare riding at a time via FREED, Social Services, or Behavioral Health referral",
+      "es": "Seis meses de tarifa reducida (subsidiada) a la vez, mediante referencia de FREED, Servicios Sociales o Salud Conductual"
+    },
+    "apply": {
+      "phone": {
+        "en": "FREED 530-477-3333 · county DSS 530-265-1340 · or 2-1-1",
+        "es": "FREED 530-477-3333 · DSS del condado 530-265-1340 · o al 2-1-1"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Low-Income Pass Referral Program: a fare SUBSIDY via partner agency (FREED / DSS / Behavioral Health named), income 138-200% FPL, 6-month renewable",
+        "source": "https://www.nevadacountyca.gov/2259/Fares-and-Passes",
+        "verifiedAt": "2026-07-02",
+        "via": "ep4 wave: transit-west; nebula E4 deep-link pass 2026-07-02 (browser-UA curl; plain fetch 403s); subsidy framing per the county page — 'free rides' stays unclaimed"
+      },
+      {
+        "claim": "accessible one-page PDF twin of the same fare table",
+        "source": "https://www.nevadacountyca.gov/DocumentCenter/View/68826/Fares-and-Passes",
+        "verifiedAt": "2026-07-02",
+        "via": "nebula E4 deep-link pass 2026-07-02 (browser-UA curl; plain fetch 403s)"
+      }
+    ]
+  },
+  {
+    "id": "medical-baseline",
+    "jurisdiction": "CA",
+    "category": "utilities",
+    "status": "open",
+    "test": {
+      "flagsAll": ["pge-customer"],
+      "specialNotes": ["medical-baseline-device"]
+    },
+    "name": {
+      "en": "PG&E Medical Baseline (not income-based)",
+      "es": "Medical Baseline de PG&E (no depende de ingresos)"
+    },
+    "value": {
+      "en": "Extra power at the lowest rate + early fire-season shutoff warnings if someone relies on a medical device",
+      "es": "Más electricidad a la tarifa más baja + avisos tempranos de cortes si alguien depende de un equipo médico"
+    },
+    "apply": { "url": "https://www.pge.com/mblapp" },
+    "provenance": [
+      {
+        "claim": "medical need not income; MD/NP/PA signs initial enrollment",
+        "source": "https://www.pge.com/en/account/billing-and-assistance/financial-assistance/medical-baseline-program.html",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 wave: psps"
+      }
+    ]
+  },
+  {
+    "id": "freed-equipment",
+    "jurisdiction": "nevada-county",
+    "category": "devices",
+    "status": "open",
+    "test": {
+      "specialNotes": ["freed-any-age-disability"],
+      "universal": false,
+      "flagsAll": [],
+      "categoricalUnlocks": [],
+      "ageAnyMin": 60,
+      "memberFlagsAny": ["disability"]
+    },
+    "name": {
+      "en": "Free medical equipment (FREED reuse)",
+      "es": "Equipo médico gratis (reutilización FREED)"
+    },
+    "value": {
+      "en": "Donated wheelchairs, walkers, shower chairs, hospital beds — checked over and free; disability any age or older adults",
+      "es": "Sillas de ruedas, andadores, sillas de ducha, camas de hospital — revisados y gratis; discapacidad a cualquier edad o adultos mayores"
+    },
+    "apply": { "phone": { "en": "530-477-3333", "es": "530-477-3333" } },
+    "provenance": [
+      {
+        "claim": "Verbatim: \"We offer refurbished medical equipment to seniors and individuals with disabilities free of charge. Items are donated from the community and refurbished by volunteers\" — wheelchairs, walkers, mobility devices, transfer boards, shower chairs, toilet seats, hospital beds, canes",
+        "source": "https://freed.org/services/assistive-technology/equipment-reuse/",
+        "verifiedAt": "2026-07-02",
+        "via": "ep5 wave: freed-lsnc; nebula E4 final-three deep link (browser-UA; static WordPress) — also strengthens the value line's device list"
+      }
+    ]
+  },
+  {
+    "id": "lsnc-legal",
+    "jurisdiction": "CA",
+    "category": "legal",
+    "status": "open",
+    "test": {
+      "incomePctFPL": 125,
+      "ageAnyMin": 60,
+      "specialNotes": ["lsnc-senior-soft"]
+    },
+    "name": {
+      "en": "Free civil legal aid (LSNC)",
+      "es": "Ayuda legal civil gratuita (LSNC)"
+    },
+    "value": {
+      "en": "Evictions, benefits denials, debt, record clearing — free if money's tight; 60+ just call",
+      "es": "Desalojos, negación de beneficios, deudas, limpieza de antecedentes — gratis si el dinero no alcanza; 60+ solo llame"
+    },
+    "apply": {
+      "phone": {
+        "en": "530-823-7560 · evenings 866-815-5990",
+        "es": "530-823-7560 · por las noches 866-815-5990"
+      },
+      "url": "https://lsnc.net"
+    },
+    "provenance": [
+      {
+        "claim": "Auburn — local office serving Amador, Calaveras, El Dorado, Nevada, Placer and Sierra counties (LSNC's own service-area page)",
+        "source": "https://lsnc.net/how-contact-us",
+        "verifiedAt": "2026-07-02",
+        "via": "nebula E4 final-three (browser-UA; static today — the sweep's JS-shell finding did not reproduce; freshness passes should use a short timeout + one retry before declaring a wall)"
+      },
+      {
+        "claim": "Verbatim: \"Due to a special grant there are no income requirements for senior (age 60+) who reside in Nevada or Placer County\"; 190 Reamer Street, Auburn; (530) 823-7560 / (800) 660-6107; case areas incl. housing and public benefits (CalWORKs, CalFresh, Medi-Cal, GA, Social Security/SSI, UIB, SDI)",
+        "source": "https://www.lawhelpca.org/organization/legal-services-of-northern-california-auburn",
+        "verifiedAt": "2026-07-02",
+        "via": "nebula E4 final-three (WebFetch) — hard cite for the 60+ no-income rule the lsnc-senior-soft note describes"
+      }
+    ]
+  },
+  {
+    "id": "eitc-caleitc",
+    "jurisdiction": "CA",
+    "category": "money",
+    "status": "check-first",
+    "test": {
+      "limitsMonthly": {
+        "1": 1592,
+        "2": 4202,
+        "3": 4796,
+        "4": 5369,
+        "5": 5722,
+        "6": 5722,
+        "7": 5722,
+        "8": 5722,
+        "increment": 0
+      },
+      "proxyReasonKey": "reason.income-band",
+      "specialNotes": [
+        "eitc-annual-basis",
+        "eitc-kid-count-bands",
+        "eitc-itin",
+        "eitc-investment-cap",
+        "eitc-retro-years"
+      ]
+    },
+    "thresholdsDisplay": { "1": 1592, "4": 5369 },
+    "noteParams": {
+      "eitc-kid-count-bands": {
+        "limitSingle": 19104,
+        "limitMarried": 26214,
+        "limitCaleitc": 32900
+      },
+      "eitc-investment-cap": { "limitInvestment": 11950 }
+    },
+    "name": {
+      "en": "EITC + CalEITC (tax-time cash back)",
+      "es": "EITC + CalEITC (crédito tributario por ingreso del trabajo)"
+    },
+    "value": {
+      "en": "Cash back when you file taxes — up to $8,046 federal EITC + up to $3,756 CalEITC + up to $1,189 Young Child Tax Credit (kid under 6). Paid even if you owe $0 tax.",
+      "es": "Dinero al presentar sus impuestos — hasta $8,046 del EITC federal + hasta $3,756 del CalEITC + hasta $1,189 del Crédito Tributario por Hijos Menores (niño menor de 6 años). Se paga aunque no deba impuestos."
+    },
+    "apply": {
+      "url": "https://www.ftb.ca.gov/file/personal/credits/california-earned-income-tax-credit.html",
+      "phone": { "en": "1-800-906-9887", "es": "1-800-906-9887" },
+      "local": {
+        "en": "Free tax prep (VITA): dial 2-1-1 (Connecting Point) for Nevada County sites",
+        "es": "Preparación de impuestos gratis (VITA): marque 2-1-1 (Connecting Point) para sitios en el condado de Nevada"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Federal EITC TY2025 AGI limits ($19,104–$68,675 by kids/filing status), max credits ($649–$8,046), investment income cap $11,950",
+        "source": "https://www.irs.gov/credits-deductions/individuals/earned-income-tax-credit/earned-income-and-earned-income-tax-credit-eitc-tables",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (nebula-w1c-money) + oracle live re-verification"
+      },
+      {
+        "claim": "CalEITC TY2025 up to $3,756, earned income ≤ $32,900; claimable up to four prior years",
+        "source": "https://www.ftb.ca.gov/file/personal/credits/california-earned-income-tax-credit.html",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle live re-verification"
+      },
+      {
+        "claim": "YCTC TY2025 up to $1,189 per return, qualifying child under 6, income ≤ $32,900 (net-loss exception to $35,640)",
+        "source": "https://www.ftb.ca.gov/file/personal/credits/young-child-tax-credit.html",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle live re-verification"
+      },
+      {
+        "claim": "CalEITC accepts SSN or ITIN; age 18+ or qualifying child; TY2025 per-kid-count credit table (federal figures cross-check IRS exactly)",
+        "source": "https://www.ftb.ca.gov/file/personal/credits/caleitc/eligibility-and-credit-information.html",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle live re-verification"
+      },
+      {
+        "claim": "Official Spanish names: Crédito Tributario por Ingreso del Trabajo de California (CalEITC); Crédito Tributario por Hijos Menores (YCTC); VITA 1-800-906-9887",
+        "source": "https://www.ftb.ca.gov/file/personal/credits/california-earned-income-tax-credit-es.html",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (VITA number confirmed on irs.gov)"
+      }
+    ]
+  },
+  {
+    "id": "calworks",
+    "jurisdiction": "CA",
+    "category": "money",
+    "status": "check-first",
+    "test": {
+      "limitsMonthly": {
+        "1": 1364,
+        "2": 1951,
+        "3": 2309,
+        "4": 2661,
+        "5": 2979,
+        "6": 3289,
+        "7": 3560,
+        "8": 3847,
+        "increment": 37
+      },
+      "ageAnyMax": 17,
+      "specialNotes": [
+        "calworks-earned-disregard",
+        "calworks-pregnant",
+        "calworks-region",
+        "calworks-assets"
+      ]
+    },
+    "thresholdsDisplay": { "1": 1364, "4": 2661 },
+    "noteParams": {
+      "calworks-earned-disregard": { "amountDisregard": 450 },
+      "calworks-assets": { "limitAssets": 12552, "limitAssetsSenior": 18829 }
+    },
+    "name": {
+      "en": "CalWORKs (monthly cash aid for families with kids)",
+      "es": "CalWORKs (ayuda mensual en efectivo para familias con niños)"
+    },
+    "value": {
+      "en": "Up to $1,115–$1,248/mo for a family of 3 in Nevada County, plus child care, housing help, and job support — and it unlocks other programs",
+      "es": "Hasta $1,115–$1,248/mes para una familia de 3 en el condado de Nevada, más cuidado infantil, ayuda de vivienda y apoyo laboral — y abre la puerta a otros programas"
+    },
+    "apply": {
+      "url": "https://benefitscal.com",
+      "phone": { "en": "530-265-1340", "es": "530-265-1340" },
+      "local": {
+        "en": "Nevada County DSS 530-265-1340 · Nevada City or Truckee offices",
+        "es": "DSS del condado de Nevada 530-265-1340 · oficinas en Nevada City o Truckee"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "MBSAC FY2026-27 Region 2 chart (applicant income test), 3.59% COLA effective 2026-07-01: HH1 $914 … HH8 $3,397, +$37/person over 10",
+        "source": "https://www.cdss.ca.gov/Portals/9/Additional-Resources/Letters-and-Notices/ACLs/2026/26-39.pdf",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle live re-verification (ACL 26-39 fetched at drafted path)"
+      },
+      {
+        "claim": "Applicant gross income test = gross income minus $450 per employed person compared to MBSAC (AB 135, eff. 2022-07-01); Sacramento (Region 2) fact sheet rev. July 2026 shows MBSAC values matching ACL 26-39",
+        "source": "https://ha.saccounty.gov/content/dam/ha/docs/calworks/CalWORKs%20Fact%20Sheet%20July%202026.pdf",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (county-official; CDSS ACL cite not chased — declared caveat)"
+      },
+      {
+        "claim": "Nevada County is CalWORKs Region 2 (statutory region lists, AB 908/1996)",
+        "source": "https://www.cdss.ca.gov/research/res/pdf/calreports/MAP-MBSAC.pdf",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (CDSS Region 2 county list extracted)"
+      },
+      {
+        "claim": "MAP last increased 0.3% effective 2024-10-01 (CDSS); current Region 2 MAP family-of-3: $1,115 non-exempt / $1,248 exempt",
+        "source": "https://www.cdss.ca.gov/inforesources/calworks-summary/program-services-utilization/service-and-benefit-levels",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (dollar chart via Sacramento County fact sheet July 2026)"
+      },
+      {
+        "claim": "Resource limit $12,552, or $18,829 with a 60+/disabled member, effective 2026-01-01",
+        "source": "https://www.cdss.ca.gov/Portals/9/Additional-Resources/Letters-and-Notices/ACLs/2025/25-65.pdf",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (ACL 25-65)"
+      },
+      {
+        "claim": "Child under 18 (or 18 finishing high school before 19); pregnant people qualify at any stage of pregnancy (Pregnant Person Only cases); apply via BenefitsCal.com or county office",
+        "source": "https://www.cdss.ca.gov/calworks",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (pregnancy detail: county handbooks + LSNC reg summary)"
+      }
+    ]
+  },
+  {
+    "id": "county-general-assistance",
+    "jurisdiction": "nevada-county",
+    "category": "money",
+    "status": "check-first",
+    "test": {
+      "limitsMonthly": {
+        "1": 695,
+        "2": 884,
+        "3": 1115,
+        "4": 1346,
+        "5": 1578,
+        "6": 1808,
+        "7": 2039,
+        "8": 2271,
+        "increment": 230
+      },
+      "proxyReasonKey": "reason.income-screen",
+      "categoricalExcludes": ["calworks", "ssi"],
+      "specialNotes": [
+        "ga-call-first",
+        "ga-last-resort",
+        "ga-repayable-work-rules"
+      ]
+    },
+    "name": {
+      "en": "Nevada County General Assistance (cash of last resort)",
+      "es": "Asistencia General del Condado de Nevada (efectivo de último recurso)"
+    },
+    "value": {
+      "en": "A small county cash grant when nothing else applies — the county sets the (modest) amounts and limits, and it's usually a repayable grant. Costs nothing to call and ask.",
+      "es": "Un pequeño subsidio en efectivo del condado cuando nada más aplica — el condado fija los montos y límites (modestos), y normalmente es un subsidio reembolsable. Llamar y preguntar no cuesta nada."
+    },
+    "apply": {
+      "url": "https://benefitscal.com",
+      "phone": { "en": "530-265-1340", "es": "530-265-1340" },
+      "local": {
+        "en": "Eric Rood Center (Nevada City) · Brighton Greens (Grass Valley) · Joseph Center (Truckee) — staff speak English + Spanish",
+        "es": "Eric Rood Center (Nevada City) · Brighton Greens (Grass Valley) · Joseph Center (Truckee) — el personal habla inglés y español"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Program shape: supplemental aid for people ineligible for CalWORKs or SSI/SSP; emergency, last-resort; a repayable grant, not an entitlement; Cal-JOBS registration + weekly job search mandatory for employables",
+        "source": "https://www.nevadacountyca.gov/1626/Cash-Assistance-for-Individuals",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle live re-verification (browser-UA fetch; plain fetch 403s)"
+      },
+      {
+        "claim": "Apply via BenefitsCal.com or in person; three offices (Nevada City, Grass Valley, Truckee); main line 530-265-1340; English + Spanish staff",
+        "source": "https://www.nevadacountyca.gov/903/Public-Assistance-Offices",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle"
+      },
+      {
+        "claim": "PROXY INCOME SCREEN — county publishes no GA income limits or grant amounts (county site, code, and BOS-resolution search 2026-07-02 found none). Screen uses the verified CalWORKs Region 2 non-exempt MAP chart (10/1/2024 levels) as a below-the-cash-floor visibility gate; it is NOT an official GA limit, never renders (proxyReasonKey), and the row is check-first only",
+        "source": "https://www.cdss.ca.gov/inforesources/calworks-summary/program-services-utilization/service-and-benefit-levels",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle ruling (b): numbers used for gating are not claims; numbers rendered are"
+      }
+    ]
+  },
+  {
+    "id": "medi-cal-adult",
+    "jurisdiction": "CA",
+    "category": "health",
+    "status": "open",
+    "test": {
+      "incomePctFPL": 138,
+      "categoricalUnlocks": ["ssi", "calworks"],
+      "specialNotes": [
+        "medi-cal-year-round",
+        "medi-cal-65plus-assets-2026",
+        "medi-cal-immigration-2026"
+      ]
+    },
+    "thresholdsDisplay": { "1": 1835, "4": 3795 },
+    "noteParams": {
+      "medi-cal-65plus-assets-2026": {
+        "limitAssets65": 130000,
+        "amountPerPerson": 65000
+      }
+    },
+    "name": {
+      "en": "Medi-Cal for adults (free/low-cost health coverage)",
+      "es": "Medi-Cal para adultos (cobertura de salud gratuita o de bajo costo)"
+    },
+    "value": {
+      "en": "Full coverage — doctor, hospital, dental, vision, mental health, prescriptions — free or near-free for most adults under about $1,835/mo (single) or $3,795/mo (family of 4)",
+      "es": "Cobertura completa — médico, hospital, dental, visión, salud mental, medicamentos — gratis o casi gratis para la mayoría de adultos con ingresos hasta unos $1,835/mes (soltero) o $3,795/mes (familia de 4)"
+    },
+    "apply": {
+      "url": "https://benefitscal.com",
+      "phone": { "en": "530-265-1340", "es": "530-265-1340" },
+      "local": {
+        "en": "Nevada County DSS 530-265-1340 · or via CoveredCA.com — Medi-Cal enrolls year-round",
+        "es": "DSS del condado de Nevada 530-265-1340 · o vía CoveredCA.com — Medi-Cal inscribe todo el año"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Adult MAGI Medi-Cal = 138% FPL, ages 19-64 (plus Aged & Disabled FPL program at 138%)",
+        "source": "https://www.dhcs.ca.gov/services/medi-cal-resources/medi-cal-eligibility-division/all-county-welfare-directors-medi-cal-eligibility-division-information-letters/program-descriptions-by-fpl-enclosure-3/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (health batch) + oracle live re-verification"
+      },
+      {
+        "claim": "2026 FPL monthly chart (DHCS Enclosure 1): 138% = $1,836/1p, $3,795/4p (DHCS rounds up; screener fpl-2026.json floors to $1,835/$3,795 — always ≤ DHCS)",
+        "source": "https://www.dhcs.ca.gov/services/medi-cal-resources/medi-cal-eligibility-division/all-county-welfare-directors-medi-cal-eligibility-division-information-letters/2026-fpl-calculation-chart-monthly-values-enclosure-1/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (conservatism verified arithmetically on 6 cells)"
+      },
+      {
+        "claim": "No asset test for MAGI Medi-Cal; the 2026-01-01 reinstated asset limit ($130k +$65k/person) applies to non-MAGI (65+/disabled/nursing-home) only",
+        "source": "https://www.dhcs.ca.gov/medi-cal/help/asset-limit-frequently-asked-questions/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (confirmed-by-law: 42 CFR 435.603 + LAO scope)"
+      },
+      {
+        "claim": "Enrollment freeze: from January 2026 new undocumented-adult applicants cannot enroll in comprehensive coverage; existing enrollees keep coverage; emergency + pregnancy-related care remain available; premiums ($30/mo, 19-59) begin July 2027",
+        "source": "https://lao.ca.gov/Publications/Report/5075",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (LAO 5075 verbatim)"
+      }
+    ]
+  },
+  {
+    "id": "medi-cal-kids",
+    "jurisdiction": "CA",
+    "category": "health",
+    "status": "open",
+    "test": {
+      "incomePctFPL": 266,
+      "ageAnyMax": 17,
+      "categoricalUnlocks": ["ssi", "calworks"],
+      "specialNotes": [
+        "medi-cal-year-round",
+        "medi-cal-kids-any-status",
+        "medi-cal-kids-to-19"
+      ]
+    },
+    "thresholdsDisplay": { "2": 4796, "4": 7315 },
+    "name": {
+      "en": "Medi-Cal for kids (free coverage to much higher incomes)",
+      "es": "Medi-Cal para niños (cobertura gratuita con límites de ingreso mucho más altos)"
+    },
+    "value": {
+      "en": "Kids get free full coverage at much higher family incomes than adults — up to about $4,796/mo (parent + child) or $7,315/mo (family of 4), regardless of immigration status",
+      "es": "Los niños reciben cobertura completa gratuita con ingresos familiares mucho más altos que los adultos — hasta unos $4,796/mes (padre/madre + hijo) o $7,315/mes (familia de 4), sin importar el estatus migratorio"
+    },
+    "apply": {
+      "url": "https://benefitscal.com",
+      "phone": { "en": "530-265-1340", "es": "530-265-1340" },
+      "local": {
+        "en": "Nevada County DSS 530-265-1340 · or via CoveredCA.com — enrolls year-round",
+        "es": "DSS del condado de Nevada 530-265-1340 · o vía CoveredCA.com — inscribe todo el año"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Children's Medi-Cal (ACA OTLIC) = 266% FPL",
+        "source": "https://www.dhcs.ca.gov/services/medi-cal-resources/medi-cal-eligibility-division/all-county-welfare-directors-medi-cal-eligibility-division-information-letters/program-descriptions-by-fpl-enclosure-3/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (health batch) + oracle live re-verification"
+      },
+      {
+        "claim": "2026 monthly values at 266%: DHCS $4,799/2p, $7,315/4p (screener floors to $4,796/$7,315)",
+        "source": "https://www.dhcs.ca.gov/services/medi-cal-resources/medi-cal-eligibility-division/all-county-welfare-directors-medi-cal-eligibility-division-information-letters/2026-fpl-calculation-chart-monthly-values-enclosure-1/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle"
+      },
+      {
+        "claim": "2026 enrollment freeze applies to undocumented ADULTS; children's coverage regardless of status continues (existing-law SB 75 coverage not altered by the enacted freeze)",
+        "source": "https://lao.ca.gov/Publications/Report/5075",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (adults-only scope confirmed)"
+      }
+    ]
+  },
+  {
+    "id": "medi-cal-pregnancy",
+    "jurisdiction": "CA",
+    "category": "health",
+    "status": "open",
+    "test": {
+      "incomePctFPL": 213,
+      "flagsAll": ["pregnant"],
+      "specialNotes": [
+        "medi-cal-year-round",
+        "mcap-213-322",
+        "pregnancy-any-status"
+      ]
+    },
+    "thresholdsDisplay": { "1": 2832, "2": 3841 },
+    "noteParams": {
+      "mcap-213-322": { "limitMcap": 5809 }
+    },
+    "name": {
+      "en": "Medi-Cal for pregnancy (full coverage while pregnant)",
+      "es": "Medi-Cal por embarazo (cobertura completa durante el embarazo)"
+    },
+    "value": {
+      "en": "Full-scope coverage through pregnancy and beyond — free up to about $3,841/mo for a household of 2; low-cost MCAP continues up to ~$5,809/mo. Pregnancy care is open regardless of immigration status.",
+      "es": "Cobertura completa durante el embarazo y después — gratis hasta unos $3,841/mes para un hogar de 2; MCAP de bajo costo continúa hasta ~$5,809/mes. La atención del embarazo está disponible sin importar el estatus migratorio."
+    },
+    "apply": {
+      "url": "https://benefitscal.com",
+      "phone": { "en": "530-265-1340", "es": "530-265-1340" },
+      "local": {
+        "en": "Nevada County DSS 530-265-1340 · enrolls year-round",
+        "es": "DSS del condado de Nevada 530-265-1340 · inscribe todo el año"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Full-scope pregnancy Medi-Cal = 213% FPL; MCAP covers >213% to 322% FPL",
+        "source": "https://www.dhcs.ca.gov/services/medi-cal-resources/medi-cal-eligibility-division/all-county-welfare-directors-medi-cal-eligibility-division-information-letters/program-descriptions-by-fpl-enclosure-3/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (health batch) + oracle live re-verification"
+      },
+      {
+        "claim": "2026 monthly values: 213% = DHCS $2,833/1p, $3,843/2p; 322% = $5,809/2p (screener floors to $2,832/$3,841)",
+        "source": "https://www.dhcs.ca.gov/services/medi-cal-resources/medi-cal-eligibility-division/all-county-welfare-directors-medi-cal-eligibility-division-information-letters/2026-fpl-calculation-chart-monthly-values-enclosure-1/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle"
+      },
+      {
+        "claim": "Pregnancy-related care remains available to new applicants regardless of immigration status under the 2026 freeze",
+        "source": "https://lao.ca.gov/Publications/Report/5075",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (postpartum/PE detail trimmed pending cites — WordPress-migration casualties)"
+      }
+    ]
+  },
+  {
+    "id": "covered-california",
+    "jurisdiction": "CA",
+    "category": "health",
+    "status": "check-first",
+    "test": {
+      "limitsMonthly": {
+        "1": 5216,
+        "2": 7050,
+        "3": 8883,
+        "4": 10716,
+        "5": 12550,
+        "6": 14383,
+        "7": 16216,
+        "8": 18050,
+        "increment": 1833
+      },
+      "specialNotes": [
+        "cc-enrollment-window",
+        "cc-subsidy-cliff-2026",
+        "cc-state-subsidy-2026",
+        "cc-medi-cal-handoff"
+      ]
+    },
+    "thresholdsDisplay": { "1": 5216, "4": 10716 },
+    "noteParams": {
+      "cc-state-subsidy-2026": { "limitStateSubsidy": 1956 },
+      "cc-medi-cal-handoff": { "limitMediCal": 1835 }
+    },
+    "name": {
+      "en": "Covered California (discounted health plans)",
+      "es": "Covered California (planes de salud con descuento)"
+    },
+    "value": {
+      "en": "Monthly discounts on name-brand health plans — some plans still as little as $10/mo depending on income. In 2026 help phases out by about $5,216/mo income (single) / $10,716 (family of 4).",
+      "es": "Descuentos mensuales en planes de salud de marcas reconocidas — algunos planes desde $10/mes según el ingreso. En 2026 la ayuda termina alrededor de $5,216/mes de ingreso (soltero) / $10,716 (familia de 4)."
+    },
+    "apply": {
+      "url": "https://www.coveredca.com",
+      "phone": { "en": "(800) 300-1506", "es": "(800) 300-0213" },
+      "local": {
+        "en": "Free local enrollment help: coveredca.com 'Find Help' storefront/agent search, or 2-1-1",
+        "es": "Ayuda local gratuita para inscribirse: búsqueda de agentes y oficinas en coveredca.com ('Find Help'), o al 2-1-1"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Enhanced federal premium tax credits ended 2025-12-31 (\"that help ended on Dec. 31, 2025\"); some plans still as little as $10/month depending on plan and income",
+        "source": "https://www.coveredca.com/important-changes/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (health batch) + oracle live re-verification (verbatim)"
+      },
+      {
+        "claim": "PY2026: enhanced subsidies expired; CA state subsidy program ($190M) keeps premiums near 2025 levels up to 150% FPL ($23,475/1p, $48,225/4p) with partial help to 165% FPL; avg $45/mo for ~389,590 state-subsidized enrollees; 2026 avg rate change +10.3% preliminary",
+        "source": "https://www.coveredca.com/newsroom/news-releases/2026/02/26/as-enhanced-federal-subsidies-expire-covered-california-ends-open-enrollment-with-state-subsidies-keeping-renewals-steady-for-now-and-new-signups-down/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (all five figures exact)"
+      },
+      {
+        "claim": "PY2026 subsidy cliff at 400% FPL on the 2025 guidelines the marketplace uses ($15,650/1p, $32,150/4p — back-computed exactly from CoveredCA's printed 150% figures; ASPE 2025 page confirms all eight sizes); screener limits = 400% × 2025 FPL ÷ 12, floored",
+        "source": "https://www.coveredca.com/newsroom/news-releases/2026/02/26/as-enhanced-federal-subsidies-expire-covered-california-ends-open-enrollment-with-state-subsidies-keeping-renewals-steady-for-now-and-new-signups-down/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (FPL-year trap verified; every cell re-derived by hand)"
+      },
+      {
+        "claim": "2026 rate filing context and federal-extension uncertainty framing",
+        "source": "https://www.coveredca.com/newsroom/news-releases/2025/08/14/covered-california-rates-and-plans-for-2026-consumer-affordability-on-the-line-with-uncertainty-surrounding-federal-premium-tax-credit-extension/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (context-only)"
+      },
+      {
+        "claim": "Dedicated Spanish service line (800) 300-0213; English line (800) 300-1506",
+        "source": "https://www.coveredca.com/espanol/",
+        "verifiedAt": "2026-07-02",
+        "via": "oracle-qualify-review one-fetch upgrade (health verification item 8)"
+      }
+    ]
+  },
+  {
+    "id": "medicare-savings-programs",
+    "jurisdiction": "CA",
+    "category": "health",
+    "status": "check-first",
+    "test": {
+      "flagsAll": ["medicare"],
+      "limitsMonthly": {
+        "1": 1795,
+        "2": 2434,
+        "3": 2434,
+        "4": 2434,
+        "5": 2434,
+        "6": 2434,
+        "7": 2434,
+        "8": 2434,
+        "increment": 0
+      },
+      "overLimitRescue": "reason.own-income",
+      "specialNotes": ["msp-own-income", "msp-tiers", "msp-assets-2026"]
+    },
+    "thresholdsDisplay": { "1": 1795, "2": 2434 },
+    "noteParams": {
+      "msp-own-income": { "limitOwnIncome": 1795 },
+      "msp-tiers": { "limitQmb": 1330 },
+      "msp-assets-2026": { "limitAssets": 130000, "amountPerPerson": 65000 }
+    },
+    "name": {
+      "en": "Medicare Savings Programs (QMB/SLMB/QI)",
+      "es": "Programas de Ahorro de Medicare (QMB/SLMB/QI)"
+    },
+    "value": {
+      "en": "Puts the $202.90/mo Medicare Part B premium (2026) back in your Social Security check — the QMB tier also wipes out Medicare deductibles and copays, plus automatic prescription Extra Help",
+      "es": "Devuelve a su cheque del Seguro Social la prima de la Parte B de Medicare ($202.90/mes en 2026) — el nivel QMB también elimina los deducibles y copagos de Medicare, más Ayuda Adicional automática para medicamentos"
+    },
+    "apply": {
+      "url": "https://benefitscal.com",
+      "phone": { "en": "530-265-1340", "es": "530-265-1340" },
+      "local": {
+        "en": "Apply through Medi-Cal: BenefitsCal online, or Nevada County DSS offices (Nevada City · Grass Valley · Truckee)",
+        "es": "Solicite a través de Medi-Cal: BenefitsCal en línea, o las oficinas del DSS del condado de Nevada (Nevada City · Grass Valley · Truckee)"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "MSP tiers + 2026 monthly income limits: QMB $1,330/$1,804 (pays Part A+B premiums, deductibles, copays); SLMB $1,596/$2,165 (Part B premium); QI $1,796/$2,436 (Part B premium); QDWI $2,660/$3,608 (Part A premium); apply via BenefitsCal/mail/phone/county",
+        "source": "https://www.dhcs.ca.gov/individuals/Pages/Medicare-Savings-Programs-in-California.aspx",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research (health batch) + oracle live re-verification"
+      },
+      {
+        "claim": "Asset limit reinstated for MSP: \"Starting January 1, 2026, the asset limits to determine MSP eligibility are $130,000 for an individual, and $65,000 for each additional household member up to 10.\"",
+        "source": "https://www.dhcs.ca.gov/individuals/Pages/Medicare-Savings-Programs-in-California.aspx",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (verbatim)"
+      },
+      {
+        "claim": "2026 Medicare Part B standard premium $202.90/mo (up $17.90 from $185.00); Part B annual deductible $283 (announced 2025-11-14)",
+        "source": "https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle (CMS fact sheet verbatim)"
+      },
+      {
+        "claim": "Tier percentages QMB 100% / SLMB 120% / QI 135% FPL; DHCS 2026 FPL chart cross-checks the MSP page dollars exactly (screener floors 1795/2434 are ≤ DHCS 1796/2436); couple-cap keeps every rendered number real — household>2 gates on the couple limit and the own-income rescue carries the rest",
+        "source": "https://www.dhcs.ca.gov/services/medi-cal-resources/medi-cal-eligibility-division/all-county-welfare-directors-medi-cal-eligibility-division-information-letters/program-descriptions-by-fpl-enclosure-3/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research + oracle ruling: ENDORSE cap, AMEND rescue via overLimitRescue"
+      },
+      {
+        "claim": "MSP enrollment confers automatic Extra Help (Part D low-income subsidy)",
+        "source": "https://www.medicare.gov/basics/costs/help/drug-costs",
+        "verifiedAt": "2026-07-02",
+        "via": "oracle-qualify-review one-fetch upgrade (health verification item 8, verbatim)"
+      }
+    ]
+  },
+  {
+    "id": "ssi-ssp",
+    "jurisdiction": "CA",
+    "category": "money",
+    "status": "check-first",
+    "test": {
+      "limitsMonthly": {
+        "1": 1233,
+        "2": 2098,
+        "3": 2098,
+        "4": 2098,
+        "5": 2098,
+        "6": 2098,
+        "7": 2098,
+        "8": 2098,
+        "increment": 0
+      },
+      "ageAnyMin": 65,
+      "memberFlagsAny": ["disability"],
+      "memberGate": true,
+      "overLimitRescue": "reason.own-income",
+      "specialNotes": [
+        "ssi-aged-disabled",
+        "ssi-own-income",
+        "ssi-earned-disregards",
+        "ssi-resources"
+      ]
+    },
+    "thresholdsDisplay": { "1": 1233, "2": 2098 },
+    "noteParams": {
+      "ssi-earned-disregards": { "amountDisregard": 65 },
+      "ssi-resources": {
+        "limitResourcesSingle": 2000,
+        "limitResourcesCouple": 3000
+      }
+    },
+    "name": {
+      "en": "SSI + State Supplement (monthly cash, 65+ or disabled)",
+      "es": "SSI + Suplemento Estatal (dinero mensual, 65+ o con discapacidad)"
+    },
+    "value": {
+      "en": "Monthly cash up to $1,233.94 (single) or $2,098.83 (couple) in California for people 65+ or blind/disabled with low income — the state adds a supplement on top of federal SSI",
+      "es": "Dinero mensual de hasta $1,233.94 (soltero) o $2,098.83 (pareja) en California para personas de 65+ o ciegas/con discapacidad y bajos ingresos — el estado añade un suplemento al SSI federal"
+    },
+    "apply": {
+      "url": "https://www.ssa.gov/apply",
+      "phone": { "en": "1-800-772-1213", "es": "1-800-772-1213" },
+      "local": {
+        "en": "Find your Social Security office: ssa.gov/locator · 2-1-1 for local application help",
+        "es": "Encuentre su oficina del Seguro Social: ssa.gov/locator · 2-1-1 para ayuda local con la solicitud"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "CA combined SSI/SSP payment standards eff. 2026-01-01 (Rev. 1/26 grid): aged/disabled independent-living $1,233.94 individual ($994.00 federal + $239.94 SSP) / $2,098.83 couple ($1,491.00 + $607.83); blind $1,318.32 / $2,324.35. Federal portion = 2026 FBR $994/$1,491 (2.8% COLA; ssa.gov/oact/cola/SSI.html 403s automated fetchers — FBR arithmetic-confirmed from both CA charts)",
+        "source": "https://cdss.ca.gov/Portals/13/SHD/ParaRegIndex/SSI%20Monthly%20Payment%20Amounts%202026.pdf",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 mixed batch + oracle live re-verification — CDSS ParaReg PDF is the durable effective primary"
+      },
+      {
+        "claim": "Identical standards on the DHCS ACWDL SSI/SSP payment-standards enclosure (original source of record)",
+        "source": "https://www.dhcs.ca.gov/services/medi-cal-resources/medi-cal-eligibility-division/all-county-welfare-directors-medi-cal-eligibility-division-information-letters/ssi-ssp-payment-standards-effective-january-1-2026/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 research fetched it successfully 2026-07-02; 404 at the oracle sweep hours later (DHCS WordPress migration) — retained as source of record, CDSS chart is the durable primary"
+      },
+      {
+        "claim": "SSI countable-resource limit: \"The limit for countable resources is $2,000 for an individual and $3,000 for a couple\" (home and usually one vehicle excluded) — live page https://www.ssa.gov/ssi/text-resources-ussi.htm (403s automated fetchers)",
+        "source": "https://web.archive.org/web/20260522032513/https://www.ssa.gov/ssi/text-resources-ussi.htm",
+        "verifiedAt": "2026-07-02",
+        "via": "archive ruling (oracle mixed): immutable timestamped snapshot as source, live URL in claim; snapshot re-fetched and quote verified verbatim by integrator 2026-07-02"
+      }
+    ]
+  },
+  {
+    "id": "section8-hcv",
+    "jurisdiction": "nevada-county",
+    "category": "housing",
+    "status": "waitlist-closed",
+    "test": {
+      "limitsMonthly": {
+        "1": 3650,
+        "2": 4170,
+        "3": 4691,
+        "4": 5212,
+        "5": 5629,
+        "6": 6050,
+        "7": 6466,
+        "8": 6883,
+        "increment": 414
+      },
+      "specialNotes": [
+        "s8-watch-reopen",
+        "s8-eli-priority",
+        "s8-property-waitlists",
+        "s8-other-counties"
+      ]
+    },
+    "thresholdsDisplay": { "1": 3650, "4": 5212 },
+    "noteParams": {
+      "s8-eli-priority": { "limitEliSingle": 2191, "limitEliFour": 3129 }
+    },
+    "name": {
+      "en": "Section 8 / Housing Choice Voucher (rent help)",
+      "es": "Sección 8 / Vale de Elección de Vivienda (ayuda con la renta)"
+    },
+    "value": {
+      "en": "When you have a voucher, you pay about 30% of your adjusted income and the voucher pays the rest straight to your landlord. The Nevada County waiting list is CLOSED right now — you can't get in line today, but there are honest next moves.",
+      "es": "Con un vale, usted paga alrededor del 30% de su ingreso ajustado y el vale paga el resto directamente a su arrendador. La lista de espera del condado de Nevada está CERRADA ahora — hoy no es posible anotarse, pero hay pasos honestos que dar."
+    },
+    "apply": {
+      "url": "https://regionalha.org/programs/housing-choice-voucher",
+      "phone": { "en": "888-671-0220", "es": "888-671-0220" },
+      "local": {
+        "en": "Regional Housing Authority (Yuba City; serves Nevada Co.) · office hours Mon-Thu 8am-12pm · watch regionalha.org + local papers for reopening · 2-1-1",
+        "es": "Regional Housing Authority (Yuba City; sirve al condado de Nevada) · horario lun-jue 8am-12pm · vigile regionalha.org y los periódicos locales para la reapertura · 2-1-1"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Waiting list status: \"The waiting list for Housing Choice Voucher is CLOSED at this time\"; reopening announced via area newspapers + the RHA website; phones 530-671-0220 / 888-671-0220 / TTY 800-927-9275; tenant-payment mechanics (30% adjusted income, up to 40% first year) on the same RHA page",
+        "source": "https://regionalha.org/programs/housing-choice-voucher",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 mixed batch + oracle live re-verification (linchpin re-fetched; 30/40 mechanics double-sourced here per mixed report)"
+      },
+      {
+        "claim": "HUD FY2026 income limits, Nevada County CA (median $140,400): Very Low (50%) $43,800/1p … $62,550/4p … $82,600/8p; Extremely Low (30%) $26,300/1p … $37,550/4p (ELI 6-8p sit on the 2026 poverty-guideline caps 44,360/50,040/55,720). Monthly values = annual ÷ 12 floored; increment $414 (HUD's +8%-of-4-person rule, floored)",
+        "source": "https://www.huduser.gov/portal/datasets/il/il26/Section8-FY26.xlsx",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 mixed batch (workbook parsed directly) + oracle (all 8 floors re-derived; HUD↔ASPE↔fpl-2026.json three-way reproduced)"
+      },
+      {
+        "claim": "Tenant pays ~30% of adjusted monthly income (minimum; up to 40% first year); subsidy paid directly to landlord",
+        "source": "https://www.hud.gov/helping-americans/housing-choice-vouchers-tenants",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 fact-check wave (housing-s8), reused by wave-1; NOT re-fetched in the mixed pass — RHA's own page (row above) double-sources the mechanics"
+      },
+      {
+        "claim": "RHA administers HCV for Colusa, Nevada, Sutter, and Yuba Counties (office: 1455 Butte House Road, Yuba City)",
+        "source": "https://www.nevadacountyca.gov/548/Housing-Choice-Vouchers",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 fact-check wave (housing-s8), reused by wave-1"
+      }
+    ]
+  },
+  {
+    "id": "school-meals",
+    "jurisdiction": "CA",
+    "category": "food",
+    "status": "open",
+    "test": {
+      "universal": true,
+      "ageAnyMax": 17,
+      "specialNotes": ["meals-no-application", "meals-public-charter-only"]
+    },
+    "name": {
+      "en": "Free school meals (every TK-12 student)",
+      "es": "Comidas escolares gratis (todo estudiante de TK-12)"
+    },
+    "value": {
+      "en": "Two free meals a day — breakfast and lunch — for every TK-12 student at public and charter schools, no application and no income requirement",
+      "es": "Dos comidas gratis al día — desayuno y almuerzo — para todo estudiante de TK-12 en escuelas públicas y chárter, sin solicitud y sin requisito de ingresos"
+    },
+    "apply": {
+      "url": "https://www.cde.ca.gov/ls/nu/sn/cauniversalmeals.asp",
+      "local": {
+        "en": "Nothing to sign up for — meals are served at school. Ask your school office about breakfast times.",
+        "es": "No hay que inscribirse — las comidas se sirven en la escuela. Pregunte en la oficina escolar por los horarios del desayuno."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "EC §49501.5 verbatim: school districts, county offices of education, and charter schools \"shall make available… a breakfast and… lunch free of charge\" to any pupil each school day, regardless of free/reduced-price eligibility",
+        "source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=EDC&sectionNum=49501.5.",
+        "verifiedAt": "2026-07-02",
+        "via": "oracle mixed verification — statute is the stronger primary (the CDE page returned a JS shell at sweep time)"
+      },
+      {
+        "claim": "Universal Meals program mechanics: public districts, county offices of education, and charter schools; all TK-12 students; since SY2022-23 (EC §§49501.5, 49564.3)",
+        "source": "https://www.cde.ca.gov/ls/nu/sn/cauniversalmeals.asp",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 mixed batch (page last reviewed 2025-11-04)"
+      },
+      {
+        "claim": "2026-27 state budget (signed 2026-06-29) continues universal school meals funding",
+        "source": "https://www.gov.ca.gov/2026/06/29/signedbudget/",
+        "verifiedAt": "2026-07-02",
+        "via": "wave-1 mixed batch + oracle (continuation verbatim); freshness rhythm: re-check each June with the annual budget"
+      }
+    ]
+  }
+]

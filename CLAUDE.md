@@ -63,6 +63,7 @@ pnpm deploy:local
 | `components/` | React components with CSS Modules |
 | `components/homepage/` | Homepage section components (Hero, GuideGrid, ResourcesPreview, etc.) |
 | `lib/` | Utilities, config, hooks, types |
+| `lib/screener/` | Benefits screener: `rules.data.json` verified rules DB (per-number provenance, 120-day freshness CI), `evaluate.ts` pure evaluator, bilingual strings |
 | `styles/global.css` | Design system CSS custom properties (`--te-*` tokens) |
 | `styles/notion.css` | Notion content style overrides for react-notion-x |
 | `patches/` | patch-package patches applied at install |
@@ -75,6 +76,7 @@ All content lives in Notion. `site.config.ts` maps Notion page IDs to URL paths:
 - `/` — Custom homepage (React components)
 - `/guides/*` — Step-by-step technology guides (8 guides)
 - `/resources` — Searchable resource database (Notion collection)
+- `/qualify` — 2-minute benefits screener (client-side React, bilingual EN/ES; answers never leave the browser)
 - `/show` — "Wait, I Qualify?!" video series home (episode list + get-help resources)
 - `/about`, `/donate` — Static pages
 
@@ -92,3 +94,4 @@ Earth-tone palette defined as CSS custom properties in `styles/global.css`:
 - SSR pages set CDN cache headers (`s-maxage=3600, stale-while-revalidate=86400`)
 - Guide pages include breadcrumb navigation, Spanish translation toggle, and related guides
 - Redis caching is disabled (`isRedisEnabled: false` in site.config.ts)
+- Every number in `lib/screener/rules.data.json` requires provenance with `verifiedAt` ≤120 days (CI-enforced by the validator test) and EN/ES string parity is contract-tested — never hand-edit a number without a source

@@ -67,7 +67,8 @@ export default function App({ Component, pageProps }: AppProps) {
         Fathom.trackPageview()
       }
 
-      if (posthogId) {
+      // /qualify is analytics-free by promise (see posthogConfig)
+      if (posthogId && !window.location.pathname.startsWith('/qualify')) {
         posthog.capture('$pageview')
       }
     }

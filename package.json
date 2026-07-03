@@ -30,7 +30,8 @@
     "deps:link:react-notion-x": "pnpm link ../react-notion-x/packages/react-notion-x",
     "test": "run-p test:*",
     "test:lint": "eslint .",
-    "test:prettier": "prettier '**/*.{js,jsx,ts,tsx}' --check"
+    "test:prettier": "prettier '**/*.{js,jsx,ts,tsx}' --check",
+    "test:unit": "vitest run"
   },
   "dependencies": {
     "@fisch0920/use-dark-mode": "^2.4.0",
@@ -73,6 +74,7 @@
     "patch-package": "^8.0.1",
     "prettier": "^3.8.4",
     "typescript": "^5.9.3",
+    "vitest": "^4.1.9",
     "wrangler": "^4.100.0"
   },
   "prettier": "@fisch0920/config/prettier",

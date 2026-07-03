@@ -46,18 +46,18 @@ ABOUT: TechEmpower is a 501(c)(3) nonprofit in Grass Valley, California, working
 
 ---
 
-## Chapters (fill timestamps from the final cut)
+## Chapters (timestamps from the July 1 rough cut — re-derive only if the cut changes)
 
 ```
 00:00 Intro — the secret of the show
-0:00  Myth 1: "Benefits are only for the truly destitute"
-0:00  Myth 2: "Taking it from someone who needs it more"
-0:00  Myth 3: "Good people don't take handouts"
-0:00  Myth 4: "What if I do it wrong?"
-0:00  What to do next — 211, findhelp.org, techempower.org
+0:42 Myth 1: "Benefits are only for the truly destitute"
+3:26 Myth 2: "Taking it from someone who needs it more"
+6:03 Myth 3: "Good people don't take handouts"
+10:35 Myth 4: "What if I do it wrong?"
+14:07 What to do next — 211, findhelp.org, techempower.org
 ```
 
-(Rough segment order matches the script's four myth headers + close. Read the timestamps off the locked edit — or pull them from the whisper transcript, which we already generate.)
+(Derived from the whisper transcript of `~/Videos/ep1-rough-cut-720p.mp4` (15:19). If the final upload uses a different cut, shift accordingly — the transcript lives at `/tmp/claude-1000/ep1-transcribe/`, regenerate with whisper-ctranslate2 if gone. Transcript bonus flags for the description writer: Jeff ad-libs "Shawna's twin" at 0:08; whisper mishears "techandpower.org" at 0:10 — known transcription quirk, audio is fine per edit-list review.)
 
 ---
 
