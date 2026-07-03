@@ -59,6 +59,13 @@ PROMPTER NOTES (do not read):
   Don't imply WIC alone unlocks every dollar of the stack
   -- "the company sorts out which discounts you get" is
   the safe ad-lib.
+- AD-LIB GUARDRAILS (week-of re-verify, 2026-07-03): the
+  free phones are "limited time / while supplies last" per
+  Assurance's own site -- don't promise availability; and
+  don't say "unlimited data" for the PHONE plan (national
+  fine print caps data; the script's "a pile of data" is
+  the verified-safe phrasing). The library hotspot's
+  UNLIMITED data claim is separate and stands.
 ================================================================
 
 

@@ -27,6 +27,19 @@ Application screens overlay the dialogue (hosts keep talking). Capture
 the week of the edit so screens match air-date reality; re-check against
 the fact-check report before rendering.
 
+**Week-of re-verify (2026-07-03, all claims STILL-ACCURATE — zero script
+changes; full report: `~/.claude/projects/-home-jp/scratch/ep2-weekof-and-e5/`):**
+
+- ⚠️ Screencast #3: **internetessentials.com is RETIRED** (301 + broken cert on
+  www) — capture `xfinity.com/learn/internet-service/internet-essentials`
+  instead; the $14.95/75Mbps facts are in the FAQ there, not the hero.
+- ⚠️ Until Aug 3 the Xfinity hero runs a limited-time CA promo (IE Plus
+  $9.95/6mo) — fine if it appears in frame, but don't caption it (unverified
+  for air date).
+- Current post-July-1 per-branch library hours are captured in the report for
+  the program-card graphic (MH/GV Sat 9–4 · Truckee Sat CLOSED · PV M/W/F ·
+  BR Tu/Th).
+
 1. assurancewireless.com sign-up start screen (the apply flow's first page) — ~6s
 2. californialifeline.com provider list for a Nevada County zip — ~4s
    _(July 2: the "two forms side-by-side" insert was dropped with the two-applications claim — see prompter notes; carrier-first flow per JP)_
