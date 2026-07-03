@@ -1524,10 +1524,16 @@
         "via": "wave-2 batch A draft (nebula, live fetch) + adversarial verification 2026-07-03 (oracle) — unlock scope deliberate: medi-cal withheld (auto only ≤185% FPL; Medi-Cal kids run to 266% — an unconditional unlock would false-promise the 185-266 band) and ssi withheld (CDSS routes SSI kids to the application); copy carries the automatic path as 6-18 so under-6-only CalFresh households aren't overpromised"
       },
       {
-        "claim": "2026 application deadline Aug 31, 2026; streamlined cards mail late May-July 2026 (alphabetical schedule), newly-approved cards from late July 2026; each card loaded with $120; Medi-Cal automatic path is 'certified at or below 185% of the FPL'; benefits expunge 122 days after load and cannot be replaced; use SUN Bucks before CalFresh. Income cells reconcile to the pinned CDE IEG scales2627 (eff. Jul 1 2026-Jun 30 2027): 2p $40,034/yr $3,337/mo · 4p $61,050/yr $5,088/mo — screener cells $1 under printed (floor vs round-up), never overstating",
+        "claim": "2026 application deadline Aug 31, 2026; streamlined cards mail late May-July 2026 (alphabetical schedule), newly-approved cards from late July 2026; each card loaded with $120; Medi-Cal automatic path is 'certified at or below 185% of the FPL'; benefits expunge 122 days after load and cannot be replaced; use SUN Bucks before CalFresh",
         "source": "https://www.cdss.ca.gov/sun-bucks/how-to-get-sun-bucks",
         "verifiedAt": "2026-07-03",
-        "via": "wave-2 batch A draft (nebula, live fetch) + adversarial verification 2026-07-03 (oracle) — IEG table pinned via CDE scales2627"
+        "via": "wave-2 batch A draft (nebula, live fetch) + adversarial verification 2026-07-03 (oracle)"
+      },
+      {
+        "claim": "SY2026-27 Income Eligibility Guidelines (eff. Jul 1 2026-Jun 30 2027), the school-meal scale SUN Bucks applications certify against — 185% scale: 2p $40,034/yr · $3,337/mo; 4p $61,050/yr · $5,088/mo; screener cells sit $1 under the printed monthly column (floor vs round-up), never overstating",
+        "source": "https://www.cde.ca.gov/ls/nu/rs/scales2627.asp",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A adversarial verification 2026-07-03 (oracle) — the IEG dollar-table primary for the 185% cells (sfmnp-pattern pin); added at integration per oracle advisory"
       }
     ]
   },
@@ -1642,6 +1648,12 @@
         "source": "https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines",
         "verifiedAt": "2026-07-03",
         "via": "wave-2 batch A draft (nebula) + adversarial verification 2026-07-03 (oracle) — cells {1803, 2750} exact floors; no memberGate per oracle ruling (ageAnyMax member dims are already hard; pregnant sets memberOk; no overLimitRescue here)"
+      },
+      {
+        "claim": "KidZCommunity 'For Enrollment: 530-886-4122' (site-wide incl. Apply page); programs Early Head Start center/home-based + Head Start Preschool; 'Placer and Nevada Counties' per site root",
+        "source": "https://www.kidzcommunity.org/apply/",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A adversarial verification 2026-07-03 (oracle) — live fetch HTTP 200; added at integration per oracle advisory (findable source for the local-operator contact)"
       }
     ]
   },
