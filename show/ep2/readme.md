@@ -13,11 +13,11 @@ Three props on the desk, in reach order. **Prop honesty rule** (in the
 prompter notes): say "like this one" unless the object IS the real
 article — props must never create a claim the fact-check didn't verify.
 
-| Prop | Beat | Status |
-|------|------|--------|
-| Smartphone (stand-in) | Benefit 1 — Jeff holds up at the zero-dollar reveal, hands to Shawna | HAVE |
+| Prop                          | Beat                                                                                     | Status                                                                                                                             |
+| ----------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Smartphone (stand-in)         | Benefit 1 — Jeff holds up at the zero-dollar reveal, hands to Shawna                     | HAVE                                                                                                                               |
 | **Library hotspot (genuine)** | Benefit 3 — the trophy reveal; "we checked this one out this week" + "goes back Tuesday" | **Pick up from Madelyn Helling BEFORE Monday** (place a catalog hold now if out; `[FALLBACK]` lines in script if it falls through) |
-| Chromebook (stand-in) | Benefit 4 — human-I-T beat, "like this one" | HAVE |
+| Chromebook (stand-in)         | Benefit 4 — human-I-T beat, "like this one"                                              | HAVE                                                                                                                               |
 
 Pre-roll: props on desk, screens clean, hotspot powered OFF.
 
@@ -37,12 +37,12 @@ the fact-check report before rendering.
 
 End card: conditional `/qualify` addition if the screener is live by air date — confirm with JP.
 
-| File | What it is |
-|------|------------|
-| `ep2-teleprompter.txt` | **Studio master — copy to the portable drive for NCM.** Plain ASCII, CRLF line endings, ALL-CAPS speaker tags, `[bracket]` cues incl. `[PROP:]` staging + `[POST: SCREENCAST]` overlays (props/screencast pass July 2). Built from 8-agent program research + adversarial fact-check (June 11, 2026). Re-verify carrier plan details and library hours the week of taping. |
-| `teleprompter.html` | **Practice/rehearsal only.** Same app as Ep1; sync with `node scripts/sync-prompter.mjs ep2` after editing the txt. Sigil badge bottom-left changes when the script changes. |
-| `host-cards.html` | Printable backup note cards (Ctrl+P): Shawna S1–S6, Jeff J1–J3. |
-| `fact-check-full-report.json` | Full 11-claim adversarial verification: verdicts, primary-source URLs, ad-lib guardrails, week-of re-check flags. All fixes are applied in the txt. |
+| File                          | What it is                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ep2-teleprompter.txt`        | **Studio master — copy to the portable drive for NCM.** Plain ASCII, CRLF line endings, ALL-CAPS speaker tags, `[bracket]` cues incl. `[PROP:]` staging + `[POST: SCREENCAST]` overlays (props/screencast pass July 2). Built from 8-agent program research + adversarial fact-check (June 11, 2026). Re-verify carrier plan details and library hours the week of taping. |
+| `teleprompter.html`           | **Practice/rehearsal only.** Same app as Ep1; sync with `node scripts/sync-prompter.mjs ep2` after editing the txt. Sigil badge bottom-left changes when the script changes.                                                                                                                                                                                               |
+| `host-cards.html`             | Printable backup note cards (Ctrl+P): Shawna S1–S6, Jeff J1–J3.                                                                                                                                                                                                                                                                                                            |
+| `fact-check-full-report.json` | Full 11-claim adversarial verification: verdicts, primary-source URLs, ad-lib guardrails, week-of re-check flags. All fixes are applied in the txt.                                                                                                                                                                                                                        |
 
 Post-edit assets (jingle/logo/outro + on-screen program cards with
 phone numbers and URLs) are due with the edit, not the shoot — the
