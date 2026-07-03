@@ -608,7 +608,8 @@
       "universal": false,
       "flagsAll": [],
       "categoricalUnlocks": [],
-      "ageAnyMin": 60
+      "ageAnyMin": 60,
+      "memberFlagsAny": ["disability"]
     },
     "name": {
       "en": "Free medical equipment (FREED reuse)",

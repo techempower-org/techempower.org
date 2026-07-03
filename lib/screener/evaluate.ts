@@ -86,8 +86,11 @@ export function evaluate(answers: Answers, rules: Rule[]): EvaluationResult {
     // memberGate (oracle mixed ruling): the member dimension is HARD — no
     // qualifying member (age band or member flag) means the rule is omitted
     // before income is even considered, so overLimitRescue can never fire
-    // member-blind.
-    if (t.memberGate && age !== null && !age && !memberViaFlag) continue
+    // member-blind. Arms whenever the rule declares ANY member dimension
+    // (age bands or member flags), not only when age bands exist.
+    const memberOk = (age ?? false) || memberViaFlag
+    const hasMemberDim = age !== null || (t.memberFlagsAny?.length ?? 0) > 0
+    if (t.memberGate && hasMemberDim && !memberOk) continue
 
     const unlockHit = (t.categoricalUnlocks ?? []).find((u) =>
       answers.enrolled.includes(u)
@@ -164,25 +167,20 @@ export function evaluate(answers: Answers, rules: Rule[]): EvaluationResult {
     // an alternative qualifying route (weaker bucket) when income exists too.
     // memberFlagsAny widens the member dimension only (e.g. WIC's pregnancy
     // category) — every other gate, income included, still applies.
-    if (age !== null) {
+    if (age !== null || memberViaFlag) {
       const incomeDimension = limit !== null || t.universal || unlockHit
-      if (age && !include) {
+      if (memberOk && !include) {
         if (!incomeDimension) {
           include = true
-          reasons.push({ key: 'reason.age' })
+          reasons.push({ key: age ? 'reason.age' : 'reason.member-flag' })
         } else if (t.ageAnyMin !== undefined) {
           include = true
           bucket = worst(bucket, 'worthAsking')
-          reasons.push({ key: 'reason.age' })
+          reasons.push({ key: age ? 'reason.age' : 'reason.member-flag' })
         }
-      } else if (!age && !include) {
-        continue // age-gated and no qualifying member
-      } else if (
-        !age &&
-        include &&
-        t.ageAnyMax !== undefined &&
-        !memberViaFlag
-      ) {
+      } else if (!memberOk && !include) {
+        continue // member-gated and no qualifying member
+      } else if (!memberOk && include && t.ageAnyMax !== undefined) {
         // income passed but the required member (e.g. a child for WIC) is absent
         continue
       }

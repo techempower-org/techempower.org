@@ -18,6 +18,14 @@ export function ProgramCard({
       .map((p) => p.verifiedAt)
       .toSorted()
       .at(-1) ?? ''
+  const newestLabel = newest
+    ? new Date(newest).toLocaleDateString(lang === 'es' ? 'es-US' : 'en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        timeZone: 'UTC'
+      })
+    : newest
   const phone = rule.apply.phone?.[lang]
   const local = rule.apply.local?.[lang]
   // "Call:" prefix only when the prose is an actual number (oracle N2) —
@@ -66,7 +74,7 @@ export function ProgramCard({
 
       <footer className={styles.provenance}>
         <a href={rule.provenance[0]?.source} target='_blank' rel='noreferrer'>
-          {t(lang, 'card.source', { date: newest })}
+          {t(lang, 'card.source', { date: newestLabel })}
         </a>
       </footer>
     </article>

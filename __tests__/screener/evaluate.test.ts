@@ -173,6 +173,25 @@ describe('evaluate — golden cases from the fact-check corpus', () => {
     )
     expect(bucketOf(hh2, 'lifeline-ca')).toBe('strong')
   })
+  it('F3: disability flag reaches FREED without a 60+ member', () => {
+    // under-60 household, no seniors — FREED was previously unreachable
+    const disabled = evaluate(
+      { ...base, flags: [...base.flags, 'disability'] },
+      R
+    )
+    expect(bucketOf(disabled, 'freed-equipment')).not.toBe('absent')
+    const verdict = [
+      ...disabled.strong,
+      ...disabled.likely,
+      ...disabled.worthAsking,
+      ...disabled.notNow
+    ].find((v) => v.ruleId === 'freed-equipment')
+    expect(verdict?.reasons.map((r) => r.key)).toContain('reason.member-flag')
+
+    // and without the flag or a senior, it stays omitted
+    const neither = evaluate(base, R)
+    expect(bucketOf(neither, 'freed-equipment')).toBe('absent')
+  })
   it('S1: county gate — other-ca keeps CA programs, drops nevada-county ones', () => {
     const withElder = {
       ...base,
