@@ -45,6 +45,14 @@ PROMPTER NOTES (do not read):
   Consumer-flow framing per JP. Update the Notion
   fact-check page to match. (3) Episode-1 benefits
   references removed (Ep1 didn't cover benefits in detail).
+- July 3 addition (JP flag): CASF Line Extension Program
+  beat in Benefit Two -- verified LIVE against cpuc.ca.gov
+  2026-07-03: rules current per D.25-11-003 (Nov 25, 2025),
+  rolling applications, LifeLine/CARE income thresholds (or
+  equivalent income), provider may apply on the household's
+  behalf, consent forms available in Spanish. No dollar
+  amounts spoken (award sizes vary). Add this page to the
+  week-of recheck list.
 - AD-LIB GUARDRAIL (kept from the fact-check): WIC and
   school lunch qualify the STATE discount; the federal
   slice has its own shorter list (SNAP, Medi-Cal, SSI...).
@@ -225,17 +233,30 @@ SHAWNA:
 And if none of them reach you today?
 
 JEFF:
-Two real reasons for hope. First: Nevada County landed one
-of the biggest rural broadband allocations in California --
-almost seventy-five million dollars set aside by the state
--- and so far nearly fifteen million of it has turned into
-two local fiber projects, with crews already building.
-Second: since this January, that LifeLine discount we talked
-about also works on home internet -- up to twenty or thirty
-dollars a month off -- through participating providers like
-Xfinity and Spectrum, with more signing on. So if the answer
-is "no" today, check again in a few months. It's changing
-fast.
+Three real answers. First: if the wire doesn't reach your
+house, the state has a program that helps pay to EXTEND it
+-- it's called the Line Extension Program. Same income lines
+as the phone discount -- or if you're on CARE, the utility
+discount, you're in. And the practical part: the internet
+company can file the application for you. So when a provider
+says "we don't serve your road," your next question is:
+"will you check the Line Extension Program for me?"
+
+[POST: PROGRAM CARD -- CASF Line Extension Program: state
+grant to extend the line to unserved homes -- LifeLine/CARE
+income lines -- ask your provider to apply for you]
+
+JEFF (cont):
+Second: Nevada County landed one of the biggest rural
+broadband allocations in California -- almost seventy-five
+million dollars set aside by the state -- and so far nearly
+fifteen million of it has turned into two local fiber
+projects, with crews already building. Third: since this
+January, that LifeLine discount we talked about also works
+on home internet -- up to twenty or thirty dollars a month
+off -- through participating providers like Xfinity and
+Spectrum, with more signing on. So if the answer is "no"
+today, check again in a few months. It's changing fast.
 
 SHAWNA:
 And meanwhile?
