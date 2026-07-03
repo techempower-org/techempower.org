@@ -21,8 +21,8 @@ Total cut: ~26.1 seconds. No overlaps between any cuts.
 | # | What | Frames | Duration | Notes |
 |---|------|--------|----------|-------|
 | 1 | Jingle + logo intro | pre-108009 | ~7s | Pre-roll before interview |
-| 2 | Lower third: Shawna | 108110–108260 | 5s | After "I'm Shawna" |
-| 3 | Lower third: Jeff | 108337–108487 | 5s | After "And I'm Jeff" |
+| 2 | Lower third: **"Shawna Hein"** | 108110–108260 | 5s | After "I'm Shawna" — full name, same style as Jeff's tag |
+| 3 | Lower third: **"Jeff Hein"** | 108337–108487 | 5s | After "And I'm Jeff" |
 | 4 | Chart graphic | 113542–113903 | 12s | "Look at this chart" beat |
 | 5 | Book cover | 127202–127475 | 9.1s | "Escape from Capitalism" mention (CORRECTED from workflow) |
 | 6 | Outro jingle + end card | 135899+ | 10s+ | After final "You might be surprised" |
