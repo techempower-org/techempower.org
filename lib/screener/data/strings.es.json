@@ -61,7 +61,7 @@
   "note.nid-care-chain": "Obtener CARE (arriba) es en sí un boleto a este descuento de agua.",
   "note.clca-liability-only": "Cobertura de responsabilidad solamente — lo mantiene legal, no cubre su propio auto.",
   "note.clca-benefit-proof": "¿Ya tiene CalFresh, CalWORKs o Medi-Cal? Su tarjeta EBT, carta de beneficios o tarjeta de Medi-Cal cuenta como comprobante de ingresos — un documento menos que buscar.",
-  "note.retirement-failed-smog-tier": "El nivel de {amountFailedSmog} sin prueba de ingresos requiere haber reprobado el smog; el nivel por ingresos no.",
+  "note.retirement-failed-smog-tier": "El nivel de {amountFailedSmog} sin prueba de ingresos requiere haber reprobado el smog; con ingresos calificados, un auto que pasó aún recibe hasta {amountIncomePass}.",
   "note.medical-baseline-device": "Para hogares donde alguien depende de un equipo médico eléctrico; un doctor/NP/PA firma la primera inscripción.",
   "note.freed-any-age-disability": "Cualquier edad con discapacidad también califica — la casilla de 60+ es solo para simplificar. Llame.",
   "note.lsnc-senior-soft": "¿Tiene 60 años o más? Solo llame — hay un programa para adultos mayores y el equipo de admisión le dirá para qué califica.",

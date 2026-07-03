@@ -112,6 +112,30 @@ describe('evaluate — golden cases from the fact-check corpus', () => {
     expect(bucketOf(r, 'bar-retirement')).toBe('worthAsking')
     expect(bucketOf(r, 'bar-cap-repair')).toBe('absent')
   })
+  it('E5: ESA uses the live 250% per-person table — no CARE band, no HH2 floor', () => {
+    // HH4 @ $6,000 sat over the old CARE-aligned $5,500 cap; the live ESA
+    // table allows up to $6,875 (250% FPG, same as FERA's upper bound).
+    const hh4 = evaluate({ ...base, incomeMonthlyGross: 6000 }, R)
+    expect(bucketOf(hh4, 'esa')).toBe('strong')
+    // A 1-person household under the old floor-of-2 model passed up to
+    // $3,606; the live table has a true 1-person row capping at $3,325.
+    const single = evaluate(
+      {
+        ...base,
+        householdSize: 1,
+        incomeMonthlyGross: 3500,
+        ages: {
+          under5: 0,
+          age5to17: 0,
+          age18to59: 1,
+          age60plus: 0,
+          age80plus: 0
+        }
+      },
+      R
+    )
+    expect(bucketOf(single, 'esa')).toBe('absent')
+  })
   it('B1: HH2 @ $2,600 gets CA LifeLine — inside the real $2,775 limit, boundary → likely', () => {
     // The pre-fix row ($2,050 for HH2) wrongly screened this household out.
     const hh2 = evaluate(

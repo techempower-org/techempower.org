@@ -61,7 +61,7 @@
   "note.nid-care-chain": "Getting CARE (above) is itself a ticket to this water discount.",
   "note.clca-liability-only": "Liability-only coverage — it keeps you legal, it doesn't cover your own car.",
   "note.clca-benefit-proof": "Already on CalFresh, CalWORKs, or Medi-Cal? Your EBT card, award letter, or Medi-Cal card counts as income proof — one less document to hunt down.",
-  "note.retirement-failed-smog-tier": "The {amountFailedSmog} no-income-test tier requires a failed smog check; the income-qualified tier doesn't.",
+  "note.retirement-failed-smog-tier": "The {amountFailedSmog} no-income-test tier requires a failed smog check; income-qualified, a car that passed still gets up to {amountIncomePass}.",
   "note.medical-baseline-device": "For households where someone relies on a powered medical device; a doctor/NP/PA signs the first enrollment.",
   "note.freed-any-age-disability": "Any age with a disability qualifies too — the 60+ box here is just the screener being simple. Call.",
   "note.lsnc-senior-soft": "60 or older? Just call — there's a senior program and intake will tell you what you qualify for.",

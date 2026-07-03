@@ -237,10 +237,10 @@
     },
     "provenance": [
       {
-        "claim": "250% FPG; SB1130 opened 1-2p households; one application routes CARE/FERA",
-        "source": "https://www.pge.com/en/account/billing-and-assistance/financial-assistance/family-electric-rate-assistance-program.html",
-        "verifiedAt": "2026-07-01",
-        "via": "ep4 wave: care-fera"
+        "claim": "250% FPG; SB1130 opened 1-2p households; one application routes CARE/FERA; 18% electric discount, bands valid through 2027-05-31",
+        "source": "https://www.pge.com/en/account/billing-and-assistance/financial-assistance/family-electric-rate-assistance-program-fera.html",
+        "verifiedAt": "2026-07-03",
+        "via": "E5 playwright pass (page renamed with -fera suffix; old URL 404s; pge.com/carefera vanity still routes)"
       }
     ]
   },
@@ -251,14 +251,18 @@
     "status": "check-first",
     "test": {
       "limitsMonthly": {
-        "1": 2916,
-        "2": 3813,
-        "3": 4711,
-        "4": 5608,
-        "increment": 897
+        "1": 3331,
+        "2": 4356,
+        "3": 5382,
+        "4": 6407,
+        "5": 7432,
+        "6": 8457,
+        "7": 8649,
+        "8": 8841,
+        "increment": 192
       }
     },
-    "thresholdsDisplay": { "4": 5608 },
+    "thresholdsDisplay": { "4": 6407 },
     "name": {
       "en": "LIHEAP (heating-bill help — covers propane, wood, oil)",
       "es": "LIHEAP (ayuda con calefacción — incluye propano, leña y petróleo)"
@@ -288,10 +292,10 @@
         "via": "nebula E4 — page 406s without an Accept header (browser-UA + Accept; not a JS wall, off the playwright list); ECIP figures on /ecip.html same-fetch"
       },
       {
-        "claim": "FFY2026 monthly income ceilings (60% SMI table, e.g. $6,407.16/4p) — dollar table is client-rendered on the CSD eligibility page; statutory standard covered by the State Plan cite above",
-        "source": "https://www.csd.ca.gov/Pages/LIHEAPProgram.aspx",
-        "verifiedAt": "2026-07-01",
-        "via": "ep4 wave: amp-liheap; NOT re-verified in the E4 pass (JS-only table — single-page playwright recheck queued as E5)"
+        "claim": "2026 monthly income ceilings, live table: $3,331.66/1p, $4,356.83/2p, $5,382.00/3p, $6,407.16/4p … $8,841.83/8p, then ~$192.21 steps (7p+ increments are NON-uniform vs the ~$1,025 1p-6p steps; >10p add $192.21/person); statutory 60% SMI standard covered by the State Plan cite above",
+        "source": "https://www.csd.ca.gov/Pages/LIHEAP-Income-Eligibility.aspx",
+        "verifiedAt": "2026-07-03",
+        "via": "E5 playwright pass (client-rendered table, headless chromium)"
       }
     ]
   },
@@ -301,8 +305,7 @@
     "category": "utilities",
     "status": "open",
     "test": {
-      "incomePctFPL": 200,
-      "householdFloor": 2,
+      "incomePctFPL": 250,
       "flagsAll": ["pge-customer"],
       "categoricalUnlocks": ["medi-cal", "calfresh", "ssi"]
     },
@@ -317,10 +320,10 @@
     "apply": { "url": "https://www.pge.com/esa" },
     "provenance": [
       {
-        "claim": "measures + renters + home 5+ yrs; income aligned to CARE/FERA",
-        "source": "https://www.pge.com/en/account/billing-and-assistance/financial-assistance/energy-savings-assistance-program.html",
-        "verifiedAt": "2026-07-01",
-        "via": "ep4 wave: esa-wap"
+        "claim": "measures + renters + home 5+ yrs; income is the 250% FPG per-person table ($39,900/1p, $82,500/4p, +$14,200/person), valid through 2027-05-31 — true 1-person row, no 1-2 band",
+        "source": "https://www.pge.com/en/save-energy-and-money/energy-saving-programs/energy-savings-assistance-program.html",
+        "verifiedAt": "2026-07-03",
+        "via": "E5 playwright pass (page moved out of financial-assistance section; old URL 404s)"
       }
     ]
   },
@@ -408,10 +411,10 @@
     "test": {
       "limitsMonthly": {
         "1": 2992,
-        "2": 4041,
-        "3": 5091,
+        "2": 4058,
+        "3": 5123,
         "4": 6187,
-        "increment": 1008
+        "increment": 1065
       },
       "flagsAll": ["has-vehicle", "failed-smog"]
     },
@@ -421,16 +424,22 @@
       "es": "Ayuda para reparación de smog (BAR CAP, hasta $1,450)"
     },
     "value": {
-      "en": "Up to $1,450 toward emissions repairs after a failed smog check — you pay at least 20%",
-      "es": "Hasta $1,450 para reparaciones tras reprobar el smog — usted paga al menos 20%"
+      "en": "Up to $1,450 toward emissions repairs after a failed smog check ($1,100 for 1976–95 model years) — you pay at least 20%",
+      "es": "Hasta $1,450 para reparaciones tras reprobar el smog ($1,100 para modelos 1976–95) — usted paga al menos 20%"
     },
     "apply": { "url": "https://www.bar.ca.gov/cap" },
     "provenance": [
       {
-        "claim": "225% FPL 2026 table ($35,910/1p, $74,250/4p annual), ≥20% copay, MY1996+",
-        "source": "https://www.bar.ca.gov/consumer/consumer-assistance-program",
-        "verifiedAt": "2026-07-01",
-        "via": "ep4 wave: car-bar (live 2026 table)"
+        "claim": "MY1996+ up to $1,450 / MY1976-1995 up to $1,100 for emissions-related repairs; copay 20% of total when ≤$1,812.50, else total minus $1,450",
+        "source": "https://www.bar.ca.gov/cap/repair",
+        "verifiedAt": "2026-07-03",
+        "via": "E5 playwright pass (accordion DOM; old consumer/consumer-assistance-program URL now redirects to /cap)"
+      },
+      {
+        "claim": "225% FPL 2026 income table ($35,910/1p, $74,250/4p annual; BAR's printed monthly column $2,993/1p, $4,058/2p, $5,123/3p, $6,188/4p, +$1,065/person 9+)",
+        "source": "https://www.bar.ca.gov/cap/income",
+        "verifiedAt": "2026-07-03",
+        "via": "E5 playwright pass (screenshot j2-bar-income.png; row keeps conservative floors for 1p/4p)"
       }
     ]
   },
@@ -444,23 +453,26 @@
       "specialNotes": ["retirement-failed-smog-tier"]
     },
     "noteParams": {
-      "retirement-failed-smog-tier": { "amountFailedSmog": 1350 }
+      "retirement-failed-smog-tier": {
+        "amountFailedSmog": 1350,
+        "amountIncomePass": 1500
+      }
     },
     "name": {
       "en": "Vehicle retirement (the state buys your car)",
       "es": "Retiro de vehículo (el estado le compra su auto)"
     },
     "value": {
-      "en": "$1,350 if it failed smog (no income test) — up to $2,000 income-qualified even if it passed",
-      "es": "$1,350 si reprobó el smog (sin prueba de ingresos) — hasta $2,000 con ingresos calificados aunque haya pasado"
+      "en": "$1,350 if it failed smog (no income test) — income-qualified: $2,000 if it failed, $1,500 even if it passed",
+      "es": "$1,350 si reprobó el smog (sin prueba de ingresos) — con ingresos calificados: $2,000 si reprobó, $1,500 aunque haya pasado"
     },
     "apply": { "url": "https://www.bar.ca.gov/cap" },
     "provenance": [
       {
-        "claim": "$1,350 failed-smog tier / $2,000 ≤225% FPL; FY funds from Jul 1 2026",
-        "source": "https://www.bar.ca.gov/consumer/consumer-assistance-program",
-        "verifiedAt": "2026-07-01",
-        "via": "ep4 wave: car-bar"
+        "claim": "$1,350 tier: no income test, failed smog required / income-qualified ≤225% FPL: $2,000 failed smog, $1,500 with any completed Smog Check (pass or fail) within 180 days; FY funds Jul 1–Jun 30",
+        "source": "https://www.bar.ca.gov/cap/retirement",
+        "verifiedAt": "2026-07-03",
+        "via": "E5 playwright pass (accordion DOM verbatim; /cap/income cross-confirms the $1,350 no-income tier)"
       }
     ]
   },
