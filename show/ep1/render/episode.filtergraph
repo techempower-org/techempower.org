@@ -1,0 +1,13 @@
+[0:v]select='between(t,0,152.90)+between(t,158.26,497.30)+between(t,510.36,520.20)+gte(t,524.92)',setpts=N/FRAME_RATE/TB[iv];
+[1:v]scale=1920:1080,format=yuva420p,fps=30,fade=t=in:st=0:d=0.5:alpha=1,fade=t=out:st=11:d=0.5:alpha=1,setpts=PTS-STARTPTS+180.44/TB[chart];
+[iv][chart]overlay=eof_action=pass:enable='between(t,180.44,191.94)'[ivc];
+[ivc]fade=t=in:st=0:d=0.4,fps=30,format=yuv420p,setsar=1[ivf];
+color=c=0x0d0a07:s=1920x1080:r=30:d=7.4[bg];
+[2:v]scale=-1:480,format=yuva420p,fps=30,fade=t=in:st=0:d=1.0:alpha=1[logo];
+[bg][logo]overlay=(W-w)/2:(H-h)/2[ovr];
+[ovr]fade=t=in:st=0:d=0.5,fade=t=out:st=6.8:d=0.6,fps=30,format=yuv420p,setsar=1[introv];
+[introv][ivf]concat=n=2:v=1:a=0[fvpre];
+[fvpre]fade=t=out:st=914.86:d=1.5,format=yuv420p[fv];
+[0:a]aselect='between(t,0,152.90)+between(t,158.26,497.30)+between(t,510.36,520.20)+gte(t,524.92)',asetpts=N/SR/TB,afade=t=in:st=0:d=0.3,aformat=sample_rates=48000:channel_layouts=stereo:sample_fmts=fltp[ia];
+[3:a]afade=t=in:st=0:d=1.0,afade=t=out:st=6.2:d=1.2,aformat=sample_rates=48000:channel_layouts=stereo:sample_fmts=fltp[introa];
+[introa][ia]concat=n=2:v=0:a=1,afade=t=out:st=914.86:d=1.5[fa]
