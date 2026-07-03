@@ -58,7 +58,6 @@
   "note.expedited-3-day": "Almost no money right now? You may be entitled to CalFresh within 3 days — if your monthly income is under {limitExpedited} and you have {limitLiquid} or less on hand, or if your rent plus utilities cost more than your monthly income and money on hand combined. Migrant and seasonal farmworker households with {limitLiquid} or less also qualify. Say 'expedited service' when you apply.",
   "note.wic-caregivers": "Dads, grandparents, and foster parents can enroll a child.",
   "note.wic-pregnant": "Pregnant? You count as a household of two — enroll as early as you can.",
-  "note.lifeline-two-apps": "Since Feb 2026 the federal and California discounts are two separate enrollments — the carrier walks you through both.",
   "note.nid-care-chain": "Getting CARE (above) is itself a ticket to this water discount.",
   "note.clca-liability-only": "Liability-only coverage — it keeps you legal, it doesn't cover your own car.",
   "note.clca-benefit-proof": "Already on CalFresh, CalWORKs, or Medi-Cal? Your EBT card, award letter, or Medi-Cal card counts as income proof — one less document to hunt down.",
@@ -104,5 +103,6 @@
   "note.meals-public-charter-only": "Applies to public school districts, county offices of education, and charter schools (private schools set their own programs).",
   "footer.threeDoors": "Whatever the screener says: 2-1-1 (24/7, English/Spanish) · findhelp.org · our Discord — real people, free.",
   "footer.print": "Print / save my list",
-  "lang.toggle": "Español"
+  "lang.toggle": "Español",
+  "note.lifeline-carrier-signup": "You sign up once, on the phone company's own website — the company manages the state application for you."
 }

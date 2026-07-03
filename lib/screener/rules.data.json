@@ -140,7 +140,7 @@
         "increment": 725
       },
       "categoricalUnlocks": ["medi-cal", "calfresh", "ssi", "wic"],
-      "specialNotes": ["lifeline-two-apps"]
+      "specialNotes": ["lifeline-carrier-signup"]
     },
     "thresholdsDisplay": { "1": 2050, "4": 4233 },
     "name": {
@@ -154,8 +154,8 @@
     "apply": {
       "url": "https://www.californialifeline.com",
       "local": {
-        "en": "apply through a participating carrier — provider list on the site",
-        "es": "solicite a través de un operador participante — la lista de proveedores está en el sitio"
+        "en": "sign up on the carrier's own website — Assurance Wireless and SafeLink Wireless are the main ones; full provider list on the site",
+        "es": "inscríbase en el sitio web del operador — Assurance Wireless y SafeLink Wireless son los principales; la lista completa de proveedores está en el sitio"
       }
     },
     "provenance": [

@@ -58,7 +58,6 @@
   "note.expedited-3-day": "¿Casi sin dinero en este momento? Podría tener derecho a CalFresh en un plazo de 3 días — si su ingreso mensual es menor de {limitExpedited} y tiene {limitLiquid} o menos disponibles, o si su renta más los servicios básicos cuestan más que su ingreso mensual y su dinero disponible juntos. Los hogares de trabajadores agrícolas migrantes y de temporada con {limitLiquid} o menos también califican. Diga 'servicio acelerado' (expedited service) al solicitar.",
   "note.wic-caregivers": "Papás, abuelos y padres de crianza pueden inscribir a un niño.",
   "note.wic-pregnant": "¿Embarazada? Cuenta como hogar de dos — inscríbase lo antes posible.",
-  "note.lifeline-two-apps": "Desde febrero de 2026 el descuento federal y el de California son dos inscripciones separadas — el operador le guía en ambas.",
   "note.nid-care-chain": "Obtener CARE (arriba) es en sí un boleto a este descuento de agua.",
   "note.clca-liability-only": "Cobertura de responsabilidad solamente — lo mantiene legal, no cubre su propio auto.",
   "note.clca-benefit-proof": "¿Ya tiene CalFresh, CalWORKs o Medi-Cal? Su tarjeta EBT, carta de beneficios o tarjeta de Medi-Cal cuenta como comprobante de ingresos — un documento menos que buscar.",
@@ -104,5 +103,6 @@
   "note.meals-public-charter-only": "Aplica a distritos escolares públicos, oficinas de educación del condado y escuelas chárter (las escuelas privadas tienen sus propios programas).",
   "footer.threeDoors": "Diga lo que diga esta revisión: 2-1-1 (24/7, inglés/español) · findhelp.org · nuestro Discord — personas reales, gratis.",
   "footer.print": "Imprimir / guardar mi lista",
-  "lang.toggle": "English"
+  "lang.toggle": "English",
+  "note.lifeline-carrier-signup": "Se inscribe una sola vez, en el sitio web de la compañía telefónica — la compañía gestiona la solicitud estatal por usted."
 }
