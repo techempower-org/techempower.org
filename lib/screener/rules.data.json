@@ -1415,5 +1415,308 @@
         "via": "wave-1 mixed batch + oracle (continuation verbatim); freshness rhythm: re-check each June with the annual budget"
       }
     ]
+  },
+  {
+    "id": "medi-cal-nemt-rides",
+    "jurisdiction": "nevada-county",
+    "category": "transport",
+    "status": "check-first",
+    "test": {
+      "categoricalUnlocks": ["medi-cal"],
+      "specialNotes": ["nemt-book-5-days", "nemt-nmt-no-other-way"]
+    },
+    "name": {
+      "en": "Free rides to medical appointments (Medi-Cal transportation)",
+      "es": "Viajes gratis a citas médicas (transporte de Medi-Cal)"
+    },
+    "value": {
+      "en": "Free door-to-door rides (NEMT) or car/taxi/bus rides (NMT) to any Medi-Cal-covered appointment — plus gas mileage reimbursement for a friend or family driver. Call 5 days ahead.",
+      "es": "Viajes gratis puerta a puerta (NEMT) o en auto/taxi/autobús (NMT) a cualquier cita cubierta por Medi-Cal — más reembolso de gasolina para un conductor amigo o familiar. Llame con 5 días de anticipación."
+    },
+    "apply": {
+      "url": "https://www.partnershiphp.org/Members/Medi-Cal/Pages/Transportation-Services.aspx",
+      "phone": {
+        "en": "(866) 828-2303 (Mon-Fri 7am-7pm)",
+        "es": "(866) 828-2303 (lun-vie 7am-7pm)"
+      },
+      "local": {
+        "en": "Partnership HealthPlan serves Nevada County Medi-Cal members — one call books NEMT, NMT, or mileage reimbursement",
+        "es": "Partnership HealthPlan atiende a los miembros de Medi-Cal del condado de Nevada — una llamada reserva NEMT, NMT o el reembolso de gasolina"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Partnership Transportation Services coordinates NEMT, NMT, gas mileage reimbursement, and travel-related expenses for members; department hours Mon-Fri 7am-7pm; phone (866) 828-2303; least-costly-mode standard",
+        "source": "https://www.partnershiphp.org/Members/Medi-Cal/Pages/Transportation-Services.aspx",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A draft (nebula, live fetch) + adversarial verification 2026-07-03 (oracle)"
+      },
+      {
+        "claim": "NEMT: door-to-door, help in/out of home-vehicle-office, medical supervision if needed; requires a Provider Certification Statement from a health care professional (TAR may be required); types incl. non-emergency ambulance, gurney van, wheelchair van; call at least 5 days before the appointment",
+        "source": "https://www.partnershiphp.org/Members/Medi-Cal/Pages/Transportation-Services.aspx",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A draft (nebula, live fetch) + adversarial verification 2026-07-03 (oracle)"
+      },
+      {
+        "claim": "NMT: available when the member attests they have no other way to get to Medi-Cal-covered services — qualifying reasons: no valid driver's license; no working vehicle in the household; unable to travel or wait alone; a physical, cognitive, mental or developmental limitation. Car/taxi/bus/train; covers member + one attendant; call 5 days ahead",
+        "source": "https://www.partnershiphp.org/Members/Medi-Cal/Pages/Transportation-Services.aspx",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A draft (nebula, live fetch) + adversarial verification 2026-07-03 (oracle) — all four qualifying reasons confirmed on-page"
+      },
+      {
+        "claim": "Gas mileage reimbursement for a friend/family driver (valid license, registration, insurance; attendance verification after the visit; cannot be reimbursed for driving yourself); travel-related expenses (lodging, meals, parking, tolls) possible with prior approval, time/distance rules",
+        "source": "https://www.partnershiphp.org/Members/Medi-Cal/Pages/Transportation-Services.aspx",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A draft (nebula, live fetch) + adversarial verification 2026-07-03 (oracle) — jurisdiction pinned nevada-county: Partnership is one county plan (24 counties incl. Nevada per its About page); DHCS statewide page JS-walled, statewide claim not shipped"
+      }
+    ]
+  },
+  {
+    "id": "sun-bucks",
+    "jurisdiction": "CA",
+    "category": "food",
+    "status": "check-first",
+    "test": {
+      "incomePctFPL": 185,
+      "ageAnyMax": 17,
+      "categoricalUnlocks": ["calfresh", "calworks"],
+      "specialNotes": [
+        "sunbucks-apply-deadline",
+        "sunbucks-universal-meals-trap",
+        "sunbucks-use-it-122-days"
+      ]
+    },
+    "thresholdsDisplay": { "2": 3336, "4": 5087 },
+    "noteParams": {
+      "sunbucks-apply-deadline": { "deadline": "2026-08-31" },
+      "sunbucks-use-it-122-days": { "daysToUse": 122 }
+    },
+    "name": {
+      "en": "SUN Bucks ($120 per child for summer groceries)",
+      "es": "SUN Bucks ($120 por niño para comida en verano)"
+    },
+    "value": {
+      "en": "$120 per eligible child on an EBT card for summer food — kids 6–18 on CalFresh/CalWORKs get it automatically; other families apply at their child's school by Aug 31, 2026",
+      "es": "$120 por niño elegible en una tarjeta EBT para comida de verano — los niños de 6 a 18 años con CalFresh/CalWORKs la reciben automáticamente; otras familias solicitan en la escuela de su hijo antes del 31 de agosto de 2026"
+    },
+    "apply": {
+      "url": "https://www.cdss.ca.gov/sun-bucks",
+      "phone": {
+        "en": "SUN Bucks helpline (877) 328-9677 — live agents Mon-Fri 6am-8pm",
+        "es": "Línea de SUN Bucks (877) 328-9677 — agentes en vivo lun-vie 6am-8pm"
+      },
+      "local": {
+        "en": "Apply with a Universal Benefits Application or School Meal Application AT YOUR CHILD'S SCHOOL (not to the state) — ask the school office",
+        "es": "Solicite con una Solicitud Universal de Beneficios o Solicitud de Comidas Escolares EN LA ESCUELA de su hijo (no al estado) — pregunte en la oficina escolar"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "SUN Bucks (California Summer EBT) provides $120 per eligible child for summer food; most eligible children get it automatically; others must apply at their child's school; getting/using SUN Bucks does not affect immigration status; helpline (877) 328-9677 (automated 24/7, live agents Mon-Fri 6am-8pm)",
+        "source": "https://www.cdss.ca.gov/sun-bucks",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A draft (nebula, live fetch) + adversarial verification 2026-07-03 (oracle)"
+      },
+      {
+        "claim": "Streamlined certification (automatic): children ages 6-18 who get CalFresh or CalWORKs; some Medi-Cal children automatic; FRPM-approved children. Application path: children 0-22 attending an NSLP/SBP school, income-certified via Universal Benefits Application or School Meal Application submitted to the school. Verbatim trap: 'Even if your child gets a free school meal, it does not guarantee that they will qualify for SUN Bucks' — CDSS recommends applying. SSI/SSP or Adoption Assistance children not on CalFresh/CalWORKs should apply",
+        "source": "https://www.cdss.ca.gov/sun-bucks/who-is-eligible",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A draft (nebula, live fetch) + adversarial verification 2026-07-03 (oracle) — unlock scope deliberate: medi-cal withheld (auto only ≤185% FPL; Medi-Cal kids run to 266% — an unconditional unlock would false-promise the 185-266 band) and ssi withheld (CDSS routes SSI kids to the application); copy carries the automatic path as 6-18 so under-6-only CalFresh households aren't overpromised"
+      },
+      {
+        "claim": "2026 application deadline Aug 31, 2026; streamlined cards mail late May-July 2026 (alphabetical schedule), newly-approved cards from late July 2026; each card loaded with $120; Medi-Cal automatic path is 'certified at or below 185% of the FPL'; benefits expunge 122 days after load and cannot be replaced; use SUN Bucks before CalFresh. Income cells reconcile to the pinned CDE IEG scales2627 (eff. Jul 1 2026-Jun 30 2027): 2p $40,034/yr $3,337/mo · 4p $61,050/yr $5,088/mo — screener cells $1 under printed (floor vs round-up), never overstating",
+        "source": "https://www.cdss.ca.gov/sun-bucks/how-to-get-sun-bucks",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A draft (nebula, live fetch) + adversarial verification 2026-07-03 (oracle) — IEG table pinned via CDE scales2627"
+      }
+    ]
+  },
+  {
+    "id": "wap-weatherization",
+    "jurisdiction": "federal",
+    "category": "utilities",
+    "status": "check-first",
+    "test": {
+      "incomePctFPL": 200,
+      "specialNotes": [
+        "wap-call-to-apply",
+        "wap-priority-populations",
+        "wap-any-fuel",
+        "wap-renters-ok"
+      ]
+    },
+    "thresholdsDisplay": { "1": 2660, "4": 5500 },
+    "name": {
+      "en": "Free home weatherization (WAP — Project GO)",
+      "es": "Climatización gratuita del hogar (WAP — Project GO)"
+    },
+    "value": {
+      "en": "Free energy upgrades: attic/floor insulation, weather-stripping, water-heater and heater repair or replacement, dual-pane windows, even refrigerators — works with any heat fuel, not just PG&E",
+      "es": "Mejoras de energía gratis: aislamiento de ático/piso, sellado contra corrientes, reparación o reemplazo de calentador de agua y calefacción, ventanas de doble panel, incluso refrigeradores — funciona con cualquier combustible de calefacción, no solo PG&E"
+    },
+    "apply": {
+      "url": "https://www.projectgoinc.org/wap.html",
+      "phone": {
+        "en": "(916) 782-3443 (Mon-Fri 9am-4pm) — Project GO serves Nevada, Placer, El Dorado + Sierra counties",
+        "es": "(916) 782-3443 (lun-vie 9am-4pm) — Project GO atiende los condados de Nevada, Placer, El Dorado y Sierra"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Project GO WAP: free weatherization services — attic and floor insulation, door weather-stripping and caulking, water conservation devices, water heater insulation/repair/replacement, dual-pane/storm windows, sunscreens, heater repair or replacement, energy-efficient appliances including refrigerators and microwaves; carbon monoxide testing at assessment; counties served include Placer, Nevada, El Dorado and Sierra; income eligibility by phone (916) 782-3443, Mon-Fri 9am-4pm; priority for households below 75% of federal poverty guidelines and high-energy-burden households",
+        "source": "https://www.projectgoinc.org/wap.html",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A draft (nebula, live fetch, browser-UA + Accept header per E4 playbook) + adversarial verification 2026-07-03 (oracle) — 75%-FPG priority clause verbatim on this page (moved here from the CSD row, E4 hygiene)"
+      },
+      {
+        "claim": "CSD administers the U.S. DOE Weatherization Assistance Program in California; eligibility includes income, household size, energy use; programs may prioritize greatest need, income, and vulnerable populations (elderly, disabled, households with young children); program is verbatim 'for low-income homeowners and renters'",
+        "source": "https://www.csd.ca.gov/Pages/Residential-Energy-Efficiency.aspx",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A draft (nebula, live fetch) + adversarial verification 2026-07-03 (oracle) — renter eligibility confirmed here (the draft's dropped-renter-claim caution resolved in favor of renters)"
+      },
+      {
+        "claim": "2026 WAP Income Eligibility Guidelines — Effective July 1, 2026 (CSD's live DOE-WAP income table): monthly $2,660.00/1p · $3,606.67/2p · $5,500.00/4p, +$946.67 each additional person — exactly 200% of the 2026 federal poverty guidelines, matching fpl-2026.json ×200% to the penny; thresholdsDisplay {2660, 5500} are the exact printed cells",
+        "source": "https://www.csd.ca.gov/Pages/DOE-Income-Eligibility.aspx",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A adversarial verification 2026-07-03 (oracle) — page NOT JS-walled today (plain curl 200); 60%-SMI hypothesis REFUTED, 200% FPL IS the current standard; replaces the draft's conservative-floor hedge"
+      },
+      {
+        "claim": "2025 Final DOE WAP State Plan: income standard verbatim 'CSD uses the federal poverty level of 200 percent' — '60%' / 'State Median Income' absent from the entire plan; owner and tenant agreements required before work, so renters are served with owner consent",
+        "source": "https://www.csd.ca.gov/Shared%20Documents/2025-Final-DOE-WAP-State-Plan.pdf",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A adversarial verification 2026-07-03 (oracle) — static PDF, plain curl + pdftotext (159K chars searched)"
+      }
+    ]
+  },
+  {
+    "id": "head-start",
+    "jurisdiction": "federal",
+    "category": "health",
+    "status": "check-first",
+    "test": {
+      "incomePctFPL": 100,
+      "ageAnyMax": 4,
+      "memberFlagsAny": ["pregnant"],
+      "categoricalUnlocks": ["calworks", "ssi", "calfresh"],
+      "specialNotes": [
+        "headstart-foster-homeless-regardless",
+        "headstart-local-contact",
+        "headstart-waitlist-ask"
+      ]
+    },
+    "thresholdsDisplay": { "2": 1803, "4": 2750 },
+    "name": {
+      "en": "Head Start + Early Head Start (free preschool, infant care & prenatal support)",
+      "es": "Head Start y Early Head Start (preescolar, cuidado de bebés y apoyo prenatal gratis)"
+    },
+    "value": {
+      "en": "Free learning and development programs for kids from birth to 5 — preschool, meals, health screenings — plus prenatal services for pregnant people through Early Head Start. Children with disabilities welcome in every program.",
+      "es": "Programas gratuitos de aprendizaje y desarrollo para niños desde el nacimiento hasta los 5 años — preescolar, comidas, exámenes de salud — más servicios prenatales para personas embarazadas a través de Early Head Start. Los niños con discapacidades son bienvenidos en todos los programas."
+    },
+    "apply": {
+      "url": "https://headstart.gov/how-apply",
+      "phone": {
+        "en": "National locator help 1-866-763-6481 (Mon-Fri, 9am-3pm Pacific)",
+        "es": "Ayuda del localizador nacional 1-866-763-6481 (lun-vie, 9am-3pm hora del Pacífico)"
+      },
+      "local": {
+        "en": "Nevada County programs run through KidZCommunity (Placer Community Action Council) — 530-886-4122; or use the Head Start Center Locator at headstart.gov",
+        "es": "Los programas del condado de Nevada se administran a través de KidZCommunity (Placer Community Action Council) — 530-886-4122; o use el localizador de centros en headstart.gov"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Verbatim: 'Your family qualifies for the Head Start program if your household income is at or below the poverty level.' Families who receive public assistance (TANF, SSI, or SNAP) also qualify, and children in foster care or children who are homeless qualify regardless of income",
+        "source": "https://headstart.gov/how-apply",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A draft (nebula, live fetch) + adversarial verification 2026-07-03 (oracle) — poverty-level sentence and TANF/SSI/SNAP + foster/homeless routes confirmed verbatim; unlock map exact (CalWORKs=TANF, CalFresh=SNAP)"
+      },
+      {
+        "claim": "Head Start serves children birth to 5 with free learning and development services; all programs welcome children with disabilities; some Early Head Start programs provide prenatal services for pregnant women; apply through the local program (waiting list can be requested); locator help line 1-866-763-6481 Mon-Fri 12pm-6pm ET",
+        "source": "https://headstart.gov/how-apply",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A draft (nebula, live fetch) + adversarial verification 2026-07-03 (oracle) — ET→Pacific hours conversion (9am-3pm PT) checked correct"
+      },
+      {
+        "claim": "GATE NOTE: incomePctFPL 100 uses fpl-2026.json (2p $1,803/mo, 4p $2,750/mo, floored) — headstart.gov points at the HHS Poverty Guidelines, the same table fpl-2026.json mirrors (ASPE, verified 2026-07-01 in-repo). Local Nevada County operator KidZCommunity carried from the Resources DB row and independently pinned by the oracle 2026-07-03: 'For Enrollment: 530-886-4122'; serves Placer + Nevada Counties; runs Head Start + Early Head Start incl. pregnant women (Placer Community Action Council)",
+        "source": "https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A draft (nebula) + adversarial verification 2026-07-03 (oracle) — cells {1803, 2750} exact floors; no memberGate per oracle ruling (ageAnyMax member dims are already hard; pregnant sets memberOk; no overLimitRescue here)"
+      }
+    ]
+  },
+  {
+    "id": "senior-farmers-market",
+    "jurisdiction": "CA",
+    "category": "food",
+    "status": "seasonal",
+    "test": {
+      "incomePctFPL": 185,
+      "ageAnyMin": 60,
+      "memberGate": true,
+      "specialNotes": [
+        "sfmnp-season-window",
+        "sfmnp-first-come",
+        "sfmnp-authorized-farmers"
+      ]
+    },
+    "thresholdsDisplay": { "1": 2460, "2": 3336 },
+    "noteParams": {
+      "sfmnp-season-window": {
+        "seasonStart": "2026-06-15",
+        "seasonEnd": "2026-11-30"
+      }
+    },
+    "name": {
+      "en": "Senior Farmers' Market money (SFMNP, 60+)",
+      "es": "Dinero para el mercado de agricultores, 60+ (SFMNP)"
+    },
+    "value": {
+      "en": "A seasonal Farmers' Market Card for adults 60+ to buy fresh fruits, vegetables, cut herbs, and honey at authorized farmers' markets — usable June 15 through November 30, 2026, first come first served",
+      "es": "Una tarjeta de temporada del mercado de agricultores para adultos de 60+ para comprar frutas, verduras, hierbas y miel frescas en mercados autorizados — válida del 15 de junio al 30 de noviembre de 2026, por orden de llegada"
+    },
+    "apply": {
+      "url": "https://www.cdfa.ca.gov/SeniorFarmersMrktNutritionPrgm/",
+      "phone": {
+        "en": "916-214-1381 — CDFA is the listed SFMNP contact for Nevada County (2026 local-agency list)",
+        "es": "916-214-1381 — CDFA es el contacto de SFMNP para el condado de Nevada (lista de agencias locales 2026)"
+      },
+      "local": {
+        "en": "Apply in person each season through the local agency for your county; look for the 'WIC and Senior Benefits Welcome' sign at market stalls",
+        "es": "Solicite en persona cada temporada a través de la agencia local de su condado; busque el letrero 'WIC and Senior Benefits Welcome' en los puestos del mercado"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Verbatim eligibility: 'California residents who are 60 years of age or older, with a monthly income at or below 185% of the federal poverty level are eligible for SFMNP benefits.' Apply in person through the local agency, by county, each market season; benefits first come, first served; USDA-funded, CDFA-administered; buys locally grown fruits, vegetables, cut herbs, and raw honey from FMNP-authorized farmers",
+        "source": "https://www.cdfa.ca.gov/SeniorFarmersMrktNutritionPrgm/",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A draft (nebula, live fetch) + adversarial verification 2026-07-03 (oracle) — eligibility sentence confirmed verbatim; income test is a household test (FNS + CDFA certification verbatim), own-income rescue deliberately absent"
+      },
+      {
+        "claim": "2026 season: benefits usable June 15 through November 30, 2026 at authorized farmers' markets; not all farmers at a market are authorized — look for the 'WIC and Senior Benefits Welcome' sign; card-based (Farmers' Market Card) with a participant portal for balance",
+        "source": "https://www.cdfa.ca.gov/SeniorFarmersMrktNutritionPrgm/",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A draft (nebula, live fetch) + adversarial verification 2026-07-03 (oracle)"
+      },
+      {
+        "claim": "Nevada County's listed SFMNP local-agency contact is CDFA itself at 916-214-1381 (2026 AAA Contact List PDF, Nevada County row) — Placer, Sacramento, Sutter-Yuba, and Yolo share the same CDFA-direct row: a designed cluster, not an orphan",
+        "source": "https://www.cdfa.ca.gov/SeniorFarmersMrktNutritionPrgm/docs/2026_AAA_Contact_List.pdf",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A draft (nebula, pdftotext) + adversarial verification 2026-07-03 (oracle) — PDF re-parsed, CDFA-direct cluster confirmed, statewide contact ships as drafted"
+      },
+      {
+        "claim": "GATE NOTE: incomePctFPL 185 renders $2,460/mo (1p) and $3,336/mo (2p) from fpl-2026.json — $1 under CDFA's printed 2026 monthly cells, identical to the corpus WIC row's independently verified 185% table. DOLLAR AMOUNT of the seasonal benefit deliberately NOT rendered: no per-participant amount is printed in any 2026 CDFA or FNS SFMNP material (exhaustive hunt: CDFA main + FM.html + 2026 participant PDF + brochure + R&R, FNS ×3) — the old Resources DB '$50/season' stays quarantined and the federal $20-50 range is not offered as copy",
+        "source": "https://www.cdfa.ca.gov/SeniorFarmersMrktNutritionPrgm/",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A draft (nebula) + adversarial verification 2026-07-03 (oracle) — no-render ENDORSED after the exhaustive amount hunt"
+      },
+      {
+        "claim": "CDFA's own 2026 SFMNP income-eligibility table (eff. Jul 1 2026-Jun 30 2027): 1p $29,526/yr · $2,461/mo; 2p $40,034/yr · $3,337/mo — the dollar-table primary for the 185% standard; screener cells sit $1 under the printed monthly column (floor vs round-up), never overstating",
+        "source": "https://www.cdfa.ca.gov/SeniorFarmersMrktNutritionPrgm/docs/2026_federal_poverty_level.pdf",
+        "verifiedAt": "2026-07-03",
+        "via": "wave-2 batch A adversarial verification 2026-07-03 (oracle) — added at integration as the printed-dollar pin for the fpl-derived cells"
+      }
+    ]
   }
 ]
