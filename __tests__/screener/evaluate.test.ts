@@ -477,4 +477,69 @@ describe('evaluate — golden cases from the fact-check corpus', () => {
     }
     expect(bucketOf(evaluate(noKid, R), 'calworks')).toBe('absent')
   })
+  it('wave-2 SFMNP: memberGate omits income-pass/no-senior; a senior lands worthAsking (seasonal)', () => {
+    // HH2 @ $2,500 is under the $3,336 limit but nobody is 60+ → omitted
+    const noSenior: Answers = {
+      ...base,
+      householdSize: 2,
+      incomeMonthlyGross: 2500,
+      ages: { under5: 0, age5to17: 0, age18to59: 2, age60plus: 0, age80plus: 0 }
+    }
+    expect(bucketOf(evaluate(noSenior, R), 'senior-farmers-market')).toBe(
+      'absent'
+    )
+    const withSenior = evaluate(
+      { ...noSenior, ages: { ...noSenior.ages, age18to59: 1, age60plus: 1 } },
+      R
+    )
+    expect(bucketOf(withSenior, 'senior-farmers-market')).toBe('worthAsking')
+  })
+  it('wave-2 NEMT: pure categorical — not enrolled omits; enrolled is worthAsking via reason.unlock, no numbers', () => {
+    expect(bucketOf(evaluate(base, R), 'medi-cal-nemt-rides')).toBe('absent')
+    const enrolled = evaluate({ ...base, enrolled: ['medi-cal'] }, R)
+    // check-first caps the unlock at worthAsking (oracle: an enrollee's move
+    // is "call to book" — endorsed)
+    expect(bucketOf(enrolled, 'medi-cal-nemt-rides')).toBe('worthAsking')
+    const v = enrolled.worthAsking.find(
+      (x) => x.ruleId === 'medi-cal-nemt-rides'
+    )
+    expect(v?.reasons[0]?.key).toBe('reason.unlock')
+    for (const reason of v?.reasons ?? []) {
+      expect(reason.params?.limit, 'NEMT carries no income numbers').toBe(
+        undefined
+      )
+    }
+    // jurisdiction ruling: Partnership is Nevada County's plan, not statewide
+    const away = evaluate(
+      { ...base, county: 'other-ca' as const, enrolled: ['medi-cal'] },
+      R
+    )
+    expect(bucketOf(away, 'medi-cal-nemt-rides')).toBe('absent')
+  })
+  it('wave-2 Head Start: pregnant-only household (no kids) is included via EHS prenatal', () => {
+    const pregnantNoKids: Answers = {
+      ...base,
+      householdSize: 2,
+      incomeMonthlyGross: 1500,
+      ages: {
+        under5: 0,
+        age5to17: 0,
+        age18to59: 2,
+        age60plus: 0,
+        age80plus: 0
+      },
+      flags: ['renter', 'pregnant']
+    }
+    // $1,500 ≤ the $1,803 HH2 limit at 100% FPL; check-first caps the bucket
+    expect(bucketOf(evaluate(pregnantNoKids, R), 'head-start')).toBe(
+      'worthAsking'
+    )
+    // no kid under 5 and no pregnancy → the member dimension hard-gates
+    expect(
+      bucketOf(
+        evaluate({ ...pregnantNoKids, flags: ['renter'] }, R),
+        'head-start'
+      )
+    ).toBe('absent')
+  })
 })

@@ -18,6 +18,19 @@ describe('strings', () => {
       t('en', 'reason.under-limit', { income: 4800, limit: 5360, household: 4 })
     ).toContain('$5,360')
   })
+  it('t() localizes ISO-date params into prose dates (EN/ES, UTC-pinned)', () => {
+    const en1 = t('en', 'note.sunbucks-apply-deadline', {
+      deadline: '2026-08-31'
+    })
+    expect(en1).toContain('August 31, 2026')
+    expect(en1).not.toContain('2026-08-31')
+    const es1 = t('es', 'note.sfmnp-season-window', {
+      seasonStart: '2026-06-15',
+      seasonEnd: '2026-11-30'
+    })
+    expect(es1).toContain('15 de junio de 2026')
+    expect(es1).toContain('30 de noviembre de 2026')
+  })
   it('t() renders the expedited-CalFresh dollars from noteParams', () => {
     const rendered = t('en', 'note.expedited-3-day', {
       limitExpedited: 150,
