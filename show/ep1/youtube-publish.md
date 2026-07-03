@@ -25,6 +25,7 @@ Keep it under ~70 chars visible; lead with the hook, end with the series name + 
 Most people qualify for far more help than they think — and every year an estimated $60 BILLION in benefits goes unclaimed, because people who are eligible never apply. In this first episode of "Wait, I Qualify?!", Shawna and Jeff from the nonprofit TechEmpower bust the four myths that stop people in Nevada County — and everywhere — from getting the aid they've earned.
 
 🆘 NEED HELP RIGHT NOW? START HERE:
+• ✅ techempower.org/qualify — our free 2-minute check: answer 7 questions, see which of 33 verified programs your household likely qualifies for. Anonymous — your answers never leave your device. English & Spanish.
 • Dial 2-1-1 — free, confidential, 24/7, English & Spanish. In Nevada County that's 211 Connecting Point. A real person helps you find food, housing, and health care.
 • findhelp.org — enter your ZIP code for free & reduced-cost programs near you.
 • techempower.org — step-by-step guides, plus "Join our Discord" for free one-on-one help. We answer.
@@ -64,7 +65,7 @@ ABOUT: TechEmpower is a 501(c)(3) nonprofit in Grass Valley, California, working
 ## Tags / keywords
 
 ```
-wait i qualify, public benefits, unclaimed benefits, how to apply for benefits, do I qualify,
+wait i qualify, public benefits, unclaimed benefits, how to apply for benefits, do I qualify, benefits checker, am i eligible,
 CalFresh, food stamps, Medi-Cal, Medicaid, EITC, earned income tax credit, SSI, Section 8, HUD,
 low income help, Nevada County, Grass Valley California, findhelp, 211, TechEmpower nonprofit
 ```
