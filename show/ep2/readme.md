@@ -27,8 +27,9 @@ Application screens overlay the dialogue (hosts keep talking). Capture
 the week of the edit so screens match air-date reality; re-check against
 the fact-check report before rendering.
 
-1. californialifeline.com provider search (zip → provider list → click) — ~8s
-2. The two application start screens side by side (CA LifeLine + federal National Verifier) — ~5s, captioned "Two forms since Feb 2026"
+1. assurancewireless.com sign-up start screen (the apply flow's first page) — ~6s
+2. californialifeline.com provider list for a Nevada County zip — ~4s
+   _(July 2: the "two forms side-by-side" insert was dropped with the two-applications claim — see prompter notes; carrier-first flow per JP)_
 3. Xfinity Internet Essentials page (eligibility checklist + $14.95 tile + address box) — ~7s
 4. nevcofiber.com address/coverage check — ~6s
 5. Library catalog: search "hotspot" → Place Hold — ~6s
