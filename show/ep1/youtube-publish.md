@@ -50,14 +50,14 @@ ABOUT: TechEmpower is a 501(c)(3) nonprofit in Grass Valley, California, working
 
 ```
 00:00 Intro — the secret of the show
-0:42 Myth 1: "Benefits are only for the truly destitute"
-3:26 Myth 2: "Taking it from someone who needs it more"
-6:03 Myth 3: "Good people don't take handouts"
-10:35 Myth 4: "What if I do it wrong?"
-14:07 What to do next — 211, findhelp.org, techempower.org
+0:49 Myth 1: "Benefits are only for the truly destitute"
+3:33 Myth 2: "Taking it from someone who needs it more"
+6:10 Myth 3: "Good people don't take handouts"
+10:42 Myth 4: "What if I do it wrong?"
+14:14 What to do next — 211, findhelp.org, techempower.org
 ```
 
-(Derived from the whisper transcript of `~/Videos/ep1-rough-cut-720p.mp4` (15:19). If the final upload uses a different cut, shift accordingly — the transcript lives at `/tmp/claude-1000/ep1-transcribe/`, regenerate with whisper-ctranslate2 if gone. Transcript bonus flags for the description writer: Jeff ad-libs "Shawna's twin" at 0:08; whisper mishears "techandpower.org" at 0:10 — known transcription quirk, audio is fine per edit-list review.)
+(Timestamps shifted +7.4s on 2026-07-03 for the jingle+logo pre-roll — matches the final upload `ep1-final-youtube.mp4` (15:25, from 'Ep1 MASTER (logo intro)'). Originally derived from the whisper transcript of the rough cut (15:19); if the cut changes again, shift accordingly — the transcript lives at `/tmp/claude-1000/ep1-transcribe/`, regenerate with whisper-ctranslate2 if gone. Transcript bonus flags for the description writer: Jeff ad-libs "Shawna's twin" at 0:08; whisper mishears "techandpower.org" at 0:10 — known transcription quirk, audio is fine per edit-list review.)
 
 ---
 
