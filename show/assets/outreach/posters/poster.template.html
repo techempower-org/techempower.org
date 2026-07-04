@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en" data-sheet="all">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wait, do I qualify? — TechEmpower /qualify poster pack (print)</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg stroke='%23d97706' stroke-width='5' stroke-linecap='round'%3E%3Cline x1='32' y1='6' x2='32' y2='14'/%3E%3Cline x1='32' y1='50' x2='32' y2='58'/%3E%3Cline x1='6' y1='32' x2='14' y2='32'/%3E%3Cline x1='50' y1='32' x2='58' y2='32'/%3E%3Cline x1='13.6' y1='13.6' x2='19.3' y2='19.3'/%3E%3Cline x1='44.7' y1='44.7' x2='50.4' y2='50.4'/%3E%3Cline x1='13.6' y1='50.4' x2='19.3' y2='44.7'/%3E%3Cline x1='44.7' y1='19.3' x2='50.4' y2='13.6'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='11' fill='%23d97706'/%3E%3C/svg%3E">
+<style>
+/* ══════════════════════════════════════════════════════════════════
+   TechEmpower — “Wait, do I qualify?” print poster pack (issue #70)
+   Source template. build.sh injects fonts + QR → poster.html, then
+   renders poster-letter.pdf / flyer-half.pdf / cards.pdf via Chrome.
+   Brand tokens mirror styles/global.css (print-safe subset).
+   Every sheet is US Letter; all sizes in in/pt for print fidelity.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Brand fonts — Latin + Latin-1 + Latin-Ext-A subsets already shipped
+   in-repo for OG cards (lib/fonts/*.ts), inlined here as data URIs so
+   this file is fully self-contained. Fallbacks: Georgia / Verdana. */
+@font-face {
+  font-family: 'Fraunces';
+  font-weight: 600;
+  font-style: normal;
+  src: url(data:font/ttf;base64,__FRAUNCES600__) format('truetype');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-weight: 500;
+  font-style: normal;
+  src: url(data:font/ttf;base64,__DMSANS500__) format('truetype');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-weight: 700;
+  font-style: normal;
+  src: url(data:font/ttf;base64,__DMSANS700__) format('truetype');
+}
+
+:root {
+  --cream: #faf8f5;
+  --cream-dark: #f3efe9;
+  --teal-700: #0b5e5a;   /* ≈30% gray in B&W — safe for large text  */
+  --teal-600: #0f766e;
+  --amber-600: #d97706;  /* ≈51% gray — decorative accents only     */
+  --coral-600: #e11d48;
+  --bark-900: #1c1210;
+  --bark-800: #2c1f1a;
+  --bark-700: #44302a;
+  --bark-600: #5c4236;
+  --bark-500: #78614f;
+  --bark-400: #a08979;
+  --bark-300: #c4b5a8;
+  --bark-200: #e0d6cc;
+  --bark-100: #f0ebe5;
+  --display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --body: 'DM Sans', Verdana, system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+@page { size: 8.5in 11in; margin: 0; }
+
+.sheet {
+  width: 8.5in;
+  height: 11in;
+  background: #fff;            /* white page: no bleed on office printers */
+  color: var(--bark-900);
+  font-family: var(--body);
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  break-after: page;
+  page-break-after: always;
+}
+
+/* ── sheet selection (?sheet=poster|flyer|cards) ── */
+html[data-sheet='poster'] .sheet:not(#poster) { display: none; }
+html[data-sheet='flyer']  .sheet:not(#flyer)  { display: none; }
+html[data-sheet='cards']  .sheet:not(#cards)  { display: none; }
+
+/* ── screen preview: paper on a desk, honors system theme ── */
+@media screen {
+  body {
+    background: #eae5de;
+    padding: 2rem 1rem;
+    display: grid;
+    gap: 2rem;
+    justify-content: center;
+  }
+  .sheet {
+    box-shadow: 0 2px 6px rgba(28, 18, 16, 0.18),
+      0 18px 44px rgba(28, 18, 16, 0.22);
+  }
+  @media (prefers-color-scheme: dark) {
+    body { background: #17110e; }
+  }
+}
+
+/* ── shared pieces ── */
+.qr { display: block; shape-rendering: crispEdges; }
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.14in;
+  color: var(--bark-900);
+}
+.brand .sun { color: var(--teal-700); flex: none; }
+.wordmark {
+  font-family: var(--body);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.wordmark .caps { text-transform: uppercase; }
+.wordmark .tld { color: var(--bark-500); }
+
+/* ══════════════ 1 · LETTER POSTER ══════════════ */
+
+#poster {
+  padding: 0.66in 0.68in 0.55in;
+  display: flex;
+  flex-direction: column;
+}
+#poster .brand { font-size: 16pt; }
+#poster .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.lang-pill {
+  font-weight: 700;
+  font-size: 11.5pt;
+  color: var(--bark-800);
+  border: 1.4pt solid var(--bark-300);
+  border-radius: 100pt;
+  padding: 0.07in 0.18in;
+  white-space: nowrap;
+}
+
+#poster .hero { margin-top: 0.3in; }
+#poster h1 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 63pt;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+#poster .hero-es {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 30pt;
+  line-height: 1.1;
+  color: var(--teal-700);
+  margin-top: 0.16in;
+}
+.accent-bar {
+  width: 0.95in;
+  height: 4.5pt;
+  border-radius: 3pt;
+  background: var(--amber-600);
+  margin: 0.22in 0 0.18in;
+}
+#poster .sub {
+  font-size: 14.5pt;
+  line-height: 1.45;
+  color: var(--bark-700);
+}
+#poster .sub-es {
+  font-size: 12.5pt;
+  line-height: 1.45;
+  color: var(--bark-500);
+  margin-top: 0.08in;
+}
+
+#poster .chips {
+  display: flex;
+  gap: 0.2in;
+  margin-top: 0.26in;
+}
+.chip {
+  flex: 1;
+  text-align: center;
+  background: var(--cream);
+  border: 1.3pt solid var(--bark-200);
+  border-radius: 12pt;
+  padding: 0.12in 0.08in 0.1in;
+}
+.chip .en {
+  display: block;
+  font-weight: 700;
+  font-size: 16pt;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+.chip .es {
+  display: block;
+  font-size: 11pt;
+  color: var(--bark-600);
+  margin-top: 0.04in;
+}
+
+#poster .act {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 0;
+  margin: 0.1in 0;
+}
+#poster .qr-card {
+  border: 2pt solid var(--bark-900);
+  border-radius: 14pt;
+  padding: 0.13in;
+  background: #fff;
+}
+#poster .qr-card .qr { width: 2.3in; height: 2.3in; }
+#poster .scanline {
+  font-size: 11.5pt;
+  color: var(--bark-600);
+  margin-top: 0.1in;
+}
+#poster .url {
+  font-weight: 700;
+  font-size: 24pt;
+  letter-spacing: -0.005em;
+  color: var(--teal-700);
+  margin-top: 0.05in;
+}
+.url .path { color: var(--coral-600); }
+
+.privacy {
+  display: flex;
+  align-items: center;
+  gap: 0.16in;
+  background: var(--bark-800);
+  color: var(--cream);
+  border-radius: 12pt;
+  padding: 0.17in 0.24in;
+}
+.privacy .lock { flex: none; color: var(--cream); }
+.privacy .en { font-weight: 700; font-size: 13pt; line-height: 1.3; }
+.privacy .es {
+  font-size: 10.5pt;
+  line-height: 1.3;
+  color: var(--bark-100);
+  margin-top: 0.04in;
+}
+#poster .privacy { margin-top: 0.12in; }
+
+#poster .foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 0.18in;
+  font-size: 9pt;
+  color: var(--bark-500);
+}
+#poster .foot .runtag { color: var(--bark-300); }
+
+/* ══════════════ 2 · HALF-SHEET FLYER (2-up) ══════════════ */
+
+#flyer { display: flex; flex-direction: column; }
+.flyer {
+  height: 5.5in;
+  padding: 0.42in 0.55in 0.38in;
+  display: flex;
+  gap: 0.34in;
+  position: relative;
+}
+.cutline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 5.5in;
+  border-top: 0.6pt dashed var(--bark-300);
+}
+.cutline::after {
+  content: '✂';
+  position: absolute;
+  left: 0.16in;
+  top: -0.09in;
+  font-size: 9pt;
+  color: var(--bark-300);
+  background: #fff;
+  padding: 0 0.04in;
+}
+
+.flyer .left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.flyer .brand { font-size: 11.5pt; }
+.flyer h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 29pt;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  margin-top: 0.22in;
+}
+.flyer .hero-es {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 15.5pt;
+  color: var(--teal-700);
+  margin-top: 0.07in;
+}
+.flyer .sub {
+  font-size: 10.5pt;
+  line-height: 1.4;
+  color: var(--bark-700);
+  margin-top: 0.16in;
+}
+.flyer .sub-es {
+  font-size: 9.5pt;
+  line-height: 1.4;
+  color: var(--bark-500);
+  margin-top: 0.04in;
+}
+.flyer .facts {
+  font-weight: 700;
+  font-size: 11.5pt;
+  letter-spacing: 0.05em;
+  margin-top: 0.16in;
+}
+.flyer .facts .es {
+  display: block;
+  font-weight: 500;
+  font-size: 9pt;
+  letter-spacing: 0.01em;
+  color: var(--bark-600);
+  margin-top: 0.03in;
+}
+.flyer .privacy {
+  margin-top: auto;
+  border-radius: 9pt;
+  padding: 0.11in 0.16in;
+  gap: 0.13in;
+}
+.flyer .privacy .en { font-size: 9.5pt; }
+.flyer .privacy .es { font-size: 8.5pt; margin-top: 0.02in; }
+.flyer .org {
+  font-size: 7pt;
+  color: var(--bark-400);
+  margin-top: 0.09in;
+}
+
+.flyer .right {
+  flex: none;
+  width: 2.42in;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.flyer .qr-card {
+  border: 1.6pt solid var(--bark-900);
+  border-radius: 11pt;
+  padding: 0.11in;
+  background: #fff;
+}
+.flyer .qr-card .qr { width: 1.86in; height: 1.86in; }
+.flyer .scanline {
+  font-size: 8pt;
+  line-height: 1.35;
+  color: var(--bark-600);
+  margin-top: 0.09in;
+}
+.flyer .url {
+  font-weight: 700;
+  font-size: 14pt;
+  color: var(--teal-700);
+  margin-top: 0.04in;
+  white-space: nowrap;
+}
+
+/* ══════════════ 3 · COUNTER CARDS (3.5×2in, 10-up) ══════════════ */
+
+#cards { padding: 0.5in 0.75in; }
+#cards .grid {
+  display: grid;
+  grid-template-columns: 3.5in 3.5in;
+  grid-auto-rows: 2in;
+}
+.card {
+  padding: 0.13in 0.14in;
+  display: flex;
+  align-items: center;
+  gap: 0.14in;
+  overflow: hidden;
+}
+.card .qr { width: 1.36in; height: 1.36in; flex: none; }
+.card .txt { min-width: 0; }
+.card h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 12.5pt;
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+}
+.card .facts {
+  font-size: 7.5pt;
+  color: var(--bark-600);
+  margin-top: 0.05in;
+}
+.card .facts .es { color: var(--bark-500); }
+.card .url {
+  display: block;
+  font-weight: 700;
+  font-size: 9.5pt;
+  letter-spacing: -0.01em;
+  color: var(--teal-700);
+  margin-top: 0.06in;
+  white-space: nowrap;
+}
+/* full-length hairlines exactly on the cut grid (0.5in/0.75in margins) */
+.cut-h, .cut-v { position: absolute; background: var(--bark-200); }
+.cut-h { left: 0; right: 0; height: 0.5pt; }
+.cut-v { top: 0; bottom: 0; width: 0.5pt; }
+#cards .note {
+  position: absolute;
+  top: 0.18in;
+  left: 0.75in;
+  font-size: 7pt;
+  color: var(--bark-400);
+  letter-spacing: 0.04em;
+}
+</style>
+</head>
+<body>
+
+<!-- shared QR artwork (injected by build.sh from qualify-qr.svg) -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+  <symbol id="qr-mark" viewBox="0 0 37 37">__QR_INNER__</symbol>
+</svg>
+
+<!-- ═══════════════ SHEET 1 · US-LETTER POSTER ═══════════════ -->
+<section class="sheet" id="poster">
+  <div class="top">
+    <div class="brand">
+      <svg class="sun" width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round"><line x1="32" y1="6" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="58"/><line x1="6" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="58" y2="32"/><line x1="13.6" y1="13.6" x2="19.3" y2="19.3"/><line x1="44.7" y1="44.7" x2="50.4" y2="50.4"/><line x1="13.6" y1="50.4" x2="19.3" y2="44.7"/><line x1="44.7" y1="19.3" x2="50.4" y2="13.6"/></g><circle cx="32" cy="32" r="11" fill="currentColor"/></svg>
+      <span class="wordmark">Tech<span class="caps">Empower</span><span class="tld">.org</span></span>
+    </div>
+    <span class="lang-pill">English &amp; Español</span>
+  </div>
+
+  <div class="hero">
+    <h1>Wait — do I qualify?</h1>
+    <p class="hero-es" lang="es">¿Y si sí califico?</p>
+  </div>
+
+  <div class="accent-bar" aria-hidden="true"></div>
+
+  <p class="sub">Find out what you qualify for &mdash; CalFresh, WIC, Medi&#8209;Cal,<br>free phone service, PG&amp;E bill discounts &amp; more.</p>
+  <p class="sub-es" lang="es">Descubra para qué califica &mdash; CalFresh, WIC, Medi&#8209;Cal,<br>teléfono gratis, descuentos de PG&amp;E y más.</p>
+
+  <div class="chips">
+    <div class="chip"><span class="en">2 minutes</span><span class="es" lang="es">2 minutos</span></div>
+    <div class="chip"><span class="en">Anonymous</span><span class="es" lang="es">anónimo</span></div>
+    <div class="chip"><span class="en">Free</span><span class="es" lang="es">gratis</span></div>
+  </div>
+
+  <div class="act">
+    <div class="qr-card">
+      <svg class="qr" viewBox="0 0 37 37" role="img" aria-label="QR code for techempower.org/qualify"><use href="#qr-mark"/></svg>
+    </div>
+    <p class="scanline">Scan with your phone camera &nbsp;·&nbsp; <span lang="es">Escanee con la cámara de su teléfono</span></p>
+    <p class="url">techempower.org<span class="path">/qualify</span></p>
+  </div>
+
+  <div class="privacy">
+    <svg class="lock" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="9.5" rx="2.5"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/></svg>
+    <div>
+      <p class="en">Private: your answers never leave your phone &mdash; nothing is stored.</p>
+      <p class="es" lang="es">Privado: sus respuestas nunca salen de su teléfono &mdash; no se guarda nada.</p>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>TechEmpower.org &mdash; a 501(c)(3) nonprofit &middot; Grass Valley, California</span>
+    <span class="runtag">v1 &middot; July 2026</span>
+  </div>
+</section>
+
+<!-- ═══════════════ SHEET 2 · HALF-SHEET FLYER, 2-UP ═══════════════ -->
+<section class="sheet" id="flyer">
+  <div class="flyer">
+    <div class="left">
+      <div class="brand">
+        <svg class="sun" width="21" height="21" viewBox="0 0 64 64" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round"><line x1="32" y1="6" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="58"/><line x1="6" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="58" y2="32"/><line x1="13.6" y1="13.6" x2="19.3" y2="19.3"/><line x1="44.7" y1="44.7" x2="50.4" y2="50.4"/><line x1="13.6" y1="50.4" x2="19.3" y2="44.7"/><line x1="44.7" y1="19.3" x2="50.4" y2="13.6"/></g><circle cx="32" cy="32" r="11" fill="currentColor"/></svg>
+        <span class="wordmark">Tech<span class="caps">Empower</span><span class="tld">.org</span></span>
+        <span style="flex:1"></span>
+        <span class="lang-pill" style="font-size:8pt;border-width:1pt;padding:0.04in 0.11in">English &amp; Español</span>
+      </div>
+      <h2>Wait &mdash; do I qualify?</h2>
+      <p class="hero-es" lang="es">¿Y si sí califico?</p>
+      <p class="sub">Find out what you qualify for &mdash;<br>CalFresh, WIC, Medi&#8209;Cal, free phone service &amp; more.</p>
+      <p class="sub-es" lang="es">Descubra para qué califica &mdash;<br>CalFresh, WIC, Medi&#8209;Cal, teléfono gratis y más.</p>
+      <p class="facts">2 minutes &middot; anonymous &middot; free<span class="es" lang="es">2 minutos &middot; anónimo &middot; gratis</span></p>
+      <div class="privacy">
+        <svg class="lock" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="9.5" rx="2.5"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/></svg>
+        <div>
+          <p class="en">Private: your answers never leave your phone.</p>
+          <p class="es" lang="es">Privado: sus respuestas nunca salen de su teléfono.</p>
+        </div>
+      </div>
+      <p class="org">TechEmpower.org &mdash; a 501(c)(3) nonprofit &middot; Grass Valley, California</p>
+    </div>
+    <div class="right">
+      <div class="qr-card">
+        <svg class="qr" viewBox="0 0 37 37" role="img" aria-label="QR code for techempower.org/qualify"><use href="#qr-mark"/></svg>
+      </div>
+      <p class="scanline">Scan with your phone camera<br><span lang="es">Escanee con la cámara de su teléfono</span></p>
+      <p class="url">techempower.org<span class="path">/qualify</span></p>
+    </div>
+  </div>
+  <div class="cutline" aria-hidden="true"></div>
+  <div class="flyer">
+    <div class="left">
+      <div class="brand">
+        <svg class="sun" width="21" height="21" viewBox="0 0 64 64" aria-hidden="true"><g stroke="currentColor" stroke-width="5" stroke-linecap="round"><line x1="32" y1="6" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="58"/><line x1="6" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="58" y2="32"/><line x1="13.6" y1="13.6" x2="19.3" y2="19.3"/><line x1="44.7" y1="44.7" x2="50.4" y2="50.4"/><line x1="13.6" y1="50.4" x2="19.3" y2="44.7"/><line x1="44.7" y1="19.3" x2="50.4" y2="13.6"/></g><circle cx="32" cy="32" r="11" fill="currentColor"/></svg>
+        <span class="wordmark">Tech<span class="caps">Empower</span><span class="tld">.org</span></span>
+        <span style="flex:1"></span>
+        <span class="lang-pill" style="font-size:8pt;border-width:1pt;padding:0.04in 0.11in">English &amp; Español</span>
+      </div>
+      <h2>Wait &mdash; do I qualify?</h2>
+      <p class="hero-es" lang="es">¿Y si sí califico?</p>
+      <p class="sub">Find out what you qualify for &mdash;<br>CalFresh, WIC, Medi&#8209;Cal, free phone service &amp; more.</p>
+      <p class="sub-es" lang="es">Descubra para qué califica &mdash;<br>CalFresh, WIC, Medi&#8209;Cal, teléfono gratis y más.</p>
+      <p class="facts">2 minutes &middot; anonymous &middot; free<span class="es" lang="es">2 minutos &middot; anónimo &middot; gratis</span></p>
+      <div class="privacy">
+        <svg class="lock" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="9.5" rx="2.5"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/></svg>
+        <div>
+          <p class="en">Private: your answers never leave your phone.</p>
+          <p class="es" lang="es">Privado: sus respuestas nunca salen de su teléfono.</p>
+        </div>
+      </div>
+      <p class="org">TechEmpower.org &mdash; a 501(c)(3) nonprofit &middot; Grass Valley, California</p>
+    </div>
+    <div class="right">
+      <div class="qr-card">
+        <svg class="qr" viewBox="0 0 37 37" role="img" aria-label="QR code for techempower.org/qualify"><use href="#qr-mark"/></svg>
+      </div>
+      <p class="scanline">Scan with your phone camera<br><span lang="es">Escanee con la cámara de su teléfono</span></p>
+      <p class="url">techempower.org<span class="path">/qualify</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SHEET 3 · COUNTER CARDS, 10-UP ═══════════════ -->
+<section class="sheet" id="cards">
+  <p class="note">CUT ON LINES &middot; 3.5 &times; 2 IN &middot; FITS AVERY 5371 STOCK</p>
+  <!-- cut grid: verticals at 0.75 / 4.25 / 7.75in, horizontals at 0.5 + n·2in -->
+  <div class="cut-v" style="left:0.75in" aria-hidden="true"></div>
+  <div class="cut-v" style="left:4.25in" aria-hidden="true"></div>
+  <div class="cut-v" style="left:7.75in" aria-hidden="true"></div>
+  <div class="cut-h" style="top:0.5in" aria-hidden="true"></div>
+  <div class="cut-h" style="top:2.5in" aria-hidden="true"></div>
+  <div class="cut-h" style="top:4.5in" aria-hidden="true"></div>
+  <div class="cut-h" style="top:6.5in" aria-hidden="true"></div>
+  <div class="cut-h" style="top:8.5in" aria-hidden="true"></div>
+  <div class="cut-h" style="top:10.5in" aria-hidden="true"></div>
+  <div class="grid">__CARDS__</div>
+</section>
+
+<script>
+  // ?sheet=poster|flyer|cards renders a single format (used by build.sh)
+  const s = new URLSearchParams(location.search).get('sheet')
+  if (s) document.documentElement.dataset.sheet = s
+</script>
+</body>
+</html>
