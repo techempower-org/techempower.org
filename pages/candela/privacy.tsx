@@ -1,4 +1,5 @@
 import Head from 'next/head'
+
 import html from '../../lib/data/privacy-candela'
 
 export default function CandelaPrivacy() {
