@@ -156,5 +156,17 @@
   "note.foodbank-locations": "Food is handed out at community sites, NOT the Grass Valley warehouse. Regular sites: Grass Valley (12889 Osborne Hill Rd) 2nd & 4th Thursday 10am–1pm; Truckee (12116 Chandelle Way) Tuesdays 4–5pm.",
   "note.ifm-bring-id": "Bring a photo ID and proof you live in Nevada County (a lease, mortgage, or utility bill).",
   "note.ifm-every-other-week": "You can pick up food once every other week.",
-  "note.ifm-hours": "440 Henderson St, Grass Valley. Open Mon/Wed/Fri/Sat 10am–1pm — reserve a slot Mon/Wed/Fri 10–11am (phone or online), or walk up 11am–1pm and Saturdays."
+  "note.ifm-hours": "440 Henderson St, Grass Valley. Open Mon/Wed/Fri/Sat 10am–1pm — reserve a slot Mon/Wed/Fri 10–11am (phone or online), or walk up 11am–1pm and Saturdays.",
+  "note.hotspot-card-good-standing": "Any adult or teen with a Nevada County library card in good standing can borrow one (Youth, Limited, and Educator cards can't).",
+  "note.hotspot-14-day": "Free unlimited data for 14 days (not renewable); one at a time, connects up to 10 devices.",
+  "note.hotspot-waiver": "You sign a short waiver in person the first time; a parent or guardian signs for teens under 18. A very-overdue hotspot has a {amountReplacement} replacement charge that clears when you return it.",
+  "note.firewood-low-income": "For low-income seniors 60+ who heat with wood. The household is one senior living alone, or two low-income seniors 60+ together.",
+  "note.firewood-western-nc": "Serves Western Nevada County — volunteers cut, split, and deliver the wood to your home.",
+  "note.firewood-apply-before-winter": "Wood is delivered for the winter — call (530) 615-4541 well before cold weather to get on the list.",
+  "note.gcss-meals-two-ways": "Two ways to eat: a lunch café at the Grass Valley senior center (Mon, Tue & Thu at noon, any senior 60+ welcome) or Meals on Wheels delivered to your home twice a week.",
+  "note.gcss-meals-donation": "No charge — a {amountSuggested} donation per meal is suggested, but no senior is ever turned away for not being able to give.",
+  "note.gcss-mow-need": "Home delivery is for seniors who have trouble shopping or cooking — call (530) 446-6853 to sign up. The lunch café is open to any senior 60+.",
+  "note.unclaimed-always-free": "Searching and claiming are always free at claimit.ca.gov — never pay a \"finder\" or asset locator (the law caps their fee at 10%, and you don't need one).",
+  "note.unclaimed-what-it-is": "Lost or forgotten money the state safeguards — uncashed paychecks and refund checks, dormant bank accounts, insurance payouts, and utility deposits — until the owner claims it.",
+  "note.unclaimed-no-deadline": "There's no deadline — the state holds it until you claim it. Search your name and any past or maiden names, and check family members' names too. Questions: (800) 992-4647."
 }

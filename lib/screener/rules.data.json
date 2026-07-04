@@ -2364,5 +2364,193 @@
         "via": "wave-2 batch-C draft (nebula, live fetch) — eligibility, photo-ID + proof-of-residency requirement, every-other-week, hours verbatim + adversarial verification 2026-07-04 (oracle) — dropped the 'no permanent housing OK / come anyway' gloss (page REQUIRES proof of residency) and corrected reservations to Mon/Wed/Fri (not Mon-Fri); universal:true endorsed"
       }
     ]
+  },
+  {
+    "id": "library-hotspot",
+    "jurisdiction": "nevada-county",
+    "category": "devices",
+    "status": "open",
+    "test": {
+      "universal": true,
+      "specialNotes": [
+        "hotspot-card-good-standing",
+        "hotspot-14-day",
+        "hotspot-waiver"
+      ]
+    },
+    "noteParams": {
+      "hotspot-waiver": {
+        "amountReplacement": 200
+      }
+    },
+    "name": {
+      "en": "Free internet hotspot from the Nevada County Library",
+      "es": "Punto de acceso a internet gratis de la Biblioteca del Condado de Nevada"
+    },
+    "value": {
+      "en": "Borrow a mobile Wi-Fi hotspot from the Nevada County Library for free — unlimited data for 14 days, connects up to 10 devices. No income limit; you just need a library card in good standing.",
+      "es": "Pida prestado un punto de acceso Wi-Fi móvil de la Biblioteca del Condado de Nevada gratis — datos ilimitados por 14 días, conecta hasta 10 dispositivos. Sin límite de ingresos; solo necesita una tarjeta de biblioteca al corriente."
+    },
+    "apply": {
+      "url": "https://www.nevadacountyca.gov/3138/Check-Out-a-Hotspot",
+      "phone": {
+        "en": "Nevada County Library (530) 265-1218",
+        "es": "Biblioteca del Condado de Nevada (530) 265-1218"
+      },
+      "local": {
+        "en": "Place a hold through the library catalog (search \"Hotspots\") or ask at any branch. You sign a short waiver in person the first time.",
+        "es": "Reserve a través del catálogo de la biblioteca (busque \"Hotspots\") o pregunte en cualquier sucursal. La primera vez firma en persona una breve exención de responsabilidad."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Verbatim (Nevada County Library Hotspots page): 'Check out a mobile hotspot with your library card for free, unlimited access to the internet.' Providers: Verizon, T-Mobile, AT&T. 'Adult and Teen library cardholders with a current Nevada County library card in good standing may check out a hotspot. Hotspots are restricted for Youth, Limited and Educator card holders.' 'Loan period is 14 days. Hotspots are not renewable.' 'Patrons may only borrow one hotspot at a time.' 'Hotspots can connect to up to 10 devices at one time.' 'All borrowers must sign the Hotspot and Recreation Collection waiver in person... Teens under the age of 18 must have a parent or guardian sign.' 'Overdue hotspots will be disabled remotely. Patron accounts with an overdue hotspot will be charged for the $200 dollar replacement cost. Upon return of the device, the charge will be cleared.'",
+        "source": "https://www.nevadacountyca.gov/3138/Check-Out-a-Hotspot",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-D draft (nebula) — pre-fetched page live-saved 2026-07-04 09:32, w3m-extracted; lending policy verbatim. Corroborated by DB row [040] ('14 days at no cost... unlimited data on T-Mobile or Verizon... connects up to 10 devices'). NOTE: live page lists three carriers (adds AT&T); DB row lists two — wave-2 batch D adversarial verification 2026-07-04 (oracle)"
+      }
+    ]
+  },
+  {
+    "id": "senior-firewood",
+    "jurisdiction": "nevada-county",
+    "category": "utilities",
+    "status": "seasonal",
+    "test": {
+      "ageAnyMin": 60,
+      "memberGate": true,
+      "specialNotes": [
+        "firewood-low-income",
+        "firewood-western-nc",
+        "firewood-apply-before-winter"
+      ]
+    },
+    "name": {
+      "en": "Free delivered firewood for low-income seniors (60+)",
+      "es": "Leña gratis a domicilio para adultos mayores de bajos ingresos (60+)"
+    },
+    "value": {
+      "en": "Volunteers cut, split, and deliver firewood to low-income seniors 60+ in Western Nevada County who heat with wood and are struggling to stay warm. Free. Running since 1979 — call to get on the list before winter.",
+      "es": "Voluntarios cortan, parten y entregan leña a adultos mayores de bajos ingresos de 60+ en el oeste del Condado de Nevada que se calientan con leña y tienen dificultades para mantenerse abrigados. Gratis. Funciona desde 1979 — llame para anotarse antes del invierno."
+    },
+    "apply": {
+      "url": "https://www.goldcountryservices.org/senior-firewood-program/",
+      "phone": {
+        "en": "Gold Country Senior Services (530) 615-4541",
+        "es": "Gold Country Senior Services (530) 615-4541"
+      },
+      "local": {
+        "en": "Call (530) 615-4541 or email contact@goldcountryservices.org to apply. Wood is delivered for the winter, so ask early.",
+        "es": "Llame al (530) 615-4541 o escriba a contact@goldcountryservices.org para solicitar. La leña se entrega para el invierno, así que pregunte con anticipación."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Verbatim (Gold Country Senior Services, Senior Firewood Program page): 'Since 1979, the Senior Firewood Program has provided extra warmth to low-income seniors by delivering firewood for winter. The group of dedicated volunteers cut, split and deliver the firewood to seniors in need in our community.' Eligibility: 'Low-income seniors 60 or older who live in Western Nevada County and are struggling to heat their home.' 'Lives alone or with another age-eligible, low income senior.' Apply: 'call (530) 615-4541 or email us at: contact@goldcountryservices.org.' NO dollar income figure is stated (eligibility is 'low-income', undefined) and — critically — the CURRENT live page shows NO 'enrollment full' language.",
+        "source": "https://www.goldcountryservices.org/senior-firewood-program/",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-D draft (nebula) — pre-fetched page live-saved 2026-07-04 09:32, w3m-extracted, © 2026 footer. SUPERSEDES DB row [212], whose Value field carries raw broken markdown and a STALE 'Enrollment for the winter of 2023-2024 is currently full' line — the live page no longer says that. No income table exists to pin, so the rule carries NO income test (age 60+ only). VERIFIER: confirm the 2026-27 winter intake window / whether a waitlist reopens — wave-2 batch D adversarial verification 2026-07-04 (oracle)"
+      }
+    ]
+  },
+  {
+    "id": "gcss-senior-meals",
+    "jurisdiction": "nevada-county",
+    "category": "food",
+    "status": "open",
+    "test": {
+      "ageAnyMin": 60,
+      "memberGate": true,
+      "specialNotes": [
+        "gcss-meals-two-ways",
+        "gcss-meals-donation",
+        "gcss-mow-need"
+      ]
+    },
+    "noteParams": {
+      "gcss-meals-donation": {
+        "amountSuggested": 4
+      }
+    },
+    "name": {
+      "en": "Hot meals for seniors (60+) — lunch café + Meals on Wheels",
+      "es": "Comidas calientes para adultos mayores (60+) — café de almuerzo + Meals on Wheels"
+    },
+    "value": {
+      "en": "Gold Country Senior Services feeds any Western Nevada County senior 60+ two ways: a lunch café at the Grass Valley senior center (Mon, Tue & Thu at noon) and Meals on Wheels delivered to your home twice a week. There's no charge — a small donation is suggested but nobody is turned away.",
+      "es": "Gold Country Senior Services alimenta a cualquier adulto mayor de 60+ del oeste del Condado de Nevada de dos maneras: un café de almuerzo en el centro para mayores de Grass Valley (lun, mar y jue al mediodía) y Meals on Wheels entregado en su casa dos veces por semana. No hay cargo — se sugiere una pequeña donación, pero no se rechaza a nadie."
+    },
+    "apply": {
+      "url": "https://www.goldcountryservices.org/meals-on-wheels/",
+      "phone": {
+        "en": "Meals on Wheels (530) 446-6853 · Senior Center café (530) 273-4961",
+        "es": "Meals on Wheels (530) 446-6853 · Café del centro para mayores (530) 273-4961"
+      },
+      "local": {
+        "en": "For home delivery, call (530) 446-6853 to sign up. For the lunch café, just come to 231 Colfax Ave, Grass Valley (Mon/Tue/Thu at noon).",
+        "es": "Para entrega a domicilio, llame al (530) 446-6853 para inscribirse. Para el café de almuerzo, simplemente venga a 231 Colfax Ave, Grass Valley (lun/mar/jue al mediodía)."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Congregate Lunch Café (goldcountryservices.org/congregate-lunch-cafe): 'Anyone 60 years of age and older is encouraged to attend.' Lunch served Monday, Tuesday, and Thursday at noon at the Sierra Gold Community Senior Center, 231 Colfax Ave, Grass Valley. Suggested voluntary contribution $4.00 per day for seniors 60+; 'No eligible senior will be denied participation in the program because of failure or inability to contribute.' Guests under 60 pay $10.00 per meal. No income test.",
+        "source": "https://www.goldcountryservices.org/congregate-lunch-cafe/",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-D draft (nebula, live WebFetch) — days/location/donation verbatim; corroborates DB row [068] ('serves lunch on Monday, Tuesday, and Thursday') — wave-2 batch D adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "Meals on Wheels (goldcountryservices.org/meals-on-wheels): 'Seniors 60 or older' who are 'Unable to prepare meals and/or Have difficulty shopping.' Meals delivered Tuesday and Thursday, 10am-1pm (2 deliveries/week; GCSS home page cites ~5 meals/week to 200+ clients — multiple meals per delivery). Service area: Western Nevada County (Nevada City, North San Juan, Grass Valley, Penn Valley, Lake Wildwood, Cedar Ridge, Chicago Park, Rough & Ready, Alta Sierra, Lake of the Pines). 'There is no charge to receive meals. However, we gladly accept contributions'; suggested $4/meal; 'no eligible senior will be denied a meal because of their inability to contribute.' Enrollment/eligibility screening: (530) 446-6853.",
+        "source": "https://www.goldcountryservices.org/meals-on-wheels/",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-D draft (nebula, live WebFetch) — eligibility/cost verbatim; corroborates DB rows [169] ('two hot lunches a week (Tuesday and Thursday)... Suggested donation is $4 per meal but no one is turned away') and [142] ('Age 60+ in Western Nevada County... Meals on Wheels prioritizes seniors who can't shop or cook'). VERIFIER: reconcile the 2-deliveries vs 5-meals/week wording before printing a meal count (draft prints neither a hard count nor a $ benefit) — wave-2 batch D adversarial verification 2026-07-04 (oracle)"
+      }
+    ]
+  },
+  {
+    "id": "unclaimed-property",
+    "jurisdiction": "CA",
+    "category": "money",
+    "status": "open",
+    "test": {
+      "universal": true,
+      "specialNotes": [
+        "unclaimed-always-free",
+        "unclaimed-what-it-is",
+        "unclaimed-no-deadline"
+      ]
+    },
+    "name": {
+      "en": "Check if California is holding money for you",
+      "es": "Vea si California le está guardando dinero"
+    },
+    "value": {
+      "en": "The State of California safeguards lost or forgotten money — uncashed paychecks and refund checks, dormant bank accounts, insurance payouts, utility deposits — until the rightful owner claims it. Search your name for free at claimit.ca.gov; if something is yours, you claim it directly from the State Controller. There is no deadline to claim and no fee, ever.",
+      "es": "El Estado de California resguarda dinero perdido u olvidado — cheques de sueldo o reembolso sin cobrar, cuentas bancarias inactivas, pagos de seguros, depósitos de servicios — hasta que el dueño legítimo lo reclame. Busque su nombre gratis en claimit.ca.gov; si algo es suyo, lo reclama directamente al Contralor del Estado. No hay plazo para reclamar ni cargo alguno, nunca."
+    },
+    "apply": {
+      "url": "https://claimit.ca.gov/",
+      "phone": {
+        "en": "State Controller — Unclaimed Property Division (800) 992-4647",
+        "es": "Contralor del Estado — División de Propiedad No Reclamada (800) 992-4647"
+      },
+      "local": {
+        "en": "Search your name (and any past or maiden names) for free at claimit.ca.gov, then file the claim online. Check family members' names too. Questions: (800) 992-4647.",
+        "es": "Busque su nombre (y nombres anteriores o de soltera) gratis en claimit.ca.gov y presente el reclamo en línea. Busque también los nombres de familiares. Preguntas: (800) 992-4647."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Verbatim (CA State Controller, Unclaimed Property search page & FAQ): 'Searching and claiming property through the State Controller's Office's website is always free at claimit.ca.gov.' 'There is no deadline for claiming property once it is transferred over to the State Controller's Office and no fee associated with claiming your property.' The Controller 'safeguards this lost or forgotten property for as long as it takes to reunite it with the rightful owners.' Property types include '...and returned checks, unclaimed survivor benefits, or dormant accounts.' Consumer protection: 'It is against the law for investigators [asset locators / heir finders] to charge a fee greater than 10 percent of the value of the property returned to owners' — i.e. owners never need a paid finder because direct claims are free. Unclaimed Property Division help line (800) 992-4647.",
+        "source": "https://www.sco.ca.gov/search_upd.html",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-D draft (nebula) — sco.ca.gov/search_upd.html + upd_faq_searching_for_property.html fetched LIVE via local curl (browser UA) 2026-07-04, HTTP 200, w3m-extracted; free/no-deadline/no-fee + property types + asset-locator 10% fee cap all VERBATIM. claimit.ca.gov itself is an Angular SPA (renders empty to non-JS fetchers) so the static sco.ca.gov pages are the citable primary. Corroborates DB row [210] ('lets anyone search for and claim forgotten money or assets held by the state for free, using claimit.ca.gov') — wave-2 batch D adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "Dormancy + operational caveat: unclaimed property is generally a financial asset left inactive by the owner for a statutory period (generally three years) before a holder must transfer it to the State for safekeeping (California Unclaimed Property Law, CCP §1500 et seq.). DB row [210] adds: 'Claims may be delayed due to high volume, so submitting complete documentation' speeds processing. NOTE: an earlier draft asserted the Controller holds 'over $10 billion' — that magnitude was NOT verified against a primary today and has been dropped from the card copy (numbers require provenance); the verifier may restore a current figure with an SCO cite.",
+        "source": "https://www.sco.ca.gov/upd_faq_searching_for_property.html",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-D draft (nebula) — 3-year dormancy is search-aggregated from the SCO FAQ (not extracted verbatim from the fetched page today) + DB row [210] high-volume note. VERIFIER: confirm the exact dormancy period + statutory cite against the live SCO 'What is Unclaimed Property' FAQ — wave-2 batch D adversarial verification 2026-07-04 (oracle)"
+      }
+    ]
   }
 ]

@@ -156,5 +156,17 @@
   "note.foodbank-locations": "La comida se reparte en sitios comunitarios, NO en el almacén de Grass Valley. Sitios regulares: Grass Valley (12889 Osborne Hill Rd) 2do y 4to jueves 10am–1pm; Truckee (12116 Chandelle Way) martes 4–5pm.",
   "note.ifm-bring-id": "Traiga una identificación con foto y prueba de que vive en el condado de Nevada (un contrato de renta, hipoteca o factura de servicios).",
   "note.ifm-every-other-week": "Puede recoger comida una vez cada dos semanas.",
-  "note.ifm-hours": "440 Henderson St, Grass Valley. Abierto lun/mié/vie/sáb 10am–1pm — reserve un espacio lun/mié/vie 10–11am (por teléfono o en línea), o venga sin cita 11am–1pm y sábados."
+  "note.ifm-hours": "440 Henderson St, Grass Valley. Abierto lun/mié/vie/sáb 10am–1pm — reserve un espacio lun/mié/vie 10–11am (por teléfono o en línea), o venga sin cita 11am–1pm y sábados.",
+  "note.hotspot-card-good-standing": "Cualquier adulto o joven con una tarjeta de la biblioteca del Condado de Nevada al corriente puede pedir uno prestado (las tarjetas Youth, Limited y Educator no pueden).",
+  "note.hotspot-14-day": "Datos ilimitados gratis por 14 días (no renovable); uno a la vez, conecta hasta 10 dispositivos.",
+  "note.hotspot-waiver": "Firma una breve exención en persona la primera vez; un padre o tutor firma por los menores de 18 años. Un punto de acceso muy atrasado tiene un cargo de reemplazo de {amountReplacement} que se elimina al devolverlo.",
+  "note.firewood-low-income": "Para adultos mayores de bajos ingresos de 60+ que se calientan con leña. El hogar es un adulto mayor que vive solo, o dos adultos mayores de bajos ingresos de 60+ juntos.",
+  "note.firewood-western-nc": "Atiende al oeste del Condado de Nevada — voluntarios cortan, parten y entregan la leña en su casa.",
+  "note.firewood-apply-before-winter": "La leña se entrega para el invierno — llame al (530) 615-4541 mucho antes del frío para anotarse en la lista.",
+  "note.gcss-meals-two-ways": "Dos maneras de comer: un café de almuerzo en el centro para mayores de Grass Valley (lun, mar y jue al mediodía, cualquier adulto mayor de 60+ bienvenido) o Meals on Wheels entregado en su casa dos veces por semana.",
+  "note.gcss-meals-donation": "Sin cargo — se sugiere una donación de {amountSuggested} por comida, pero nunca se rechaza a ningún adulto mayor por no poder dar.",
+  "note.gcss-mow-need": "La entrega a domicilio es para adultos mayores que tienen dificultad para comprar o cocinar — llame al (530) 446-6853 para inscribirse. El café de almuerzo está abierto a cualquier adulto mayor de 60+.",
+  "note.unclaimed-always-free": "Buscar y reclamar siempre es gratis en claimit.ca.gov — nunca pague a un \"buscador\" o localizador de bienes (la ley limita su comisión al 10%, y usted no necesita uno).",
+  "note.unclaimed-what-it-is": "Dinero perdido u olvidado que el estado resguarda — cheques de sueldo o reembolso sin cobrar, cuentas bancarias inactivas, pagos de seguros y depósitos de servicios — hasta que el dueño lo reclame.",
+  "note.unclaimed-no-deadline": "No hay fecha límite — el estado lo guarda hasta que usted lo reclame. Busque su nombre y cualquier nombre anterior o de soltera, y busque también los nombres de familiares. Preguntas: (800) 992-4647."
 }
