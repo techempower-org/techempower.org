@@ -2911,5 +2911,284 @@
         "via": "wave-2 batch-E (nebula-batch-d2 deep dive, primary/archival only): live sitemap.xml + live /woodsmoke-reduction-program 404 + Feb-2026 + 2024 Wayback snapshots confirm the tri-county round is de-listed/out-of-funds → waitlist-closed; restart-watch: flip to check-first/open when the NSAQMD index re-lists a non-Portola program + adversarial verification 2026-07-04 (oracle)"
       }
     ]
+  },
+  {
+    "id": "property-tax-postponement",
+    "jurisdiction": "CA",
+    "category": "money",
+    "status": "seasonal",
+    "test": {
+      "flagsAll": ["homeowner"],
+      "ageAnyMin": 62,
+      "memberFlagsAny": ["disability"],
+      "memberGate": true,
+      "limitsMonthly": {
+        "1": 4598,
+        "2": 4598,
+        "3": 4598,
+        "4": 4598,
+        "5": 4598,
+        "6": 4598,
+        "7": 4598,
+        "8": 4598,
+        "increment": 0
+      },
+      "specialNotes": [
+        "ptp-lien-repaid",
+        "ptp-equity-window",
+        "ptp-household-income-def"
+      ]
+    },
+    "thresholdsDisplay": {
+      "1": 4598,
+      "4": 4598
+    },
+    "noteParams": {
+      "ptp-equity-window": {
+        "equityPct": 40
+      },
+      "ptp-household-income-def": {
+        "limitAnnual": 55181
+      }
+    },
+    "name": {
+      "en": "Property Tax Postponement (defer taxes if 62+, blind, or disabled)",
+      "es": "Aplazamiento de impuestos a la propiedad (difiéralos si tiene 62+, es ciego o tiene discapacidad)"
+    },
+    "value": {
+      "en": "If you're 62+, blind, or disabled and own your home, the state can pay your current-year property taxes for you — you repay it later. It's a loan secured by a lien on your home (repaid when you sell, move, or pass away), NOT a giveaway. Household income must be $55,181/yr or less.",
+      "es": "Si tiene 62 años o más, es ciego o tiene una discapacidad y es dueño de su casa, el estado puede pagar sus impuestos a la propiedad del año actual — usted lo devuelve después. Es un préstamo garantizado por un gravamen sobre su casa (se paga cuando vende, se muda o fallece), NO es un regalo. El ingreso del hogar debe ser de $55,181/año o menos."
+    },
+    "apply": {
+      "url": "https://www.sco.ca.gov/ardtax_prop_tax_postponement.html",
+      "phone": {
+        "en": "State Controller's Office (800) 952-5661 · postponement@sco.ca.gov",
+        "es": "Oficina del Contralor del Estado (800) 952-5661 · postponement@sco.ca.gov"
+      },
+      "local": {
+        "en": "Applications are accepted October 1 through February 10 each year — apply through the State Controller's Office (not the county). Flyers available in English, Spanish, Chinese, and Tagalog.",
+        "es": "Las solicitudes se aceptan del 1 de octubre al 10 de febrero cada año — solicite a través de la Oficina del Contralor del Estado (no el condado). Hay folletos en inglés, español, chino y tagalo."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Eligibility verbatim (SCO PTP flyer + FAQ): applicant must (1) be at least 62 years of age, or blind, or have a disability; (2) have a total household income of $55,181 or less, as defined in California Revenue and Taxation Code 20503; (3) own and occupy the property as the principal place of residence; (4) have at least 40 percent equity in the property. The deferment is secured by a lien against the property which must eventually be repaid; disqualified if there is a default on a senior lien",
+        "source": "https://www.sco.ca.gov/ard_ptp_faq.html",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-F draft (nebula, live fetch browser-UA + SCO flyer PDF) — 62/blind/disabled + $55,181 (R&T 20503) + own-occupy + 40% equity verbatim + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "Program mechanics (SCO PTP main page): the Property Tax Postponement Program allows homeowners who are seniors, blind, or disabled to defer current-year property taxes on their principal residence if they meet the criteria; 2025-26 timeline — applications available September 2025, filing period opens October 1, 2025, closes February 10, 2026; contact (800) 952-5661 / postponement@sco.ca.gov",
+        "source": "https://www.sco.ca.gov/ardtax_prop_tax_postponement.html",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-F draft (nebula, live fetch) — SCO mechanics + Oct-1–Feb-10 window + contact verbatim + adversarial verification 2026-07-04 (oracle) — ADVISORY: $55,181 is the 2025-26 figure; SCO updates before Oct 1 2026 → seasonal + ~Nov freshness re-verify"
+      }
+    ]
+  },
+  {
+    "id": "homeowners-exemption",
+    "jurisdiction": "CA",
+    "category": "money",
+    "status": "open",
+    "test": {
+      "flagsAll": ["homeowner"],
+      "universal": true,
+      "specialNotes": ["hox-one-time-filing", "hox-feb15-deadline"]
+    },
+    "noteParams": {
+      "hox-one-time-filing": {
+        "amountSavings": 70
+      }
+    },
+    "name": {
+      "en": "Homeowners' Exemption ($7,000 off your assessed value)",
+      "es": "Exención para propietarios de vivienda ($7,000 menos en su valor tasado)"
+    },
+    "value": {
+      "en": "Own and live in your home? Knock $7,000 off its taxable value — about $70 a year off your property tax bill, every year, with a one-time form. Most owner-occupants qualify; there's no income limit.",
+      "es": "¿Es dueño y vive en su casa? Reste $7,000 del valor imponible — unos $70 al año menos en su factura de impuestos, cada año, con un formulario que se llena una sola vez. La mayoría de los propietarios que ocupan su vivienda califican; no hay límite de ingresos."
+    },
+    "apply": {
+      "url": "https://www.boe.ca.gov/proptaxes/homeowners_exemption.htm",
+      "local": {
+        "en": "File form BOE-266 once with the Nevada County Assessor (950 Maidu Avenue, Nevada City · county line 530-265-1218, ask for the Assessor). File by February 15 for the full exemption.",
+        "es": "Presente el formulario BOE-266 una vez ante el Tasador del Condado de Nevada (950 Maidu Avenue, Nevada City · línea del condado 530-265-1218, pida el Tasador). Presente antes del 15 de febrero para la exención completa."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Verbatim (CA BOE): 'The California Constitution provides a $7,000 reduction in the taxable value for a qualifying owner-occupied home. The home must have been the principal place of residence of the owner on the lien date, January 1st.' Claimed by a one-time filing of form BOE-266 with the county assessor; first-time filers may file anytime after becoming eligible but no later than February 15 to receive the full exemption for that year; claimant must notify the assessor when no longer eligible (Dec 10 last day to terminate without penalty)",
+        "source": "https://www.boe.ca.gov/proptaxes/homeowners_exemption.htm",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-F draft (nebula, live fetch browser-UA + w3m) — $7,000 reduction / lien-date / BOE-266 / Feb-15 verbatim from BOE; ~$70/yr is DERIVED ($7,000 × ~1% Prop-13 rate, labeled 'about') + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "Local filing office: Nevada County Assessor, 950 Maidu Avenue, Nevada City CA 95959; general county line 530-265-1218 (confirmed on the county site footer + staff directory). BOE-266 is available from the county assessor",
+        "source": "https://www.boe.ca.gov/proptaxes/homeowners_exemption.htm",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-F draft (nebula) — Nevada County Assessor address (950 Maidu Ave) + general county line 530-265-1218 confirmed + adversarial verification 2026-07-04 (oracle) — ADVISORY: Assessor DIRECT line + current Assessor page URL not pinned (dept paths 404, site bot-walls); address/general-line solid"
+      }
+    ]
+  },
+  {
+    "id": "dor-voc-rehab",
+    "jurisdiction": "CA",
+    "category": "health",
+    "status": "check-first",
+    "test": {
+      "flagsAll": ["disability"],
+      "specialNotes": [
+        "dor-what-you-get",
+        "dor-no-income-test",
+        "dor-how-to-apply"
+      ]
+    },
+    "name": {
+      "en": "Free job training & support for people with disabilities (DOR)",
+      "es": "Capacitación laboral y apoyo gratis para personas con discapacidad (DOR)"
+    },
+    "value": {
+      "en": "California's Department of Rehabilitation helps people with disabilities get, keep, or advance in a job — and live independently. Free help can include job training, tools and equipment, college and textbooks, disability equipment, and support like childcare or transportation. There's no income test.",
+      "es": "El Departamento de Rehabilitación de California ayuda a las personas con discapacidad a conseguir, mantener o avanzar en un empleo — y a vivir de forma independiente. La ayuda gratuita puede incluir capacitación laboral, herramientas y equipo, universidad y libros, equipo para la discapacidad, y apoyos como cuidado infantil o transporte. No hay prueba de ingresos."
+    },
+    "apply": {
+      "url": "https://www.dor.ca.gov/Home/GettingStarted",
+      "phone": {
+        "en": "DOR (800) 952-5544 · TTY (916) 558-5673 — ask for the office nearest you",
+        "es": "DOR (800) 952-5544 · TTY (916) 558-5673 — pida la oficina más cercana"
+      },
+      "local": {
+        "en": "The online application is currently unavailable — apply by phone or in person at your nearest DOR office (use the Office Locator on dor.ca.gov). Staff will guide you through the process.",
+        "es": "La solicitud en línea no está disponible por ahora — solicite por teléfono o en persona en la oficina de DOR más cercana (use el localizador de oficinas en dor.ca.gov). El personal le guiará en el proceso."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Verbatim (dor.ca.gov Get Started): DOR 'work[s] with people who have disabilities to secure employment, develop or promote in their current job, and live independently in their community of choice'; help may include disability and benefits programs, job search and interview skills, job training and tools, college and textbooks, disability equipment, and support services like childcare or transportation; the online application portal is currently unavailable and email applications are not accepted — apply via phone or in person at a local office (Office Locator / Contact Us)",
+        "source": "https://www.dor.ca.gov/Home/GettingStarted",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-F draft (nebula, live fetch browser-UA + w3m) — DOR mission + services list + portal-down notice verbatim + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "DOR contact: Voice (800) 952-5544, Voice (916) 324-1313, TTY (916) 558-5673; DOR has 80 field offices (plus oversight of 28 Independent Living Centers), open Monday-Friday 8am-5pm except state holidays; an Office Locator tool finds the nearest office",
+        "source": "https://www.dor.ca.gov/Home/ContactUs",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-F draft (nebula, live fetch) — DOR contact + 80 field offices + Office Locator verbatim + adversarial verification 2026-07-04 (oracle) — ADVISORY: nearest office to Nevada County (likely Roseville/Greater Sacramento) not pinned; flagsAll['disability'] is the validator-recognized encoding (memberFlagsAny hasDimension gap; fix deferred to the form-fields PR)"
+      }
+    ]
+  },
+  {
+    "id": "habitat-home-buyer",
+    "jurisdiction": "nevada-county",
+    "category": "housing",
+    "status": "check-first",
+    "test": {
+      "limitsMonthly": {
+        "1": 5250,
+        "2": 6000,
+        "3": 6750,
+        "4": 7500,
+        "5": 8100,
+        "6": 8700,
+        "7": 9300,
+        "8": 9900,
+        "increment": 600
+      },
+      "specialNotes": [
+        "habitat-income-floor",
+        "habitat-sweat-equity",
+        "habitat-how-it-works"
+      ]
+    },
+    "thresholdsDisplay": {
+      "1": 5250,
+      "4": 7500
+    },
+    "noteParams": {
+      "habitat-income-floor": {
+        "amountMinOne": 23625,
+        "amountMinEight": 44550
+      },
+      "habitat-sweat-equity": {
+        "hoursRequired": 500
+      }
+    },
+    "name": {
+      "en": "Buy an affordable home you help build (Nevada County Habitat)",
+      "es": "Compre una casa asequible que usted ayuda a construir (Habitat del Condado de Nevada)"
+    },
+    "value": {
+      "en": "Nevada County Habitat for Humanity lets qualifying households buy a home with an affordable mortgage — if you put in 500 hours of \"sweat equity\" helping build it and others. It's for families earning between a minimum and 60% of the county's median income. Selection is by application windows and a committee.",
+      "es": "Habitat para la Humanidad del Condado de Nevada permite que hogares que califican compren una casa con una hipoteca asequible — si aporta 500 horas de \"trabajo propio\" (sweat equity) ayudando a construirla y a construir otras. Es para familias que ganan entre un mínimo y el 60% del ingreso medio del condado. La selección es por períodos de solicitud y un comité."
+    },
+    "apply": {
+      "url": "https://nchabitat.org/home-buyer/",
+      "local": {
+        "en": "You must live or work in Nevada County. Watch nchabitat.org/home-buyer for the next public information/orientation meeting and application window — packets are distributed there.",
+        "es": "Debe vivir o trabajar en el Condado de Nevada. Vigile nchabitat.org/home-buyer para la próxima reunión informativa/de orientación y el período de solicitud — los paquetes se distribuyen allí."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Verbatim (nchabitat.org home-buyer): three selection criteria — Need (unable to obtain adequate housing conventionally; present housing inadequate/overcrowded/unaffordable), Ability to Pay (must demonstrate ability to pay the monthly mortgage incl. principal, property taxes, and homeowners insurance), and Willingness to Partner (sweat equity). Income criterion verbatim: 'You and your family will be considered if your total income is at least the minimum required and not more than 60% of median household income for Nevada County (HUD 2017 figures adjusted for household size)'; applicants must live or work in Nevada County; selection does not discriminate incl. on the basis that income is derived from public assistance",
+        "source": "https://nchabitat.org/home-buyer/",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-F draft (nebula, live fetch browser-UA + w3m) — three criteria + income floor+ceiling sentence + live-or-work-in-county verbatim + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "Income Eligibility Chart (Nevada County Habitat, 2025, published PNG) — annual household income ranges, Minimum → Maximum: 1 person $23,625→$63,000; 2 $27,000→$72,000; 3 $30,375→$81,000; 4 $33,750→$90,000; 5 $36,450→$97,200; 6 $39,150→$104,400; 7 $41,850→$111,600; 8 $44,550→$118,800. Screener limitsMonthly encodes the MAXIMUM ÷ 12 (exact: 5250/6000/6750/7500/8100/8700/9300/9900, +600); the MINIMUM is a floor the schema cannot represent (IncomeTest is ceiling-only) and is carried as a note",
+        "source": "https://nchabitat.org/wp-content/uploads/2025/04/IncomeEligibilityChart2025.png",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-F draft (nebula, image read directly) — 2025 Income Eligibility Chart PNG, all 8 min→max cells verbatim; limitsMonthly = max÷12 exact (all divide evenly); floor is note-only (IncomeTest is ceiling-only, schema limit) + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "Sweat equity: a volunteer contribution of 500 hours must be completed before purchasing the home; includes helping with construction and may include other activities; up to 20% may be volunteer time contributed on the applicant's behalf. Formal application requires copies of state and federal income tax returns with W-2 forms for the last 3 years",
+        "source": "https://nchabitat.org/home-buyer/",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-F draft (nebula, live fetch) — 500-hour sweat equity (up to 20% on applicant's behalf) + 3-years tax-return docs verbatim + adversarial verification 2026-07-04 (oracle)"
+      }
+    ]
+  },
+  {
+    "id": "silversneakers",
+    "jurisdiction": "federal",
+    "category": "health",
+    "status": "check-first",
+    "test": {
+      "flagsAll": ["medicare"],
+      "specialNotes": [
+        "silversneakers-plan-dependent",
+        "silversneakers-whats-included"
+      ]
+    },
+    "name": {
+      "en": "SilverSneakers (free gym & fitness through many Medicare plans)",
+      "es": "SilverSneakers (gimnasio y ejercicio gratis con muchos planes de Medicare)"
+    },
+    "value": {
+      "en": "Free fitness for adults 65+ — thousands of gyms and community centers, live and on-demand classes, and a fitness app — at no cost if your Medicare plan includes it. Many Medicare Advantage and some Medicare Supplement plans do.",
+      "es": "Ejercicio gratis para adultos de 65+ — miles de gimnasios y centros comunitarios, clases en vivo y a pedido, y una aplicación de ejercicio — sin costo si su plan de Medicare lo incluye. Muchos planes Medicare Advantage y algunos planes suplementarios lo incluyen."
+    },
+    "apply": {
+      "url": "https://tools.silversneakers.com/Eligibility/CheckEligibility",
+      "local": {
+        "en": "Check in seconds at tools.silversneakers.com — enter your date of birth and Medicare plan to see if you already have it, then find participating locations near you.",
+        "es": "Verifique en segundos en tools.silversneakers.com — ingrese su fecha de nacimiento y su plan de Medicare para ver si ya lo tiene, y luego busque lugares participantes cerca de usted."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Eligibility is plan-dependent, checked via an 'Instant Eligibility Check' that takes a date of birth and Medicare plan; verbatim footnotes: 'participation may differ by health plan. Members should log into their account to see the full list'; 'Membership includes SilverSneakers instructor-led group fitness classes. Some locations offer additional classes. Classes vary by location.' The benefit is bundled into select Medicare Advantage and some Medicare Supplement (Medigap) plans — Original Medicare alone does not include it",
+        "source": "https://tools.silversneakers.com/Eligibility/CheckEligibility",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-F draft (nebula, live fetch browser-UA + w3m) — plan-dependent Instant Eligibility Check + MA/Medigap-bundled, Original-Medicare-alone-excluded framing + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "Location/benefit breadth (LocationSearch page): filterable 'All Locations / Fitness Locations / Community Classes' near a ZIP; 'Participating locations not owned or operated by Tivity Health, Inc.' (SilverSneakers is a Tivity Health program); 'Log in or check eligibility to explore all locations under your plan' (plan-dependent). The benefit is available at no cost for adults 65+ through select Medicare plans",
+        "source": "https://tools.silversneakers.com/LocationSearch",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-F draft (nebula, live fetch browser-UA + w3m) — LocationSearch fitness+community-locations benefit + plan-dependency verbatim; the 'no cost 65+ through select Medicare plans' tagline cited to the durable deep page (the home hero is a bare origin the validator rejects) + adversarial verification 2026-07-04 (oracle)"
+      }
+    ]
   }
 ]

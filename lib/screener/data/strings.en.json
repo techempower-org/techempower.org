@@ -194,5 +194,18 @@
   "note.heehra-scam-warning": "The only IRA-funded electrification rebates in California right now are HEEHRA through TECH-certified contractors. Never give your financial statements to a contractor who promises a rebate.",
   "note.woodstove-old-stove-gate": "You qualify if you own your home and heat mainly with an old, non-EPA-certified wood stove or fireplace.",
   "note.woodstove-voucher-range": "When funded, vouchers cover up to {amountStoveStd} for a stove or {amountHeatPumpStd} for a heat pump — or up to {amountStoveEnh} / {amountHeatPumpEnh} for income-qualified households in a State-designated low-income census tract.",
-  "note.woodstove-call-funding": "This program is out of funds right now — call (530) 274-9360 to ask about the next round."
+  "note.woodstove-call-funding": "This program is out of funds right now — call (530) 274-9360 to ask about the next round.",
+  "note.ptp-lien-repaid": "Remember: this is a loan, not a grant. The state pays your property taxes now and puts a lien on your home — you (or your estate) repay it with interest when you sell, move out, transfer title, or pass away.",
+  "note.ptp-equity-window": "You need at least {equityPct}% equity in the home, and applications are only open October 1 through February 10 each year — mark your calendar.",
+  "note.ptp-household-income-def": "The {limitAnnual} limit is 'household income' as the state defines it (Revenue & Taxation Code 20503) — it can differ from your paycheck total, so apply even if you're close.",
+  "note.hox-one-time-filing": "You only file once — form BOE-266 with your county assessor — and the ~{amountSavings}/year saving repeats automatically as long as you own and live there. If you've owned your home a while and never filed, you're probably leaving this on the table.",
+  "note.hox-feb15-deadline": "File by February 15 to get the full exemption for the year; file later and you may get a partial exemption until the next full year.",
+  "note.dor-what-you-get": "Your DOR counselor builds a plan around your goals. It can pay for job training, work tools and equipment, college and textbooks, disability equipment, and support like childcare or transportation to get you working.",
+  "note.dor-no-income-test": "There's no income limit — DOR services are based on your disability and your goal to work, not on how much you earn.",
+  "note.dor-how-to-apply": "The online application is down right now — call (800) 952-5544 (TTY (916) 558-5673) or visit your nearest DOR office and staff will walk you through it.",
+  "note.habitat-income-floor": "There's a minimum income too — you need to show you can afford the mortgage. It runs from about {amountMinOne}/yr for one person up to {amountMinEight}/yr for eight. If your income is between that minimum and the maximum for your household size, you may qualify.",
+  "note.habitat-sweat-equity": "You commit {hoursRequired} hours of 'sweat equity' — helping build your home and others' — before you buy. Up to 20% can be volunteer hours done on your behalf.",
+  "note.habitat-how-it-works": "Selection happens in rounds: watch for a public information meeting, then an application window opens and packets go out. You'll bring 3 years of tax returns with W-2s. Income from public assistance counts and does not disqualify you.",
+  "note.silversneakers-plan-dependent": "Whether you have it depends on your specific Medicare plan — many Medicare Advantage plans and some Medigap plans include SilverSneakers, but Original Medicare by itself does not. Check your plan in seconds at tools.silversneakers.com.",
+  "note.silversneakers-whats-included": "It covers gym memberships at thousands of participating locations, live and on-demand fitness classes, and a fitness app — all at no extra cost when your plan includes it."
 }
