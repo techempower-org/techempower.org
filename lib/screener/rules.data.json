@@ -2879,12 +2879,12 @@
       }
     },
     "name": {
-      "en": "Voucher to replace an old wood stove (up to $12,000 — waitlist only right now)",
-      "es": "Vale para reemplazar una estufa de leña vieja (hasta $12,000 — solo lista de espera ahora)"
+      "en": "Voucher to replace an old wood stove (up to $12,000 — out of funds right now)",
+      "es": "Vale para reemplazar una estufa de leña vieja (hasta $12,000 — sin fondos ahora mismo)"
     },
     "value": {
-      "en": "If you own your home and heat mainly with an old, non-EPA-certified wood stove or fireplace, the Air District's Woodsmoke Reduction Program offers a voucher to swap it for a cleaner EPA-certified stove, pellet stove, or heat pump — up to $2,500 for a stove or $5,000 for a heat pump (more for income-qualified households). Right now the Nevada/Sierra/Plumas program is out of funds and waitlist-only: there's nothing to apply for today, but you can call (530) 274-9360 to get on the list for the next funded round.",
-      "es": "Si es dueño de su casa y se calienta principalmente con una estufa de leña o chimenea vieja no certificada por la EPA, el Programa de Reducción de Humo de Leña del Distrito de Aire ofrece un vale para cambiarla por una estufa certificada por la EPA, estufa de pellets o bomba de calor más limpia — hasta $2,500 por una estufa o $5,000 por una bomba de calor (más para hogares que califican por ingresos). Ahora mismo el programa de los condados de Nevada/Sierra/Plumas está sin fondos y solo tiene lista de espera: no hay nada que solicitar hoy, pero puede llamar al (530) 274-9360 para inscribirse en la lista para la próxima ronda con fondos."
+      "en": "If you own your home and heat mainly with an old, non-EPA-certified wood stove or fireplace, the Air District's Woodsmoke Reduction Program offers a voucher to swap it for a cleaner EPA-certified stove, pellet stove, or heat pump — up to $2,500 for a stove or $5,000 for a heat pump (more for income-qualified households). Right now the Nevada/Sierra/Plumas program is out of funds and waitlist-only: there's nothing to apply for today — call (530) 274-9360 to ask about the next funded round.",
+      "es": "Si es dueño de su casa y se calienta principalmente con una estufa de leña o chimenea vieja no certificada por la EPA, el Programa de Reducción de Humo de Leña del Distrito de Aire ofrece un vale para cambiarla por una estufa certificada por la EPA, estufa de pellets o bomba de calor más limpia — hasta $2,500 por una estufa o $5,000 por una bomba de calor (más para hogares que califican por ingresos). Ahora mismo el programa de los condados de Nevada/Sierra/Plumas está sin fondos y solo tiene lista de espera: no hay nada que solicitar hoy — llame al (530) 274-9360 para preguntar por la próxima ronda con fondos."
     },
     "apply": {
       "url": "https://www.myairdistrict.com/grants-incentives",
@@ -2893,8 +2893,8 @@
         "es": "Distrito de Manejo de Calidad del Aire de Northern Sierra (530) 274-9360"
       },
       "local": {
-        "en": "Call (530) 274-9360 to ask about the waitlist and confirm when the next funded round opens. Serves Nevada, Sierra, and Plumas County homeowners.",
-        "es": "Llame al (530) 274-9360 para preguntar por la lista de espera y confirmar cuándo abre la próxima ronda con fondos. Atiende a propietarios de los condados de Nevada, Sierra y Plumas."
+        "en": "Call (530) 274-9360 to ask about the next funded round. Serves Nevada, Sierra, and Plumas County homeowners.",
+        "es": "Llame al (530) 274-9360 para preguntar por la próxima ronda con fondos. Atiende a propietarios de los condados de Nevada, Sierra y Plumas."
       }
     },
     "provenance": [
