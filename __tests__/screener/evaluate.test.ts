@@ -735,4 +735,47 @@ describe('evaluate — golden cases from the fact-check corpus', () => {
     expect(bucketOf(elsewhere, 'food-bank-nevada-county')).toBe('absent')
     expect(bucketOf(elsewhere, 'interfaith-food-ministry')).toBe('absent')
   })
+  it('wave-2 batch D library hotspot: universal → strong for Nevada County, absent for other-ca', () => {
+    const here = evaluate(base, R)
+    expect(bucketOf(here, 'library-hotspot')).toBe('strong')
+    expect(
+      here.strong.find((v) => v.ruleId === 'library-hotspot')?.reasons[0]?.key
+    ).toBe('reason.universal')
+    // nevada-county jurisdiction: gone for other-ca users
+    const elsewhere = evaluate({ ...base, county: 'other-ca' as const }, R)
+    expect(bucketOf(elsewhere, 'library-hotspot')).toBe('absent')
+  })
+  it('wave-2 batch D unclaimed property: universal CA → strong for Nevada County AND other-ca (statewide)', () => {
+    const here = evaluate(base, R)
+    expect(bucketOf(here, 'unclaimed-property')).toBe('strong')
+    expect(
+      here.strong.find((v) => v.ruleId === 'unclaimed-property')?.reasons[0]
+        ?.key
+    ).toBe('reason.universal')
+    // CA jurisdiction (not nevada-county) → still strong for an other-ca user
+    const elsewhere = evaluate({ ...base, county: 'other-ca' as const }, R)
+    expect(bucketOf(elsewhere, 'unclaimed-property')).toBe('strong')
+  })
+  it('wave-2 batch D senior firewood: a 60+ senior lands worthAsking (seasonal + memberGate); no-senior omits', () => {
+    // base HH4 has no 60+ member → memberGate omits it before income
+    expect(bucketOf(evaluate(base, R), 'senior-firewood')).toBe('absent')
+    const withSenior = evaluate(
+      { ...base, ages: { ...base.ages, age18to59: 1, age60plus: 1 } },
+      R
+    )
+    expect(bucketOf(withSenior, 'senior-firewood')).toBe('worthAsking')
+    const v = withSenior.worthAsking.find((x) => x.ruleId === 'senior-firewood')
+    expect(v?.reasons[0]?.key).toBe('reason.age')
+  })
+  it('wave-2 batch D GCSS senior meals: any 60+ senior → strong (open café); no-senior omits', () => {
+    // base HH4 has no 60+ member → memberGate omits it
+    expect(bucketOf(evaluate(base, R), 'gcss-senior-meals')).toBe('absent')
+    const withSenior = evaluate(
+      { ...base, ages: { ...base.ages, age18to59: 1, age60plus: 1 } },
+      R
+    )
+    expect(bucketOf(withSenior, 'gcss-senior-meals')).toBe('strong')
+    const v = withSenior.strong.find((x) => x.ruleId === 'gcss-senior-meals')
+    expect(v?.reasons[0]?.key).toBe('reason.age')
+  })
 })
