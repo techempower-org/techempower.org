@@ -778,4 +778,117 @@ describe('evaluate — golden cases from the fact-check corpus', () => {
     const v = withSenior.strong.find((x) => x.ruleId === 'gcss-senior-meals')
     expect(v?.reasons[0]?.key).toBe('reason.age')
   })
+  it('wave-2 E-cluster (E1/E2/E3): flags-only PG&E customer → worthAsking; no pge-customer → absent', () => {
+    const cluster = [
+      'pge-storage-initiative',
+      'pge-backup-transfer-meter',
+      'pge-battery-rebate'
+    ]
+    const r = evaluate(base, R) // base flags include pge-customer
+    for (const id of cluster) {
+      expect(bucketOf(r, id), id).toBe('worthAsking')
+      expect(
+        r.worthAsking.find((v) => v.ruleId === id)?.reasons[0]?.key,
+        id
+      ).toBe('reason.flag-match')
+    }
+    const noPge = evaluate({ ...base, flags: ['renter'] }, R)
+    for (const id of cluster) expect(bucketOf(noPge, id), id).toBe('absent')
+  })
+  it('wave-2 E3 battery rebate: the Dec-31-2026 deadline note rides on the card', () => {
+    const v = evaluate(base, R).worthAsking.find(
+      (x) => x.ruleId === 'pge-battery-rebate'
+    )
+    expect(v?.notes).toContain('pbsr-deadline')
+  })
+  it('wave-2 E4 used-EV: Standard tier is flag-match; enrollment fires the $4,000 Plus unlock; hard PG&E gate', () => {
+    const r = evaluate(base, R) // pge-customer, no enrollment
+    expect(bucketOf(r, 'pge-used-ev-rebate')).toBe('worthAsking')
+    const v = r.worthAsking.find((x) => x.ruleId === 'pge-used-ev-rebate')
+    expect(v?.reasons[0]?.key).toBe('reason.flag-match')
+    expect(v?.notes).toContain('usedev-standard-sunset')
+    // an enrolled household reaches the income-qualified Plus tier via the unlock
+    const plus = evaluate({ ...base, enrolled: ['calfresh'] }, R)
+    expect(
+      plus.worthAsking.find((x) => x.ruleId === 'pge-used-ev-rebate')
+        ?.reasons[0]?.key
+    ).toBe('reason.unlock')
+    // flagsAll[pge-customer] is a hard gate — no pge-customer omits it even when enrolled
+    expect(
+      bucketOf(
+        evaluate({ ...base, flags: ['renter'], enrolled: ['calfresh'] }, R),
+        'pge-used-ev-rebate'
+      )
+    ).toBe('absent')
+  })
+  it('wave-2 E5 EV charger: corrected Rebate-Plus unlock set includes WIC and CalWORKs (CARE removed)', () => {
+    expect(bucketOf(evaluate(base, R), 'pge-ev-charging-rebate')).toBe(
+      'worthAsking'
+    )
+    // every enum in the corrected set unlocks the Plus tier
+    for (const e of [
+      'calfresh',
+      'calworks',
+      'medi-cal',
+      'ssi',
+      'wic'
+    ] as const) {
+      const v = evaluate({ ...base, enrolled: [e] }, R).worthAsking.find(
+        (x) => x.ruleId === 'pge-ev-charging-rebate'
+      )
+      expect(v?.reasons[0]?.key, e).toBe('reason.unlock')
+    }
+    expect(
+      bucketOf(
+        evaluate({ ...base, flags: ['renter'] }, R),
+        'pge-ev-charging-rebate'
+      )
+    ).toBe('absent')
+  })
+  it('wave-2 E6 HEEHRA: income-qualified household → notNow (waitlist-closed) with NO rendered number; over-band absent', () => {
+    // HH4 @ $4,800 is under the 150% AMI band ($17,550) → included, then waitlist-closed forces notNow
+    const r = evaluate(base, R)
+    expect(bucketOf(r, 'heehra-heat-pump')).toBe('notNow')
+    const v = r.notNow.find((x) => x.ruleId === 'heehra-heat-pump')
+    expect(v?.reasons.some((x) => x.key === 'reason.waitlist-closed')).toBe(
+      true
+    )
+    // the proxy AMI band gates visibility but must never render a number
+    for (const reason of v?.reasons ?? [])
+      expect(reason.params?.limit, 'HEEHRA proxy renders no number').toBe(
+        undefined
+      )
+    // above the 150% AMI band, no rescue → absent
+    expect(
+      bucketOf(
+        evaluate({ ...base, incomeMonthlyGross: 20_000 }, R),
+        'heehra-heat-pump'
+      )
+    ).toBe('absent')
+  })
+  it('wave-2 woodstove: homeowner in Nevada County → notNow (waitlist-closed); renter or other-ca → absent', () => {
+    const owner = evaluate({ ...base, flags: ['homeowner'] }, R)
+    expect(bucketOf(owner, 'woodstove-changeout')).toBe('notNow')
+    const v = owner.notNow.find((x) => x.ruleId === 'woodstove-changeout')
+    expect(v?.reasons.some((x) => x.key === 'reason.waitlist-closed')).toBe(
+      true
+    )
+    // flagsAll[homeowner] gate — a renter never sees it
+    expect(
+      bucketOf(
+        evaluate({ ...base, flags: ['renter'] }, R),
+        'woodstove-changeout'
+      )
+    ).toBe('absent')
+    // nevada-county jurisdiction — gone for other-ca users
+    expect(
+      bucketOf(
+        evaluate(
+          { ...base, flags: ['homeowner'], county: 'other-ca' as const },
+          R
+        ),
+        'woodstove-changeout'
+      )
+    ).toBe('absent')
+  })
 })

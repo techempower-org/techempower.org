@@ -86,7 +86,7 @@ describe('rules.data.json', () => {
       expect(ids.has(id), `missing ${id}`).toBe(true)
     }
   })
-  it('contains the wave-2 batch D corpus (47 rules)', () => {
+  it('contains the wave-2 batch D corpus', () => {
     const ids = new Set((rules as Rule[]).map((r) => r.id))
     for (const id of [
       'library-hotspot',
@@ -96,6 +96,20 @@ describe('rules.data.json', () => {
     ]) {
       expect(ids.has(id), `missing ${id}`).toBe(true)
     }
-    expect((rules as Rule[]).length).toBe(47)
+  })
+  it('contains the wave-2 batch E corpus (54 rules)', () => {
+    const ids = new Set((rules as Rule[]).map((r) => r.id))
+    for (const id of [
+      'pge-storage-initiative',
+      'pge-backup-transfer-meter',
+      'pge-battery-rebate',
+      'pge-used-ev-rebate',
+      'pge-ev-charging-rebate',
+      'heehra-heat-pump',
+      'woodstove-changeout'
+    ]) {
+      expect(ids.has(id), `missing ${id}`).toBe(true)
+    }
+    expect((rules as Rule[]).length).toBe(54)
   })
 })

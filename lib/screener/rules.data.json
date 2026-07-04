@@ -2552,5 +2552,364 @@
         "via": "wave-2 batch-D draft (nebula) — 3-year dormancy is search-aggregated from the SCO FAQ (not extracted verbatim from the fetched page today) + DB row [210] high-volume note. VERIFIER: confirm the exact dormancy period + statutory cite against the live SCO 'What is Unclaimed Property' FAQ — wave-2 batch D adversarial verification 2026-07-04 (oracle)"
       }
     ]
+  },
+  {
+    "id": "pge-storage-initiative",
+    "jurisdiction": "CA",
+    "category": "utilities",
+    "status": "check-first",
+    "test": {
+      "flagsAll": ["pge-customer"],
+      "specialNotes": [
+        "rsi-three-requirements",
+        "rsi-no-self-signup",
+        "rsi-not-guaranteed"
+      ]
+    },
+    "name": {
+      "en": "PG&E free home battery (Residential Storage Initiative)",
+      "es": "Batería para el hogar gratis de PG&E (Iniciativa de Almacenamiento Residencial)"
+    },
+    "value": {
+      "en": "A backup battery installed in your home for FREE — worth over $15,000 — to keep your fridge, lights, and medical equipment running during outages. For PG&E customers in high-outage areas who are on CARE, FERA, Medical Baseline, or Self-Identified Vulnerable.",
+      "es": "Una batería de respaldo instalada en su hogar GRATIS — valorada en más de $15,000 — para mantener su refrigerador, luces y equipo médico funcionando durante los cortes. Para clientes de PG&E en áreas de muchos cortes que están en CARE, FERA, Medical Baseline o Self-Identified Vulnerable."
+    },
+    "apply": {
+      "url": "https://www.pge.com/en/outages-and-safety/outage-preparedness-and-support/general-outage-resources/residential-storage-initiative.html",
+      "phone": {
+        "en": "Program partner Resource Innovations (559) 500-3550 · pgeresidentialstorage@resource-innovations.com",
+        "es": "Socio del programa Resource Innovations (559) 500-3550 · pgeresidentialstorage@resource-innovations.com"
+      },
+      "local": {
+        "en": "You can't sign up online — PG&E invites eligible customers by letter. If you think you qualify, enroll in CARE/FERA/Medical Baseline first (pge.com/care, 1-800-743-5000), then call Resource Innovations.",
+        "es": "No puede inscribirse en línea — PG&E invita a los clientes elegibles por carta. Si cree que califica, inscríbase primero en CARE/FERA/Medical Baseline (pge.com/care, 1-800-743-5000), luego llame a Resource Innovations."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "PG&E Residential Storage Initiative (RSI) provides a permanent backup battery system at no cost, valued at over $15,000 including equipment and installation; has provided 3,800 customers with a battery since 2022. Eligibility (all three): 5 or more Enhanced Powerline Safety Settings (EPSS) outages since January 1, 2024; served by an EPSS-impacted circuit; AND enrolled in CARE, FERA, Medical Baseline, or the Self-Identified Vulnerable program. 'Meeting all three requirements doesn't guarantee a battery storage system.' If you receive a no-cost RSI battery you aren't eligible for energy storage rebates. Contact program partner Resource Innovations at 559-500-3550 / pgeresidentialstorage@resource-innovations.com.",
+        "source": "https://www.pge.com/en/outages-and-safety/outage-preparedness-and-support/general-outage-resources/residential-storage-initiative.html",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-E draft (nebula) — pge.com bot-walls WebFetch; fetched via browser-UA curl; all-three eligibility (5+ EPSS since 1/1/2024 + EPSS circuit + CARE/FERA/MBL/SIV) + $15,000 value + 559-500-3550 verbatim from page body + adversarial verification 2026-07-04 (oracle) — flags-only[pge-customer]→worthAsking endorsed as the honest breadth choice"
+      }
+    ]
+  },
+  {
+    "id": "pge-backup-transfer-meter",
+    "jurisdiction": "CA",
+    "category": "utilities",
+    "status": "check-first",
+    "test": {
+      "flagsAll": ["pge-customer"],
+      "specialNotes": [
+        "bptm-fire-area",
+        "bptm-generator-specs",
+        "bptm-service-specs"
+      ]
+    },
+    "name": {
+      "en": "PG&E free backup-power transfer meter (safe generator hookup)",
+      "es": "Medidor de transferencia de energía de respaldo gratis de PG&E (conexión segura de generador)"
+    },
+    "value": {
+      "en": "A free transfer meter that lets you safely power your home from a portable generator during an outage — no dangerous extension cords. Free for PG&E customers whose home is in a Tier 2 or 3 High Fire-Threat District, a High Fire Risk Area, or on an EPSS circuit (most of western Nevada County). The meter is free; you supply your own compatible generator. Install takes about an hour.",
+      "es": "Un medidor de transferencia gratis que le permite dar energía a su hogar de forma segura con un generador portátil durante un corte — sin cables de extensión peligrosos. Gratis para clientes de PG&E cuyo hogar está en un Distrito de Alta Amenaza de Incendio Nivel 2 o 3, un Área de Alto Riesgo de Incendio, o en un circuito EPSS (la mayor parte del oeste del condado de Nevada). El medidor es gratis; usted aporta su propio generador compatible. La instalación toma alrededor de una hora."
+    },
+    "apply": {
+      "url": "https://www.pge.com/en/outages-and-safety/outage-preparedness-and-support/general-outage-resources/backup-power-transfer-meter-program.html",
+      "local": {
+        "en": "Check eligibility and request a meter at pge.com/transfermeter, or email backuppowertransfermeterrequest@pge.com. Confirm your address is in a high fire-threat/risk area or on an EPSS circuit on PG&E's Wildfire Safety Progress Map.",
+        "es": "Verifique su elegibilidad y solicite un medidor en pge.com/transfermeter, o escriba a backuppowertransfermeterrequest@pge.com. Confirme que su dirección está en una zona de alto riesgo de incendio o en un circuito EPSS en el Wildfire Safety Progress Map de PG&E."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Eligible PG&E customers can receive a free backup power transfer meter (connects a portable generator to your home; ~1 hour to install). To qualify: active residential PG&E account AND EITHER Tier 2/3 High Fire-Threat District OR High Fire Risk Area OR serviced by an Enhanced Powerline Safety Settings (EPSS) circuit; 120/240V, 200A or less service; SmartMeter customer; owner of site or owner's permission. Site needs a 30A 120/240V NEMA L14-30R receptacle portable generator with overcurrent protection. Request via pge.com/transfermeter / backuppowertransfermeterrequest@pge.com.",
+        "source": "https://www.pge.com/en/outages-and-safety/outage-preparedness-and-support/general-outage-resources/backup-power-transfer-meter-program.html",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-E draft (nebula, live browser-UA curl 2026-07-04) — 'free' + HFTD-Tier2/3-OR-HFRA-OR-EPSS gate + SmartMeter/owner/200A + compatible-generator (NEMA L14-30R) spec verbatim from page body + adversarial verification 2026-07-04 (oracle)"
+      }
+    ]
+  },
+  {
+    "id": "pge-battery-rebate",
+    "jurisdiction": "CA",
+    "category": "utilities",
+    "status": "check-first",
+    "test": {
+      "flagsAll": ["pge-customer"],
+      "specialNotes": [
+        "pbsr-outage-history",
+        "pbsr-first-time-qpl",
+        "pbsr-tou-dr",
+        "pbsr-first-come",
+        "pbsr-deadline"
+      ]
+    },
+    "noteParams": {
+      "pbsr-outage-history": {
+        "outages": 5,
+        "since": "2024-01-01"
+      },
+      "pbsr-deadline": {
+        "deadline": "2026-12-31"
+      }
+    },
+    "name": {
+      "en": "PG&E $7,500 home battery rebate (Permanent Battery Storage)",
+      "es": "Reembolso de $7,500 por batería en el hogar de PG&E (Almacenamiento Permanente de Batería)"
+    },
+    "value": {
+      "en": "Up to $7,500 back on a permanent home battery you buy and install — for PG&E customers who've had 5+ wildfire-safety (PSPS) outages since Jan 1, 2024 and are buying their first battery. First-come, first-served while funding lasts.",
+      "es": "Hasta $7,500 de reembolso por una batería permanente que compre e instale en su hogar — para clientes de PG&E que han tenido 5+ cortes por seguridad ante incendios (PSPS) desde el 1 de enero de 2024 y compran su primera batería. Por orden de llegada mientras haya fondos."
+    },
+    "apply": {
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/permanent-battery-storage-rebate.html",
+      "phone": {
+        "en": "GeneratorBatteryRebateProgram@pge.com · check your address at vizmap.ss.pge.com/mapview",
+        "es": "GeneratorBatteryRebateProgram@pge.com · verifique su dirección en vizmap.ss.pge.com/mapview"
+      },
+      "local": {
+        "en": "Confirm your outage count by entering your address on PG&E's map. You must buy from PG&E's Qualified Product List (on/after Jan 1 2025), then enroll in a Time-of-Use rate plan and an approved Demand Response program.",
+        "es": "Confirme su número de cortes ingresando su dirección en el mapa de PG&E. Debe comprar de la Lista de Productos Calificados de PG&E (a partir del 1 de enero de 2025), luego inscribirse en un plan de tarifa Time-of-Use y un programa de Demand Response aprobado."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "PG&E first-time battery storage customers may be eligible for a $7,500 rebate on the purchase and installation of a qualifying permanent battery storage system; offered first-come, first-served while funding is available. Requirements: 5+ Wildfire Safety (PSPS) outages since January 1, 2024 (verify address at vizmap.ss.pge.com/mapview); first-time battery customer; battery purchased on/after January 1, 2025 from the Qualified Product List; enrolled in a Time-of-Use rate plan; enrolled in a PG&E-approved Demand Response program. 'Application must be submitted within 12 months from the date of the battery's Permission to Operate or by December 31, 2026, whichever comes first, and subject to available funding.' Stackable with SGIP, but SGIP Equity Resiliency (no-cost battery) recipients are NOT eligible. The 30% federal residential clean-energy tax credit expired Dec 31, 2025. Contact GeneratorBatteryRebateProgram@pge.com.",
+        "source": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/permanent-battery-storage-rebate.html",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-E draft (nebula) — browser-UA curl (pge.com bot-walls WebFetch); $7,500 + first-time + QPL(on/after 1/1/2025) + TOU + Demand Response + Dec-31-2026 deadline verbatim; DB row [188]'s truncated/undated '396 remained' NOT rendered + adversarial verification 2026-07-04 (oracle)"
+      }
+    ]
+  },
+  {
+    "id": "pge-used-ev-rebate",
+    "jurisdiction": "CA",
+    "category": "transport",
+    "status": "check-first",
+    "test": {
+      "flagsAll": ["pge-customer"],
+      "categoricalUnlocks": ["calfresh", "medi-cal", "ssi", "wic", "calworks"],
+      "specialNotes": [
+        "usedev-two-tiers",
+        "usedev-standard-sunset",
+        "usedev-vehicle-rules",
+        "usedev-income-alt"
+      ]
+    },
+    "noteParams": {
+      "usedev-two-tiers": {
+        "amountStandard": 1000,
+        "amountPlus": 4000
+      },
+      "usedev-standard-sunset": {
+        "standardEndsDate": "2026-09-01",
+        "applyWindowDays": 90
+      }
+    },
+    "name": {
+      "en": "PG&E used-EV rebate ($1,000, or $4,000 if income-qualified)",
+      "es": "Reembolso por vehículo eléctrico usado de PG&E ($1,000, o $4,000 si califica por ingresos)"
+    },
+    "value": {
+      "en": "$1,000 back when you buy or lease a used electric or plug-in hybrid car — or $4,000 if your household is income-qualified or on CalFresh, Medi-Cal, SSI, WIC, CalWORKs, or LIHEAP. For PG&E residential electric customers; apply within 90 days of purchase.",
+      "es": "$1,000 de reembolso al comprar o arrendar un auto eléctrico o híbrido enchufable usado — o $4,000 si su hogar califica por ingresos o recibe CalFresh, Medi-Cal, SSI, WIC, CalWORKs o LIHEAP. Para clientes residenciales de electricidad de PG&E; solicite dentro de 90 días de la compra."
+    },
+    "apply": {
+      "url": "https://evrebates.pge.com/program-requirements",
+      "phone": {
+        "en": "Apply at evrebates.pge.com",
+        "es": "Solicite en evrebates.pge.com"
+      },
+      "local": {
+        "en": "The car must be a used BEV or plug-in hybrid on the HOV-eligibility list, registered to your PG&E address. One rebate per person, three per address.",
+        "es": "El auto debe ser un BEV o híbrido enchufable usado en la lista de elegibilidad HOV, registrado en su dirección de PG&E. Un reembolso por persona, tres por dirección."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "PG&E Pre-Owned EV Rebate: Standard rebate for PG&E residential electric customers, or Rebate Plus of $4,000 for income-qualified applicants. Rebate Plus qualifies via household income under the county limit OR enrollment (on the purchase date) in a public assistance program: Bureau of Indian Affairs General Assistance, CalFresh/SNAP, CalWORKs/TANF, Head Start, LIHEAP, Medicaid/Medi-Cal, SSI, WIC, and others. Vehicle must be a pre-owned BEV or PHEV on the HOV Eligibility list; purchased or leased; registered to the applicant's PG&E residential service address (min 20 months).",
+        "source": "https://evrebates.pge.com/program-requirements",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-E draft (nebula) — browser-UA curl; $4,000 Rebate Plus + assistance-program list (maps to enum [calfresh,medi-cal,ssi,wic,calworks]; LIHEAP/BIA note-only) + BEV/PHEV/HOV rules verbatim; Standard $1,000 corroborated by DB row [3] + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "Program Update (verbatim): 'Beginning July 30, 2026, new PG&E Pre-Owned EV Rebate applications must be submitted within 90 days of the vehicle purchase or lease date. Customers are limited to one rebate per individual and three rebates per PG&E service address. Beginning September 1, 2026, the program will no longer accept Standard rebate applications' (only income-qualified Rebate Plus continues).",
+        "source": "https://evrebates.pge.com/program-requirements",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-E draft (nebula) — program-update banner verbatim + adversarial verification 2026-07-04 (oracle) — SCHEDULED: after 2026-09-01 the Standard tier sunsets to Plus-only; re-check post-Sept and rewrite the value line"
+      }
+    ]
+  },
+  {
+    "id": "pge-ev-charging-rebate",
+    "jurisdiction": "CA",
+    "category": "transport",
+    "status": "check-first",
+    "test": {
+      "flagsAll": ["pge-customer"],
+      "categoricalUnlocks": ["calfresh", "calworks", "medi-cal", "ssi", "wic"],
+      "specialNotes": [
+        "evcharge-two-tiers",
+        "evcharge-needs-ev",
+        "evcharge-income-alt",
+        "evcharge-one-per-household"
+      ]
+    },
+    "noteParams": {
+      "evcharge-two-tiers": {
+        "amountCharger": 2000,
+        "amountPanel": 5000
+      }
+    },
+    "name": {
+      "en": "PG&E home EV charger rebate (up to $2,000, or $5,000 with panel upgrade)",
+      "es": "Reembolso por cargador de vehículo eléctrico en casa de PG&E (hasta $2,000, o $5,000 con mejora del panel)"
+    },
+    "value": {
+      "en": "Money back on a home EV charger — up to 50% of the cost for everyone, or up to $2,000 (up to $5,000 if you also need a panel upgrade) if your household is under 80% of county income or on CalFresh, CalWORKs, Medi-Cal, SSI, WIC, or LIHEAP. For PG&E customers with a registered EV.",
+      "es": "Reembolso por un cargador de vehículo eléctrico en casa — hasta el 50% del costo para todos, o hasta $2,000 (hasta $5,000 si también necesita mejorar el panel) si su hogar gana menos del 80% del ingreso del condado o recibe CalFresh, CalWORKs, Medi-Cal, SSI, WIC o LIHEAP. Para clientes de PG&E con un vehículo eléctrico registrado."
+    },
+    "apply": {
+      "url": "https://www.pge.com/en/clean-energy/electric-vehicles/getting-started-with-electric-vehicles/residential-charging-solutions-rebate.html",
+      "phone": {
+        "en": "PG&E EV Help Center 1-877-704-8888 · apply at pge.com/rcs",
+        "es": "Centro de Ayuda para EV de PG&E 1-877-704-8888 · solicite en pge.com/rcs"
+      },
+      "local": {
+        "en": "You need an active PG&E electric account and an EV registered at your address. One rebate per household, ever — first-come, first-served.",
+        "es": "Necesita una cuenta eléctrica activa de PG&E y un vehículo eléctrico registrado en su dirección. Un reembolso por hogar, para siempre — por orden de llegada."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "PG&E Residential EV Charging Rebate: Standard option up to 50% of eligible equipment cost; Rebate Plus up to $2,000 for an eligible EV charger, or up to $5,000 for a panel upgrade plus charger. Rebate Plus eligibility (one must apply): household income less than 80% of Area Median Income for the county and household size (per the Household Income Limit Table), OR enrollment in a qualifying public assistance program. Requires an active PG&E electric account and an EV registered at the address; one rebate per household; first-come, first-served. Apply at pge.com/rcs.",
+        "source": "https://www.pge.com/en/clean-energy/electric-vehicles/getting-started-with-electric-vehicles/residential-charging-solutions-rebate.html",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-E draft (nebula) — browser-UA curl; $2,000/$5,000 + 80% AMI + Rebate Plus categorical list verbatim; DB row [109] 'Empower EV' is a stale-titled duplicate of live row [129] (flag for DB retitle/merge) + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "The Residential Charging Solutions Rebate Plus qualified-assistance list is Bureau of Indian Affairs GA, CalFresh/SNAP, CalWORKs/TANF, Drive Clean in the San Joaquin, Head Start (tribal), LIHEAP, Medi-Cal (income-qualified), Medi-Cal for Families, SSI, WIC — CARE/FERA are NOT on it (they are utility-rate discounts, not a qualifying program here). No sunset date is stated on the live RCS page (the 'Standard ends Sept 1 2026' text belongs to the separate Pre-Owned EV Rebate page).",
+        "source": "https://www.pge.com/en/clean-energy/electric-vehicles/getting-started-with-electric-vehicles/residential-charging-solutions-rebate.html",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-E2 adversarial re-verification (nebula, live browser-UA curl 2026-07-04) — REQUIRED EDIT applied: categoricalUnlocks corrected to enum-mappable [calfresh,calworks,medi-cal,ssi,wic] (added calworks+wic) and CARE removed from the value line + note copy + adversarial verification 2026-07-04 (oracle)"
+      }
+    ]
+  },
+  {
+    "id": "heehra-heat-pump",
+    "jurisdiction": "CA",
+    "category": "utilities",
+    "status": "waitlist-closed",
+    "test": {
+      "limitsMonthly": {
+        "1": 12287,
+        "2": 14037,
+        "3": 15793,
+        "4": 17550,
+        "5": 18956,
+        "6": 20356,
+        "7": 21762,
+        "8": 23168,
+        "increment": 1406
+      },
+      "proxyReasonKey": "reason.income-ami",
+      "specialNotes": [
+        "heehra-waitlisted",
+        "heehra-amounts",
+        "heehra-scam-warning"
+      ]
+    },
+    "noteParams": {
+      "heehra-amounts": {
+        "amountLow": 8000,
+        "amountModerate": 4000
+      }
+    },
+    "name": {
+      "en": "HEEHRA heat-pump rebate (up to $8,000 — reserved/closed right now)",
+      "es": "Reembolso HEEHRA por bomba de calor (hasta $8,000 — reservado/cerrado por ahora)"
+    },
+    "value": {
+      "en": "HEEHRA pays up to $8,000 toward a heat pump for heating and cooling for lower-income California households (up to $4,000 for moderate-income), when it replaces your existing main heating system. Right now the money is fully reserved: as of February 24, 2026, the program stopped taking new single-family income-verification applications statewide, and new requests — including in Nevada County — go on a waitlist. There's nothing to apply for today, but watch for it to reopen; a waitlisted project can still get paid if funding is added and the heat pump is installed after approval.",
+      "es": "HEEHRA paga hasta $8,000 por una bomba de calor para calefacción y enfriamiento para hogares de menores ingresos en California (hasta $4,000 para ingresos moderados), cuando reemplaza su sistema de calefacción principal. Ahora mismo el dinero está totalmente reservado: desde el 24 de febrero de 2026, el programa dejó de aceptar nuevas solicitudes de verificación de ingresos para viviendas unifamiliares en todo el estado, y las nuevas solicitudes — incluso en el condado de Nevada — pasan a una lista de espera. No hay nada que solicitar hoy, pero esté atento a que reabra; un proyecto en lista de espera aún puede recibir pago si se agregan fondos y la bomba de calor se instala después de la aprobación."
+    },
+    "apply": {
+      "url": "https://techcleanca.com/incentives/heehrarebates/",
+      "local": {
+        "en": "Watch techcleanca.com for reopening. When open, income is verified through the HEEHRA Eligibility Express portal; you give the income-qualification code and your AMI range to a TECH Clean California-certified contractor who installs the heat pump.",
+        "es": "Vigile techcleanca.com para la reapertura. Cuando esté abierto, los ingresos se verifican en el portal HEEHRA Eligibility Express; usted da el código de calificación de ingresos y su rango de AMI a un contratista certificado por TECH Clean California que instala la bomba de calor."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "HEEHRA (California's IRA Home Energy Rebates via TECH Clean California / CA Energy Commission): 'up to $8,000 for low-income households and $4,000 for moderate-income households for a heat pump HVAC unit ... when replacing an existing primary heating source.' CLOSURE (verbatim, live 2026-07-04): 'As of February 24, 2026, HEEHRA single family rebates are fully reserved for projects statewide. In addition, the program is no longer accepting new income verification applications for single family projects statewide. All submitted reservation requests for projects in the Northern California region that were not approved have been put on a waitlist ... Reservations submitted after February 24, 2026, will also be put on the waitlist. Waitlisted projects are only eligible for a HEEHRA rebate if the heat pump is installed after the reservation is approved.' Not federally cancelled — state funds exhausted.",
+        "source": "https://techcleanca.com/incentives/heehrarebates/",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-E: RE-VERIFIED CLOSED (nebula live browser-UA curl 2026-07-04) — Feb-24-2026 statewide full-reservation + Northern-CA waitlist verbatim → status waitlist-closed (renders notNow, section8-hcv treatment); $8,000/$4,000 tiers verbatim + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "Visibility gate = 150% AMI band (proxy, NO number renders): derived from CA HCD Official State Income Limits 2026, Nevada County Median (100% AMI) row: 1p $98,300 / 2p $112,300 / 3p $126,350 / 4p $140,400 / 5p $151,650 / 6p $162,850 / 7p $174,100 / 8p $185,350 x1.5 /12 floored. HEEHRA's own tiers: $8,000 at <=80% AMI, $4,000 at 80-150% AMI. proxyReasonKey suppresses the derived number (visibility band, not a claim); a waitlist-closed rule needs an including dimension so it isn't dropped. HCD Very Low (50%) column is penny-identical to the section8-hcv corpus rule — source cross-check.",
+        "source": "https://www.hcd.ca.gov/sites/default/files/docs/grants-and-funding/income-limits-2026.pdf",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-E (HCD income-limits-2026.pdf via pdftotext -layout; HUD state CA 2026 gives identical Low/Median columns) — 150% AMI visibility band, proxyReasonKey reason.income-ami → NO number renders + adversarial verification 2026-07-04 (oracle)"
+      }
+    ]
+  },
+  {
+    "id": "woodstove-changeout",
+    "jurisdiction": "nevada-county",
+    "category": "utilities",
+    "status": "waitlist-closed",
+    "test": {
+      "flagsAll": ["homeowner"],
+      "specialNotes": [
+        "woodstove-old-stove-gate",
+        "woodstove-voucher-range",
+        "woodstove-call-funding"
+      ]
+    },
+    "noteParams": {
+      "woodstove-voucher-range": {
+        "amountStoveStd": 2500,
+        "amountHeatPumpStd": 5000,
+        "amountStoveEnh": 7000,
+        "amountHeatPumpEnh": 12000
+      }
+    },
+    "name": {
+      "en": "Voucher to replace an old wood stove (up to $12,000 — waitlist only right now)",
+      "es": "Vale para reemplazar una estufa de leña vieja (hasta $12,000 — solo lista de espera ahora)"
+    },
+    "value": {
+      "en": "If you own your home and heat mainly with an old, non-EPA-certified wood stove or fireplace, the Air District's Woodsmoke Reduction Program offers a voucher to swap it for a cleaner EPA-certified stove, pellet stove, or heat pump — up to $2,500 for a stove or $5,000 for a heat pump (more for income-qualified households). Right now the Nevada/Sierra/Plumas program is out of funds and waitlist-only: there's nothing to apply for today, but you can call (530) 274-9360 to get on the list for the next funded round.",
+      "es": "Si es dueño de su casa y se calienta principalmente con una estufa de leña o chimenea vieja no certificada por la EPA, el Programa de Reducción de Humo de Leña del Distrito de Aire ofrece un vale para cambiarla por una estufa certificada por la EPA, estufa de pellets o bomba de calor más limpia — hasta $2,500 por una estufa o $5,000 por una bomba de calor (más para hogares que califican por ingresos). Ahora mismo el programa de los condados de Nevada/Sierra/Plumas está sin fondos y solo tiene lista de espera: no hay nada que solicitar hoy, pero puede llamar al (530) 274-9360 para inscribirse en la lista para la próxima ronda con fondos."
+    },
+    "apply": {
+      "url": "https://www.myairdistrict.com/grants-incentives",
+      "phone": {
+        "en": "Northern Sierra Air Quality Management District (530) 274-9360",
+        "es": "Distrito de Manejo de Calidad del Aire de Northern Sierra (530) 274-9360"
+      },
+      "local": {
+        "en": "Call (530) 274-9360 to ask about the waitlist and confirm when the next funded round opens. Serves Nevada, Sierra, and Plumas County homeowners.",
+        "es": "Llame al (530) 274-9360 para preguntar por la lista de espera y confirmar cuándo abre la próxima ronda con fondos. Atiende a propietarios de los condados de Nevada, Sierra y Plumas."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "TechEmpower verified resource row [247]: the Northern Sierra AQMD Woodsmoke Reduction Program gives incentive vouchers to replace an old non-EPA-certified wood stove or fireplace with a cleaner heater. As of 2026 the general program for Nevada, Sierra, and Plumas counties is waitlist-only (out of funds — call (530) 274-9360 to get on the list). Statewide caps when funded: standard voucher up to $2,500 stove / $5,000 heat pump; enhanced low-income voucher up to $7,000 stove / $12,000 heat pump. The enhanced tier requires a State-designated low-income census tract. A separate, actively-funded program runs near the City of Portola (Plumas County only), not applicable to Nevada County.",
+        "source": "https://www.myairdistrict.com/grants-incentives",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-E: woodstove converted to waitlist-closed (oracle reversed its NO-GO — the notNow downgrade removes the over-promise). Decisive primary = TechEmpower verified row [247] (waitlist-only/out-of-funds + $2,500/$5,000 standard, $7,000/$12,000 enhanced tiers); the earlier WebSearch cite was DROPPED per contract + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "The general (non-Portola) Woodsmoke Reduction Program page has been removed from the live Northern Sierra AQMD site: the live sitemap.xml lists only 'portola-woodstove-change-out-program' among change-out programs, and /woodsmoke-reduction-program returns HTTP 404. A February 2026 Wayback snapshot of the grants-incentives index lists only 'Greater Portola Area Wood Stove Change-Out Programs' (Plumas-only). The general tri-county page existed in a 2024 snapshot, consistent with a program that ran ~2024 and has since exhausted funds. A Woodsmoke-Reduction-Program-Guidelines.pdf exists but is image-only (no text layer); row [247] carries the terms it documents.",
+        "source": "https://web.archive.org/web/20260215164350/https://www.myairdistrict.com/grants-incentives",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-E (nebula-batch-d2 deep dive, primary/archival only): live sitemap.xml + live /woodsmoke-reduction-program 404 + Feb-2026 + 2024 Wayback snapshots confirm the tri-county round is de-listed/out-of-funds → waitlist-closed; restart-watch: flip to check-first/open when the NSAQMD index re-lists a non-Portola program + adversarial verification 2026-07-04 (oracle)"
+      }
+    ]
   }
 ]
