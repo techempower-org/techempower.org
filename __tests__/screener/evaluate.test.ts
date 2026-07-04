@@ -542,4 +542,76 @@ describe('evaluate — golden cases from the fact-check corpus', () => {
       )
     ).toBe('absent')
   })
+  it('wave-2 CalKIDS: a kid ≤17 surfaces (reason.age, check-first cap); adults-only is absent', () => {
+    // no income test on CalKIDS — the account exists regardless of earnings
+    const kidNoIncome: Answers = {
+      ...base,
+      incomeMonthlyGross: 0,
+      ages: { under5: 0, age5to17: 1, age18to59: 1, age60plus: 0, age80plus: 0 }
+    }
+    const r = evaluate(kidNoIncome, R)
+    expect(bucketOf(r, 'calkids')).toBe('worthAsking')
+    const v = r.worthAsking.find((x) => x.ruleId === 'calkids')
+    expect(v?.reasons[0]?.key).toBe('reason.age')
+    const adultsOnly: Answers = {
+      ...base,
+      ages: { under5: 0, age5to17: 0, age18to59: 2, age60plus: 0, age80plus: 0 }
+    }
+    expect(bucketOf(evaluate(adultsOnly, R), 'calkids')).toBe('absent')
+  })
+  it('wave-2 PG&E generator rebate: flags-only — pge-customer surfaces worthAsking; no flag is absent', () => {
+    const r = evaluate(base, R) // base flags include pge-customer
+    expect(bucketOf(r, 'pge-generator-battery')).toBe('worthAsking')
+    const v = r.worthAsking.find((x) => x.ruleId === 'pge-generator-battery')
+    expect(v?.reasons[0]?.key).toBe('reason.flag-match')
+    // no income/age gate — the flag itself is the whole screenable test
+    const noPge = evaluate({ ...base, flags: ['renter'] }, R)
+    expect(bucketOf(noPge, 'pge-generator-battery')).toBe('absent')
+  })
+  it('wave-2 REACH: HH4 at the DEF $5,358 line is included; clearly over is absent; no flag omits it', () => {
+    // check-first caps the bucket — the point is it is present, not omitted
+    const atLine = evaluate({ ...base, incomeMonthlyGross: 5358 }, R)
+    expect(bucketOf(atLine, 'reach-dollar-energy')).toBe('worthAsking')
+    const over = evaluate({ ...base, incomeMonthlyGross: 7000 }, R)
+    expect(bucketOf(over, 'reach-dollar-energy')).toBe('absent')
+    // pge-customer is a hard flag gate — no flag, no REACH even under-income
+    const noPge = evaluate(
+      { ...base, incomeMonthlyGross: 3000, flags: ['renter'] },
+      R
+    )
+    expect(bucketOf(noPge, 'reach-dollar-energy')).toBe('absent')
+  })
+  it('wave-2 T-Mobile P10M: K-12 ≤185% surfaces; medi-cal unlocks above 185%; trap note rides along; no kid omits', () => {
+    // base: HH4 @ $4,800 with a school-age kid, under the $5,087 185% line
+    expect(bucketOf(evaluate(base, R), 'tmobile-p10m')).toBe('worthAsking')
+    // above 185% with no unlock → income gate holds → absent
+    const overNoUnlock = evaluate({ ...base, incomeMonthlyGross: 8000 }, R)
+    expect(bucketOf(overNoUnlock, 'tmobile-p10m')).toBe('absent')
+    // the Medi-Cal unlock rescues a family above 185% (Medi-Cal kids run to 266%)
+    const overUnlock = evaluate(
+      { ...base, incomeMonthlyGross: 8000, enrolled: ['medi-cal'] },
+      R
+    )
+    expect(bucketOf(overUnlock, 'tmobile-p10m')).toBe('worthAsking')
+    const v = overUnlock.worthAsking.find((x) => x.ruleId === 'tmobile-p10m')
+    expect(v?.reasons[0]?.key).toBe('reason.unlock')
+    expect(v?.reasons[0]?.params?.program).toBe('medi-cal')
+    // the CA universal-meals trap ships as a note on the card (free meals ≠ proof)
+    expect(v?.notes).toContain('p10m-universal-meals-trap')
+    // no K-12 member → hard age gate omits it even under-income
+    const noKid = evaluate(
+      {
+        ...base,
+        ages: {
+          under5: 0,
+          age5to17: 0,
+          age18to59: 2,
+          age60plus: 0,
+          age80plus: 0
+        }
+      },
+      R
+    )
+    expect(bucketOf(noKid, 'tmobile-p10m')).toBe('absent')
+  })
 })

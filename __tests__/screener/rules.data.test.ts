@@ -50,7 +50,7 @@ describe('rules.data.json', () => {
       expect(ids.has(id), `missing ${id}`).toBe(true)
     }
   })
-  it('contains the wave-2 batch A corpus (33 rules)', () => {
+  it('contains the wave-2 batch A corpus', () => {
     const ids = new Set((rules as Rule[]).map((r) => r.id))
     for (const id of [
       'medi-cal-nemt-rides',
@@ -61,6 +61,17 @@ describe('rules.data.json', () => {
     ]) {
       expect(ids.has(id), `missing ${id}`).toBe(true)
     }
-    expect((rules as Rule[]).length).toBe(33)
+  })
+  it('contains the wave-2 batch B corpus (37 rules)', () => {
+    const ids = new Set((rules as Rule[]).map((r) => r.id))
+    for (const id of [
+      'calkids',
+      'pge-generator-battery',
+      'reach-dollar-energy',
+      'tmobile-p10m'
+    ]) {
+      expect(ids.has(id), `missing ${id}`).toBe(true)
+    }
+    expect((rules as Rule[]).length).toBe(37)
   })
 })
