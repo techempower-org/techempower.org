@@ -169,7 +169,7 @@
   "note.unclaimed-always-free": "Buscar y reclamar siempre es gratis en claimit.ca.gov — nunca pague a un \"buscador\" o localizador de bienes (la ley limita su comisión al 10%, y usted no necesita uno).",
   "note.unclaimed-what-it-is": "Dinero perdido u olvidado que el estado resguarda — cheques de sueldo o reembolso sin cobrar, cuentas bancarias inactivas, pagos de seguros y depósitos de servicios — hasta que el dueño lo reclame.",
   "note.unclaimed-no-deadline": "No hay fecha límite — el estado lo guarda hasta que usted lo reclame. Busque su nombre y cualquier nombre anterior o de soltera, y busque también los nombres de familiares. Preguntas: (800) 992-4647.",
-  "reason.income-ami": "Su ingreso y tamaño de hogar parecen estar dentro del rango de este programa — el límite exacto según el ingreso medio del área depende de su condado",
+  "reason.income-ami": "Sus ingresos están en el rango que atiende este programa",
   "note.rsi-three-requirements": "Debe cumplir los tres: 5 o más cortes desde el 1 de enero de 2024 en un circuito de seguridad ante incendios (EPSS), Y estar en CARE, FERA, Medical Baseline o Self-Identified Vulnerable.",
   "note.rsi-no-self-signup": "No puede inscribirse en línea — PG&E invita a los clientes elegibles por carta. Si cree que califica, inscríbase primero en CARE/FERA/Medical Baseline (pge.com/care), luego llame a Resource Innovations al 559-500-3550.",
   "note.rsi-not-guaranteed": "Cumplir los tres requisitos aún no garantiza una batería — el programa es limitado.",
@@ -194,5 +194,5 @@
   "note.heehra-scam-warning": "Los únicos reembolsos de electrificación financiados por la IRA en California ahora mismo son HEEHRA a través de contratistas certificados por TECH. Nunca entregue sus estados financieros a un contratista que promete un reembolso.",
   "note.woodstove-old-stove-gate": "Califica si es dueño de su casa y se calienta principalmente con una estufa de leña o chimenea vieja no certificada por la EPA.",
   "note.woodstove-voucher-range": "Cuando hay fondos, los vales cubren hasta {amountStoveStd} por una estufa o {amountHeatPumpStd} por una bomba de calor — o hasta {amountStoveEnh} / {amountHeatPumpEnh} para hogares que califican por ingresos en un sector censal de bajos ingresos designado por el estado.",
-  "note.woodstove-call-funding": "Sin fondos ahora mismo — llame al (530) 274-9360 para inscribirse en la lista de espera para la próxima ronda con fondos."
+  "note.woodstove-call-funding": "Este programa está sin fondos ahora mismo — llame al (530) 274-9360 para preguntar por la próxima ronda."
 }

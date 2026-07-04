@@ -169,7 +169,7 @@
   "note.unclaimed-always-free": "Searching and claiming are always free at claimit.ca.gov — never pay a \"finder\" or asset locator (the law caps their fee at 10%, and you don't need one).",
   "note.unclaimed-what-it-is": "Lost or forgotten money the state safeguards — uncashed paychecks and refund checks, dormant bank accounts, insurance payouts, and utility deposits — until the owner claims it.",
   "note.unclaimed-no-deadline": "There's no deadline — the state holds it until you claim it. Search your name and any past or maiden names, and check family members' names too. Questions: (800) 992-4647.",
-  "reason.income-ami": "Your household income and size look within this program's range — the exact area-median-income cutoff depends on your county",
+  "reason.income-ami": "Your income is in the range this program serves",
   "note.rsi-three-requirements": "You must meet all three: 5 or more outages since Jan 1, 2024 on a wildfire-safety (EPSS) circuit, AND be on CARE, FERA, Medical Baseline, or Self-Identified Vulnerable.",
   "note.rsi-no-self-signup": "You can't apply online — PG&E invites eligible customers by letter. If you think you qualify, get on CARE/FERA/Medical Baseline first (pge.com/care), then call Resource Innovations at 559-500-3550.",
   "note.rsi-not-guaranteed": "Meeting all three still doesn't guarantee a battery — the program is limited.",
@@ -194,5 +194,5 @@
   "note.heehra-scam-warning": "The only IRA-funded electrification rebates in California right now are HEEHRA through TECH-certified contractors. Never give your financial statements to a contractor who promises a rebate.",
   "note.woodstove-old-stove-gate": "You qualify if you own your home and heat mainly with an old, non-EPA-certified wood stove or fireplace.",
   "note.woodstove-voucher-range": "When funded, vouchers cover up to {amountStoveStd} for a stove or {amountHeatPumpStd} for a heat pump — or up to {amountStoveEnh} / {amountHeatPumpEnh} for income-qualified households in a State-designated low-income census tract.",
-  "note.woodstove-call-funding": "Out of funds right now — call (530) 274-9360 to get on the waitlist for the next funded round."
+  "note.woodstove-call-funding": "This program is out of funds right now — call (530) 274-9360 to ask about the next round."
 }
