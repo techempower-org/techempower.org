@@ -285,12 +285,13 @@ describe('suggestions.data.json — seed corpus', () => {
     const SENSITIVE = new Set([
       'community-beyond-violence',
       'crisis-care',
-      'the-clinic'
+      'the-clinic',
+      'calvcb'
     ])
     const BENEFITS_FRAMING =
       /qualif|eligib|you (?:may|might|could)|benefit|apply|califi|elegib|puede (?:solicitar|calificar)|beneficio|solicit/i
     const present = SUGGESTIONS.filter((r) => SENSITIVE.has(r.id))
-    expect(present.length, 'sensitive rows are present in the corpus').toBe(3)
+    expect(present.length, 'sensitive rows are present in the corpus').toBe(4)
     for (const row of present) {
       for (const lang of ['en', 'es'] as Lang[]) {
         expect(row.blurb[lang], `${row.id} blurb.${lang}`).not.toMatch(

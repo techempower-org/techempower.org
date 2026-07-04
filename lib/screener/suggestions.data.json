@@ -648,5 +648,31 @@
       "es": "Pida prestado un pase gratuito de uso diurno a más de 200 parques estatales de California con cualquier tarjeta de biblioteca — por 7 días."
     },
     "signals": ["has-kids", "senior"]
+  },
+  {
+    "id": "calvcb",
+    "slug": "california-victim-compensation-board-calvcb",
+    "name": {
+      "en": "California Victim Compensation Board (CalVCB)",
+      "es": "Junta de Compensación a Víctimas de California (CalVCB)"
+    },
+    "blurb": {
+      "en": "If you or a family member were hurt by a violent crime, California can help pay for medical care, therapy, funerals, lost wages, and more — up to $70,000.",
+      "es": "Si usted o un familiar fue víctima de un crimen violento, California puede cubrir atención médica, terapia, funerales, salario perdido y más — hasta $70,000."
+    },
+    "signals": ["crisis"]
+  },
+  {
+    "id": "mountain-bounty-farm",
+    "slug": "fruit-and-vegetables-every-week-mountain-bounty-farm-pay-with-ebt-calfresh",
+    "name": {
+      "en": "Mountain Bounty Farm (CSA box, pay with EBT/CalFresh)",
+      "es": "Mountain Bounty Farm (caja CSA, pague con EBT/CalFresh)"
+    },
+    "blurb": {
+      "en": "Mountain Bounty Farm's weekly CSA box of fresh local fruit and vegetables — you can pay with your EBT or CalFresh card.",
+      "es": "La caja semanal CSA de Mountain Bounty Farm con frutas y verduras frescas y locales — puede pagar con su tarjeta EBT o CalFresh."
+    },
+    "signals": ["food-interest"]
   }
 ]
