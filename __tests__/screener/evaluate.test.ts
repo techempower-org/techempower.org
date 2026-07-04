@@ -614,4 +614,125 @@ describe('evaluate — golden cases from the fact-check corpus', () => {
     )
     expect(bucketOf(noKid, 'tmobile-p10m')).toBe('absent')
   })
+  it('wave-2 CAPI: SSI-excluded senior surfaces on own income; SSI enrollment excludes; rescue + memberGate hold', () => {
+    // an aged/disabled immigrant who CANNOT get SSI (not enrolled) — under the
+    // $1,233 single standard, check-first caps at worthAsking
+    const senior: Answers = {
+      ...base,
+      householdSize: 1,
+      incomeMonthlyGross: 1000,
+      ages: {
+        under5: 0,
+        age5to17: 0,
+        age18to59: 0,
+        age60plus: 1,
+        age80plus: 0
+      },
+      flags: ['renter'],
+      enrolled: []
+    }
+    const r = evaluate(senior, R)
+    expect(bucketOf(r, 'capi')).toBe('worthAsking')
+    expect(
+      r.worthAsking.find((v) => v.ruleId === 'capi')?.reasons[0]?.key
+    ).toBe('reason.under-limit')
+    // categoricalExcludes: someone already on SSI must NOT see CAPI
+    expect(
+      bucketOf(evaluate({ ...senior, enrolled: ['ssi'] }, R), 'capi')
+    ).toBe('absent')
+    // own-income rescue: over the household limit still surfaces (no number)
+    const overLimit = evaluate({ ...senior, incomeMonthlyGross: 3000 }, R)
+    expect(bucketOf(overLimit, 'capi')).toBe('worthAsking')
+    const v = overLimit.worthAsking.find((x) => x.ruleId === 'capi')
+    expect(v?.reasons[0]?.key).toBe('reason.own-income')
+    expect(v?.reasons[0]?.params?.limit).toBe(undefined)
+    // memberGate: income passes but no 65+/disabled member → omitted, so the
+    // rescue can never fire member-blind
+    const noMember: Answers = {
+      ...senior,
+      ages: { under5: 0, age5to17: 0, age18to59: 1, age60plus: 0, age80plus: 0 }
+    }
+    expect(bucketOf(evaluate(noMember, R), 'capi')).toBe('absent')
+  })
+  it('wave-2 subsidized child care: a kid at the 85% SMI boundary surfaces; adults-only / over-income omit', () => {
+    // HH3 @ $8,054 = the exact 85% SMI ceiling for a family of 3, with a kid
+    const fam3Kid: Answers = {
+      ...base,
+      householdSize: 3,
+      incomeMonthlyGross: 8054,
+      ages: { under5: 0, age5to17: 1, age18to59: 2, age60plus: 0, age80plus: 0 }
+    }
+    const r = evaluate(fam3Kid, R)
+    expect(bucketOf(r, 'sncs-child-care')).toBe('worthAsking') // check-first cap
+    expect(
+      r.worthAsking.find((v) => v.ruleId === 'sncs-child-care')?.reasons[0]?.key
+    ).toBe('reason.under-limit')
+    // no child under 13 → the age gate omits it even under-income
+    const adultsOnly: Answers = {
+      ...fam3Kid,
+      ages: { under5: 0, age5to17: 0, age18to59: 3, age60plus: 0, age80plus: 0 }
+    }
+    expect(bucketOf(evaluate(adultsOnly, R), 'sncs-child-care')).toBe('absent')
+    // a kid but well over 85% SMI (no rescue) → absent
+    expect(
+      bucketOf(
+        evaluate({ ...fam3Kid, incomeMonthlyGross: 12_000 }, R),
+        'sncs-child-care'
+      )
+    ).toBe('absent')
+  })
+  it('wave-2 CalWORKs Homeless Assistance: the mirrored gate reaches the apparently-eligible (not-yet-enrolled) family', () => {
+    // HH3 @ $2,200 ≤ the $2,309 MBSAC line, a kid present, NOT enrolled in
+    // CalWORKs — option B surfaces the not-yet-enrolled homeless family
+    const applicant: Answers = {
+      ...base,
+      householdSize: 3,
+      incomeMonthlyGross: 2200,
+      ages: {
+        under5: 1,
+        age5to17: 0,
+        age18to59: 2,
+        age60plus: 0,
+        age80plus: 0
+      },
+      enrolled: []
+    }
+    expect(
+      bucketOf(evaluate(applicant, R), 'calworks-homeless-assistance')
+    ).toBe('worthAsking')
+    // no child → the CalWORKs age gate omits it
+    const noKid: Answers = {
+      ...applicant,
+      ages: { under5: 0, age5to17: 0, age18to59: 3, age60plus: 0, age80plus: 0 }
+    }
+    expect(bucketOf(evaluate(noKid, R), 'calworks-homeless-assistance')).toBe(
+      'absent'
+    )
+    // an enrolled CalWORKs recipient over the income line still surfaces via the unlock
+    const recipient = evaluate(
+      { ...applicant, incomeMonthlyGross: 5000, enrolled: ['calworks'] },
+      R
+    )
+    expect(bucketOf(recipient, 'calworks-homeless-assistance')).toBe(
+      'worthAsking'
+    )
+    expect(
+      recipient.worthAsking.find(
+        (v) => v.ruleId === 'calworks-homeless-assistance'
+      )?.reasons[0]?.key
+    ).toBe('reason.unlock')
+  })
+  it('wave-2 county food banks: universal → strong for Nevada County, absent elsewhere', () => {
+    const here = evaluate(base, R)
+    expect(bucketOf(here, 'food-bank-nevada-county')).toBe('strong')
+    expect(bucketOf(here, 'interfaith-food-ministry')).toBe('strong')
+    expect(
+      here.strong.find((v) => v.ruleId === 'food-bank-nevada-county')
+        ?.reasons[0]?.key
+    ).toBe('reason.universal')
+    // county gate: nevada-county programs don't exist for other-ca users
+    const elsewhere = evaluate({ ...base, county: 'other-ca' as const }, R)
+    expect(bucketOf(elsewhere, 'food-bank-nevada-county')).toBe('absent')
+    expect(bucketOf(elsewhere, 'interfaith-food-ministry')).toBe('absent')
+  })
 })

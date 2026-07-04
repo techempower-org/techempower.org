@@ -1999,5 +1999,370 @@
         "via": "corpus reuse (sun-bucks IEG pin, oracle-verified 2026-07-03) + wave-2 batch B adversarial verification 2026-07-04 (oracle) — 185% NSLP proxy cells reconcile for P10M (a household under 185% can submit a school-meal application and use the NSLP eligibility letter as proof)"
       }
     ]
+  },
+  {
+    "id": "sncs-child-care",
+    "jurisdiction": "CA",
+    "category": "health",
+    "status": "check-first",
+    "test": {
+      "limitsMonthly": {
+        "1": 7119,
+        "2": 7119,
+        "3": 8054,
+        "4": 9636,
+        "5": 11178,
+        "6": 12720,
+        "7": 13009,
+        "8": 13298,
+        "increment": 289
+      },
+      "ageAnyMax": 12,
+      "categoricalUnlocks": ["calworks", "calfresh", "medi-cal", "wic"],
+      "specialNotes": [
+        "childcare-need-reason",
+        "childcare-24-month",
+        "childcare-special-needs-13plus",
+        "childcare-how-to-apply"
+      ]
+    },
+    "thresholdsDisplay": {
+      "3": 8054,
+      "4": 9636
+    },
+    "name": {
+      "en": "Subsidized child care (help paying for day care)",
+      "es": "Cuidado infantil subvencionado (ayuda para pagar la guardería)"
+    },
+    "value": {
+      "en": "Full or partial payment of your child care while you work, look for work, or go to school — for children under 13, if your household is at or below 85% of the state median income (about $8,054/mo for a family of 3). Free if you get CalWORKs. Apply through Sierra Nevada Children's Services.",
+      "es": "Pago total o parcial del cuidado de sus hijos mientras trabaja, busca trabajo o estudia — para niños menores de 13 años, si su hogar gana igual o menos del 85% del ingreso medio estatal (unos $8,054/mes para una familia de 3). Gratis si recibe CalWORKs. Solicite a través de Sierra Nevada Children's Services."
+    },
+    "apply": {
+      "url": "https://www.sncs.org/parents.html",
+      "phone": {
+        "en": "Sierra Nevada Children's Services (530) 272-8866 · toll-free (888) 306-7627",
+        "es": "Sierra Nevada Children's Services (530) 272-8866 · gratis (888) 306-7627"
+      },
+      "local": {
+        "en": "Ask SNCS to put you on the Childcare Eligibility List (CEL). On CalWORKs? Call your CalWORKs worker at (530) 265-1760 for Stage 1 care.",
+        "es": "Pida a SNCS que lo agregue a la Lista de Elegibilidad para Cuidado Infantil (CEL). ¿Recibe CalWORKs? Llame a su trabajador de CalWORKs al (530) 265-1760 para el cuidado de Etapa 1."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Income eligibility for state-subsidized child care = adjusted monthly income at or below 85% of the State Median Income (WIC 10271.5). FY 2026-27 Schedule of Income Ceilings (85% SMI), effective July 1, 2026, monthly: family size 1-2 $7,119 · 3 $8,054 · 4 $9,636 · 5 $11,178 · 6 $12,720 · 7 $13,009 · 8 $13,298 · 9 $13,587 (+$289/additional). Applies to all direct-service and voucher-based child care and development contracts administered by CDSS (CAPP, CCTR, CalWORKs stages).",
+        "source": "https://www.cdss.ca.gov/Portals/9/Additional-Resources/Letters-and-Notices/CCBs/2026/CCB_26-17.pdf",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-C draft (nebula) — CCB 26-17 PDF fetched + pdftotext-extracted; 85% SMI table cells verbatim + adversarial verification 2026-07-04 (oracle) — table REFUTED-as-correct (1-2 $7,119 · 3 $8,054 · 4 $9,636, +$289)"
+      },
+      {
+        "claim": "Serves children under age 13 (13+ with an IEP and a licensed professional's letter). Family must have a qualifying 'need': employed, seeking employment, seeking permanent housing, incapacitated, or in education/vocational training; or the child is in protective services / at risk. Families receiving CalWORKs, Medi-Cal, CalFresh, CFAP, WIC, FDPIR, Head Start, or Early Head Start are also income-eligible. Receiving child care assistance does not affect WIC eligibility.",
+        "source": "https://mychildcareplan.org/resource/child-care-subsidies/",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-C draft (nebula) — CDSS-network R&R content; age/need cite is statutory (WIC 10271/10290) + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "Sierra Nevada Children's Services (SNCS) is the official Resource & Referral and Alternative Payment agency for Nevada and Sierra Counties; families apply via the Childcare Eligibility List (CEL); main line (530) 272-8866, toll-free (888) 306-7627, Truckee (530) 587-5960; CalWORKs Stage 1 via the county worker (530) 265-1760, Stage 2 via SNCS (530) 272-8866.",
+        "source": "https://www.icarol.info/ResourceView2.aspx?org=2265&agencynum=4661759",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-C draft (nebula) — sncs.org 400s all fetchers (anti-bot); iCarol 211-network mirror + web search + adversarial verification 2026-07-04 (oracle) — iCarol confirms (530) 272-8866 + Truckee (530) 587-5960; toll-free 888-306-7627 + county 265-1760 unconfirmed (soft, non-blocking)"
+      }
+    ]
+  },
+  {
+    "id": "calworks-homeless-assistance",
+    "jurisdiction": "CA",
+    "category": "housing",
+    "status": "check-first",
+    "test": {
+      "limitsMonthly": {
+        "1": 1364,
+        "2": 1951,
+        "3": 2309,
+        "4": 2661,
+        "5": 2979,
+        "6": 3289,
+        "7": 3560,
+        "8": 3847,
+        "increment": 37
+      },
+      "ageAnyMax": 17,
+      "categoricalUnlocks": ["calworks"],
+      "specialNotes": [
+        "calworks-ha-homeless-trigger",
+        "calworks-ha-temporary-rates",
+        "calworks-ha-permanent",
+        "calworks-ha-once-per-year"
+      ]
+    },
+    "thresholdsDisplay": {
+      "1": 1364,
+      "4": 2661
+    },
+    "noteParams": {
+      "calworks-ha-temporary-rates": {
+        "days": 16,
+        "amountDailyBase": 85,
+        "amountPerExtra": 15,
+        "amountDailyMax": 145
+      },
+      "calworks-ha-once-per-year": {
+        "months": 12
+      }
+    },
+    "name": {
+      "en": "CalWORKs Homeless Assistance (motel nights + move-in help)",
+      "es": "Asistencia para Personas sin Hogar de CalWORKs (noches de motel + ayuda para mudarse)"
+    },
+    "value": {
+      "en": "If you get CalWORKs (or could qualify) and you're homeless or about to be, you can get up to 16 nights of motel help ($85/day for a family of 4 or fewer, +$15 per extra person, up to $145/day), plus help with a security deposit and last month's rent — once every 12 months.",
+      "es": "Si recibe CalWORKs (o podría calificar) y no tiene hogar o está a punto de perderlo, puede recibir hasta 16 noches de motel ($85/día para una familia de 4 o menos, +$15 por persona adicional, hasta $145/día), más ayuda con el depósito de seguridad y el último mes de renta — una vez cada 12 meses."
+    },
+    "apply": {
+      "url": "https://benefitscal.com",
+      "phone": {
+        "en": "Nevada County Social Services (530) 265-1340",
+        "es": "Servicios Sociales del Condado de Nevada (530) 265-1340"
+      },
+      "local": {
+        "en": "Ask your county worker for the Homeless Assistance program (form CW-42). Apply at the county office or BenefitsCal.com — this is a separate determination from regular CalWORKs.",
+        "es": "Pida a su trabajador del condado el programa de Asistencia para Personas sin Hogar (formulario CW-42). Solicite en la oficina del condado o en BenefitsCal.com — es una determinación separada de CalWORKs regular."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "CalWORKs Homeless Assistance (HA) assists 'CalWORKs recipients or CalWORKs eligible applicants, who are experiencing homelessness or at risk of homelessness.' Temporary HA: 16 days of temporary shelter (with exceptions) per 12-month period, hotel/motel at '$85 per day for a family of four or fewer + $15 for each additional family member, up to $145 daily.' Permanent HA: security deposit and last month's rent, or 2 months arrearages to prevent eviction. Administered through CalWORKs at the county level; apply via form CW-42 (Statement of Facts-Homeless Assistance).",
+        "source": "https://www.cdss.ca.gov/inforesources/cdss-programs/housing-programs/calworks-homeless-assistance",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-C draft (nebula, live fetch) — CDSS HA page: 16 days, $85/$15/$145 rates, permanent HA, once every 12 months with exceptions, form CW-42, county-administered — verbatim + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "Nevada County: 'Families eligible to CalWORKs benefits may qualify for up to 16 consecutive nights in a hotel. This is now available every 12 months. Please apply online at BenefitsCal.org if you do not have CalWORKs; this specialty program requires a separate determination. Please call 530-265-1340 for more information.'",
+        "source": "https://www.nevadacountyca.gov/1204/Housing-Resources",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-C draft (nebula) — quote captured via ep4 fact-check (verdict CONFIRMED) + adversarial verification 2026-07-04 (oracle) — live Nevada County Housing Resources URL re-pinned (the DocumentCenter/View path 404'd)"
+      },
+      {
+        "claim": "Gate mirrors CalWORKs eligibility (the HA population = CalWORKs recipients or apparently-eligible applicants with children). Applicant gross-income test = MBSAC FY2026-27 Region 2 (Nevada County), 3.59% COLA eff. 2026-07-01: HH1 $1,364 … +$37/person; child under 18 (or 18 completing high school). Values reused verbatim from the verified 'calworks' corpus rule.",
+        "source": "https://www.cdss.ca.gov/Portals/9/Additional-Resources/Letters-and-Notices/ACLs/2026/26-39.pdf",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-C draft (nebula) — limitsMonthly + ageAnyMax reused verbatim from the oracle-verified calworks rule (ACL 26-39); encoding option B (mirror the CalWORKs income+age gate) endorsed — CDSS defines HA eligibility as recipients OR apparently-eligible applicants, so B reaches the not-yet-enrolled homeless family + adversarial verification 2026-07-04 (oracle)"
+      }
+    ]
+  },
+  {
+    "id": "capi",
+    "jurisdiction": "CA",
+    "category": "money",
+    "status": "check-first",
+    "test": {
+      "limitsMonthly": {
+        "1": 1233,
+        "2": 2098,
+        "3": 2098,
+        "4": 2098,
+        "5": 2098,
+        "6": 2098,
+        "7": 2098,
+        "8": 2098,
+        "increment": 0
+      },
+      "ageAnyMin": 65,
+      "memberFlagsAny": ["disability"],
+      "memberGate": true,
+      "categoricalExcludes": ["ssi"],
+      "overLimitRescue": "reason.own-income",
+      "specialNotes": [
+        "capi-immigration",
+        "capi-own-income",
+        "capi-resources",
+        "capi-blind-higher"
+      ]
+    },
+    "thresholdsDisplay": {
+      "1": 1233,
+      "2": 2098
+    },
+    "noteParams": {
+      "capi-resources": {
+        "limitResourcesSingle": 2000,
+        "limitResourcesCouple": 3000
+      },
+      "capi-blind-higher": {
+        "amountBlindSingle": 1318.32,
+        "amountBlindCouple": 2324.35
+      }
+    },
+    "name": {
+      "en": "CAPI (monthly cash for immigrants who can't get SSI)",
+      "es": "CAPI (dinero mensual para inmigrantes que no pueden recibir SSI)"
+    },
+    "value": {
+      "en": "Monthly cash up to $1,233.94 (single) or $2,098.83 (couple) for Californians 65+, blind, or disabled who can't get SSI only because of their immigration status — the amount matches SSI/SSP. Blind recipients get more.",
+      "es": "Dinero mensual de hasta $1,233.94 (soltero) o $2,098.83 (pareja) para californianos de 65+, ciegos o con discapacidad que no pueden recibir SSI únicamente por su estatus migratorio — el monto es igual al de SSI/SSP. Las personas ciegas reciben más."
+    },
+    "apply": {
+      "url": "https://www.cdss.ca.gov/inforesources/cash-assistance-for-immigrants",
+      "phone": {
+        "en": "Apply at your county social services office · Nevada County (530) 265-1340",
+        "es": "Solicite en la oficina de servicios sociales de su condado · Condado de Nevada (530) 265-1340"
+      },
+      "local": {
+        "en": "CAPI is applied for at the county welfare office, not Social Security. 2-1-1 can help you find local application help.",
+        "es": "CAPI se solicita en la oficina de bienestar del condado, no en el Seguro Social. Llame al 2-1-1 para ayuda local con la solicitud."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "CAPI eligibility: 'Are 65 or over, blind or disabled'; 'Are a non-citizen and meet the immigration status criteria in effect for SSI/SSP as of 8/21/96'; 'Are ineligible for SSI/SSP solely due to their immigration status'; reside in California; resources below $2,000 (individual) / $3,000 (couple). 'The amount of CAPI benefits is equivalent to the amount of SSI/SSP benefits.'",
+        "source": "https://www.cdss.ca.gov/inforesources/cash-assistance-for-immigrants",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-C draft (nebula, live fetch) — eligibility + SSI-equivalence verbatim + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "CAPI payment standards effective January 1, 2026 (2.8% SSI COLA per ACIN I-59-25, Dec 16 2025): Individuals — Aged or Disabled $1,233.94, Blind $1,318.32, Non-Medical Out-of-Home Care $1,626.07, Aged/Disabled without cooking facilities $1,362.81. Couples — Aged or Disabled $2,098.83, Blind $2,324.35, Blind/Aged-or-Disabled $2,238.44. 'CAPI payment standards are equivalent to the SSI/SSP payment standards.'",
+        "source": "https://www.calsaws.org/wp-content/uploads/2026/01/CIT-0008-26-ACIN-I-59_25.pdf",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-C draft (nebula) — ACIN I-59-25 PDF fetched + pdftotext-extracted; payment-standards table verbatim, aged/disabled individual/couple cells penny-identical to the ssi-ssp corpus rule (COLA-locked) + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "SSI/SSP countable-resource limit reused as CAPI's ($2,000 individual / $3,000 couple); CAPI tests the applicant's own income against the payment standard (SSI/SSP methodology), so a low-income 65+/disabled immigrant in a higher-income household still qualifies on own income — hence overLimitRescue. Immigration-safety copy steers to a nonprofit legal advocate rather than asserting no public-charge effect (cash income-maintenance can be weighed under 8 CFR 212.21; outcome depends on immigration category).",
+        "source": "https://www.cdss.ca.gov/inforesources/cash-assistance-for-immigrants",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-C draft (nebula) — $2,000/$3,000 resource limits verbatim on the CAPI page; own-income methodology inherited from SSI/SSP → overLimitRescue; categoricalExcludes[ssi] correct (CAPI serves the SSI-excluded, does NOT conflict with calfresh/medi-cal) + adversarial verification 2026-07-04 (oracle) — REQUIRED SAFETY EDIT: the immigration note was rewritten from 'does not affect your immigration case' (unpinned + unsafe) to a protective legal-advocate steer"
+      }
+    ]
+  },
+  {
+    "id": "childrens-community-chest",
+    "jurisdiction": "nevada-county",
+    "category": "money",
+    "status": "check-first",
+    "test": {
+      "ageAnyMax": 17,
+      "specialNotes": [
+        "cccc-agency-referral",
+        "cccc-covers",
+        "cccc-last-resort"
+      ]
+    },
+    "noteParams": {
+      "cccc-covers": {
+        "amountMin": 40,
+        "amountMax": 500
+      }
+    },
+    "name": {
+      "en": "Children's Community Chest (emergency funds for kids)",
+      "es": "Children's Community Chest (fondos de emergencia para niños)"
+    },
+    "value": {
+      "en": "A last-resort emergency grant of $40–$500 for a child (0–18) in Nevada or Sierra County — for rent, utilities, car repairs, medical bills, counseling, sports, or summer camp. A public or nonprofit agency has to request it for your family.",
+      "es": "Una subvención de emergencia de último recurso de $40–$500 para un niño (0–18) en el condado de Nevada o Sierra — para renta, servicios, reparaciones del auto, facturas médicas, consejería, deportes o campamento de verano. Una agencia pública o sin fines de lucro debe solicitarla en nombre de su familia."
+    },
+    "apply": {
+      "url": "https://www.sncs.org/resources.html",
+      "phone": {
+        "en": "Sierra Nevada Children's Services (530) 272-8866",
+        "es": "Sierra Nevada Children's Services (530) 272-8866"
+      },
+      "local": {
+        "en": "You can't apply directly — ask a caseworker, school, or nonprofit you already work with to email a request with documentation to cccrequests@sncs.org.",
+        "es": "No puede solicitar directamente — pida a un trabajador social, escuela u organización que ya lo ayuda que envíe una solicitud con documentación a cccrequests@sncs.org."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Children's Community Chest: last-resort emergency fund for children 0-18 in Nevada and Sierra Counties, CA; awards $40-$500 for rent, utilities, car repairs, medical bills, counseling, sports, or summer camp; requests must be submitted by a public or nonprofit agency (not the family directly) to cccrequests@sncs.org with documentation; run by Sierra Nevada Children's Services, (530) 272-8866.",
+        "source": "https://www.sncs.org/resources.html",
+        "verifiedAt": "2026-05-30",
+        "via": "wave-2 batch-C draft (nebula) — the $40–$500 award range + 0–18 age are DB row [065]-sourced (techempower.org/resources, Verified 2026-05-30); DB-sourced-pending-re-pin to a primary (sncs.org bot-walls live fetchers). adversarial verification 2026-07-04 (oracle) corroborated program existence, the agency-referral rule, the cccrequests@sncs.org address, and the phone via the 2025-08-31 Wayback snapshot (companion row) — amount/age NOT independently re-pinned"
+      },
+      {
+        "claim": "2025-08-31 Wayback snapshot of sncs.org/resources.html confirms the Children's Community Chest: a last-resort emergency fund administered by Sierra Nevada Children's Services; requests must be submitted by a public or nonprofit agency (not the family) to cccrequests@sncs.org with documentation; phone (530) 272-8866.",
+        "source": "https://web.archive.org/web/20250831072118/https://www.sncs.org/resources.html",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-C — Wayback Machine snapshot independently confirms program existence, the agency-referral rule, cccrequests@sncs.org, and (530) 272-8866 (live sncs.org bot-walls every fetcher); adversarial verification 2026-07-04 (oracle)"
+      }
+    ]
+  },
+  {
+    "id": "food-bank-nevada-county",
+    "jurisdiction": "nevada-county",
+    "category": "food",
+    "status": "open",
+    "test": {
+      "universal": true,
+      "specialNotes": [
+        "foodbank-no-proof",
+        "foodbank-sites-shift",
+        "foodbank-locations"
+      ]
+    },
+    "name": {
+      "en": "Food Bank of Nevada County (free groceries, everyone welcome)",
+      "es": "Banco de Alimentos del Condado de Nevada (comida gratis, todos bienvenidos)"
+    },
+    "value": {
+      "en": "Free groceries at distribution sites around Nevada County — no paperwork, no ID, no income proof. \"No paperwork is required to receive food for your household.\"",
+      "es": "Comida gratis en sitios de distribución por todo el condado de Nevada — sin papeleo, sin identificación, sin prueba de ingresos. \"No se requiere papeleo para recibir comida para su hogar.\""
+    },
+    "apply": {
+      "url": "https://foodbankofnc.org/upcoming-distributions",
+      "phone": {
+        "en": "Food Bank of Nevada County (530) 272-3796",
+        "es": "Banco de Alimentos del Condado de Nevada (530) 272-3796"
+      },
+      "local": {
+        "en": "Food is given out at community sites, NOT the Grass Valley warehouse. Sites and dates change — check foodbankofnc.org/upcoming-distributions or call for the current calendar. Regular sites: Grass Valley (2nd & 4th Thursday, 10am-1pm), Truckee (Tuesdays 4-5pm).",
+        "es": "La comida se reparte en sitios comunitarios, NO en el almacén de Grass Valley. Los sitios y las fechas cambian — consulte foodbankofnc.org/upcoming-distributions o llame para el calendario actual. Sitios regulares: Grass Valley (2do y 4to jueves, 10am-1pm), Truckee (martes 4-5pm)."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Free food from the Food Bank of Nevada County: 'No paperwork is required to receive food for your household'; 'Everyone is Welcome'; 'This institution is an equal opportunity provider.' Food is distributed at community sites, not the warehouse at 310 Railroad Ave #100, Grass Valley. Regular sites: Grass Valley 12889 Osborne Hill Road, 2nd & 4th Thursday 10am-1pm; Truckee 12116 Chandelle Way Suite D2, Tuesdays 4-5pm. Phone (530) 272-3796.",
+        "source": "https://foodbankofnc.org/upcoming-distributions",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-C draft (nebula) — content pinned from foodbankofnc.org /upcoming-distributions (live) + DB row [111]; apply.url + local-copy URL re-pinned from /get-food-here (404) to /upcoming-distributions; value-line quote swapped to the live-verbatim 'No paperwork is required...' + adversarial verification 2026-07-04 (oracle) — universal:true endorsed (no gate; renders strong for Nevada County users)"
+      }
+    ]
+  },
+  {
+    "id": "interfaith-food-ministry",
+    "jurisdiction": "nevada-county",
+    "category": "food",
+    "status": "open",
+    "test": {
+      "universal": true,
+      "specialNotes": ["ifm-bring-id", "ifm-every-other-week", "ifm-hours"]
+    },
+    "name": {
+      "en": "Interfaith Food Ministry (free groceries, Nevada County)",
+      "es": "Ministerio Interreligioso de Alimentos (comida gratis, condado de Nevada)"
+    },
+    "value": {
+      "en": "Free supplemental groceries for Nevada County residents — drive-through or walk-up, once every other week. No income proof; bring a photo ID and proof you live in Nevada County.",
+      "es": "Comida gratis complementaria para residentes del condado de Nevada — en auto o a pie, una vez cada dos semanas. Sin prueba de ingresos; traiga una identificación con foto y prueba de que vive en el condado de Nevada."
+    },
+    "apply": {
+      "url": "https://www.interfaithfoodministry.org/how-to-get-food.html",
+      "phone": {
+        "en": "Interfaith Food Ministry (530) 273-8132",
+        "es": "Ministerio Interreligioso de Alimentos (530) 273-8132"
+      },
+      "local": {
+        "en": "440 Henderson St, Grass Valley. Open Mon/Wed/Fri/Sat 10am-1pm (reserve Mon/Wed/Fri 10-11am by phone or online; walk-ups 11am-1pm and Sat).",
+        "es": "440 Henderson St, Grass Valley. Abierto lun/mié/vie/sáb 10am-1pm (reserve lun/mié/vie 10-11am por teléfono o en línea; sin cita 11am-1pm y sáb)."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Interfaith Food Ministry 'provides wholesome, supplemental groceries to Nevada County residents facing food insecurity.' Bring a photo ID and 'proof of residency (rental agreement, mortgage, or current utility bill, etc).' 'Each individual or family may receive food once EVERY OTHER week.' Distributions Mon, Wed, Fri, Sat 10am-1pm; reservations Mon/Wed/Fri 10-11am; walk-ins Mon/Wed/Fri 11am-1pm and Sat 10am-1pm. 440 Henderson St, Grass Valley. Phone (530) 273-8132.",
+        "source": "https://www.interfaithfoodministry.org/how-to-get-food.html",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-C draft (nebula, live fetch) — eligibility, photo-ID + proof-of-residency requirement, every-other-week, hours verbatim + adversarial verification 2026-07-04 (oracle) — dropped the 'no permanent housing OK / come anyway' gloss (page REQUIRES proof of residency) and corrected reservations to Mon/Wed/Fri (not Mon-Fri); universal:true endorsed"
+      }
+    ]
   }
 ]
