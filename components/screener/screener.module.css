@@ -399,6 +399,86 @@
   color: var(--te-teal-700);
 }
 
+/* ===== suggestions — pointers, not verdicts ===== */
+/* Deliberately lighter than .card: no fill, no verdict-colored left border,
+   smaller type. These are links into the resources guide, not results. */
+
+.suggestSection {
+  margin: 0 0 2.5rem;
+}
+
+.suggestIntro {
+  font-size: 0.9rem;
+  color: var(--te-bark-600);
+  line-height: 1.55;
+  margin: -0.5rem 0 1rem;
+}
+
+.suggestGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.suggestCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--te-bark-200);
+  border-radius: 0.75rem;
+  background: transparent;
+  text-decoration: none;
+  transition:
+    border-color 150ms ease,
+    background 150ms ease;
+}
+
+.suggestCard:hover {
+  border-color: var(--te-teal-500);
+  background: var(--te-cream-dark);
+}
+
+.suggestCard:focus-visible {
+  outline: 3px solid var(--te-teal-500);
+  outline-offset: 2px;
+}
+
+.suggestName {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--te-teal-700);
+  line-height: 1.35;
+}
+
+.suggestExt {
+  width: 0.65em;
+  height: 0.65em;
+  flex: none;
+  opacity: 0.7;
+}
+
+.suggestBlurb {
+  font-size: 0.85rem;
+  color: var(--te-bark-600);
+  line-height: 1.5;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ===== results footer ===== */
 
 .resultsFooter {
@@ -458,6 +538,10 @@
 @media (min-width: 768px) {
   .screener {
     padding: 5rem 2rem;
+  }
+
+  .suggestGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

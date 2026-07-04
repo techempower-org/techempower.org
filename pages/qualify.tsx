@@ -51,7 +51,14 @@ const PRINT_CHROME_CSS = `
 
 export default function QualifyPage() {
   const [lang, setLang] = React.useState<Lang>('en')
-  const [result, setResult] = React.useState<EvaluationResult | null>(null)
+  // Result + the answers that produced it, kept together so the
+  // suggestions selector can re-derive signals on language toggle.
+  // Client-state only — answers never leave the device (spec §privacy).
+  const [screened, setScreened] = React.useState<{
+    answers: Answers
+    result: EvaluationResult
+  } | null>(null)
+  const result = screened?.result ?? null
 
   // Hydrate the saved language after mount: SSR markup and the first client
   // render both say 'en', so hydration matches; the swap happens post-paint.
@@ -76,7 +83,7 @@ export default function QualifyPage() {
   }
 
   function handleScreen(answers: Answers) {
-    setResult(evaluate(answers, RULES))
+    setScreened({ answers, result: evaluate(answers, RULES) })
   }
 
   const title = 'Do I qualify? — 2-minute benefits check · TechEMPOWER.org'
@@ -134,8 +141,13 @@ export default function QualifyPage() {
 
           <ScreenerForm lang={lang} onSubmit={handleScreen} />
 
-          {result && (
-            <ScreenerResults result={result} rules={RULES} lang={lang} />
+          {screened && (
+            <ScreenerResults
+              result={screened.result}
+              rules={RULES}
+              lang={lang}
+              answers={screened.answers}
+            />
           )}
 
           <p className={styles.verified}>

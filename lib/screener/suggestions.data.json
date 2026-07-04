@@ -1,0 +1,639 @@
+[
+  {
+    "id": "food-bank",
+    "slug": "free-food--get-food-here--food-bank",
+    "name": {
+      "en": "Food Bank of Nevada County",
+      "es": "Food Bank of Nevada County (banco de alimentos)"
+    },
+    "blurb": {
+      "en": "Free groceries at distribution sites around the county — (530) 272-3796.",
+      "es": "Comida gratis en sitios de distribución por todo el condado — (530) 272-3796."
+    },
+    "signals": ["food-interest", "crisis"]
+  },
+  {
+    "id": "interfaith-food-ministry",
+    "slug": "free-food--how-to-get-food--interfaith-food-ministry",
+    "name": {
+      "en": "Interfaith Food Ministry",
+      "es": "Interfaith Food Ministry (despensa de alimentos)"
+    },
+    "blurb": {
+      "en": "Drive-through groceries in Grass Valley several days a week — (530) 273-8132.",
+      "es": "Despensa de comida sin bajar del auto en Grass Valley, varios días a la semana — (530) 273-8132."
+    },
+    "signals": ["food-interest", "crisis"]
+  },
+  {
+    "id": "hospitality-house",
+    "slug": "hospitality-house",
+    "name": {
+      "en": "Hospitality House shelter",
+      "es": "Albergue Hospitality House"
+    },
+    "blurb": {
+      "en": "Nevada County's year-round emergency shelter in Grass Valley — call (530) 271-7144 or 2-1-1.",
+      "es": "El albergue de emergencia del condado, abierto todo el año en Grass Valley — llame al (530) 271-7144 o al 2-1-1."
+    },
+    "signals": ["crisis"]
+  },
+  {
+    "id": "crisis-care",
+    "slug": "crisis-care-services-and-support-nevada-county-ca",
+    "name": {
+      "en": "Nevada County crisis care (24/7)",
+      "es": "Atención de crisis del condado de Nevada (24/7)"
+    },
+    "blurb": {
+      "en": "24/7 mobile crisis team and behavioral-health support in Nevada County — calling is free: (530) 265-5811.",
+      "es": "Equipo móvil de crisis 24/7 y apoyo de salud mental en el condado de Nevada — llamar es gratis: (530) 265-5811."
+    },
+    "signals": ["crisis"]
+  },
+  {
+    "id": "community-beyond-violence",
+    "slug": "community-beyond-violence",
+    "name": {
+      "en": "Community Beyond Violence",
+      "es": "Community Beyond Violence"
+    },
+    "blurb": {
+      "en": "Free, confidential 24-hour support for survivors of domestic violence and sexual assault in Nevada County.",
+      "es": "Apoyo gratuito y confidencial las 24 horas para sobrevivientes de violencia doméstica y agresión sexual en el condado de Nevada."
+    },
+    "signals": ["crisis"]
+  },
+  {
+    "id": "meals-on-wheels",
+    "slug": "meals-on-wheels",
+    "name": {
+      "en": "Meals on Wheels",
+      "es": "Meals on Wheels (comidas a domicilio)"
+    },
+    "blurb": {
+      "en": "Hot lunches delivered to home-bound seniors in western Nevada County — (530) 446-6853.",
+      "es": "Almuerzos calientes a domicilio para personas mayores que no pueden salir, en el oeste del condado — (530) 446-6853."
+    },
+    "signals": ["senior"]
+  },
+  {
+    "id": "gold-country-senior-services",
+    "slug": "gold-country-senior-services-gold-country-senior-services",
+    "name": {
+      "en": "Gold Country Senior Services",
+      "es": "Gold Country Senior Services (servicios para mayores)"
+    },
+    "blurb": {
+      "en": "Local nonprofit serving adults 60+ in western Nevada County — meals and home-support programs.",
+      "es": "Organización local sin fines de lucro para adultos de 60+ en el oeste del condado — comidas y programas de apoyo en el hogar."
+    },
+    "signals": ["senior"]
+  },
+  {
+    "id": "senior-firewood",
+    "slug": "senior-firewood-program-gold-country-senior-services",
+    "name": {
+      "en": "Senior Firewood Program",
+      "es": "Programa de leña para personas mayores"
+    },
+    "blurb": {
+      "en": "Firewood delivery for older adults heating with wood, from Gold Country Senior Services.",
+      "es": "Entrega de leña para personas mayores que calientan su hogar con leña, de Gold Country Senior Services."
+    },
+    "signals": ["senior"]
+  },
+  {
+    "id": "freed-services",
+    "slug": "services-freed-center-for-independent-living",
+    "name": {
+      "en": "FREED Center for Independent Living",
+      "es": "FREED — Centro de Vida Independiente"
+    },
+    "blurb": {
+      "en": "Free independent-living services — assistive technology, peer support, advocacy — for people with disabilities and adults 60+.",
+      "es": "Servicios gratuitos de vida independiente — tecnología de asistencia, apoyo entre pares, defensoría — para personas con discapacidades y adultos de 60+."
+    },
+    "signals": ["disability", "senior"]
+  },
+  {
+    "id": "library-hotspot",
+    "slug": "borrow-a-hotspot-nevada-county-library",
+    "name": {
+      "en": "Borrow a Wi-Fi hotspot — county library",
+      "es": "Hotspot Wi-Fi prestado — biblioteca del condado"
+    },
+    "blurb": {
+      "en": "Take home unlimited internet for 14 days, free with a library card.",
+      "es": "Llévese internet ilimitado a casa por 14 días, gratis con su tarjeta de la biblioteca."
+    },
+    "signals": ["has-kids", "renter", "crisis"]
+  },
+  {
+    "id": "getyourrefund",
+    "slug": "free-tax-help-from-irs-certified-volunteers-getyourrefund",
+    "name": {
+      "en": "GetYourRefund free tax filing",
+      "es": "GetYourRefund — declaración de impuestos gratis"
+    },
+    "blurb": {
+      "en": "IRS-certified volunteers help you file and claim credits like CalEITC — free, in English and Spanish.",
+      "es": "Voluntarios certificados por el IRS le ayudan a declarar y reclamar créditos como el CalEITC — gratis, en inglés y español."
+    },
+    "signals": ["has-kids", "spanish-ui"]
+  },
+  {
+    "id": "bright-futures-youth",
+    "slug": "bright-futures-for-youth-serving-nevada-county",
+    "name": {
+      "en": "Bright Futures for Youth",
+      "es": "Bright Futures for Youth (programas juveniles)"
+    },
+    "blurb": {
+      "en": "Free Nevada County youth programs for ages 10–25 — youth center, mentoring, and help for teens in crisis.",
+      "es": "Programas juveniles gratuitos del condado de Nevada para edades 10–25: centro juvenil, mentoría y ayuda para adolescentes en crisis."
+    },
+    "signals": ["has-kids", "crisis"]
+  },
+  {
+    "id": "free-library-resources",
+    "slug": "free-library-resources-nevada-county-ca",
+    "name": {
+      "en": "Free library resources",
+      "es": "Recursos gratuitos de la biblioteca"
+    },
+    "blurb": {
+      "en": "A free county library card unlocks ebooks, audiobooks, streaming, live tutoring, and online classes.",
+      "es": "La tarjeta gratuita de la biblioteca del condado da acceso a libros electrónicos, audiolibros, streaming, tutoría en vivo y clases en línea."
+    },
+    "signals": ["has-kids", "senior"]
+  },
+  {
+    "id": "the-clinic",
+    "slug": "the-clinic--nevada-county-citizens-for-choice",
+    "name": {
+      "en": "The Clinic! (Citizens for Choice)",
+      "es": "The Clinic! (Citizens for Choice)"
+    },
+    "blurb": {
+      "en": "Affordable, confidential reproductive and sexual health care in Grass Valley — with or without insurance.",
+      "es": "Atención de salud sexual y reproductiva accesible y confidencial en Grass Valley — con o sin seguro."
+    },
+    "signals": ["pregnant", "health-interest"]
+  },
+  {
+    "id": "winter-preparedness",
+    "slug": "winter-preparedness-nevada-county-ca",
+    "name": {
+      "en": "Winter storm & outage prep",
+      "es": "Preparación para tormentas y cortes de luz"
+    },
+    "blurb": {
+      "en": "How to get ready for Nevada County winter storms — two-week stay-bag checklist, outage and road resources.",
+      "es": "Cómo prepararse para las tormentas de invierno del condado — lista de suministros para dos semanas y recursos para cortes de luz."
+    },
+    "signals": ["pge-customer", "crisis"]
+  },
+  {
+    "id": "afwd-job-center",
+    "slug": "alliance-for-workforce-development-connecting-job-seekers-and-employers",
+    "name": {
+      "en": "AFWD job center",
+      "es": "Centro de empleo AFWD"
+    },
+    "blurb": {
+      "en": "Free job-search help, training funds, and career services at the local AFWD job center.",
+      "es": "Ayuda gratuita para buscar empleo, fondos de capacitación y servicios de carrera en el centro de empleo local de AFWD."
+    },
+    "signals": ["crisis"]
+  },
+  {
+    "id": "textnow-free-data",
+    "slug": "textnow-introducing-free-essential-data",
+    "name": {
+      "en": "TextNow free phone service",
+      "es": "TextNow — servicio de teléfono gratuito"
+    },
+    "blurb": {
+      "en": "Free phone service with essential data on a low-cost SIM — a backup when Lifeline isn't an option.",
+      "es": "Servicio de teléfono gratuito con datos esenciales en una SIM de bajo costo — una alternativa cuando Lifeline no aplica."
+    },
+    "signals": ["crisis"]
+  },
+  {
+    "id": "thrift-stores-map",
+    "slug": "thrift-stores-in-nevada-county",
+    "name": {
+      "en": "Nevada County thrift stores, mapped",
+      "es": "Tiendas de segunda mano del condado, en un mapa"
+    },
+    "blurb": {
+      "en": "Every active thrift store in Nevada County, mapped — cheap clothes, furniture, and household goods.",
+      "es": "Todas las tiendas de segunda mano del condado de Nevada, en un mapa — ropa, muebles y artículos del hogar económicos."
+    },
+    "signals": ["crisis"]
+  },
+  {
+    "id": "united-way-health",
+    "slug": "united-way-programs--a-healthier-nevada-county",
+    "name": {
+      "en": "United Way of Nevada County",
+      "es": "United Way del condado de Nevada"
+    },
+    "blurb": {
+      "en": "Free local health programs from United Way — safe medication-disposal envelopes and more.",
+      "es": "Programas de salud locales gratuitos de United Way — sobres para desechar medicamentos de forma segura y más."
+    },
+    "signals": ["crisis", "senior"]
+  },
+  {
+    "id": "sand-sandbags-grass-valley",
+    "slug": "free-sand-sandbags--city-of-grass-valley",
+    "name": {
+      "en": "Free sand & sandbags (Grass Valley)",
+      "es": "Arena y sacos de arena gratis (Grass Valley)"
+    },
+    "blurb": {
+      "en": "Free sand and sandbags for Grass Valley residents at the City Corp Yard — bring your own shovel.",
+      "es": "Arena y sacos de arena gratis para residentes de Grass Valley en el City Corp Yard — traiga su propia pala."
+    },
+    "signals": ["crisis"]
+  },
+  {
+    "id": "free-sand-county",
+    "slug": "free-sand-available-nevada-county-ca",
+    "name": {
+      "en": "Free winter sand (Nevada County)",
+      "es": "Arena gratis de invierno (condado de Nevada)"
+    },
+    "blurb": {
+      "en": "Free sand for Nevada County residents every winter (Nov 1–Apr 30) for storm and flood protection.",
+      "es": "Arena gratis para residentes del condado cada invierno (1 nov–30 abr) para protegerse de tormentas e inundaciones."
+    },
+    "signals": ["crisis"]
+  },
+  {
+    "id": "dds-autism-hub",
+    "slug": "welcome-to-the-dds-autism-resource-hub-ca-department-of-developmental-services",
+    "name": {
+      "en": "DDS Autism Resource Hub",
+      "es": "Centro de Recursos sobre Autismo (DDS)"
+    },
+    "blurb": {
+      "en": "California's official hub for autism resources, regional-center eligibility, and family support.",
+      "es": "El centro oficial de California con recursos sobre autismo, elegibilidad para centros regionales y apoyo familiar."
+    },
+    "signals": ["has-kids", "disability", "spanish-ui"]
+  },
+  {
+    "id": "neighborhood-center-arts",
+    "slug": "ncagrassvalley-art-advocacy-opportunity",
+    "name": {
+      "en": "Neighborhood Center of the Arts",
+      "es": "Neighborhood Center of the Arts"
+    },
+    "blurb": {
+      "en": "A Grass Valley art studio and community for adults with developmental and intellectual disabilities.",
+      "es": "Un estudio de arte y una comunidad en Grass Valley para adultos con discapacidades del desarrollo e intelectuales."
+    },
+    "signals": ["disability"]
+  },
+  {
+    "id": "stanford-neurodiversity",
+    "slug": "neurodiversity-resources-database-stanford-neurodiversity-project-stanford-medicine",
+    "name": {
+      "en": "Stanford Neurodiversity Resource Database",
+      "es": "Base de recursos de neurodiversidad de Stanford"
+    },
+    "blurb": {
+      "en": "Free directory connecting neurodivergent people to vetted resources — work, health, community.",
+      "es": "Directorio gratuito que conecta a personas neurodivergentes con recursos verificados: empleo, salud y comunidad."
+    },
+    "signals": ["disability"]
+  },
+  {
+    "id": "my-child-care-plan",
+    "slug": "the-information-you-need-to-find-child-care-you-can-trust--my-child-care-plan",
+    "name": {
+      "en": "My Child Care Plan",
+      "es": "My Child Care Plan (buscador de cuidado infantil)"
+    },
+    "blurb": {
+      "en": "California's free official tool to find licensed child care you can trust.",
+      "es": "La herramienta oficial y gratuita de California para encontrar cuidado infantil con licencia y de confianza."
+    },
+    "signals": ["has-kids", "spanish-ui"]
+  },
+  {
+    "id": "cash-app-taxes",
+    "slug": "cash-app-taxes--100-free-tax-filing-for-federal-state",
+    "name": {
+      "en": "Cash App Taxes",
+      "es": "Cash App Taxes (impuestos gratis)"
+    },
+    "blurb": {
+      "en": "File federal and state taxes completely free and keep your full CalEITC/EITC refund.",
+      "es": "Declare sus impuestos federales y estatales completamente gratis y quédese con todo su reembolso de CalEITC/EITC."
+    },
+    "signals": ["has-kids"]
+  },
+  {
+    "id": "schoolhouse-tutoring",
+    "slug": "schoolhouse-free-online-tutoring",
+    "name": {
+      "en": "Schoolhouse free tutoring",
+      "es": "Schoolhouse — tutoría gratuita"
+    },
+    "blurb": {
+      "en": "Free live peer tutoring — SAT prep, math homework help, small-group sessions.",
+      "es": "Tutoría gratuita en vivo — preparación para el SAT, ayuda con matemáticas y sesiones en grupos pequeños."
+    },
+    "signals": ["has-kids"]
+  },
+  {
+    "id": "recreation-collection",
+    "slug": "recreation-collection-nevada-county-ca",
+    "name": {
+      "en": "Library Recreation Collection",
+      "es": "Colección recreativa de la biblioteca"
+    },
+    "blurb": {
+      "en": "Borrow outdoor games, sports gear, and fun equipment free from the county library.",
+      "es": "Pida prestados juegos al aire libre y equipo deportivo gratis en la biblioteca del condado."
+    },
+    "signals": ["has-kids"]
+  },
+  {
+    "id": "homeschool-laptops",
+    "slug": "homeschool-discount-laptops-nfs-is-a-nonprofit-organization",
+    "name": {
+      "en": "Discount laptops for homeschool families",
+      "es": "Portátiles con descuento para familias que educan en casa"
+    },
+    "blurb": {
+      "en": "Refurbished business-class laptops at school pricing, with warranty, for homeschool families.",
+      "es": "Portátiles reacondicionados de clase empresarial a precio escolar, con garantía, para familias que educan en casa."
+    },
+    "signals": ["has-kids"]
+  },
+  {
+    "id": "free-new-york-times",
+    "slug": "free-new-york-times-nevada-county-ca",
+    "name": {
+      "en": "Free New York Times",
+      "es": "New York Times gratis"
+    },
+    "blurb": {
+      "en": "Free unlimited New York Times access for any Californian through the public library.",
+      "es": "Acceso ilimitado y gratuito al New York Times para cualquier californiano a través de la biblioteca pública."
+    },
+    "signals": ["has-kids", "senior"]
+  },
+  {
+    "id": "github-student-pack",
+    "slug": "github-student-developer-pack--github-education-free-1-year",
+    "name": {
+      "en": "GitHub Student Developer Pack",
+      "es": "GitHub Student Developer Pack"
+    },
+    "blurb": {
+      "en": "70+ free developer tools including GitHub Copilot Pro for verified students 13 and up.",
+      "es": "Más de 70 herramientas de programación gratis, incluido GitHub Copilot Pro, para estudiantes verificados de 13 años en adelante."
+    },
+    "signals": ["has-kids"]
+  },
+  {
+    "id": "autodesk-education",
+    "slug": "autodesk-education-student-access-autodesk",
+    "name": {
+      "en": "Autodesk Education",
+      "es": "Autodesk Education"
+    },
+    "blurb": {
+      "en": "Free professional CAD and 3D design software (AutoCAD, Fusion) for students.",
+      "es": "Software profesional de diseño CAD y 3D (AutoCAD, Fusion) gratis para estudiantes."
+    },
+    "signals": ["has-kids"]
+  },
+  {
+    "id": "cursor-students",
+    "slug": "cursor-students-free-1-year",
+    "name": {
+      "en": "Cursor Pro free for students",
+      "es": "Cursor Pro gratis para estudiantes"
+    },
+    "blurb": {
+      "en": "One free year of Cursor Pro, an AI code editor, with a student email.",
+      "es": "Un año gratis de Cursor Pro, un editor de código con IA, con correo de estudiante."
+    },
+    "signals": ["has-kids"]
+  },
+  {
+    "id": "careeronestop-scholarships",
+    "slug": "scholarship-finder-careeronestop",
+    "name": {
+      "en": "CareerOneStop Scholarship Finder",
+      "es": "Buscador de becas CareerOneStop"
+    },
+    "blurb": {
+      "en": "Search thousands of scholarships, grants, and fellowships free — a U.S. Department of Labor tool.",
+      "es": "Busque gratis entre miles de becas y subvenciones — una herramienta del Departamento de Trabajo de EE. UU."
+    },
+    "signals": ["has-kids"]
+  },
+  {
+    "id": "calfresh-online-stores",
+    "slug": "stores-accepting-calfresh-online",
+    "name": {
+      "en": "Use CalFresh EBT online",
+      "es": "Use CalFresh EBT en línea"
+    },
+    "blurb": {
+      "en": "Grocery delivery and pickup with an EBT card — Amazon, Walmart, Safeway, and more.",
+      "es": "Entrega y recogida de comestibles con la tarjeta EBT — Amazon, Walmart, Safeway y más."
+    },
+    "signals": ["food-interest", "transport-interest"]
+  },
+  {
+    "id": "foodfinder",
+    "slug": "foodfinder-maps-food-resources-with-help-from-google",
+    "name": {
+      "en": "FoodFinder",
+      "es": "FoodFinder (mapa de despensas)"
+    },
+    "blurb": {
+      "en": "Free map of food pantries and meal sites across the country — enter a ZIP code, find food today.",
+      "es": "Mapa gratuito de despensas de alimentos y comedores — ingrese su código postal y encuentre comida hoy."
+    },
+    "signals": ["food-interest"]
+  },
+  {
+    "id": "sierra-harvest-gleaning",
+    "slug": "free-fruit--sierra-harvest-gleaning",
+    "name": {
+      "en": "Sierra Harvest gleaning",
+      "es": "Cosecha voluntaria de Sierra Harvest"
+    },
+    "blurb": {
+      "en": "Volunteer to glean local farms and orchards — fresh produce goes home with you and to local pantries.",
+      "es": "Sea voluntario en la cosecha de granjas y huertos locales — el producto fresco va a su casa y a las despensas locales."
+    },
+    "signals": ["food-interest"]
+  },
+  {
+    "id": "eatfresh",
+    "slug": "tasty-recipes-on-your-budget-eatfresh",
+    "name": {
+      "en": "EatFresh recipes",
+      "es": "Recetas EatFresh"
+    },
+    "blurb": {
+      "en": "Hundreds of cheap, healthy recipes and meal plans built for tight food budgets — in English and Spanish.",
+      "es": "Cientos de recetas económicas y saludables y planes de comidas para presupuestos ajustados — en inglés y español."
+    },
+    "signals": ["food-interest", "spanish-ui"]
+  },
+  {
+    "id": "golden-state-thermostat",
+    "slug": "75-off-smart-thermostats-golden-state-rebates",
+    "name": {
+      "en": "Golden State Rebates: smart thermostats",
+      "es": "Golden State Rebates: termostatos inteligentes"
+    },
+    "blurb": {
+      "en": "Instant discounts on ENERGY STAR smart thermostats at participating California retailers.",
+      "es": "Descuentos inmediatos en termostatos inteligentes ENERGY STAR en tiendas participantes de California."
+    },
+    "signals": ["pge-customer"]
+  },
+  {
+    "id": "golden-state-water-heater",
+    "slug": "900-off-heat-pump-water-heaters-golden-state-rebates",
+    "name": {
+      "en": "Golden State Rebates: heat pump water heaters",
+      "es": "Golden State Rebates: calentadores de agua con bomba de calor"
+    },
+    "blurb": {
+      "en": "Instant rebates on efficient heat pump water heaters at participating retailers.",
+      "es": "Reembolsos instantáneos en calentadores de agua eficientes con bomba de calor en tiendas participantes."
+    },
+    "signals": ["pge-customer", "homeowner"]
+  },
+  {
+    "id": "pge-ev-rates",
+    "slug": "electric-vehicles-rates-for-residential-pge-customers",
+    "name": {
+      "en": "PG&E EV rate plans",
+      "es": "Planes de tarifa EV de PG&E"
+    },
+    "blurb": {
+      "en": "Own an EV? PG&E's EV rate plans can make overnight home charging much cheaper.",
+      "es": "¿Tiene un vehículo eléctrico? Los planes de tarifa EV de PG&E pueden abaratar mucho la carga nocturna en casa."
+    },
+    "signals": ["pge-customer", "transport-interest"]
+  },
+  {
+    "id": "pge-induction-loaner",
+    "slug": "pge-induction-cooktop-loaner-program",
+    "name": {
+      "en": "PG&E induction cooktop loaner",
+      "es": "Estufa de inducción prestada de PG&E"
+    },
+    "blurb": {
+      "en": "Borrow an induction cooktop and pan from PG&E, free for two weeks.",
+      "es": "Pida prestada una estufa de inducción con sartén de PG&E, gratis por dos semanas."
+    },
+    "signals": ["pge-customer"]
+  },
+  {
+    "id": "energy-smart-homes",
+    "slug": "energy-smart-homes--whole-house-rebate--single-family-the-switch-is-on-incentive-finder",
+    "name": {
+      "en": "CA Energy Smart Homes",
+      "es": "CA Energy Smart Homes"
+    },
+    "blurb": {
+      "en": "State incentives for going all-electric when replacing gas appliances in a single-family home.",
+      "es": "Incentivos estatales por electrificar su casa al reemplazar los aparatos de gas en una vivienda unifamiliar."
+    },
+    "signals": ["homeowner"]
+  },
+  {
+    "id": "free-paint-hhw",
+    "slug": "free-paint-nevada-county-household-hazardous-waste",
+    "name": {
+      "en": "Free paint — county Reuse store",
+      "es": "Pintura gratis — tienda de reutilización del condado"
+    },
+    "blurb": {
+      "en": "Free paint and household products from the Reuse store at the county's hazardous-waste facility on McCourtney Road.",
+      "es": "Pintura y productos del hogar gratis en la tienda de reutilización del centro de residuos peligrosos del condado, en McCourtney Road."
+    },
+    "signals": ["homeowner"]
+  },
+  {
+    "id": "nid-rebates",
+    "slug": "incentives-rebates--nevada-irrigation-district",
+    "name": {
+      "en": "NID water-saving rebates",
+      "es": "Reembolsos de NID por ahorrar agua"
+    },
+    "blurb": {
+      "en": "NID water customers: cash rebates for efficient toilets, smart sprinkler controllers, and other water-saving upgrades.",
+      "es": "Clientes de agua de NID: reembolsos en efectivo por inodoros eficientes, controladores de riego inteligentes y otras mejoras de ahorro de agua."
+    },
+    "signals": ["nid-water"]
+  },
+  {
+    "id": "ask-the-ref",
+    "slug": "ask-the-ref-bereau-of-automotive-repair-smog-check-referee-program",
+    "name": {
+      "en": "Smog Check Referee (Ask the Ref)",
+      "es": "Árbitro de Smog Check (Ask the Ref)"
+    },
+    "blurb": {
+      "en": "Failed smog? The state's free Smog Check Referee program helps with tricky cases, exemptions, and eligibility.",
+      "es": "¿No pasó la prueba de smog? El programa estatal gratuito del Árbitro de Smog Check ayuda con casos difíciles y exenciones."
+    },
+    "signals": ["transport-interest"]
+  },
+  {
+    "id": "auto-body-inspection",
+    "slug": "auto-body-inspection-program--bureau-of-automotive-repair",
+    "name": {
+      "en": "Free auto body inspection (BAR)",
+      "es": "Inspección de carrocería gratuita (BAR)"
+    },
+    "blurb": {
+      "en": "Free state inspection of a recent collision repair — confirm the shop actually did the work you paid for.",
+      "es": "Inspección estatal gratuita de una reparación de carrocería reciente — confirme que el taller hizo el trabajo que usted pagó."
+    },
+    "signals": ["transport-interest"]
+  },
+  {
+    "id": "parts-locator",
+    "slug": "parts-locator-service-pls-ask-the-ref",
+    "name": {
+      "en": "Smog parts locator service",
+      "es": "Servicio de localización de piezas de smog"
+    },
+    "blurb": {
+      "en": "Car failed smog and the replacement part is hard to find? This free state service locates it.",
+      "es": "¿Su carro no pasó el smog y la pieza de repuesto es difícil de encontrar? Este servicio estatal gratuito la localiza."
+    },
+    "signals": ["transport-interest"]
+  },
+  {
+    "id": "mattress-disposal",
+    "slug": "mattress-disposal-in-california",
+    "name": {
+      "en": "Free mattress disposal",
+      "es": "Eliminación gratuita de colchones"
+    },
+    "blurb": {
+      "en": "California retailers must haul away your old mattress free when delivering a new one — free drop-off sites too.",
+      "es": "En California, las tiendas deben llevarse gratis su colchón viejo al entregar uno nuevo — también hay sitios de entrega gratuitos."
+    },
+    "signals": ["renter", "homeowner"]
+  }
+]
