@@ -120,5 +120,8 @@
   "footer.threeDoors": "Whatever the screener says: 2-1-1 (24/7, English/Spanish) · findhelp.org · our Discord — real people, free.",
   "footer.print": "Print / save my list",
   "lang.toggle": "Español",
-  "note.lifeline-carrier-signup": "You sign up once, on the phone company's own website — the company manages the state application for you."
+  "note.lifeline-carrier-signup": "You sign up once, on the phone company's own website — the company manages the state application for you.",
+  "suggest.heading": "More help worth knowing about",
+  "suggest.intro": "Not part of the check above — these are pointers from our free-resources guide that match your situation. Each opens in a new tab.",
+  "suggest.newTab": "(opens in a new tab)"
 }

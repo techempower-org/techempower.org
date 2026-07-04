@@ -120,5 +120,8 @@
   "footer.threeDoors": "Diga lo que diga esta revisión: 2-1-1 (24/7, inglés/español) · findhelp.org · nuestro Discord — personas reales, gratis.",
   "footer.print": "Imprimir / guardar mi lista",
   "lang.toggle": "English",
-  "note.lifeline-carrier-signup": "Se inscribe una sola vez, en el sitio web de la compañía telefónica — la compañía gestiona la solicitud estatal por usted."
+  "note.lifeline-carrier-signup": "Se inscribe una sola vez, en el sitio web de la compañía telefónica — la compañía gestiona la solicitud estatal por usted.",
+  "suggest.heading": "Más ayuda que vale la pena conocer",
+  "suggest.intro": "No son parte del chequeo de arriba — son sugerencias de nuestra guía de recursos gratuitos que coinciden con su situación. Cada una se abre en una pestaña nueva.",
+  "suggest.newTab": "(se abre en una pestaña nueva)"
 }
