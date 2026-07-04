@@ -635,5 +635,18 @@
       "es": "En California, las tiendas deben llevarse gratis su colchón viejo al entregar uno nuevo — también hay sitios de entrega gratuitos."
     },
     "signals": ["renter", "homeowner"]
+  },
+  {
+    "id": "library-parks-pass",
+    "slug": "california-state-library-parks-pass-nevada-county-ca",
+    "name": {
+      "en": "California State Library Parks Pass",
+      "es": "Pase de Parques de la Biblioteca Estatal de California"
+    },
+    "blurb": {
+      "en": "Borrow a free California State Parks day-use pass with any library card — one car's entry at 200+ state parks, for 7 days.",
+      "es": "Pida prestado un pase gratuito de uso diurno a más de 200 parques estatales de California con cualquier tarjeta de biblioteca — por 7 días."
+    },
+    "signals": ["has-kids", "senior"]
   }
 ]
