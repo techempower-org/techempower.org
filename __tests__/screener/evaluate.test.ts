@@ -891,4 +891,94 @@ describe('evaluate — golden cases from the fact-check corpus', () => {
       )
     ).toBe('absent')
   })
+  it('wave-2 PTP: 62+ homeowner under the income cap → worthAsking (seasonal) with the lien note; gates on homeowner + 62/disabled', () => {
+    const owner62: Answers = {
+      ...base,
+      flags: ['homeowner'],
+      incomeMonthlyGross: 4000,
+      ages: { under5: 0, age5to17: 0, age18to59: 1, age60plus: 1, age80plus: 0 }
+    }
+    const r = evaluate(owner62, R)
+    expect(bucketOf(r, 'property-tax-postponement')).toBe('worthAsking') // seasonal cap
+    const v = r.worthAsking.find(
+      (x) => x.ruleId === 'property-tax-postponement'
+    )
+    expect(v?.notes).toContain('ptp-lien-repaid')
+    // must own the home — a renter never sees it (flagsAll gate)
+    expect(
+      bucketOf(
+        evaluate({ ...owner62, flags: ['renter'] }, R),
+        'property-tax-postponement'
+      )
+    ).toBe('absent')
+    // memberGate: a homeowner under the cap but with no 62+/blind/disabled member → omitted
+    const youngOwner: Answers = {
+      ...owner62,
+      ages: { under5: 0, age5to17: 0, age18to59: 2, age60plus: 0, age80plus: 0 }
+    }
+    expect(bucketOf(evaluate(youngOwner, R), 'property-tax-postponement')).toBe(
+      'absent'
+    )
+  })
+  it('wave-2 Homeowners Exemption: flags × universal — homeowner → strong, non-homeowner → omitted', () => {
+    const owner = evaluate({ ...base, flags: ['homeowner'] }, R)
+    expect(bucketOf(owner, 'homeowners-exemption')).toBe('strong')
+    expect(
+      owner.strong.find((x) => x.ruleId === 'homeowners-exemption')?.reasons[0]
+        ?.key
+    ).toBe('reason.universal')
+    // base flags are ['renter', 'pge-customer'] → the flagsAll[homeowner] gate omits it
+    expect(bucketOf(evaluate(base, R), 'homeowners-exemption')).toBe('absent')
+  })
+  it('wave-2 DOR voc rehab: flags-only disability → worthAsking; no disability → absent', () => {
+    const disabled = evaluate(
+      { ...base, flags: [...base.flags, 'disability'] },
+      R
+    )
+    expect(bucketOf(disabled, 'dor-voc-rehab')).toBe('worthAsking')
+    expect(
+      disabled.worthAsking.find((x) => x.ruleId === 'dor-voc-rehab')?.reasons[0]
+        ?.key
+    ).toBe('reason.flag-match')
+    expect(bucketOf(evaluate(base, R), 'dor-voc-rehab')).toBe('absent')
+  })
+  it('wave-2 Habitat: nevada-county household at/under the income ceiling → worthAsking; over the ceiling / other-ca → absent', () => {
+    // HH4 ceiling = $7,500/mo; base HH4 @ $4,800 is under it
+    expect(bucketOf(evaluate(base, R), 'habitat-home-buyer')).toBe(
+      'worthAsking'
+    )
+    // at the ceiling boundary → still present
+    expect(
+      bucketOf(
+        evaluate({ ...base, incomeMonthlyGross: 7500 }, R),
+        'habitat-home-buyer'
+      )
+    ).toBe('worthAsking')
+    // over the ceiling (no rescue) → absent
+    expect(
+      bucketOf(
+        evaluate({ ...base, incomeMonthlyGross: 8000 }, R),
+        'habitat-home-buyer'
+      )
+    ).toBe('absent')
+    // nevada-county jurisdiction → gone for other-ca
+    expect(
+      bucketOf(
+        evaluate({ ...base, county: 'other-ca' as const }, R),
+        'habitat-home-buyer'
+      )
+    ).toBe('absent')
+  })
+  it('wave-2 SilverSneakers: Medicare flag → worthAsking; no medicare flag → absent', () => {
+    const medicare = evaluate(
+      { ...base, flags: [...base.flags, 'medicare'] },
+      R
+    )
+    expect(bucketOf(medicare, 'silversneakers')).toBe('worthAsking')
+    expect(
+      medicare.worthAsking.find((x) => x.ruleId === 'silversneakers')
+        ?.reasons[0]?.key
+    ).toBe('reason.flag-match')
+    expect(bucketOf(evaluate(base, R), 'silversneakers')).toBe('absent')
+  })
 })
