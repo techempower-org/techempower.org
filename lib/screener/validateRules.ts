@@ -49,7 +49,8 @@ export function validateRules(rules: Rule[], now: Date): string[] {
       t.ageAnyMin !== undefined ||
       t.ageAnyMax !== undefined ||
       (t.flagsAll?.length ?? 0) > 0 ||
-      (t.categoricalUnlocks?.length ?? 0) > 0
+      (t.categoricalUnlocks?.length ?? 0) > 0 ||
+      (t.memberFlagsAny?.length ?? 0) > 0
     if (!hasDimension) problems.push(`${where}: no eligibility dimension`)
 
     for (const field of ['name', 'value'] as const) {

@@ -60,6 +60,24 @@ describe('deriveSignals — goldens', () => {
     expect([...signals].toSorted()).toEqual(['senior'])
   })
 
+  it('student flag derives exactly {student}', () => {
+    const signals = deriveSignals(
+      baseAnswers({ flags: ['student'] }),
+      emptyResult(),
+      'en'
+    )
+    expect([...signals].toSorted()).toEqual(['student'])
+  })
+
+  it('homeless flag derives exactly {homeless}', () => {
+    const signals = deriveSignals(
+      baseAnswers({ flags: ['homeless'] }),
+      emptyResult(),
+      'en'
+    )
+    expect([...signals].toSorted()).toEqual(['homeless'])
+  })
+
   it('kids + food program in results: {has-kids, food-interest}', () => {
     const answers = baseAnswers({
       ages: { under5: 1, age5to17: 1, age18to59: 1, age60plus: 0, age80plus: 0 }

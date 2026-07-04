@@ -2088,6 +2088,7 @@
         "increment": 37
       },
       "ageAnyMax": 17,
+      "memberFlagsAny": ["homeless", "pregnant"],
       "categoricalUnlocks": ["calworks"],
       "specialNotes": [
         "calworks-ha-homeless-trigger",
@@ -3386,6 +3387,206 @@
         "source": "https://www.mercymedical.org/request-assistance",
         "verifiedAt": "2026-07-04",
         "via": "wave-2 ready-set draft (nebula, browser-UA curl) — 'nationwide' gas cards/air + Mid-Atlantic ground focus verbatim from the home-page hero; cited to the durable /request-assistance program page because the bare origin fails the no-bare-origin validator (silversneakers pattern); CA-served note retained + wave-2 final adversarial verification 2026-07-04 (oracle)"
+      }
+    ]
+  },
+  {
+    "id": "cal-grants",
+    "jurisdiction": "CA",
+    "category": "money",
+    "status": "check-first",
+    "test": {
+      "flagsAll": ["student"],
+      "limitsMonthly": {
+        "1": 4416,
+        "2": 10833,
+        "3": 11100,
+        "4": 12058,
+        "5": 12916,
+        "6": 13933,
+        "7": 13933,
+        "8": 13933,
+        "increment": 0
+      },
+      "proxyReasonKey": "reason.calgrant-income-band",
+      "specialNotes": [
+        "calgrant-generous-limits",
+        "calgrant-fafsa-deadline",
+        "calgrant-what-you-get"
+      ]
+    },
+    "noteParams": {
+      "calgrant-generous-limits": {
+        "amountFamily4Annual": 144700,
+        "limitAssetDependent": 111900
+      },
+      "calgrant-fafsa-deadline": {
+        "deadline": "2026-03-02"
+      },
+      "calgrant-what-you-get": {
+        "amountGrantA": 12570,
+        "amountAccessB": 1656,
+        "amountDependent": 6000
+      }
+    },
+    "name": {
+      "en": "Cal Grants (state college money you don't pay back)",
+      "es": "Cal Grants (dinero estatal para la universidad que no se devuelve)"
+    },
+    "value": {
+      "en": "Free college money from California — Cal Grant A up to $12,570/yr, Cal Grant B tuition plus a $1,656 access award, and more, plus an extra $6,000/yr if you have dependent children. For enrolled or college-bound students who meet income and GPA rules. File the FAFSA or CA Dream Act Application by March 2.",
+      "es": "Dinero universitario gratis de California — Cal Grant A hasta $12,570/año, Cal Grant B matrícula más una ayuda de acceso de $1,656, y más, además de $6,000/año extra si tiene hijos dependientes. Para estudiantes inscritos o que van a la universidad y cumplen las reglas de ingresos y GPA. Presente la FAFSA o la Solicitud de la Ley Dream de CA antes del 2 de marzo."
+    },
+    "apply": {
+      "url": "https://www.csac.ca.gov/financial-aid-programs",
+      "phone": {
+        "en": "California Student Aid Commission 1-888-224-7268",
+        "es": "Comisión de Ayuda Estudiantil de California 1-888-224-7268"
+      },
+      "local": {
+        "en": "File the FAFSA (or CA Dream Act Application for undocumented students) by March 2, 2026 for 2026-27, and submit a verified GPA. Your college financial-aid office can help.",
+        "es": "Presente la FAFSA (o la Solicitud de la Ley Dream de CA para estudiantes indocumentados) antes del 2 de marzo de 2026 para 2026-27, y envíe un GPA verificado. La oficina de ayuda financiera de su colegio puede ayudar."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Cal Grant 2026-27 award amounts (CSAC): Cal Grant A up to $12,570/yr (UC), $9,708 (private nonprofit), $5,742 (CSU); Cal Grant B tuition + $1,656 access award; Chafee Grant $5,000/yr (foster youth); an additional ~$6,000/yr Cal Grant access award for students with dependent children. File FAFSA or CA Dream Act Application by March 2, 2026; verified GPA required.",
+        "source": "https://www.csac.ca.gov/financial-aid-programs",
+        "verifiedAt": "2026-05-30",
+        "via": "wave-2 finale draft (nebula) — award figures + March 2 deadline from DB row [093] (Verified 2026-05-30) + csac.ca.gov live + wave-2 final adversarial verification 2026-07-04 (oracle) — ONE-SOURCE FLAGGED: the oracle's CSAC curl was 405-bot-walled, could not independently reproduce the ceilings/awards; ships on nebula pdftotext + DB [093] (calkids precedent)"
+      },
+      {
+        "claim": "2026-27 Cal Grant Program INCOME CEILINGS (annual), Cal Grant A & C column (dependent students + independent students with dependents), by family size: 2 $130,000 · 3 $133,200 · 4 $144,700 · 5 $155,000 · 6+ $167,200. Independent students: single no dependents $53,000; married no dependents $60,700. Cal Grant B column (lower): 2 $60,700 · 3 $68,400 · 4 $76,100 · 5 $85,100 · 6+ $91,900. ASSET ceilings: dependent $111,900; independent $53,300.",
+        "source": "https://www.csac.ca.gov/sites/default/files/2025-07/2026-27-Income-and-Asset-Ceiling.pdf",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 finale draft (nebula) — CSAC ceiling PDF pdftotext-extracted, table verbatim; limitsMonthly = Cal Grant A/C ceilings ÷12 floored (the most inclusive ceiling; HH1 = independent-single $53,000/12); proxyReasonKey suppresses the single number (dependent/independent + A-vs-B makes one printed cell misleading) + wave-2 final adversarial verification 2026-07-04 (oracle) — one-source (405-bot-walled), calkids precedent"
+      }
+    ]
+  },
+  {
+    "id": "sierra-college-emergency-fund",
+    "jurisdiction": "CA",
+    "category": "money",
+    "status": "check-first",
+    "test": {
+      "flagsAll": ["student"],
+      "specialNotes": [
+        "scef-currently-enrolled",
+        "scef-what-covers",
+        "scef-safe-larger"
+      ]
+    },
+    "noteParams": {
+      "scef-what-covers": {
+        "amountGrantMax": 500
+      },
+      "scef-safe-larger": {
+        "amountSafeMax": 1500
+      }
+    },
+    "name": {
+      "en": "Sierra College Student Emergency Fund (up to $500 to stay in school)",
+      "es": "Fondo de Emergencia para Estudiantes de Sierra College (hasta $500 para seguir estudiando)"
+    },
+    "value": {
+      "en": "A one-time grant of up to $500 when a sudden expense — rent deposit, gas, car repair, textbooks, a medical bill — threatens to knock you out of school. A larger SAFE award (up to $1,500) can cover bigger barriers like housing or food. For currently enrolled Sierra College students at any campus.",
+      "es": "Una subvención única de hasta $500 cuando un gasto repentino — depósito de renta, gasolina, reparación del auto, libros, una factura médica — amenaza con sacarlo de la escuela. Una ayuda SAFE mayor (hasta $1,500) puede cubrir barreras más grandes como vivienda o comida. Para estudiantes actualmente inscritos en Sierra College en cualquier campus."
+    },
+    "apply": {
+      "url": "https://www.sierracollege.edu/about-sierra-college/sierra-college-foundation/impact-programs-to-support/student-emergency-fund/",
+      "phone": {
+        "en": "Sierra College (916) 660-7000",
+        "es": "Sierra College (916) 660-7000"
+      },
+      "local": {
+        "en": "Open to enrolled students at any campus — Rocklin, Nevada County (Grass Valley), Tahoe-Truckee, Roseville Gateway. Ask your campus Financial Aid or Student Life office.",
+        "es": "Abierto a estudiantes inscritos en cualquier campus — Rocklin, condado de Nevada (Grass Valley), Tahoe-Truckee, Roseville Gateway. Pregunte en la oficina de Ayuda Financiera o Vida Estudiantil de su campus."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Sierra College Foundation Student Emergency Fund gives one-time grants of up to $500 to currently enrolled students facing a sudden one-time emergency (rent deposit, gas, car repair, textbooks, medical bill) to keep them in school; a larger SAFE award (up to $1,500, requires good academic standing) covers bigger barriers like housing or food. Open to enrolled students at any campus (Rocklin, Nevada County, Tahoe-Truckee, Roseville Gateway).",
+        "source": "https://www.sierracollege.edu/about-sierra-college/sierra-college-foundation/impact-programs-to-support/student-emergency-fund/",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 finale draft (nebula, browser-UA curl) — 'grants of up to $500' + all-campuses + currently-enrolled confirmed on live page; $1,500 SAFE award + (916) 660-7000 from DB row [220] (Verified 2026-05-30) + wave-2 final adversarial verification 2026-07-04 (oracle) — soft: re-verify the $1,500 SAFE tier + academic-standing at a later pass"
+      }
+    ]
+  },
+  {
+    "id": "sierra-college-free-bus",
+    "jurisdiction": "CA",
+    "category": "transport",
+    "status": "open",
+    "test": {
+      "flagsAll": ["student"],
+      "specialNotes": ["scbus-how", "scbus-routes"]
+    },
+    "name": {
+      "en": "Free bus rides for Sierra College students",
+      "es": "Viajes de autobús gratis para estudiantes de Sierra College"
+    },
+    "value": {
+      "en": "Ride local buses free — Roseville, Placer County, and Auburn Transit, Nevada County Connects, and Tahoe-Truckee (TART) — just show your Sierra College ID with a current ASSC Student Activity Sticker. Credit and noncredit students both qualify.",
+      "es": "Viaje gratis en autobuses locales — Roseville, Placer County y Auburn Transit, Nevada County Connects y Tahoe-Truckee (TART) — solo muestre su identificación de Sierra College con una calcomanía de actividad estudiantil ASSC vigente. Estudiantes de crédito y sin crédito califican."
+    },
+    "apply": {
+      "url": "https://www.sierracollege.edu/visit-sierra-college/bus-services/",
+      "phone": {
+        "en": "Nevada County Connects (888) 660-7433 · TART (530) 550-1212",
+        "es": "Nevada County Connects (888) 660-7433 · TART (530) 550-1212"
+      },
+      "local": {
+        "en": "Get a current ASSC Student Activity Sticker each term from your campus ASSC/Student Life office, then just show your ID when you board.",
+        "es": "Obtenga una calcomanía de actividad estudiantil ASSC vigente cada semestre en la oficina de ASSC/Vida Estudiantil de su campus, luego solo muestre su identificación al abordar."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Sierra College students ride free on partner transit by showing a Sierra College ID with a current ASSC Student Activity Sticker when boarding any Roseville Transit, Placer County Transit, Auburn Transit, Nevada County Connects, and/or Tahoe-Truckee Area Regional Transit (TART) bus. Available to students enrolled in noncredit classes too. Stickers obtained each term from the campus ASSC/Student Life office.",
+        "source": "https://www.sierracollege.edu/visit-sierra-college/bus-services/",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 finale draft (nebula, browser-UA curl) — ASSC sticker mechanic, the five named transit partners, and 'available to students enrolled in noncredit classes' verbatim + wave-2 final adversarial verification 2026-07-04 (oracle)"
+      }
+    ]
+  },
+  {
+    "id": "hospitality-house",
+    "jurisdiction": "nevada-county",
+    "category": "housing",
+    "status": "check-first",
+    "test": {
+      "flagsAll": ["homeless"],
+      "specialNotes": [
+        "hh-residency-checkin",
+        "hh-what-you-get",
+        "hh-no-id-pets"
+      ]
+    },
+    "name": {
+      "en": "Hospitality House (emergency shelter, Nevada County)",
+      "es": "Hospitality House (refugio de emergencia, condado de Nevada)"
+    },
+    "value": {
+      "en": "Nevada County's year-round emergency shelter in Grass Valley — a bed, hot meals, showers, laundry, case management, and help finding permanent housing. Single adults and families. No photo ID needed; approved pets welcome.",
+      "es": "El refugio de emergencia de todo el año del condado de Nevada en Grass Valley — una cama, comidas calientes, duchas, lavandería, gestión de casos y ayuda para encontrar vivienda permanente. Adultos solos y familias. No se necesita identificación con foto; se aceptan mascotas aprobadas."
+    },
+    "apply": {
+      "url": "https://www.hhshelter.org/programs-services/utahs-place/",
+      "phone": {
+        "en": "Shelter line (530) 271-7144 · backup 2-1-1 or Nevada County Homeless Resource Helpline (833) 375-2237",
+        "es": "Línea del refugio (530) 271-7144 · alternativa 2-1-1 o Línea de Recursos para Personas sin Hogar del Condado de Nevada (833) 375-2237"
+      },
+      "local": {
+        "en": "Utah's Place, 1262 Sutton Way, Grass Valley. Check-in daily 4:00-5:30 p.m. — call (530) 271-7144 or come in person. If no answer, call 2-1-1 or (833) 375-2237.",
+        "es": "Utah's Place, 1262 Sutton Way, Grass Valley. Registro diario de 4:00-5:30 p.m. — llame al (530) 271-7144 o venga en persona. Si no contestan, llame al 2-1-1 o al (833) 375-2237."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Hospitality House operates Nevada County's only year-round emergency homeless shelter (Utah's Place, 1262 Sutton Way, Grass Valley), up to 69 beds for single adults and families; 45-day county residency required; no photo ID required; approved pets welcome. Provides bed, hot meals, showers, laundry, case management, job training, mental-health screening, and free transportation (HAT van). Check-in daily 4:00-5:30 p.m. Shelter line (530) 271-7144; backup 2-1-1 or (833) 375-2237.",
+        "source": "https://www.hhshelter.org/programs-services/utahs-place/",
+        "verifiedAt": "2026-05-30",
+        "via": "wave-2 finale draft (nebula) — services/residency/beds from DB row [151] (Verified 2026-05-30); hhshelter.org live confirms address + shelter line (530) 271-7144 + the 'Utah's Place' program (nav-shell live page; cited to the WebFetch-verified /programs-services/utahs-place/ program page (2026-07-04), not the bare origin) + wave-2 final adversarial verification 2026-07-04 (oracle) — phone-confirm the 45-day residency + 4:00-5:30 window recommended (non-blocking)"
       }
     ]
   }

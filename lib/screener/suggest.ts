@@ -25,6 +25,8 @@ export type Signal =
   | 'nid-water'
   | 'pregnant'
   | 'medicare'
+  | 'student'
+  | 'homeless'
   | 'food-interest'
   | 'utilities-interest'
   | 'transport-interest'
@@ -42,6 +44,8 @@ export const SIGNAL_VOCABULARY: readonly Signal[] = [
   'nid-water',
   'pregnant',
   'medicare',
+  'student',
+  'homeless',
   'food-interest',
   'utilities-interest',
   'transport-interest',
@@ -111,6 +115,8 @@ export function deriveSignals(
   if (answers.flags.includes('nid-water')) signals.add('nid-water')
   if (answers.flags.includes('pregnant')) signals.add('pregnant')
   if (answers.flags.includes('medicare')) signals.add('medicare')
+  if (answers.flags.includes('student')) signals.add('student')
+  if (answers.flags.includes('homeless')) signals.add('homeless')
   if (lang === 'es') signals.add('spanish-ui')
 
   // Category interests: a program of that category anywhere in the results

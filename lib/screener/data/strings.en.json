@@ -220,5 +220,19 @@
   "note.miracleflights-who-flies": "The child plus up to 2 parents or guardians fly free (3 passengers).",
   "note.mma-what-you-get": "Gas cards to drive yourself, bus/train tickets, or commercial flights (plus one escort if medically necessary). Gas cards and flights are nationwide.",
   "note.mma-distance-rules": "For medically necessary trips: driving 50+ miles one way (or 100+/month), or flying 200+ miles. You must be able to travel without medical supervision.",
-  "note.mma-apply-window": "Apply 7-45 days before your appointment (3-4 weeks ahead is best). You, a social worker, or a case manager can request."
+  "note.mma-apply-window": "Apply 7-45 days before your appointment (3-4 weeks ahead is best). You, a social worker, or a case manager can request.",
+  "form.flags.student": "Is anyone in your household in college or job training?",
+  "form.flags.homeless": "Is anyone in your household homeless or at risk of losing housing?",
+  "reason.calgrant-income-band": "Your income may be within Cal Grant's limits — they depend on your family size and whether you're a dependent, so the exact cutoff varies",
+  "note.calgrant-generous-limits": "Income and asset limits apply, but they're generous — most working families with a college student qualify (a family of 4 can earn up to about {amountFamily4Annual} a year; savings under {limitAssetDependent}).",
+  "note.calgrant-fafsa-deadline": "File the FAFSA or CA Dream Act Application by {deadline}, and submit a verified GPA.",
+  "note.calgrant-what-you-get": "Cal Grant A up to {amountGrantA}/yr, Cal Grant B tuition + a {amountAccessB} access award; an extra ~{amountDependent}/yr if you have dependent children.",
+  "note.scef-currently-enrolled": "For students currently enrolled at any Sierra College campus.",
+  "note.scef-what-covers": "A one-time grant up to {amountGrantMax} for a sudden emergency — rent deposit, gas, car repair, textbooks, a medical bill — that could knock you out of school.",
+  "note.scef-safe-larger": "A larger SAFE award (up to {amountSafeMax}, needs good academic standing) can cover bigger barriers like housing or food.",
+  "note.scbus-how": "Get a current ASSC Student Activity Sticker each term from your campus ASSC/Student Life office, then just show your Sierra College ID when you board.",
+  "note.scbus-routes": "Works on Roseville, Placer County, and Auburn Transit, Nevada County Connects, and Tahoe-Truckee (TART). Credit and noncredit students both qualify.",
+  "note.hh-residency-checkin": "You need 45 days of Nevada County residency. Check-in is daily 4:00-5:30 p.m. — call (530) 271-7144 or come to 1262 Sutton Way, Grass Valley.",
+  "note.hh-what-you-get": "A bed, hot meals, showers, laundry, case management, job training, and free rides (HAT van).",
+  "note.hh-no-id-pets": "No photo ID required. Approved pets are welcome. Single adults and families."
 }

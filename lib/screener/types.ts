@@ -34,6 +34,8 @@ export type SituationFlag =
   | 'pregnant'
   | 'medicare'
   | 'disability'
+  | 'student'
+  | 'homeless'
 
 export interface AgeBandCounts {
   under5: number

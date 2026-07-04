@@ -220,5 +220,19 @@
   "note.miracleflights-who-flies": "El niño más hasta 2 padres o tutores vuelan gratis (3 pasajeros).",
   "note.mma-what-you-get": "Tarjetas de gasolina para conducir usted mismo, boletos de autobús/tren, o vuelos comerciales (más un acompañante si es médicamente necesario). Las tarjetas de gasolina y los vuelos son a nivel nacional.",
   "note.mma-distance-rules": "Para viajes médicamente necesarios: conducir 50+ millas de ida (o 100+/mes), o volar 200+ millas. Debe poder viajar sin supervisión médica.",
-  "note.mma-apply-window": "Solicite entre 7 y 45 días antes de su cita (3-4 semanas es lo mejor). Usted, un trabajador social o un gestor de casos puede solicitar."
+  "note.mma-apply-window": "Solicite entre 7 y 45 días antes de su cita (3-4 semanas es lo mejor). Usted, un trabajador social o un gestor de casos puede solicitar.",
+  "form.flags.student": "¿Alguien en su hogar está en la universidad o en capacitación laboral?",
+  "form.flags.homeless": "¿Alguien en su hogar no tiene hogar o está en riesgo de perder su vivienda?",
+  "reason.calgrant-income-band": "Sus ingresos pueden estar dentro de los límites de Cal Grant — dependen del tamaño de su familia y de si es dependiente, así que el límite exacto varía",
+  "note.calgrant-generous-limits": "Se aplican límites de ingresos y bienes, pero son generosos — la mayoría de las familias trabajadoras con un estudiante universitario califican (una familia de 4 puede ganar hasta unos {amountFamily4Annual} al año; ahorros por debajo de {limitAssetDependent}).",
+  "note.calgrant-fafsa-deadline": "Presente la FAFSA o la Solicitud de la Ley Dream de CA antes del {deadline}, y envíe un GPA verificado.",
+  "note.calgrant-what-you-get": "Cal Grant A hasta {amountGrantA}/año, Cal Grant B matrícula + una ayuda de acceso de {amountAccessB}; {amountDependent}/año extra si tiene hijos dependientes.",
+  "note.scef-currently-enrolled": "Para estudiantes actualmente inscritos en cualquier campus de Sierra College.",
+  "note.scef-what-covers": "Una subvención única de hasta {amountGrantMax} para una emergencia repentina — depósito de renta, gasolina, reparación del auto, libros, una factura médica — que podría sacarlo de la escuela.",
+  "note.scef-safe-larger": "Una ayuda SAFE mayor (hasta {amountSafeMax}, requiere buen desempeño académico) puede cubrir barreras más grandes como vivienda o comida.",
+  "note.scbus-how": "Obtenga una calcomanía de actividad estudiantil ASSC vigente cada semestre en la oficina de ASSC/Vida Estudiantil de su campus, luego solo muestre su identificación de Sierra College al abordar.",
+  "note.scbus-routes": "Funciona en Roseville, Placer County y Auburn Transit, Nevada County Connects y Tahoe-Truckee (TART). Estudiantes de crédito y sin crédito califican.",
+  "note.hh-residency-checkin": "Necesita 45 días de residencia en el condado de Nevada. El registro es diario de 4:00-5:30 p.m. — llame al (530) 271-7144 o venga a 1262 Sutton Way, Grass Valley.",
+  "note.hh-what-you-get": "Una cama, comidas calientes, duchas, lavandería, gestión de casos, capacitación laboral y transporte gratis (camioneta HAT).",
+  "note.hh-no-id-pets": "No se requiere identificación con foto. Se aceptan mascotas aprobadas. Adultos solos y familias."
 }
