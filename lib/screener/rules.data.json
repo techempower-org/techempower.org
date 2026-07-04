@@ -1730,5 +1730,274 @@
         "via": "wave-2 batch A adversarial verification 2026-07-03 (oracle) — added at integration as the printed-dollar pin for the fpl-derived cells"
       }
     ]
+  },
+  {
+    "id": "calkids",
+    "jurisdiction": "CA",
+    "category": "money",
+    "status": "check-first",
+    "test": {
+      "ageAnyMax": 17,
+      "specialNotes": [
+        "calkids-newborn",
+        "calkids-student-cohort",
+        "calkids-claim-free"
+      ]
+    },
+    "noteParams": {
+      "calkids-newborn": { "amountOlder": 100, "amountNewer": 175 },
+      "calkids-student-cohort": {
+        "amountStudent": 500,
+        "amountStudentMax": 1500,
+        "amountFosterHomeless": 500
+      }
+    },
+    "name": {
+      "en": "CalKIDS (college money already deposited for your kid)",
+      "es": "CalKIDS (dinero para la universidad ya depositado para su hijo)"
+    },
+    "value": {
+      "en": "Money the state already set aside: up to $175 for babies born in CA since July 2022 (every baby — no income test), and $500–$1,500 for low-income public-school students. Nothing to apply for — you just claim the account at calkids.org.",
+      "es": "Dinero que el estado ya apartó: hasta $175 para bebés nacidos en CA desde julio de 2022 (todos los bebés — sin prueba de ingresos), y $500–$1,500 para estudiantes de escuelas públicas de bajos ingresos. No hay solicitud — solo reclame la cuenta en calkids.org."
+    },
+    "apply": {
+      "url": "https://calkids.org",
+      "phone": {
+        "en": "1 (888) 445-2377 (Mon-Fri 8am-5pm Pacific, multilingual)",
+        "es": "1 (888) 445-2377 (lun-vie 8am-5pm hora del Pacífico, atención en varios idiomas)"
+      },
+      "local": {
+        "en": "Checking takes 2 minutes: use the LRN on your baby's birth certificate, or the student's 10-digit SSID (ask the school office or see CaliforniaColleges.edu)",
+        "es": "Verificar toma 2 minutos: use el LRN del acta de nacimiento de su bebé, o el SSID de 10 dígitos del estudiante (pregunte en la oficina escolar o vea CaliforniaColleges.edu)"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Universal newborn eligibility, verbatim (About page): '*All children born in California on or after July 1, 2022' are automatically offered a CalKIDS Scholarship Account; CalKIDS is administered by the ScholarShare Investment Board and 'automatically offer[s] children born in California and eligible public school students in California a CalKIDS Scholarship Account, along with other potential financial incentives'",
+        "source": "https://calkids.org/about/",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-B draft (nebula, live fetch, browser-UA curl; static WordPress) + adversarial verification 2026-07-04 (oracle) — deep path; the bare calkids.org/ home carries the same sentence but fails the no-bare-origin validator rule"
+      },
+      {
+        "claim": "Eligibility-tool decision logic (site's own tool, static markup): newborn branch asks only born-in-CA + born-after-July-1-2022 → 'up to $100' for July 2022-June 2023 births, 'up to $175' after July 1 2023 (seed + claim/link bonuses; reconciles the Program Guide seed breakdown below). Student branch qualifying standards verbatim: receiving NSLP meals; submitted an Alternative Household Income Form; participated in CalFresh, CalWORKS, FDPIR, or Medi-Cal; designated English Learner; designated migratory, homeless, or foster youth → 'scholarship worth up to $1,500'. Tool note: 'Actual eligibility requires that CalKIDS has received the student's qualifying information from the California Department of Education'; young children not yet identified: 'check back when your child reaches 2nd grade'",
+        "source": "https://calkids.org/eligibility/",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-B draft (nebula, live fetch) + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "Program Information Guide (durable PDF primary) confirms: newborn seed $25 (born through June 30, 2023, regardless of income) / $100 (born on or after July 1, 2023, regardless of income); +$25 for registering on the online portal; +$25 additional award for enrolled-at-birth participants; newborn awards processed within 90 days of birth data. Student awards: $500 automatic for low-income/EL public-school students + $500 for foster + $500 for homeless (max $1,500); launch cohort enrolled 2021-2022, plus each 1st-grade cohort from fall 2022 thereafter, identified by LCFF on Census Day. Deposits '100% free from state and federal' tax; usable for qualified higher-education expenses nationwide; funds cannot be added directly (link a ScholarShare 529)",
+        "source": "https://calkids.org/wp-content/uploads/2023/08/CalKIDS-Program-Information-Guide-8.1.23.pdf",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-B draft (nebula, live fetch + pdftotext) + adversarial verification 2026-07-04 (oracle) — guide dated 2023-08-01; its $25/$100 seeds reconcile with the live pages' $100/$175 totals (seed + bonuses); single-domain calkids.org sourcing accepted (it is the ScholarShare Investment Board official state site; treasurer.ca.gov/scholarshare/calkids 404'd)"
+      },
+      {
+        "claim": "Claim mechanics + contact (Get Started / About + Program Guide): claiming needs the Local Registration Number (LRN) from the birth certificate (or CalKIDS Code from the mailed letter) OR the student's 10-digit Statewide Student Identifier (SSID from the school/district), plus date of birth and county of birth/enrollment; participant data supplied by CDPH (births) and CDE (students, per the Local Control Funding Formula); ScholarShare Investment Board, 915 Capitol Mall Ste 141, Sacramento; call center 1 (888) 445-2377 Mon-Fri 8am-5pm PT, multilingual",
+        "source": "https://calkids.org/get-started/",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-B draft (nebula, live fetch) + adversarial verification 2026-07-04 (oracle) — LRN/SSID+DOB+county claim-requirement list is verbatim on the home page and echoed in the Program Guide (§ how to claim)"
+      }
+    ]
+  },
+  {
+    "id": "pge-generator-battery",
+    "jurisdiction": "CA",
+    "category": "utilities",
+    "status": "check-first",
+    "test": {
+      "flagsAll": ["pge-customer"],
+      "specialNotes": [
+        "genbat-fire-area-gate",
+        "genbat-buy-first",
+        "genbat-sunset"
+      ]
+    },
+    "noteParams": {
+      "genbat-sunset": { "deadline": "2026-12-31" },
+      "genbat-buy-first": { "amountBase": 300, "amountCareFera": 500 }
+    },
+    "name": {
+      "en": "PG&E generator & battery rebate (up to $500, ends Dec 2026)",
+      "es": "Reembolso de PG&E por generador o batería (hasta $500, termina dic 2026)"
+    },
+    "value": {
+      "en": "$300 back on a backup generator or portable battery — $500 total if you're on CARE or FERA — for homes in high fire-threat or outage-prone areas. Buy the qualifying product first, then apply by December 31, 2026.",
+      "es": "$300 de reembolso por un generador de respaldo o batería portátil — $500 en total si está en CARE o FERA — para hogares en zonas de alto riesgo de incendio o cortes frecuentes. Compre primero el producto calificado y luego solicite antes del 31 de diciembre de 2026."
+    },
+    "apply": {
+      "url": "https://www.pge.com/en/outages-and-safety/outage-preparedness-and-support/general-outage-resources/generator-and-battery-rebate-program.html",
+      "local": {
+        "en": "Check your address first on PG&E's Wildfire Safety Progress Map (green bubble = pre-qualified) — most of western Nevada County qualifies; questions: GeneratorBatteryRebateProgram@pge.com",
+        "es": "Primero verifique su dirección en el Wildfire Safety Progress Map de PG&E (burbuja verde = precalificado) — la mayor parte del oeste del condado de Nevada califica; preguntas: GeneratorBatteryRebateProgram@pge.com"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Verbatim: 'The rebate is $300 per qualified customer. If you participate in PG&E's CARE or FERA programs, you may receive an additional $200.' Program eligibility: active residential or business PG&E account AND (Tier 2 or 3 High Fire-Threat District OR High Fire Risk Area OR served by an Enhanced Powerline Safety Settings (EPSS) circuit); Wildfire Safety Progress Map green bubble = address pre-qualifies; rebates limited to one per household",
+        "source": "https://www.pge.com/en/outages-and-safety/outage-preparedness-and-support/general-outage-resources/generator-and-battery-rebate-program.html",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-B draft (nebula, live fetch, browser-UA curl) + adversarial verification 2026-07-04 (oracle) — refutes the batch brief's 'base $500 for medical-baseline' framing (no medical-baseline tier exists on this program — that is the separate Portable Battery Program)"
+      },
+      {
+        "claim": "Sunset + mechanics verbatim: 'Applications must be submitted within 12 months from the purchase date or by December 31, 2026, whichever date is sooner.' Reimbursement-shaped: customer must provide proof of purchase AND proof of delivery; application cannot be submitted until the product has been delivered; receipt attached at energyinsight.pge.com/eRebateApplication",
+        "source": "https://www.pge.com/en/outages-and-safety/outage-preparedness-and-support/general-outage-resources/generator-and-battery-rebate-program.html",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-B draft (nebula, live fetch) + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "Product eligibility: portable generators must be on the qualified product list and CARB-compliant; portable batteries must be 290Wh–1,000Wh (1kWh max — 1,024Wh already over); exclusions include resale/rebuilt/refurbished/open-box, warranty/insurance/prize batteries, USB power stations, USB power banks, power inverters, non-integrated batteries, car batteries, and commercial power stations",
+        "source": "https://www.pge.com/en/outages-and-safety/outage-preparedness-and-support/general-outage-resources/generator-and-battery-rebate-program.html",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-B draft (nebula, live fetch) + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "Ep4 adversarial fact-check (psps-7) independently VERIFIED the same $300 + $200 CARE/FERA = up to $500 math and card wording against this same live page on 2026-07-01, with producer caveats matching this draft's notes: HFTD Tier 2/3 / High Fire Risk Area / EPSS location gate (most of western Nevada County qualifies, verify at the progress map), reimbursement-not-coupon, and the Dec 31, 2026 sunset ('program appears to sunset end of 2026')",
+        "source": "https://www.pge.com/en/outages-and-safety/outage-preparedness-and-support/general-outage-resources/generator-and-battery-rebate-program.html",
+        "verifiedAt": "2026-07-01",
+        "via": "ep4 fact-check wave (psps-7, see show/ep4/fact-check-full-report.json in the repo) — corpus adjacency; batch-B re-fetched the live page 2026-07-04 and every figure still stands"
+      }
+    ]
+  },
+  {
+    "id": "reach-dollar-energy",
+    "jurisdiction": "CA",
+    "category": "utilities",
+    "status": "check-first",
+    "test": {
+      "flagsAll": ["pge-customer"],
+      "limitsMonthly": {
+        "1": 3525,
+        "2": 3525,
+        "3": 4441,
+        "4": 5358,
+        "5": 6275,
+        "6": 7191,
+        "7": 8108,
+        "8": 9025,
+        "increment": 916
+      },
+      "specialNotes": [
+        "reach-shutoff-notice-required",
+        "reach-once-per-year",
+        "reach-local-agency"
+      ]
+    },
+    "thresholdsDisplay": { "1": 3525, "4": 5358 },
+    "noteParams": {
+      "reach-shutoff-notice-required": {
+        "limitBalance": 100,
+        "limitBalanceSenior": 50
+      },
+      "reach-once-per-year": { "amountMax": 800 }
+    },
+    "name": {
+      "en": "REACH — up to $800 toward a past-due PG&E bill",
+      "es": "REACH — hasta $800 para una factura vencida de PG&E"
+    },
+    "value": {
+      "en": "An energy credit of up to $800 applied straight to the past-due part of your PG&E bill when you've received a shutoff notice — a grant, never repaid. Once per calendar year, while funding lasts.",
+      "es": "Un crédito de energía de hasta $800 aplicado directamente a la parte vencida de su factura de PG&E cuando ha recibido un aviso de corte — es una ayuda, no se devuelve. Una vez por año calendario, mientras haya fondos."
+    },
+    "apply": {
+      "url": "https://www.dollarenergy.org/program/pge-reach-program/",
+      "phone": {
+        "en": "Dollar Energy Fund 1-888-282-6816",
+        "es": "Dollar Energy Fund 1-888-282-6816"
+      },
+      "local": {
+        "en": "Salvation Army Grass Valley helps with REACH applications: 530-274-3500, 10725 Alta St, Mon-Thu 10am-3pm — or apply online via Dollar Energy's MyApp portal",
+        "es": "El Ejército de Salvación de Grass Valley ayuda con las solicitudes de REACH: 530-274-3500, 10725 Alta St, lun-jue 10am-3pm — o solicite en línea por el portal MyApp de Dollar Energy"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "2026 program terms (Dollar Energy Fund, PG&E REACH page): open starting January 1, 2026 for customers with a past-due balance who received a 15-day or 48-hour disconnection notice; outstanding balance at least $100, or $50 for seniors 62+; maximum grant $800 (+$100 for natural-disaster claims); once per calendar year (1/1/2026-12/31/2026); first-come, first-served while funding lasts; grants pay past-due amounts only (no deposits, reconnection fees, closed accounts, or transferred balances); AMP-enrolled customers not eligible; income verification required for all applicants; residential accounts (Section 8/subsidized housing may be eligible)",
+        "source": "https://www.dollarenergy.org/program/pge-reach-program/",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-B draft (nebula, live fetch, browser-UA curl) + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "Income guidelines: total gross household income at or below 200% of the Federal Poverty Income Guidelines — Dollar Energy's printed table (their processing standard): 1-2 person $3,525/mo ($42,300/yr); 3p $4,442/$53,300; 4p $5,358/$64,300; 5p $6,275; 6p $7,192; 7p $8,108; 8p $9,025; +$917/mo ($11,000/yr) each additional. Table reconciles exactly to 200% of the 2025 federal poverty guidelines (42,300 = 2×21,150 etc.) — NOT the 2026 guidelines; screener cells floor each annual÷12 (3525/4441/5358/6275/7191/8108/9025, +916), every cell ≤ the printed column",
+        "source": "https://www.dollarenergy.org/program/pge-reach-program/",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-B draft (nebula, live fetch; 2025-FPL-year trap identified, Covered-California precedent applied) + adversarial verification 2026-07-04 (oracle) — encodes the lower DEF printed table; care-unlock withheld (DEF $3,525 < CARE $3,606 would false-promise the gap band)"
+      },
+      {
+        "claim": "PG&E's own REACH page cross-confirms: energy credit up to $800 toward the past-due portion, applied directly to the bill; eligibility requires a residential PG&E account in the name of an adult in the household, a 15-day or 48-hour disconnection notice, no REACH within the same calendar year, income ≤200% FPL; AMP enrollees excluded; PG&E contracts with Dollar Energy Fund to process applications; 42-year-old program; in 2026 PG&E committed an additional $50 million to bill-assistance programs including REACH. CONFLICT NOTED: PG&E says 'the same income guidelines are used for the CARE program' (current CARE table: $3,606/1-2p) while Dollar Energy's printed table is lower ($3,525) — the screener encodes the lower (Dollar Energy processes the applications)",
+        "source": "https://www.pge.com/en/account/billing-and-assistance/financial-assistance/relief-for-energy-assistance-through-community-help.html",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-B draft (nebula, live fetch) + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "Local intake agency: The Salvation Army Grass Valley provides REACH application assistance — 10725 Alta Street, Grass Valley 95945; 530-274-3500; Mon-Thu 10am-3pm (appointments outside hours possible); serves Nevada + Placer Counties; also serves Pioneer Community Energy customers (Pioneer delivers over PG&E infrastructure); helps prepare utility bill + income documents; record last verified by 211 Connecting Point 2025-11-19",
+        "source": "https://www.icarol.info/ResourceView2.aspx?org=2265&agencynum=4660869",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-B draft (nebula, live fetch of the 211 Connecting Point resource record) + adversarial verification 2026-07-04 (oracle) — local-agency pin NOT dial-tested (211 Connecting Point iCarol record ~7mo old, last verified 2025-11-19); Dollar Energy's own AgencyFinder is a JS/ASP.NET postback tool that resisted automated query (documented)"
+      }
+    ]
+  },
+  {
+    "id": "tmobile-p10m",
+    "jurisdiction": "federal",
+    "category": "utilities",
+    "status": "check-first",
+    "test": {
+      "incomePctFPL": 185,
+      "ageAnyMax": 17,
+      "categoricalUnlocks": ["calfresh", "medi-cal"],
+      "specialNotes": [
+        "p10m-proof-list",
+        "p10m-universal-meals-trap",
+        "p10m-one-per-household"
+      ]
+    },
+    "thresholdsDisplay": { "2": 3336, "4": 5087 },
+    "noteParams": {
+      "p10m-one-per-household": { "amountDataPass": 10 }
+    },
+    "name": {
+      "en": "Free internet for K-12 students (T-Mobile Project 10Million)",
+      "es": "Internet gratis para estudiantes K-12 (T-Mobile Project 10Million)"
+    },
+    "value": {
+      "en": "A free mobile hotspot + 200GB of data a year for 5 years for households with a K-12 student — no fees, no annual re-enrollment. Your CalFresh EBT card (front and back) works as proof; if you're on Medi-Cal, use your Medi-Cal eligibility letter (printable from BenefitsCal) — the plastic card may be rejected because it doesn't say 'Medicaid.'",
+      "es": "Un hotspot móvil gratis + 200GB de datos al año por 5 años para hogares con un estudiante K-12 — sin cargos ni reinscripción anual. Su tarjeta EBT de CalFresh (frente y reverso) sirve como comprobante; si tiene Medi-Cal, use su carta de elegibilidad de Medi-Cal (que puede imprimir desde BenefitsCal) — la tarjeta plástica puede ser rechazada porque no dice 'Medicaid.'"
+    },
+    "apply": {
+      "url": "https://www.t-mobile.com/brand/project-10-million",
+      "phone": {
+        "en": "1-877-PRJ-10MN (1-877-775-1066) — program support line",
+        "es": "1-877-PRJ-10MN (1-877-775-1066) — línea de apoyo del programa"
+      },
+      "local": {
+        "en": "Apply online (about 5 minutes) or get help enrolling at any T-Mobile store — you don't need to be a T-Mobile customer",
+        "es": "Solicite en línea (unos 5 minutos) o pida ayuda para inscribirse en cualquier tienda T-Mobile — no necesita ser cliente de T-Mobile"
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Program benefits verbatim: 'Free 200GB of internet per year for 5 years. One free hotspot per household. No fees, costs, or annual re-certifications.' Data doubled to 200GB for current and new families starting Sept 26, 2024; $10/10GB optional 30-day data pass; data auto-resets each activation anniversary; K-12 students; 1 offer per household; limited-time offer, available lines limited; open to non-T-Mobile customers; congestion deprioritization disclosed",
+        "source": "https://www.t-mobile.com/brand/project-10-million",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-B draft (nebula, live fetch, browser-UA curl — page served full static content, NO JS wall despite the shortlist's risk flag) + adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "Application proof list verbatim: 'To qualify for Project 10Million, you'll need to provide proof of enrollment in ONE of the following programs dated within one year of participation: National School Lunch Program (NSLP), Supplemental Nutrition Assistance Program (SNAP/EBT), Community Eligibility Provision (CEP), Medicaid, Food Distribution Program on Indian Reservations (FDPIR)'; three attempts to upload proof; apply online or with help at a T-Mobile retail store",
+        "source": "https://www.t-mobile.com/brand/project-10-million",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-B draft (nebula, live fetch) + adversarial verification 2026-07-04 (oracle) — TANF/Head Start/foster-migrant-homeless appear ONLY in a broader marketing footnote ('verified through participation in many government programs, including'), NOT in the application proof list; calworks unlock deliberately withheld"
+      },
+      {
+        "claim": "Per-program document requirements (support page): SNAP/EBT = SNAP eligibility letter OR EBT card front+back; Medicaid = Medicaid eligibility letter OR state Medicaid card (standard insurance cards not accepted); NSLP = NSLP eligibility letter (paper, email, or portal screenshot); CEP = school eligibility letter or report card from the current school year, school must match the CEP school selected in the application; documents issued within the past year or not expired; parent/guardian name must match the application (photo ID if the document lacks it); 7 days to complete verification after applying; not available in Alaska/AS/GU/MP; no PO-box shipping; Metro and Assurance Wireless customers may apply",
+        "source": "https://www.t-mobile.com/support/account/project-10million-direct-to-parent-guardian-eligibility",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 batch-B draft (nebula, live fetch) + adversarial verification 2026-07-04 (oracle) — this page settles the CA universal-meals trap: universal free school meals produce NO NSLP letter. Oracle load-bearing edit: T-Mobile accepts a 'state Medicaid card', but California's Medi-Cal BIC does not say 'Medicaid' and may be rejected — route Medi-Cal families to the printable BenefitsCal eligibility LETTER; the medi-cal unlock stays (enrollment yields the accepted letter), CalFresh EBT front+back stays fine"
+      },
+      {
+        "claim": "GATE NOTE: incomePctFPL 185 mirrors the NSLP/school-meal income scale (viewers under 185% can submit a school-meal application and use the NSLP eligibility letter as proof) — same 185% cells as the corpus sun-bucks/WIC rows ($3,336/2p, $5,087/4p from fpl-2026.json, $1 under the printed CDE SY2026-27 IEG monthly column). The IEG dollar-table primary is already in-corpus: CDE scales2627 (sun-bucks provenance, verified 2026-07-03)",
+        "source": "https://www.cde.ca.gov/ls/nu/rs/scales2627.asp",
+        "verifiedAt": "2026-07-03",
+        "via": "corpus reuse (sun-bucks IEG pin, oracle-verified 2026-07-03) + wave-2 batch B adversarial verification 2026-07-04 (oracle) — 185% NSLP proxy cells reconcile for P10M (a household under 185% can submit a school-meal application and use the NSLP eligibility letter as proof)"
+      }
+    ]
   }
 ]
