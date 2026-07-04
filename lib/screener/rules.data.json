@@ -3190,5 +3190,203 @@
         "via": "wave-2 batch-F draft (nebula, live fetch browser-UA + w3m) — LocationSearch fitness+community-locations benefit + plan-dependency verbatim; the 'no cost 65+ through select Medicare plans' tagline cited to the durable deep page (the home hero is a bare origin the validator rejects) + adversarial verification 2026-07-04 (oracle)"
       }
     ]
+  },
+  {
+    "id": "dcap-clean-vehicle",
+    "jurisdiction": "CA",
+    "category": "transport",
+    "status": "check-first",
+    "test": {
+      "incomePctFPL": 300,
+      "specialNotes": [
+        "dcap-apply-before-buying",
+        "dcap-grant-tiers",
+        "dcap-no-prior-carb",
+        "dcap-coaching-financing"
+      ]
+    },
+    "noteParams": {
+      "dcap-grant-tiers": {
+        "amountBase": 10000,
+        "amountDac": 12000,
+        "amountCharging": 2000
+      }
+    },
+    "name": {
+      "en": "Driving Clean Assistance Program (up to $12,000 toward an EV)",
+      "es": "Programa de Asistencia para Conducir Limpio (hasta $12,000 para un vehículo eléctrico)"
+    },
+    "value": {
+      "en": "A down-payment grant of up to $10,000 (up to $12,000 in a disadvantaged community) toward a new or used electric or plug-in hybrid car, PLUS $2,000 for home or public charging — for California households under 300% of the federal poverty level. Includes free financing coaching; you never pay the grant back. Apply BEFORE you buy.",
+      "es": "Una subvención para el enganche de hasta $10,000 (hasta $12,000 en una comunidad desfavorecida) para un auto eléctrico o híbrido enchufable nuevo o usado, MÁS $2,000 para carga en casa o pública — para hogares de California con ingresos menores al 300% del nivel federal de pobreza. Incluye asesoría de financiamiento gratis; nunca devuelve la subvención. Solicite ANTES de comprar."
+    },
+    "apply": {
+      "url": "https://drivingcleanca.org/",
+      "phone": {
+        "en": "DCAP 1-833-202-DCAP (1-833-202-3227)",
+        "es": "DCAP 1-833-202-DCAP (1-833-202-3227)"
+      },
+      "local": {
+        "en": "Apply online at drivingcleanca.org BEFORE buying — the grant is not retroactive. No citizenship required (ITIN qualifies).",
+        "es": "Solicite en línea en drivingcleanca.org ANTES de comprar — la subvención no es retroactiva. No se requiere ciudadanía (ITIN califica)."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "DCAP eligibility (verbatim, drivingcleanca.org): 'Have a household income less than 300% of the Federal Poverty Level* (e.g., $99,000 for a 4-person household, guidelines updated annually and vary by household size)'; apply before purchasing/leasing (not retroactive); not have participated in any CARB light-duty vehicle purchase incentive program; ITIN qualifies. Grant tiers: Vehicle Purchase Incentive non-disadvantaged communities up to $10,000 + $2,000 Charging Incentive; disadvantaged communities up to $12,000 + $2,000; Mobility Option $7,500. No cost to apply; grants paid to the dealer, not repaid.",
+        "source": "https://drivingcleanca.org/about-us/dcap-eligibility/",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 ready-set draft (nebula) — browser-UA curl of the info site (the DB row's Salesforce app is fully JS-walled); income (<300% FPL) + grant tiers verbatim + wave-2 final adversarial verification 2026-07-04 (oracle) — evaluator computes 300%×fpl-2026.json (no hardcoded cell)"
+      },
+      {
+        "claim": "CARB (ww2.arb.ca.gov) confirms: DCAP launched statewide; 'Be a low income-consumer at or below 300% of the Federal Poverty Level (which is currently at $93,600 for a family of four and will be updated annually)'; grant table Non-DAC up to $10,000 + $2,000 charging, DAC up to $12,000 + $2,000, Mobility Option $7,500; administered by Community Housing Development Corporation (CHDC) on behalf of CARB.",
+        "source": "https://ww2.arb.ca.gov/our-work/programs/driving-clean-assistance-program/about",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 ready-set draft (nebula) — browser-UA curl; two FPL example figures ($99,000 vs $93,600) reflect annual-guideline timing, sidestepped by computing 300%×fpl-2026.json + wave-2 final adversarial verification 2026-07-04 (oracle) — ADVISORY: Nevada County DAC status drives $10k vs $12k; funding-window re-check"
+      }
+    ]
+  },
+  {
+    "id": "ciap-inventor-legal",
+    "jurisdiction": "CA",
+    "category": "legal",
+    "status": "check-first",
+    "test": {
+      "incomePctFPL": 300,
+      "specialNotes": [
+        "ciap-invention-required",
+        "ciap-uspto-video",
+        "ciap-fees-not-covered"
+      ]
+    },
+    "name": {
+      "en": "Free patent attorney for low-income inventors (CIAP)",
+      "es": "Abogado de patentes gratis para inventores de bajos ingresos (CIAP)"
+    },
+    "value": {
+      "en": "A free volunteer patent attorney handles your patent matter (legal fees waived) if you have an actual invention and household income under 3× the federal poverty level. You still pay USPTO filing fees, and must finish a free ~39-minute USPTO training video first.",
+      "es": "Un abogado de patentes voluntario maneja su asunto de patente (honorarios legales exentos) si tiene una invención real y un ingreso familiar menor a 3× el nivel federal de pobreza. Usted aún paga las tarifas de presentación de la USPTO y debe completar primero un video de capacitación de la USPTO de ~39 minutos."
+    },
+    "apply": {
+      "url": "https://calawyersforthearts.org/california-inventors-assistance-program-ciap-cla/",
+      "phone": {
+        "en": "California Lawyers for the Arts (415) 775-7200",
+        "es": "California Lawyers for the Arts (415) 775-7200"
+      },
+      "local": {
+        "en": "Statewide program (CA/HI/AK/OR/NV). Watch the free ~39-minute USPTO 'Basic Patent Training' video, then submit a Referral Request Form.",
+        "es": "Programa estatal (CA/HI/AK/OR/NV). Vea el video gratuito de ~39 minutos de la USPTO 'Basic Patent Training', luego envíe un Formulario de Solicitud de Referencia."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "The California Inventors Assistance Program (CIAP), run by California Lawyers for the Arts under the USPTO Patent Pro Bono Program (America Invents Act §32), matches financially under-resourced independent inventors and small businesses with a volunteer patent attorney (legal fees waived). Applicants must review/complete a free ~39-minute, 30-module USPTO video ('Basic Patent Training for Independent Inventors and Small Businesses') PRIOR to receiving assistance. Serves CA (plus HI/AK/OR/NV). Phone (415) 775-7200.",
+        "source": "https://calawyersforthearts.org/california-inventors-assistance-program-ciap-cla/",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 ready-set draft (nebula) — browser-UA curl; program description + USPTO video requirement + serves-CA + phone verbatim + wave-2 final adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "USPTO Patent Pro Bono Program (the national program CIAP administers for California) income cap, verbatim: applicants must have a 'gross household income less than three times the federal poverty level' and have an actual invention; the program matches under-resourced inventors with volunteer patent attorneys (America Invents Act §32). Applicant still pays USPTO filing fees.",
+        "source": "https://www.uspto.gov/patents/basics/using-legal-services/pro-bono/patent-pro-bono-program",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 ready-set — REQUIRED EDIT: USPTO Patent Pro Bono page pinned as the primary source for the 3× FPL (300%) income cap (verbatim 'gross household income less than three times the federal poverty level'), superseding the DB-row-[118] cite; encoded incomePctFPL 300 (evaluator computes cells) + wave-2 final adversarial verification 2026-07-04 (oracle)"
+      }
+    ]
+  },
+  {
+    "id": "miracle-flights",
+    "jurisdiction": "federal",
+    "category": "transport",
+    "status": "check-first",
+    "test": {
+      "incomePctFPL": 370,
+      "ageAnyMax": 17,
+      "specialNotes": [
+        "miracleflights-confirmed-care",
+        "miracleflights-apply-14-days",
+        "miracleflights-who-flies"
+      ]
+    },
+    "name": {
+      "en": "Miracle Flights (free flights for a child's medical care)",
+      "es": "Miracle Flights (vuelos gratis para la atención médica de un niño)"
+    },
+    "value": {
+      "en": "Free commercial airline tickets for a child (17 or under) who needs specialist medical care too far from home — plus up to 2 parents or guardians. For families with household income up to 370% of the federal poverty level. Costs the family $0.",
+      "es": "Boletos de avión comerciales gratis para un niño (17 años o menos) que necesita atención médica especializada demasiado lejos de casa — más hasta 2 padres o tutores. Para familias con ingresos del hogar de hasta el 370% del nivel federal de pobreza. Le cuesta $0 a la familia."
+    },
+    "apply": {
+      "url": "https://miracleflights.org/request-a-flight/",
+      "phone": {
+        "en": "Miracle Flights 1-800-359-1711",
+        "es": "Miracle Flights 1-800-359-1711"
+      },
+      "local": {
+        "en": "Apply at miracleflights.org/request-a-flight at least 14 days before travel. The child's treatment site (not the family) submits a medical verification form.",
+        "es": "Solicite en miracleflights.org/request-a-flight al menos 14 días antes de viajar. El sitio de tratamiento del niño (no la familia) envía un formulario de verificación médica."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Miracle Flights books free commercial airline tickets for patients 17 and under who need specialist medical care too far from home, plus up to two parents or legal guardians (verbatim: 'Patients 17 and under qualify for program services. Families can receive travel assistance for the child patient and up to two parents or legal guardians'). The child must be medically cleared to travel on a commercial plane. Applications + supporting documents due at least 14 days before departure. Still active 2026, ~600-700 flights/month. Call 1-800-359-1711.",
+        "source": "https://miracleflights.org/request-a-flight/",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 ready-set draft (nebula, browser-UA curl) — age (17 & under), up-to-2-guardians, 14-day lead, medically-cleared verbatim + wave-2 final adversarial verification 2026-07-04 (oracle)"
+      },
+      {
+        "claim": "Income eligibility (verbatim, live request-a-flight page, 2026-07-04): 'income up to 370% [of] the annual Federal Poverty Guidelines ... may qualify' (stated three times on the page). Encoded as incomePctFPL 370 — the evaluator computes cells from fpl-2026.json (no hardcoded cell). This supersedes DB row [173]'s older 300% figure; widening the ceiling to 370% only ADDS eligible families (the safe direction).",
+        "source": "https://miracleflights.org/request-a-flight/",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 ready-set — REQUIRED EDIT: income multiplier resolved to 370% per the LIVE page (verbatim ×3), superseding the DB-row-[173] 300%; incomePctFPL widened 300→370, value line updated to 370% + wave-2 final adversarial verification 2026-07-04 (oracle)"
+      }
+    ]
+  },
+  {
+    "id": "mercy-medical-angels",
+    "jurisdiction": "federal",
+    "category": "transport",
+    "status": "check-first",
+    "test": {
+      "incomePctFPL": 300,
+      "proxyReasonKey": "reason.income-ami",
+      "specialNotes": [
+        "mma-what-you-get",
+        "mma-distance-rules",
+        "mma-apply-window"
+      ]
+    },
+    "name": {
+      "en": "Mercy Medical Angels (free travel to medical care)",
+      "es": "Mercy Medical Angels (viaje gratis para atención médica)"
+    },
+    "value": {
+      "en": "Free non-emergency medical travel when you can't afford to get to care — gas cards, bus and train tickets, or commercial flights (plus one escort when medically necessary). For patients at or below 300% of the federal poverty guideline.",
+      "es": "Viaje médico gratis (no de emergencia) cuando no puede pagar para llegar a la atención — tarjetas de gasolina, boletos de autobús y tren, o vuelos comerciales (más un acompañante cuando sea médicamente necesario). Para pacientes con ingresos iguales o menores al 300% de la guía federal de pobreza."
+    },
+    "apply": {
+      "url": "https://www.mercymedical.org/request-assistance",
+      "phone": {
+        "en": "Request help at mercymedical.org/request-assistance",
+        "es": "Solicite ayuda en mercymedical.org/request-assistance"
+      },
+      "local": {
+        "en": "Apply 7-45 days before your appointment (3-4 weeks ahead is ideal). You, a social worker, or a case manager can submit the request. Gas cards and air travel are nationwide; ground-network service is strongest in the Mid-Atlantic.",
+        "es": "Solicite entre 7 y 45 días antes de su cita (3-4 semanas es lo ideal). Usted, un trabajador social o un gestor de casos puede enviar la solicitud. Las tarjetas de gasolina y los vuelos son a nivel nacional; el servicio de red terrestre es más fuerte en el Atlántico Medio."
+      }
+    },
+    "provenance": [
+      {
+        "claim": "Mercy Medical Angels is a national 501(c)(3) arranging FREE non-emergency medical travel for patients who can't afford it: gas cards for driving yourself, bus and Amtrak tickets, coach commercial airline tickets (plus one escort when medically necessary), and volunteer-pilot flights. Qualify generally at household income at or below 300% of the Federal Poverty Guidelines; medically necessary U.S. trip (ground 50+ miles one-way or 100+/month; air 200+ miles); able to travel without medical supervision. Apply at least 7 days but no more than 45 days before the appointment (3-4 weeks ideal).",
+        "source": "https://www.mercymedical.org/request-assistance",
+        "verifiedAt": "2026-05-30",
+        "via": "wave-2 ready-set draft (nebula) — income (300% FPG) + distance rules + apply-window from DB row [202] (Verified 2026-05-30); the live request-assistance page is a JS portal (numbers not in static body) + wave-2 final adversarial verification 2026-07-04 (oracle) — REQUIRED EDIT: proxyReasonKey suppresses the computed income cell so the unpinnable 300% cap is NOT rendered as a number (cal-grants/heehra pattern)"
+      },
+      {
+        "claim": "Service-area nuance: Mercy Medical Angels home page (verbatim, 2026-07-04): '...commercial tickets, ground transportation, or even gas cards nationwide...' with volunteer-pilot flight missions concentrated in the Mid-Atlantic. For a Nevada County (CA) patient the reachable services are gas cards + commercial air (national); the Mid-Atlantic ground/pilot network is regional. Encoded jurisdiction 'federal' with the regional caveat carried in the note.",
+        "source": "https://www.mercymedical.org/request-assistance",
+        "verifiedAt": "2026-07-04",
+        "via": "wave-2 ready-set draft (nebula, browser-UA curl) — 'nationwide' gas cards/air + Mid-Atlantic ground focus verbatim from the home-page hero; cited to the durable /request-assistance program page because the bare origin fails the no-bare-origin validator (silversneakers pattern); CA-served note retained + wave-2 final adversarial verification 2026-07-04 (oracle)"
+      }
+    ]
   }
 ]

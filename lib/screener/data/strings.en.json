@@ -207,5 +207,18 @@
   "note.habitat-sweat-equity": "You commit {hoursRequired} hours of 'sweat equity' — helping build your home and others' — before you buy. Up to 20% can be volunteer hours done on your behalf.",
   "note.habitat-how-it-works": "Selection happens in rounds: watch for a public information meeting, then an application window opens and packets go out. You'll bring 3 years of tax returns with W-2s. Income from public assistance counts and does not disqualify you.",
   "note.silversneakers-plan-dependent": "Whether you have it depends on your specific Medicare plan — many Medicare Advantage plans and some Medigap plans include SilverSneakers, but Original Medicare by itself does not. Check your plan in seconds at tools.silversneakers.com.",
-  "note.silversneakers-whats-included": "It covers gym memberships at thousands of participating locations, live and on-demand fitness classes, and a fitness app — all at no extra cost when your plan includes it."
+  "note.silversneakers-whats-included": "It covers gym memberships at thousands of participating locations, live and on-demand fitness classes, and a fitness app — all at no extra cost when your plan includes it.",
+  "note.dcap-apply-before-buying": "Apply and get approved BEFORE you buy or lease — the grant is not retroactive.",
+  "note.dcap-grant-tiers": "Up to {amountBase} toward the car (up to {amountDac} if you live in a disadvantaged community), plus {amountCharging} for charging.",
+  "note.dcap-no-prior-carb": "You can't have used another California EV-purchase incentive (like the Clean Vehicle Rebate Project) before.",
+  "note.dcap-coaching-financing": "Comes with free financial coaching and fair-financing options; no citizenship needed (ITIN qualifies).",
+  "note.ciap-invention-required": "You need an actual invention you want to patent.",
+  "note.ciap-uspto-video": "You must first watch a free ~39-minute USPTO training video ('Basic Patent Training for Independent Inventors').",
+  "note.ciap-fees-not-covered": "The attorney is free, but you still pay the USPTO's filing fees.",
+  "note.miracleflights-confirmed-care": "The child must have a confirmed appointment at a treatment site too far from home, and be medically cleared to fly on a commercial plane.",
+  "note.miracleflights-apply-14-days": "Apply at least 14 days before travel — the treatment site submits a medical verification form.",
+  "note.miracleflights-who-flies": "The child plus up to 2 parents or guardians fly free (3 passengers).",
+  "note.mma-what-you-get": "Gas cards to drive yourself, bus/train tickets, or commercial flights (plus one escort if medically necessary). Gas cards and flights are nationwide.",
+  "note.mma-distance-rules": "For medically necessary trips: driving 50+ miles one way (or 100+/month), or flying 200+ miles. You must be able to travel without medical supervision.",
+  "note.mma-apply-window": "Apply 7-45 days before your appointment (3-4 weeks ahead is best). You, a social worker, or a case manager can request."
 }
