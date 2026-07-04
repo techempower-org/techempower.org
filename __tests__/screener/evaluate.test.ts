@@ -981,4 +981,68 @@ describe('evaluate — golden cases from the fact-check corpus', () => {
     ).toBe('reason.flag-match')
     expect(bucketOf(evaluate(base, R), 'silversneakers')).toBe('absent')
   })
+  it('ready-set H1 DCAP: income ≤ 300% FPL → worthAsking (computed cell renders); over → absent', () => {
+    // HH4 300% FPL = $33,000 × 3.0 / 12 = $8,250/mo; base @ $4,800 is under
+    const r = evaluate(base, R)
+    expect(bucketOf(r, 'dcap-clean-vehicle')).toBe('worthAsking') // check-first cap
+    const v = r.worthAsking.find((x) => x.ruleId === 'dcap-clean-vehicle')
+    expect(v?.reasons[0]?.key).toBe('reason.under-limit') // DCAP's 300% is pinned → number renders
+    expect(v?.reasons[0]?.params?.limit).toBe(8250)
+    // over the 300% ceiling → absent (no rescue)
+    expect(
+      bucketOf(
+        evaluate({ ...base, incomeMonthlyGross: 9000 }, R),
+        'dcap-clean-vehicle'
+      )
+    ).toBe('absent')
+  })
+  it('ready-set H5 CIAP: income-only 300% FPL rule → worthAsking under, absent over', () => {
+    expect(bucketOf(evaluate(base, R), 'ciap-inventor-legal')).toBe(
+      'worthAsking'
+    )
+    expect(
+      bucketOf(
+        evaluate({ ...base, incomeMonthlyGross: 9000 }, R),
+        'ciap-inventor-legal'
+      )
+    ).toBe('absent')
+  })
+  it('ready-set G4 Miracle Flights: kid ≤17 within the widened 370% FPL band → worthAsking; adults-only / over-370% → absent', () => {
+    // HH4 370% FPL = $33,000 × 3.7 / 12 = $10,175/mo (widened from the old 300% = $8,250)
+    expect(bucketOf(evaluate(base, R), 'miracle-flights')).toBe('worthAsking')
+    // a family in the newly-included 300–370% band (was excluded at 300%) with a kid now qualifies
+    const widened = evaluate({ ...base, incomeMonthlyGross: 9000 }, R)
+    expect(bucketOf(widened, 'miracle-flights')).toBe('worthAsking')
+    // over 370% → absent
+    expect(
+      bucketOf(
+        evaluate({ ...base, incomeMonthlyGross: 11_000 }, R),
+        'miracle-flights'
+      )
+    ).toBe('absent')
+    // no child → the ageAnyMax gate omits it even under-income
+    const adultsOnly: Answers = {
+      ...base,
+      ages: { under5: 0, age5to17: 0, age18to59: 2, age60plus: 0, age80plus: 0 }
+    }
+    expect(bucketOf(evaluate(adultsOnly, R), 'miracle-flights')).toBe('absent')
+  })
+  it('ready-set G5 Mercy Medical Angels: proxyReasonKey suppresses the unpinnable income number', () => {
+    const r = evaluate(base, R) // HH4 @ $4,800 under the 300% cell
+    expect(bucketOf(r, 'mercy-medical-angels')).toBe('worthAsking')
+    const v = r.worthAsking.find((x) => x.ruleId === 'mercy-medical-angels')
+    // the proxy reason renders instead of reason.under-limit — no number
+    expect(v?.reasons[0]?.key).toBe('reason.income-ami')
+    for (const reason of v?.reasons ?? [])
+      expect(reason.params?.limit, 'G5 must render no income number').toBe(
+        undefined
+      )
+    // over the (suppressed) 300% ceiling → still absent
+    expect(
+      bucketOf(
+        evaluate({ ...base, incomeMonthlyGross: 9000 }, R),
+        'mercy-medical-angels'
+      )
+    ).toBe('absent')
+  })
 })
