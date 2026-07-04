@@ -61,6 +61,8 @@ export function ScreenerForm({
   const [pregnant, setPregnant] = React.useState(false)
   const [medicare, setMedicare] = React.useState(false)
   const [disability, setDisability] = React.useState(false)
+  const [student, setStudent] = React.useState(false)
+  const [homeless, setHomeless] = React.useState(false)
   const [enrolled, setEnrolled] = React.useState<Enrollment[]>([])
 
   function setAgeBand(band: keyof AgeBandCounts, raw: string) {
@@ -102,6 +104,8 @@ export function ScreenerForm({
     if (pregnant) flags.push('pregnant')
     if (medicare) flags.push('medicare')
     if (disability) flags.push('disability')
+    if (student) flags.push('student')
+    if (homeless) flags.push('homeless')
     onSubmit({
       householdSize: size,
       incomeMonthlyGross:
@@ -356,6 +360,30 @@ export function ScreenerForm({
             />
             <label className={styles.choiceLabel} htmlFor='q-flag-disability'>
               {t(lang, 'form.flags.disability')}
+            </label>
+          </div>
+          <div className={styles.checkItem}>
+            <input
+              id='q-flag-student'
+              className={styles.checkbox}
+              type='checkbox'
+              checked={student}
+              onChange={(e) => setStudent(e.target.checked)}
+            />
+            <label className={styles.choiceLabel} htmlFor='q-flag-student'>
+              {t(lang, 'form.flags.student')}
+            </label>
+          </div>
+          <div className={styles.checkItem}>
+            <input
+              id='q-flag-homeless'
+              className={styles.checkbox}
+              type='checkbox'
+              checked={homeless}
+              onChange={(e) => setHomeless(e.target.checked)}
+            />
+            <label className={styles.choiceLabel} htmlFor='q-flag-homeless'>
+              {t(lang, 'form.flags.homeless')}
             </label>
           </div>
         </div>

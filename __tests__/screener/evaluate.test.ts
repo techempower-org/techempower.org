@@ -1045,4 +1045,111 @@ describe('evaluate — golden cases from the fact-check corpus', () => {
       )
     ).toBe('absent')
   })
+  it('finale G1 Cal Grants: student flag under the ceiling → worthAsking with a NO-number proxy; no student / over ceiling → absent', () => {
+    const student = evaluate({ ...base, flags: [...base.flags, 'student'] }, R)
+    expect(bucketOf(student, 'cal-grants')).toBe('worthAsking') // check-first cap
+    const v = student.worthAsking.find((x) => x.ruleId === 'cal-grants')
+    expect(v?.reasons[0]?.key).toBe('reason.calgrant-income-band')
+    for (const reason of v?.reasons ?? [])
+      expect(
+        reason.params?.limit,
+        'Cal Grant renders no single income number'
+      ).toBe(undefined)
+    // the student flag is a hard gate — no flag, no card
+    expect(bucketOf(evaluate(base, R), 'cal-grants')).toBe('absent')
+    // over the A/C ceiling (HH4 $12,058/mo) → absent (no rescue)
+    expect(
+      bucketOf(
+        evaluate(
+          {
+            ...base,
+            flags: [...base.flags, 'student'],
+            incomeMonthlyGross: 13_000
+          },
+          R
+        ),
+        'cal-grants'
+      )
+    ).toBe('absent')
+  })
+  it('finale G2/G3 Sierra College: student flag → worthAsking (flags-only); no student → absent', () => {
+    const student = evaluate({ ...base, flags: [...base.flags, 'student'] }, R)
+    for (const id of [
+      'sierra-college-emergency-fund',
+      'sierra-college-free-bus'
+    ]) {
+      expect(bucketOf(student, id), id).toBe('worthAsking')
+      expect(
+        student.worthAsking.find((x) => x.ruleId === id)?.reasons[0]?.key,
+        id
+      ).toBe('reason.flag-match')
+      expect(bucketOf(evaluate(base, R), id), id).toBe('absent')
+    }
+  })
+  it('finale H4 Hospitality House: homeless flag in Nevada County → worthAsking; no flag / other-ca → absent', () => {
+    const homeless = evaluate(
+      { ...base, flags: [...base.flags, 'homeless'] },
+      R
+    )
+    expect(bucketOf(homeless, 'hospitality-house')).toBe('worthAsking')
+    expect(
+      homeless.worthAsking.find((x) => x.ruleId === 'hospitality-house')
+        ?.reasons[0]?.key
+    ).toBe('reason.flag-match')
+    expect(bucketOf(evaluate(base, R), 'hospitality-house')).toBe('absent')
+    expect(
+      bucketOf(
+        evaluate(
+          {
+            ...base,
+            flags: [...base.flags, 'homeless'],
+            county: 'other-ca' as const
+          },
+          R
+        ),
+        'hospitality-house'
+      )
+    ).toBe('absent')
+  })
+  it('finale C2 sharpening: the homeless flag widens CalWORKs-HA to a childless household (was omitted on the income path)', () => {
+    // HH2 @ $1,500 ≤ the $1,951 MBSAC line, NO child, not enrolled in CalWORKs
+    const childless: Answers = {
+      ...base,
+      householdSize: 2,
+      incomeMonthlyGross: 1500,
+      ages: {
+        under5: 0,
+        age5to17: 0,
+        age18to59: 2,
+        age60plus: 0,
+        age80plus: 0
+      },
+      flags: ['renter'],
+      enrolled: []
+    }
+    // without the homeless flag, the ageAnyMax:17 gate omits a childless household
+    expect(
+      bucketOf(evaluate(childless, R), 'calworks-homeless-assistance')
+    ).toBe('absent')
+    // the homeless flag satisfies the widened member dimension → HA surfaces
+    const homeless = evaluate(
+      { ...childless, flags: ['renter', 'homeless'] },
+      R
+    )
+    expect(bucketOf(homeless, 'calworks-homeless-assistance')).toBe(
+      'worthAsking'
+    )
+    // the optional 'pregnant' member also widens it (CalWORKs covers pregnancy)
+    const pregnant = evaluate(
+      { ...childless, flags: ['renter', 'pregnant'] },
+      R
+    )
+    expect(bucketOf(pregnant, 'calworks-homeless-assistance')).toBe(
+      'worthAsking'
+    )
+    // a childless household with neither flag stays omitted (the existing batch-C behavior)
+    expect(
+      bucketOf(evaluate(childless, R), 'calworks-homeless-assistance')
+    ).toBe('absent')
+  })
 })
