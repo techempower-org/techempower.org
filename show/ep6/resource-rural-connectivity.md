@@ -87,7 +87,7 @@ Skipping step 1 is why a generic antenna aimed at "wherever" so often disappoint
 Copper worked in a multi-day shutoff because it powered itself. Give your modern setup the same superpower:
 
 - **Put your hotspot/router — and booster — on a battery backup (UPS)**, ideally topped up by a **small solar panel or a portable power station.** That's the difference between "my phone works" and "my phone works when I need it most." *(Brief §2C.)*
-- If you're ever moved off copper onto a wireless replacement, the provider is **required to offer you a backup battery** — take it, and plan for **longer than 24 hours**, because our public-safety power shutoffs can run several days. *(Brief §1C/§2C; FCC 47 CFR §12.5.)*
+- If you're ever moved off copper onto a wireless replacement, **ask your provider about a backup battery** — and plan for **longer than 24 hours**, because our public-safety power shutoffs can run several days. *(The FCC rule that used to require providers to offer a backup-power option sunset in 2025 — so ask; don't assume it's included.)*
 - **Test it on a calm day:** flip your house power off for an hour and confirm you can still get online and call out. Practice before the emergency.
 
 ---

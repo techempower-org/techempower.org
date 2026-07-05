@@ -31,7 +31,7 @@ Artifacts covered: **[S]** = Ep6 script (`ep6-teleprompter.txt`), **[R]** = reso
 | A7 | CA **COLR** rule: a carrier can't stop serving unless another provider can actually serve (**no "no-alternative exception"**); CPUC **denied** AT&T's exit June 2024 | S(paraphrased), R, 21 | §1C/§1D | CPUC "CPUC Rejects AT&T Request to Withdraw as Carrier" + COLR-rulemaking page | HIGH |
 | A8 | AT&T's **preemption petition (WC 26-125)** seeks to override COLR; comment cycle **comments June 22 / reply July 7, 2026** (⚠️ **NOT "July 22"**) | R (context), 21 (implied) | §1A/§1D-DATES | FCC PN **DA-26-520** (verbatim dates) + Federal Register (no extension) | HIGH ⚠️(kills the "July 22" myth) |
 | A9 | Civic venue = **CPUC rulemaking R.24-06-012**; comment via **apps.cpuc.ca.gov/c/R2406012** ("Add Public Comment") / **Public Advisor 1-866-849-8390** / mail 505 Van Ness Ave SF 94102 | R, 21 | §1D/§1E | cpuc.ca.gov **COLR-rulemaking page** (verbatim proceeding # + comment method) | HIGH |
-| A10 | FCC **backup-power rule**: provider must *offer* customer a battery to *purchase*, ≥8h / ≥24h | R | §1C | **47 CFR §12.5** (formerly §9.20) / FCC 15-98 — ⚠️ confirm current section number | HIGH ⚠️(§ renumber) |
+| A10 | FCC backup-power rule (FCC 15-98, former §9.20) *required* providers to offer a battery ≥8h/≥24h — **SUNSET Sept 1 2025; §9.20 now Reserved in eCFR → NOT current law.** Script + resource softened to "ask your provider," § cite dropped. | R | §1C | FCC 15-98 + live eCFR (§9.20 Reserved) | RESOLVED #99 |
 
 ## B. Which network works at your house / maps / testing
 
@@ -69,7 +69,7 @@ Artifacts covered: **[S]** = Ep6 script (`ep6-teleprompter.txt`), **[R]** = reso
 | # | Claim (as used) | In | findings.md § | Primary source | Conf |
 |---|---|---|---|---|---|
 | E1 | Put hotspot/router + booster on **battery/UPS + solar/portable power** to survive a multi-day PSPS | S, R | §2C | ⚠️ **INFERRED synthesis** (physics + §1C) — framed as guidance, not a cited spec | INFER |
-| E2 | If moved to a wireless replacement, provider must **offer a 24h backup battery**; PSPS can run **multiple days** | S, R | §1C/§2C | **47 CFR §12.5** (24h option) + PSPS duration (PG&E/press) | HIGH |
+| E2 | If moved to a wireless replacement, **ask your provider** about a backup battery (the FCC offer-obligation sunset Sept 1 2025 — no longer required); PSPS can run **multiple days** | S, R | §1C/§2C | FCC 15-98 (sunset 2025) + PSPS duration | REVISED #99 |
 
 ## F. Afford-it / low-income
 
@@ -85,7 +85,7 @@ Artifacts covered: **[S]** = Ep6 script (`ep6-teleprompter.txt`), **[R]** = reso
 
 ## Items the fact-check should scrutinize most (self-flagged)
 - **A8 / "July 22" myth** — the operative 26-125 reply deadline is **July 7** (DA-26-520). Any artifact must NOT assert a July-22 window. (#21 is deadline-free by design; verify no stray "July 22" survives anywhere.)
-- **A10 / §12.5 numbering** — confirm the backup-power rule's current CFR section (renumbered from §9.20).
+- **A10 / backup-power rule** — RESOLVED #99: the §9.20 offer-obligation SUNSET Sept 1 2025 (§9.20 now Reserved in eCFR); script + resource softened to "ask your provider," § cite dropped — no current federal "required to offer" obligation.
 - **C3 / prices** — ranged, drift; on-air kept qualitative; resource page prices need a pre-publish re-verify.
 - **C5 / Starlink pricing** — verify current before publishing R.
 - **D2** — "distant low-band tower reaches you" is a strong inference, not a single citation.

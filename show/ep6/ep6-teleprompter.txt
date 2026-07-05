@@ -315,8 +315,8 @@ JEFF:
 Right. That's the difference between "my phone works" and
 "my phone works when I need it most." And one more thing:
 if you're ever moved off a copper line onto a wireless
-replacement, they're required to OFFER you a backup
-battery -- take it, and plan for longer than a day,
+replacement, ask them for a backup battery, and
+plan for longer than a day,
 because our shutoffs can run several. Test your setup
 during a calm afternoon -- flip the house power off for an
 hour and make sure you can still call out.
