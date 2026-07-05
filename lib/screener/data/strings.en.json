@@ -32,6 +32,8 @@
   "form.enrolled.ssi": "SSI",
   "form.enrolled.calworks": "CalWORKs",
   "form.enrolled.wic": "WIC",
+  "form.enrolled.care": "CARE (PG&E discount)",
+  "form.enrolled.fera": "FERA (PG&E discount)",
   "form.submit": "Show me what I likely qualify for",
   "results.strong": "Strong matches — worth applying this week",
   "results.likely": "Likely matches — apply, let the program do the math",

@@ -1152,4 +1152,38 @@ describe('evaluate — golden cases from the fact-check corpus', () => {
       bucketOf(evaluate(childless, R), 'calworks-homeless-assistance')
     ).toBe('absent')
   })
+  it('#4 care/FERA enrollment unlocks ESA (+NID-LIRA for CARE), hides the discount they hold, and never leaks into REACH', () => {
+    // PG&E customer on CARE, over ESA's 250% FPG HH4 line (~$6,875) → ESA still
+    // strong via the categorical unlock (CARE ≤200% FPL sits under ESA's 250%)
+    const onCare = evaluate(
+      {
+        ...base,
+        incomeMonthlyGross: 9000,
+        flags: [...base.flags, 'nid-water'],
+        enrolled: ['care']
+      },
+      R
+    )
+    expect(bucketOf(onCare, 'esa')).toBe('strong')
+    expect(onCare.strong.find((v) => v.ruleId === 'esa')?.reasons[0]?.key).toBe(
+      'reason.unlock'
+    )
+    // NID-LIRA lists CARE as a qualifying path (the dormant nid-care-chain note)
+    expect(bucketOf(onCare, 'nid-lira')).toBe('strong')
+    // don't recommend a PG&E rate discount they already hold
+    expect(bucketOf(onCare, 'care')).toBe('absent')
+    expect(bucketOf(onCare, 'fera')).toBe('absent')
+    // the landmine holds: CARE (Dollar Energy's REACH table sits below CARE's)
+    // must NOT unlock REACH — over-income + on CARE stays absent, no false promise
+    expect(bucketOf(onCare, 'reach-dollar-energy')).toBe('absent')
+
+    // FERA enrollee over-income → ESA unlocks (FERA ≤250% = ESA's ceiling); the
+    // FERA card is hidden from someone already on FERA
+    const onFera = evaluate(
+      { ...base, incomeMonthlyGross: 9000, enrolled: ['fera'] },
+      R
+    )
+    expect(bucketOf(onFera, 'esa')).toBe('strong')
+    expect(bucketOf(onFera, 'fera')).toBe('absent')
+  })
 })

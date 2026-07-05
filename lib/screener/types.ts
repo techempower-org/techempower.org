@@ -21,7 +21,14 @@ export type ProgramStatus =
 export type Bucket = 'strong' | 'likely' | 'worthAsking' | 'notNow'
 
 /** Enrollment flags a user can already have (categorical unlocks). */
-export type Enrollment = 'medi-cal' | 'calfresh' | 'ssi' | 'calworks' | 'wic'
+export type Enrollment =
+  | 'medi-cal'
+  | 'calfresh'
+  | 'ssi'
+  | 'calworks'
+  | 'wic'
+  | 'care'
+  | 'fera'
 
 /** Situational flags from the form. */
 export type SituationFlag =
