@@ -1,0 +1,429 @@
+================================================================
+WAIT, I QUALIFY?!  --  EPISODE 6  (BONUS / SEASON ADD-ON)
+"Still Connected When the Power's Out" (rural connectivity resilience)
+Record: Mon ____ 2026 -- Nevada County Media  (date TBD by JP; ~1st/3rd-Mon cadence -> ~Sept)
+Hosts: SHAWNA (interviewer) + JEFF (expert)
+Target runtime: 13-15 minutes (no guest)
+Status: DRAFT -- HOLD FOR APPROVAL. Not yet fact-checked (PIPELINE stage 4 gate pending).
+----------------------------------------------------------------
+PROMPTER NOTES (do not read):
+- This is a BONUS 6th episode beyond the planned five. Ep5's close
+  says "every episode this season" -- the cold open acknowledges
+  Ep6 as an add-on so that line stays true (season-addendum framing).
+- SOLUTIONS-LED. The AT&T copper story is STATEWIDE CONTEXT, not a
+  local emergency: Nevada County is NOT among the wire centers AT&T
+  is retiring (verified against AT&T's filed application). Do NOT
+  imply local lines are being cut. The episode's spine is self-help:
+  which network works at YOUR house -> make it better -> keep it
+  working in an outage -> afford it -> (optional) have your say.
+- TONE = EMPOWERMENT-EDUCATION: warm, audience-centered. What's
+  happening, why it matters for people like you, how to protect
+  yourself, and how your voice counts if you want to use it. Clear
+  POV (rural connectivity + safety matter), never combative.
+- Lines in [BRACKETS] are cues, not dialogue.
+- [POST: PROGRAM CARD ...] = phone numbers / URLs appear on screen;
+  hosts say "it's on your screen" instead of reading digit strings.
+- Numbers written as spoken. No bare acronyms -- gloss on first use.
+- CONVERT TO CRLF (unix2dos) + copy to portable drive before the
+  shoot. This file is LF while in draft/review.
+- FACT-CHECK GATE (stage 4) still owed on every spoken claim. Load-
+  bearing claims + primaries are in the research brief:
+  ~/.claude/projects/-home-jp/scratch/att-copper-landline/findings.md
+  (esp. AT&T's own 911 admission, the ~184k / June-2027 scope, the
+  library-hotspot-on-3-networks fact, and "a booster needs existing
+  signal"). Keep hardware PRICES qualitative on-air; exact prices
+  live on the companion resource page, not the script.
+
+BEAT OUTLINE / ARC  (reviewable at a glance)
+  COLD OPEN  -- "we're back, this one's a bonus" + why (Ep2 struck a
+               nerve; a big phone story broke). Name the theme:
+               staying connected where the terrain and the power
+               fight you.
+  BEAT 1 (~2.5m) THE COPPER STORY, HONESTLY -- statewide context, not
+               local alarm. AT&T got a federal OK to retire copper for
+               ~184k CA homes (nothing before June 2027; NOT here).
+               Why copper is special (self-powers in an outage;
+               AT&T's OWN filing admits the replacement won't do 911
+               without power). Pivot: so let's make sure YOU have a
+               phone that works when it counts.
+  BEAT 2 (~3m) WHICH OF THE 3 NETWORKS WORKS AT YOUR HOUSE -- maps are
+               guesses; test free with the library LifeLine hotspot
+               (callback to Ep2); read real signal (dBm); CellMapper.
+  BEAT 3 (~2.5m) MAKE IT BETTER -- the cheap->pricier ladder: antenna
+               aimed at the tower -> hotspot with antenna ports ->
+               booster. Honest caveat: a booster amplifies existing
+               signal, it can't create one.
+  BEAT 4 (~1m)  THE POWER-USER TIER (60-90s) -- a taste: find your
+               tower + its band, band-lock, band-matched antenna ->
+               "full step-by-step is on our website." Don't teach it
+               all on air.
+  BEAT 5 (~1.5m) KEEP IT WORKING IN AN OUTAGE -- battery/solar for your
+               hotspot/router; the copper lesson applied to new gear.
+  BEAT 6 (~1.5m) AFFORD IT, HONESTLY -- ACP is gone; LifeLine covers
+               service not equipment; the free levers (library, device
+               refurbishers); the "signal-kit lending" community idea.
+  CLOSE  (~1m)  Recap; optional "you have a say" (CPUC, empowerment,
+               non-combative); standing resources (211 / findhelp /
+               techempower / Discord). It's the bonus finale -- warm
+               sign-off, no "next time."
+================================================================
+
+
+[POST: JINGLE + LOGO INTRO -- in studio, hold one beat, then go]
+
+SHAWNA:
+Welcome back to "Wait, I Qualify?!" -- the show about
+unlocking help for real people, right here in Nevada
+County. I'm Shawna.
+
+JEFF:
+And I'm Jeff, from TechEmpower dot org -- the local
+nonprofit that helps neighbors find the help they're
+entitled to.
+
+SHAWNA:
+Now -- eagle-eyed viewers, you counted five episodes this
+season. This one's a bonus. Why the encore, Jeff?
+
+JEFF:
+Two reasons. Our "Getting Connected" episode struck a
+nerve -- a lot of you live where the cell signal comes and
+goes. And then a big phone story broke that hits close to
+home. So we wanted to give you a whole episode on one
+question: how do you keep a phone that works when it
+really counts -- up a canyon, or when the power's out for
+days?
+
+SHAWNA:
+Which around here happens more than we'd like.
+
+JEFF:
+Right. So today: what's happening with the old landlines,
+how to find the cell network that actually works at your
+house, how to make it stronger, and how to keep it alive
+in an outage -- without spending a fortune.
+
+
+================================================================
+BEAT 1 -- THE COPPER STORY, HONESTLY (statewide context)
+================================================================
+
+SHAWNA:
+Start with the news. What's this about landlines going
+away?
+
+JEFF:
+So AT&T got permission from the federal government to
+retire its old copper landlines -- the classic
+plug-in-the-wall phone -- for about a hundred eighty
+thousand homes across California.
+
+SHAWNA:
+A hundred eighty thousand. Should people here be worried?
+
+JEFF:
+Here's the honest answer, and it's good news locally:
+Nevada County is NOT on that list. I checked AT&T's actual
+filing -- our wire centers aren't in it. And even where it
+does happen, nothing changes before June of twenty
+twenty-seven, and no court has ordered anything. So this
+is a slow, statewide shift -- not a switch getting flipped
+on your house next week.
+
+SHAWNA:
+Okay -- so why give it a whole episode?
+
+JEFF:
+Because it points at something that IS true for a lot of
+us. That old copper line has one superpower: it powers
+itself, from the phone company. So when a storm or a
+public-safety power shutoff knocks the electricity out for
+days, the copper phone still dials nine-one-one. The
+newer replacements -- wireless and internet phones -- need
+house power and a strong signal to work.
+
+SHAWNA:
+And that's exactly what we lose in an emergency.
+
+JEFF:
+Exactly. And I'm not editorializing here -- this is in
+AT&T's own paperwork. Their filing admits that their
+replacement service won't power things like medical alert
+devices, and that with no electricity it will, quote,
+"not work, including emergency nine-one-one."
+
+SHAWNA:
+That's straight from AT&T.
+
+JEFF:
+Word for word. So the takeaway isn't panic -- it's
+preparation. Whatever phone you rely on, let's make sure
+it actually works where you live and when the lights go
+out. That's the rest of the show.
+
+[POST: PROGRAM CARD -- "Copper landlines: nothing changes in
+Nevada County; statewide, no earlier than June 2027."]
+
+
+================================================================
+BEAT 2 -- WHICH OF THE 3 NETWORKS WORKS AT YOUR HOUSE
+================================================================
+
+SHAWNA:
+Let's get practical. If someone's cell service is bad at
+home, where do they start?
+
+JEFF:
+Start by throwing out the coverage maps. There are really
+only three big cell networks -- Verizon, T-Mobile, and
+AT&T -- and every one of them will show you a map that
+says you're covered. Out here, those maps are computer
+guesses. They can't see the ridge behind your house or the
+trees over your road. They're modeled -- not measured.
+
+SHAWNA:
+So how do you find out the truth?
+
+JEFF:
+You measure it. And you can do it for free. Our county
+library lends out mobile internet hotspots -- little pocket
+boxes -- and they carry them on all three networks.
+
+SHAWNA:
+The same hotspots we talked about in the connectivity
+episode.
+
+JEFF:
+The very same. So here's the trick: borrow one, bring it
+home, and see how it does right where you actually live.
+Then, if you can, try one on a different network. You can
+test all three -- at your kitchen table -- before you ever
+pay a cell company a dime.
+
+SHAWNA:
+I love that. What if you want the real signal number, not
+just the little bars?
+
+JEFF:
+The bars lie -- they're marketing. Every phone has a
+hidden "field-test" setting that shows your true signal as
+a real number. And there's a free app called CellMapper
+that shows you which cell tower you're actually reaching,
+and which direction it's in. We put the exact how-to on our
+website so you don't have to memorize it.
+
+[POST: PROGRAM CARD -- "Test all 3 networks free: borrow a
+library hotspot. Nevada County Library -- Hotspots."]
+
+
+================================================================
+BEAT 3 -- MAKE IT BETTER (the boost ladder)
+================================================================
+
+SHAWNA:
+Say you test it and the signal's weak but it's there. Can
+you make it stronger?
+
+JEFF:
+Usually, yes -- and there's a ladder from cheap to
+pricier. Cheapest first: a directional antenna. It's like
+cupping your hand to your ear, but for cell signal -- you
+aim it at the tower and it pulls in a lot more. That feeds
+a home internet device -- a hotspot or a router with a
+place to plug the antenna in.
+
+SHAWNA:
+And the next rung up?
+
+JEFF:
+A signal booster -- brand names like weBoost or Cel-Fi.
+That grabs the signal outside, amplifies it, and
+rebroadcasts it inside so your phone works through the
+whole house.
+
+SHAWNA:
+Here's the question everyone's thinking: do these actually
+work?
+
+JEFF:
+They can work really well -- but there's one honest catch,
+and it's the whole ballgame: a booster can only amplify a
+signal that's already reaching your property. It can't
+create one out of nothing. If you get zero signal even
+standing outside, a booster won't help -- that's when you
+look at a taller antenna mast, or satellite internet like
+Starlink. So test first, then buy. Don't guess.
+
+[POST: PROGRAM CARD -- "Boost weak signal: directional antenna
+-> hotspot/router -> booster. A booster needs SOME outside
+signal -- it can't create one."]
+
+
+================================================================
+BEAT 4 -- THE POWER-USER TIER (60-90s taste; points to website)
+================================================================
+
+SHAWNA:
+Now -- I know some of our viewers are the handy type who
+want to really dial this in.
+
+JEFF:
+Then there's a whole deeper level, and I'll give you the
+30-second version. That distant tower that actually reaches
+you? It's usually broadcasting on a low frequency -- a
+"low band" -- because low frequencies travel farther and
+push through trees. With the right home device you can
+"lock" onto that low band so your gear stops hopping to a
+closer-but-useless one. And you match your antenna to that
+exact frequency and aim it right at the tower.
+
+SHAWNA:
+That's more than a 30-second job.
+
+JEFF:
+It is -- so we're not going to walk through all of it on
+camera. We wrote the full step-by-step guide -- finding
+your tower, reading its band, locking it in, picking the
+right antenna -- and put it on our website. If that's your
+kind of project, it's all there, free.
+
+[POST: PROGRAM CARD -- "Power-user guide (find your tower +
+band, lock it, match the antenna): techempower.org"]
+
+
+================================================================
+BEAT 5 -- KEEP IT WORKING IN AN OUTAGE (resilience)
+================================================================
+
+SHAWNA:
+Let's come back to the scary part -- the power's out for
+three days. My internet phone is dead. What now?
+
+JEFF:
+This is the most important beat in the show. Remember why
+copper was special -- it powered itself. You can give your
+modern setup the same superpower: put your hotspot or
+router, and your booster, on a battery backup. A small
+one, ideally topped up by a little solar panel or a
+portable power station.
+
+SHAWNA:
+So the gadget that keeps you connected doesn't die with
+the grid.
+
+JEFF:
+Right. That's the difference between "my phone works" and
+"my phone works when I need it most." And one more thing:
+if you're ever moved off a copper line onto a wireless
+replacement, they're required to OFFER you a backup
+battery -- take it, and plan for longer than a day,
+because our shutoffs can run several. Test your setup
+during a calm afternoon -- flip the house power off for an
+hour and make sure you can still call out.
+
+SHAWNA:
+Practice before the emergency.
+
+JEFF:
+Every time.
+
+
+================================================================
+BEAT 6 -- AFFORD IT, HONESTLY
+================================================================
+
+SHAWNA:
+Now the money. Some of this gear isn't cheap. Is there help
+paying for it?
+
+JEFF:
+I'm going to be straight with you, because that's the whole
+point of this show. There used to be a federal program
+that knocked thirty dollars off your internet -- the
+Affordable Connectivity Program. It ran out of money and
+ended. There's no direct replacement right now.
+
+SHAWNA:
+And LifeLine -- the discount we've talked about?
+
+JEFF:
+LifeLine is still here and still worth getting -- it's a
+monthly discount on phone or internet SERVICE. But it pays
+for service, not equipment. It won't buy you an antenna or
+a booster. So I won't pretend there's a coupon for the
+hardware -- there isn't, today.
+
+SHAWNA:
+So what CAN people lean on?
+
+JEFF:
+The free stuff, and it's real. The library hotspot -- free
+to borrow, and it doubles as your test device. Local
+nonprofits that hand out refurbished computers and phones.
+And here's an idea I'd love a local group to run with: a
+lending library for a signal kit -- an antenna, a hotspot,
+a battery -- that neighbors could check out the way they
+check out that hotspot. Nobody's doing it yet. It's a great
+project for a service club or a library.
+
+SHAWNA:
+Planting a seed.
+
+JEFF:
+Planting a seed.
+
+
+================================================================
+CLOSE
+================================================================
+
+SHAWNA:
+Let's land the plane. Today: the old copper landlines are
+slowly going away statewide -- but not here, and not soon.
+The fix isn't worry, it's a phone that works when it
+counts. Test all three networks for free with a library
+hotspot. Aim an antenna, add a booster if there's signal to
+catch. Put it on a battery so it survives an outage. And
+lean on the free help -- the library, the nonprofits, and
+us.
+
+JEFF:
+And one last thing, because a few of you will want it.
+There's a bigger decision happening at the state level --
+whether phone companies can drop that old promise to keep
+everyone connected. You don't have to weigh in. But if you
+want to tell the people deciding what your phone really
+does when the power's out, you can -- the California Public
+Utilities Commission takes public comment, and their
+Public Advisor line is on your screen. Your voice counts.
+
+[POST: PROGRAM CARD -- "Have your say (optional): CA Public
+Utilities Commission -- Public Advisor 1-866-849-8390 --
+proceeding R.24-06-012"]
+
+SHAWNA:
+And if the power's out tonight and you're stuck, every door
+into help still opens by phone. Dial two-one-one -- here
+that's two-one-one Connecting Point -- free, confidential,
+around the clock, English and Spanish. Online, it's
+findhelp dot org.
+
+JEFF:
+And us -- techempower dot org. Click "Join our Discord" and
+real neighbors will help you test your signal or set up
+your gear, step by step. That's why we exist.
+
+SHAWNA:
+That's a wrap on our bonus episode -- thank you for
+spending the season with us.
+
+JEFF:
+Go find out what you qualify for. And go make sure your
+phone works when you need it most.
+
+[POST: OUTRO -- JINGLE + LOGO + END CARD: TECHEMPOWER.ORG /
+211 / FINDHELP.ORG. In studio: hold on smiles for a beat.]
+
+================================================================
+END OF SCRIPT
+================================================================

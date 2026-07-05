@@ -110,6 +110,17 @@ are open", no 1-800-655-7705, only scripted income figures).
 | 19 | truckee-bus-free | free fares; "funded into next year" | tahoetruckeetransit.com/fares | re-phrase "next year" after Dec 2026; check before each posting |
 | 20 | section-8-closed | waitlist CLOSED (verbatim, Jul 1 2026) | regionalha.org HCV page + homepage property table | STALE THE DAY IT REOPENS — check before EVERY posting |
 
+## Ep6 shorts (21–22) — rural connectivity / copper (NEW, out of numeric batch order)
+
+Sourced from the **Ep6 research brief** (`~/.claude/projects/-home-jp/scratch/att-copper-landline/findings.md`, primary-cited). **Fact-checked (PIPELINE stage-4, 2026-07-05): every load-bearing claim verified to primary** — R.24-06-012 confirmed the *open* CPUC COLR rulemaking, Public Advisor 1-866-849-8390 confirmed, zero "July 22" (the real WC 26-125 dates were comments June 22 / reply July 7, both passed), and AT&T's own no-911-without-power admission + June-1-2027 + Nevada-County-not-in-the-360 all confirmed. #22 is a committed ready-to-record master; #21 is the JP-selected CPUC-venue re-aim (empowerment tone).
+
+### Freshness index (verify before recording or re-posting)
+
+| # | File | Load-bearing facts | Re-verify | Hard date |
+|---|------|--------------------|-----------|-----------|
+| 21 | copper-landline-fcc-comment (civic; **CPUC-venue**) | ~184k CA customers; June 1 2027 earliest cutoff; AT&T's own "no 911 without power" admission; **CPUC rulemaking R.24-06-012** (verified ACTIVE) + Public Advisor **1-866-849-8390** / apps.cpuc.ca.gov/c/R2406012; NOT a court, NOT local (NV County not in the 360) | confirm **R.24-06-012 still open**; ~184k + June-2027 still hold | **STALE when CPUC closes the rulemaking / issues a decision** — time-sensitive |
+| 22 | which-network-works-at-your-house (self-help; **evergreen**) | no dollar figures; 3 networks (VZ/T-Mo/AT&T); county library lends LifeLine hotspots on all 3 (free test); **a booster amplifies existing signal — can't create one** | county library still lends hotspots on all 3 (nevadacountyca.gov/3934); keep hardware names/prices generic; **the booster caveat MUST survive edits** | evergreen — re-confirm library-hotspot program before each posting |
+
 ## Batch 3 — TODO
 
 Write after the Ep5 fact-check wave completes. Candidates already verified
