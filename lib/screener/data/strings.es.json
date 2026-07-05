@@ -39,6 +39,8 @@
   "results.likely": "Coincidencias probables — solicite y deje que el programa haga las cuentas",
   "results.worthAsking": "Vale la pena preguntar",
   "results.notNow": "Por ahora no — pero sepa cuál es el siguiente paso",
+  "results.otherGroup": "Otros programas",
+  "results.pgeGroup": "Programas de factura y energía de PG&E",
   "results.empty": "No encontramos una coincidencia fuerte con sus respuestas — pero estas revisiones no lo ven todo. Llame al 2-1-1: una persona real irá más a fondo, gratis.",
   "card.apply": "Solicitar",
   "card.call": "Llamar",
