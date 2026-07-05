@@ -3485,9 +3485,6 @@
     "noteParams": {
       "scef-what-covers": {
         "amountGrantMax": 500
-      },
-      "scef-safe-larger": {
-        "amountSafeMax": 1500
       }
     },
     "name": {
@@ -3511,10 +3508,10 @@
     },
     "provenance": [
       {
-        "claim": "Sierra College Foundation Student Emergency Fund gives one-time grants of up to $500 to currently enrolled students facing a sudden one-time emergency (rent deposit, gas, car repair, textbooks, medical bill) to keep them in school; a larger SAFE award (up to $1,500, requires good academic standing) covers bigger barriers like housing or food. Open to enrolled students at any campus (Rocklin, Nevada County, Tahoe-Truckee, Roseville Gateway).",
+        "claim": "Sierra College Foundation Student Emergency Fund gives one-time grants of up to $500 to currently enrolled students facing a sudden one-time emergency (rent deposit, gas, car repair, textbooks, medical bill) to keep them in school; open to enrolled students at any campus (Rocklin, Nevada County, Tahoe-Truckee, Roseville Gateway). A separate Student Assistance Fund Endowment (SAFE) is referenced for larger barriers, but the specific $1,500 award tier + good-academic-standing rule are from DB row [220] and are NOT stated on the live SEF page.",
         "source": "https://www.sierracollege.edu/about-sierra-college/sierra-college-foundation/impact-programs-to-support/student-emergency-fund/",
-        "verifiedAt": "2026-07-04",
-        "via": "wave-2 finale draft (nebula, browser-UA curl) — 'grants of up to $500' + all-campuses + currently-enrolled confirmed on live page; $1,500 SAFE award + (916) 660-7000 from DB row [220] (Verified 2026-05-30) + wave-2 final adversarial verification 2026-07-04 (oracle) — soft: re-verify the $1,500 SAFE tier + academic-standing at a later pass"
+        "verifiedAt": "2026-07-05",
+        "via": "re-pin pass 2026-07-05 (browser-UA curl, HTTP 200) — re-confirmed the $500 one-time grant + currently-enrolled + all-campuses on the live SEF page. The $1,500 'SAFE' award tier + good-academic-standing rule (DB row [220]) are NOT on the live page (SAFE shows only as a donor fund) -> softened the user note to drop the unverified figure and removed the orphaned amountSafeMax noteParam; phone-confirm (916) 660-7000 to restore."
       }
     ]
   },
@@ -3589,10 +3586,10 @@
     },
     "provenance": [
       {
-        "claim": "Hospitality House operates Nevada County's only year-round emergency homeless shelter (Utah's Place, 1262 Sutton Way, Grass Valley), up to 69 beds for single adults and families; 45-day county residency required; no photo ID required; approved pets welcome. Provides bed, hot meals, showers, laundry, case management, job training, mental-health screening, and free transportation (HAT van). Check-in daily 4:00-5:30 p.m. Shelter line (530) 271-7144; backup 2-1-1 or (833) 375-2237.",
+        "claim": "Hospitality House operates Nevada County's only year-round emergency homeless shelter (Utah's Place, 1262 Sutton Way, Grass Valley), up to 69 beds for single adults and families; no photo ID required; approved pets welcome. Provides bed, hot meals, showers, laundry, case management, job training, mental-health screening, and free transportation (HAT van). Check-in daily 4:00-5:30 p.m. Shelter line (530) 271-7144; backup 2-1-1 or (833) 375-2237. A 45-day county-residency requirement is reported by DB row [151] but is NOT stated on the live Utah's Place page.",
         "source": "https://www.hhshelter.org/programs-services/utahs-place/",
-        "verifiedAt": "2026-05-30",
-        "via": "wave-2 finale draft (nebula) — services/residency/beds from DB row [151] (Verified 2026-05-30); hhshelter.org live confirms address + shelter line (530) 271-7144 + the 'Utah's Place' program (nav-shell live page; cited to the WebFetch-verified /programs-services/utahs-place/ program page (2026-07-04), not the bare origin) + wave-2 final adversarial verification 2026-07-04 (oracle) — phone-confirm the 45-day residency + 4:00-5:30 window recommended (non-blocking)"
+        "verifiedAt": "2026-07-05",
+        "via": "re-pin pass 2026-07-05 (browser-UA curl) — re-confirmed up to 69 beds + daily 4:00-5:30 check-in + shelter line (530) 271-7144 verbatim on the live Utah's Place page. The 45-day county-residency gate (DB row [151]) is NOT on the live page -> softened the user note to say 'ask about county-residency rules when you call' rather than stating it as a hard requirement; phone-confirm to restore."
       }
     ]
   }
