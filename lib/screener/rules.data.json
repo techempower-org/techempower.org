@@ -182,7 +182,8 @@
       "incomePctFPL": 200,
       "householdFloor": 2,
       "flagsAll": ["pge-customer"],
-      "categoricalUnlocks": ["medi-cal", "calfresh", "ssi", "wic", "calworks"]
+      "categoricalUnlocks": ["medi-cal", "calfresh", "ssi", "wic", "calworks"],
+      "categoricalExcludes": ["care"]
     },
     "thresholdsDisplay": { "2": 3606, "4": 5500 },
     "name": {
@@ -217,7 +218,8 @@
     "test": {
       "incomePctFPL": 250,
       "householdFloor": 2,
-      "flagsAll": ["pge-customer"]
+      "flagsAll": ["pge-customer"],
+      "categoricalExcludes": ["care", "fera"]
     },
     "thresholdsDisplay": { "2": 4508, "4": 6875 },
     "name": {
@@ -307,7 +309,7 @@
     "test": {
       "incomePctFPL": 250,
       "flagsAll": ["pge-customer"],
-      "categoricalUnlocks": ["medi-cal", "calfresh", "ssi"]
+      "categoricalUnlocks": ["medi-cal", "calfresh", "ssi", "care", "fera"]
     },
     "name": {
       "en": "Free home energy upgrades (ESA)",
@@ -334,7 +336,7 @@
     "status": "open",
     "test": {
       "flagsAll": ["nid-water"],
-      "categoricalUnlocks": ["medi-cal", "ssi"],
+      "categoricalUnlocks": ["medi-cal", "ssi", "care"],
       "specialNotes": ["nid-care-chain"]
     },
     "name": {

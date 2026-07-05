@@ -16,7 +16,9 @@ const ENROLLMENTS: Enrollment[] = [
   'calfresh',
   'ssi',
   'calworks',
-  'wic'
+  'wic',
+  'care',
+  'fera'
 ]
 
 const AGE_BANDS: Array<{ band: keyof AgeBandCounts; labelKey: string }> = [

@@ -32,6 +32,8 @@
   "form.enrolled.ssi": "SSI",
   "form.enrolled.calworks": "CalWORKs",
   "form.enrolled.wic": "WIC",
+  "form.enrolled.care": "CARE (descuento de PG&E)",
+  "form.enrolled.fera": "FERA (descuento de PG&E)",
   "form.submit": "Muéstrame para qué probablemente califico",
   "results.strong": "Coincidencias fuertes — vale la pena solicitar esta semana",
   "results.likely": "Coincidencias probables — solicite y deje que el programa haga las cuentas",
