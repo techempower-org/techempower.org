@@ -121,14 +121,24 @@ Sourced from the **Ep6 research brief** (`~/.claude/projects/-home-jp/scratch/at
 | 21 | copper-landline-fcc-comment (civic; **CPUC-venue**) | ~184k CA customers; June 1 2027 earliest cutoff; AT&T's own "no 911 without power" admission; **CPUC rulemaking R.24-06-012** (verified ACTIVE) + Public Advisor **1-866-849-8390** / apps.cpuc.ca.gov/c/R2406012; NOT a court, NOT local (NV County not in the 360) | confirm **R.24-06-012 still open**; ~184k + June-2027 still hold | **STALE when CPUC closes the rulemaking / issues a decision** — time-sensitive |
 | 22 | which-network-works-at-your-house (self-help; **evergreen**) | no dollar figures; 3 networks (VZ/T-Mo/AT&T); county library lends LifeLine hotspots on all 3 (free test); **a booster amplifies existing signal — can't create one** | county library still lends hotspots on all 3 (nevadacountyca.gov/3934); keep hardware names/prices generic; **the booster caveat MUST survive edits** | evergreen — re-confirm library-hotspot program before each posting |
 
-## Batch 3 — TODO
+## Batch 3 (this directory, 23–26)
 
-Write after the Ep5 fact-check wave completes. Candidates already verified
-or in flight: Medi-Cal free rides (NEMT, Partnership 866-828-2303), FERA
-(18% electric, singles/couples now eligible), CARE/FERA generator + battery
-rebate (up to $500, sunsets Dec 31 2026 — short-lived by design), CalWORKs
-16 motel nights, Ep5 nonprofit/farm topics. Same rule: only claims that
-passed their wave. Plus Ep2 connection claims after it airs.
+Written 2026-07-05 (grove) from the Ep3/Ep4 fact-check reports + the verified
+screener corpus (`lib/screener/rules.data.json`) — corpus sweet-spot topics
+only; every figure re-traced. The generator-rebate dollar figure is kept soft
+and its sunset prominent per the funds rule. **PR pending rune review (show lane).**
+
+### Freshness index (verify before recording or re-posting)
+
+| # | File | Load-bearing figures | Re-verify | Hard date |
+|---|------|----------------------|-----------|-----------|
+| 23 | medi-cal-free-rides | free NEMT; book 5+ days ahead; gas reimbursement; Partnership 866-828-2303 | Partnership # + booking window | — (evergreen; Partnership = NV County Medi-Cal plan) |
+| 24 | fera-discount | ~18% electric; ~$45/mo; HH4 up to ~$82,000; 1–2p now eligible | pge.com/carefera table (eff. through May 31 2027) | after May 31 2027 |
+| 25 | care-fera-generator-rebate | up to $500 (base + CARE/FERA extra); fire-area; buy-first | pge.com — still open AND **funded** (money can exhaust early); do not harden the $ | **STALE after Dec 31 2026 (sunset)** |
+| 26 | calworks-motel-nights | 16 nights; deposit + last month's rent; once/12mo; form CW-42 | CDSS HA page + 530-265-1340 | after FY updates |
+
+### Still TODO (after their waves)
+Ep5 nonprofit/farm topics (after Ep5 airs/records); Ep2 connection claims (after Ep2 airs). Same rule: only claims that passed their wave.
 
 Ep4-wave refinements already locked in (2026-07-01, `car-bar.json` +
 `transit-west.json`) — applied in batch 2; future writers use THESE, not
