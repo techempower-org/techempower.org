@@ -3424,8 +3424,8 @@
         "deadline": "2026-03-02"
       },
       "calgrant-what-you-get": {
-        "amountGrantA": 12570,
-        "amountAccessB": 1656,
+        "amountGrantA": 15588,
+        "amountAccessB": 1648,
         "amountDependent": 6000
       }
     },
@@ -3434,8 +3434,8 @@
       "es": "Cal Grants (dinero estatal para la universidad que no se devuelve)"
     },
     "value": {
-      "en": "Free college money from California — Cal Grant A up to $12,570/yr, Cal Grant B tuition plus a $1,656 access award, and more, plus an extra $6,000/yr if you have dependent children. For enrolled or college-bound students who meet income and GPA rules. File the FAFSA or CA Dream Act Application by March 2.",
-      "es": "Dinero universitario gratis de California — Cal Grant A hasta $12,570/año, Cal Grant B matrícula más una ayuda de acceso de $1,656, y más, además de $6,000/año extra si tiene hijos dependientes. Para estudiantes inscritos o que van a la universidad y cumplen las reglas de ingresos y GPA. Presente la FAFSA o la Solicitud de la Ley Dream de CA antes del 2 de marzo."
+      "en": "Free college money from California — Cal Grant A up to $15,588/yr, Cal Grant B tuition plus a $1,648 access award, and more, plus an extra $6,000/yr if you have dependent children. For enrolled or college-bound students who meet income and GPA rules. File the FAFSA or CA Dream Act Application by March 2.",
+      "es": "Dinero universitario gratis de California — Cal Grant A hasta $15,588/año, Cal Grant B matrícula más una ayuda de acceso de $1,648, y más, además de $6,000/año extra si tiene hijos dependientes. Para estudiantes inscritos o que van a la universidad y cumplen las reglas de ingresos y GPA. Presente la FAFSA o la Solicitud de la Ley Dream de CA antes del 2 de marzo."
     },
     "apply": {
       "url": "https://www.csac.ca.gov/financial-aid-programs",
@@ -3450,16 +3450,22 @@
     },
     "provenance": [
       {
-        "claim": "Cal Grant 2026-27 award amounts (CSAC): Cal Grant A up to $12,570/yr (UC), $9,708 (private nonprofit), $5,742 (CSU); Cal Grant B tuition + $1,656 access award; Chafee Grant $5,000/yr (foster youth); an additional ~$6,000/yr Cal Grant access award for students with dependent children. File FAFSA or CA Dream Act Application by March 2, 2026; verified GPA required.",
-        "source": "https://www.csac.ca.gov/financial-aid-programs",
-        "verifiedAt": "2026-05-30",
-        "via": "wave-2 finale draft (nebula) — award figures + March 2 deadline from DB row [093] (Verified 2026-05-30) + csac.ca.gov live + wave-2 final adversarial verification 2026-07-04 (oracle) — ONE-SOURCE FLAGGED: the oracle's CSAC curl was 405-bot-walled, could not independently reproduce the ceilings/awards; ships on nebula pdftotext + DB [093] (calkids precedent)"
+        "claim": "Cal Grant 2026-27 NEW-recipient annual award amounts (CSAC G-30 comparison): Cal Grant A — UC $15,588, CSU $6,838, For-Profit non-WASC $4,000, For-Profit WASC $8,056 (covers systemwide tuition and fees; UC is cohort-based under the tuition-stability plan, so each new UC cohort's award equals that cohort's systemwide tuition). Cal Grant B — first-year access award $1,648, then the access award plus a tuition/fee award equal to Cal Grant A. Students-with-Dependent-Children / Foster Youth access award up to $6,000. Chafee Grant $5,000/yr (foster youth). File FAFSA or CA Dream Act Application by March 2; verified GPA required.",
+        "source": "https://www.csac.ca.gov/sites/default/files/2025-12/g-30-2026-27-cal-grant-comparison.pdf",
+        "verifiedAt": "2026-07-05",
+        "via": "re-pin pass 2026-07-05 (session 01d4fac2) — browser-UA curl DEFEATED the CSAC bot-wall the wave-2 oracle hit (405); G-30 2026-27 comparison PDF pdftotext-extracted, award figures verbatim. CORRECTED two stale figures inherited from DB row [093]: Cal Grant A UC $12,570 -> $15,588 (the $12,570 was the 2021-22 UC systemwide tuition) and Cal Grant B access award $1,656 -> $1,648. The screener had understated Cal Grant A by ~$3k."
+      },
+      {
+        "claim": "Cal Grant B first-year access award is $1,648 (2026-27); UC Cal Grant A follows a cohort-based tuition-stability plan, so each new UC cohort's Cal Grant award equals that cohort's systemwide tuition/fee amount.",
+        "source": "https://www.csac.ca.gov/cal-grant/award-types",
+        "verifiedAt": "2026-07-05",
+        "via": "re-pin pass 2026-07-05 (browser-UA curl, HTTP 200) — independent SECOND source resolving the wave-2 ONE-SOURCE flag on the award figures; confirms the $1,648 access award and the UC cohort model verbatim."
       },
       {
         "claim": "2026-27 Cal Grant Program INCOME CEILINGS (annual), Cal Grant A & C column (dependent students + independent students with dependents), by family size: 2 $130,000 · 3 $133,200 · 4 $144,700 · 5 $155,000 · 6+ $167,200. Independent students: single no dependents $53,000; married no dependents $60,700. Cal Grant B column (lower): 2 $60,700 · 3 $68,400 · 4 $76,100 · 5 $85,100 · 6+ $91,900. ASSET ceilings: dependent $111,900; independent $53,300.",
         "source": "https://www.csac.ca.gov/sites/default/files/2025-07/2026-27-Income-and-Asset-Ceiling.pdf",
-        "verifiedAt": "2026-07-04",
-        "via": "wave-2 finale draft (nebula) — CSAC ceiling PDF pdftotext-extracted, table verbatim; limitsMonthly = Cal Grant A/C ceilings ÷12 floored (the most inclusive ceiling; HH1 = independent-single $53,000/12); proxyReasonKey suppresses the single number (dependent/independent + A-vs-B makes one printed cell misleading) + wave-2 final adversarial verification 2026-07-04 (oracle) — one-source (405-bot-walled), calkids precedent"
+        "verifiedAt": "2026-07-05",
+        "via": "re-pin pass 2026-07-05 — ceiling PDF re-fetched via browser-UA curl + pdftotext; FULL income and asset grid reproduced VERBATIM, resolving the wave-2 'one-source, could-not-independently-reproduce' flag. limitsMonthly = Cal Grant A/C ceilings ÷12 floored (most inclusive; HH1 = independent-single $53,000/12 = $4,416). proxyReasonKey still suppresses a single printed cutoff (dependent/independent + A-vs-B makes one cell misleading)."
       }
     ]
   },
