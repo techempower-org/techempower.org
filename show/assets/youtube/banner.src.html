@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<style>
+  @font-face { font-family:'Fraunces'; src:url('./fonts/Fraunces.ttf') format('truetype'); font-weight:100 900; }
+  @font-face { font-family:'DM Sans'; src:url('./fonts/dmsans-400.woff2') format('woff2'); font-weight:400; }
+  @font-face { font-family:'DM Sans'; src:url('./fonts/dmsans-500.woff2') format('woff2'); font-weight:500; }
+  @font-face { font-family:'DM Sans'; src:url('./fonts/dmsans-700.woff2') format('woff2'); font-weight:700; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:2560px; height:1440px; overflow:hidden; }
+  body {
+    position:relative; font-family:'DM Sans',sans-serif;
+    background:
+      radial-gradient(circle at 690px 720px, rgba(245,158,11,0.16), rgba(245,158,11,0) 44%),
+      radial-gradient(circle at 2100px 470px, rgba(15,118,110,0.06), rgba(15,118,110,0) 40%),
+      linear-gradient(180deg, #fdfbf8 0%, #faf8f5 58%, #f3efe9 100%);
+  }
+  /* very soft oversized ghost sun for the wide/TV crop, off to the left edge */
+  .ghost { position:absolute; left:-260px; top:360px; width:720px; height:720px; opacity:0.05; }
+  .safe {
+    position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    width:1546px; height:423px; display:flex; align-items:center; gap:78px;
+  }
+  .sun { width:372px; height:372px; flex:0 0 auto; filter:drop-shadow(0 8px 22px rgba(180,83,9,0.18)); }
+  .text { display:flex; flex-direction:column; justify-content:center; }
+  .wordmark {
+    font-family:'Fraunces'; font-variation-settings:'opsz' 144,'wght' 640,'SOFT' 0,'WONK' 0;
+    font-size:138px; line-height:0.9; letter-spacing:-2px; color:#2c1f1a;
+  }
+  .tagline { font-family:'DM Sans'; font-weight:500; font-size:47px; color:#5c4236; margin-top:22px; letter-spacing:0.2px; }
+  .rule { width:132px; height:8px; border-radius:4px; background:#0f766e; margin:26px 0 24px; }
+  .feature { font-family:'DM Sans'; font-weight:600; font-size:37px; color:#0b5e5a; display:flex; align-items:center; letter-spacing:0.2px; }
+  .feature .play { color:#0f766e; font-size:30px; margin-right:16px; }
+  .feature .show { font-family:'Fraunces'; font-variation-settings:'opsz' 40,'wght' 600; font-style:italic; margin:0 4px; }
+  .feature .dot { color:#c4b5a8; margin:0 20px; }
+  .feature .url { font-weight:700; color:#b45309; }
+</style></head>
+<body>
+  <!-- ghost sun, faint, bleeding off the left for the full-bleed TV view -->
+  <svg class="ghost" viewBox="0 0 200 200"><circle cx="100" cy="100" r="52" fill="#d97706"/>
+    <g stroke="#b45309" stroke-width="10" stroke-linecap="round">
+      <line x1="163" y1="100" x2="188" y2="100"/><line x1="144.5" y1="144.5" x2="162.2" y2="162.2"/>
+      <line x1="100" y1="163" x2="100" y2="188"/><line x1="55.5" y1="144.5" x2="37.8" y2="162.2"/>
+      <line x1="37" y1="100" x2="12" y2="100"/><line x1="55.5" y1="55.5" x2="37.8" y2="37.8"/>
+      <line x1="100" y1="37" x2="100" y2="12"/><line x1="144.5" y1="55.5" x2="162.2" y2="37.8"/></g></svg>
+
+  <div class="safe">
+    <svg class="sun" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="disc" cx="42%" cy="38%" r="68%">
+          <stop offset="0%" stop-color="#fbe1a0"/><stop offset="42%" stop-color="#f4b23e"/>
+          <stop offset="100%" stop-color="#d97706"/>
+        </radialGradient>
+      </defs>
+      <g stroke="#b45309" stroke-width="10" stroke-linecap="round">
+        <line x1="163" y1="100" x2="188" y2="100"/><line x1="144.5" y1="144.5" x2="162.2" y2="162.2"/>
+        <line x1="100" y1="163" x2="100" y2="188"/><line x1="55.5" y1="144.5" x2="37.8" y2="162.2"/>
+        <line x1="37" y1="100" x2="12" y2="100"/><line x1="55.5" y1="55.5" x2="37.8" y2="37.8"/>
+        <line x1="100" y1="37" x2="100" y2="12"/><line x1="144.5" y1="55.5" x2="162.2" y2="37.8"/>
+      </g>
+      <circle cx="100" cy="100" r="52" fill="url(#disc)"/>
+    </svg>
+
+    <div class="text">
+      <div class="wordmark">TechEMPOWER</div>
+      <div class="tagline">Free technology resources for everyone</div>
+      <div class="rule"></div>
+      <div class="feature">
+        <span class="play">&#9654;</span>Now streaming:&nbsp;<span class="show">Wait, I Qualify?!</span>
+        <span class="dot">&#8226;</span><span class="url">techempower.org</span>
+      </div>
+    </div>
+  </div>
+</body></html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:800px; height:800px; overflow:hidden; }
+  body { background: radial-gradient(circle at 50% 44%, #fefdfb 0%, #faf8f5 60%, #f1ece5 100%); }
+</style></head>
+<body>
+  <svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="disc" cx="42%" cy="38%" r="68%">
+        <stop offset="0%" stop-color="#fbe1a0"/><stop offset="42%" stop-color="#f4b23e"/>
+        <stop offset="100%" stop-color="#d97706"/>
+      </radialGradient>
+      <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="rgba(245,158,11,0.22)"/>
+        <stop offset="100%" stop-color="rgba(245,158,11,0)"/>
+      </radialGradient>
+    </defs>
+    <!-- soft amber halo behind the sun -->
+    <circle cx="400" cy="400" r="300" fill="url(#glow)"/>
+    <!-- teal rim (reads as the avatar border after YouTube's circular crop) -->
+    <circle cx="400" cy="400" r="384" fill="none" stroke="#0b5e5a" stroke-width="16"/>
+    <!-- sun mark, centered, scaled 2.4x from the 200-unit master -->
+    <g transform="translate(400,400) scale(2.4) translate(-100,-100)">
+      <g stroke="#b45309" stroke-width="10" stroke-linecap="round">
+        <line x1="163" y1="100" x2="188" y2="100"/><line x1="144.5" y1="144.5" x2="162.2" y2="162.2"/>
+        <line x1="100" y1="163" x2="100" y2="188"/><line x1="55.5" y1="144.5" x2="37.8" y2="162.2"/>
+        <line x1="37" y1="100" x2="12" y2="100"/><line x1="55.5" y1="55.5" x2="37.8" y2="37.8"/>
+        <line x1="100" y1="37" x2="100" y2="12"/><line x1="144.5" y1="55.5" x2="162.2" y2="37.8"/>
+      </g>
+      <circle cx="100" cy="100" r="52" fill="url(#disc)"/>
+    </g>
+  </svg>
+</body></html>
