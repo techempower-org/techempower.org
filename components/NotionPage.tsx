@@ -379,7 +379,12 @@ export function NotionPage({
       <StructuredData />
 
       {isLiteMode && <BodyClassName className='notion-lite' />}
-      {isDarkMode && <BodyClassName className='dark-mode' />}
+      {/* Do NOT re-add <BodyClassName className='dark-mode'/> here. The noflash
+          script (_document.tsx) + useDarkMode own the body 'dark-mode' class and
+          it persists across client-side nav. BodyClassName's unmount runs
+          classList.remove('dark-mode'), which strips it entirely on a
+          Notion→custom-page navigation — flipping the whole app to light until a
+          hard reload. isDarkMode still drives NotionRenderer's darkMode prop. */}
 
       {isGuide && (
         <Breadcrumb items={buildGuideBreadcrumb(guideMeta?.title || title)} />
