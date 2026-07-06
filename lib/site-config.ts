@@ -32,13 +32,6 @@ export interface SiteConfig {
   pageUrlAdditions?: types.PageUrlOverridesMap | null
 
   navigationStyle?: types.NavigationStyle
-  navigationLinks?: Array<NavigationLink>
-}
-
-export interface NavigationLink {
-  title: string
-  pageId?: string
-  url?: string
 }
 
 export const siteConfig = (config: SiteConfig): SiteConfig => {

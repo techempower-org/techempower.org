@@ -83,35 +83,5 @@ export default siteConfig({
   },
 
   // custom navigation
-  navigationStyle: 'custom',
-  navigationLinks: [
-    {
-      title: 'Check Eligibility',
-      url: '/qualify'
-    },
-    {
-      title: 'Guides',
-      pageId: '0959e44599984143acabc80187305001'
-    },
-    {
-      title: 'Resources',
-      pageId: '2a3d706803c649409e74e9ce5ccd4c4b'
-    },
-    {
-      title: 'Show',
-      pageId: '390a4ee6952081c0b1edf3443a153913'
-    },
-    {
-      title: 'Candela',
-      pageId: '363a4ee6952081e48184f03b153b4a8d'
-    },
-    {
-      title: 'About',
-      pageId: 'dbf0ddece2ce468fb2bf9049e6322e8a'
-    },
-    {
-      title: 'Donate',
-      pageId: '59d8a4dab0cc484f8b044d33f240ce1d'
-    }
-  ]
+  navigationStyle: 'custom'
 })

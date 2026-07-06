@@ -12,7 +12,6 @@ import {
   getRequiredSiteConfig,
   getSiteConfig
 } from './get-config-value'
-import { type NavigationLink } from './site-config'
 import {
   type NavigationStyle,
   type PageUrlOverridesInverseMap,
@@ -100,11 +99,6 @@ export const includeNotionIdInUrls: boolean = getSiteConfig(
 export const navigationStyle: NavigationStyle = getSiteConfig(
   'navigationStyle',
   'default'
-)
-
-export const navigationLinks: Array<NavigationLink | undefined> = getSiteConfig(
-  'navigationLinks',
-  null
 )
 
 // Optional site search
