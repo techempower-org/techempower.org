@@ -3,7 +3,7 @@ import styles from './styles.module.css'
 export function GitHubShareButton() {
   return (
     <a
-      href='https://github.com/transitive-bullshit/nextjs-notion-starter-kit'
+      href='https://github.com/techempower-org/techempower.org'
       target='_blank'
       rel='noopener noreferrer'
       className={styles.githubCorner}
