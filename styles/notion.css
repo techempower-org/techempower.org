@@ -1630,3 +1630,20 @@
   outline-offset: 2px;
   border-radius: 2px;
 }
+
+/* ── Notion video embeds (e.g. the /show YouTube episodes) ───────────
+   Video blocks created via the API lack the aspect-ratio metadata the Notion
+   UI sets, so react-notion-x's lite YouTube embed (which is absolutely
+   positioned) collapses to 0 height and renders blank. Give the video asset
+   wrapper a 16:9 box so the player is visible; the lite embed then fills it.
+   (Verified against the Ep1 embed: 0 -> 688x387.) */
+
+.notion-asset-wrapper-video > div {
+  aspect-ratio: 16 / 9;
+}
+
+.notion-asset-wrapper-video .notion-yt-lite {
+  inset: 0;
+  height: 100%;
+  width: 100%;
+}
