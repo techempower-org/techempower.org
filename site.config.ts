@@ -21,6 +21,8 @@ export default siteConfig({
   twitter: undefined,
   github: undefined,
   linkedin: undefined,
+  // YouTube channel handle (bare, no @ — components prepend the @handle URL)
+  youtube: 'techempowerorg',
 
   // default notion icon and cover images
   defaultPageIcon: null,
