@@ -7,8 +7,10 @@ import { trackEvent } from '@/components/GoogleAnalytics'
 import styles from './Header.module.css'
 
 const NAV_LINKS = [
+  { href: '/qualify', label: 'Check Eligibility' },
   { href: '/', label: 'Guides' },
   { href: '/resources', label: 'Resources' },
+  { href: '/show', label: 'Show' },
   { href: '/about', label: 'About' }
 ] as const
 
