@@ -674,5 +674,70 @@
       "es": "La caja semanal CSA de Mountain Bounty Farm con frutas y verduras frescas y locales — puede pagar con su tarjeta EBT o CalFresh."
     },
     "signals": ["food-interest"]
+  },
+  {
+    "id": "pioneer-led",
+    "slug": "discount-led-bulbs--pioneer-community-energy-led-discounts",
+    "name": {
+      "en": "Pioneer Community Energy — LED discounts",
+      "es": "Pioneer Community Energy — descuentos en focos LED"
+    },
+    "blurb": {
+      "en": "Discounted LED bulbs through Pioneer Community Energy.",
+      "es": "Focos LED con descuento a través de Pioneer Community Energy."
+    },
+    "signals": ["utilities-interest"]
+  },
+  {
+    "id": "pioneer-hvac",
+    "slug": "pioneer-community-energy-hvac-75-rebate-tune-up-program",
+    "name": {
+      "en": "Pioneer Community Energy — HVAC tune-up rebate",
+      "es": "Pioneer Community Energy — reembolso por mantenimiento de HVAC"
+    },
+    "blurb": {
+      "en": "A rebate on a heating & cooling tune-up through Pioneer Community Energy.",
+      "es": "Un reembolso por un mantenimiento de calefacción y aire a través de Pioneer Community Energy."
+    },
+    "signals": ["utilities-interest", "homeowner"]
+  },
+  {
+    "id": "northern-ren",
+    "slug": "all-residential-services--northern-rural-energy-network",
+    "name": {
+      "en": "Northern Rural Energy Network",
+      "es": "Northern Rural Energy Network (red rural de energía)"
+    },
+    "blurb": {
+      "en": "Free home energy-saving upgrades and services through the Northern Rural Energy Network.",
+      "es": "Mejoras y servicios gratuitos de ahorro de energía en el hogar a través de Northern Rural Energy Network."
+    },
+    "signals": ["utilities-interest", "homeowner", "renter"]
+  },
+  {
+    "id": "project-10million",
+    "slug": "free-hotspot-project-10million-direct-to-parentguardian-eligibility-t-mobile-support",
+    "name": {
+      "en": "Project 10Million — free student hotspot",
+      "es": "Project 10Million — punto de acceso gratis para estudiantes"
+    },
+    "blurb": {
+      "en": "Free student internet hotspot and data, via T-Mobile.",
+      "es": "Punto de acceso a internet y datos gratis para estudiantes, vía T-Mobile."
+    },
+    "signals": ["has-kids", "student"]
+  },
+  {
+    "id": "line-extension-fiber",
+    "slug": "free-fiber--a-story-of-the-california-line-extension-program-grant",
+    "name": {
+      "en": "Free Fiber — CA Line Extension Program",
+      "es": "Fibra gratis — Programa de Extensión de Línea de California"
+    },
+    "blurb": {
+      "en": "A grant that can extend broadband to homes with no current service.",
+      "es": "Un subsidio que puede llevar banda ancha a hogares sin servicio actual."
+    },
+    "signals": ["homeowner", "utilities-interest"]
   }
 ]
