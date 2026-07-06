@@ -689,19 +689,6 @@
     "signals": ["utilities-interest"]
   },
   {
-    "id": "pioneer-hvac",
-    "slug": "pioneer-community-energy-hvac-75-rebate-tune-up-program",
-    "name": {
-      "en": "Pioneer Community Energy — HVAC tune-up rebate",
-      "es": "Pioneer Community Energy — reembolso por mantenimiento de HVAC"
-    },
-    "blurb": {
-      "en": "A rebate on a heating & cooling tune-up through Pioneer Community Energy.",
-      "es": "Un reembolso por un mantenimiento de calefacción y aire a través de Pioneer Community Energy."
-    },
-    "signals": ["utilities-interest", "homeowner"]
-  },
-  {
     "id": "northern-ren",
     "slug": "all-residential-services--northern-rural-energy-network",
     "name": {
