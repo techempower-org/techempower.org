@@ -69,13 +69,16 @@
   color: var(--te-bark-600);
   text-decoration: none;
   border-radius: 0.5rem;
-  transition: color 150ms ease, background 150ms ease;
+  transition:
+    color 150ms ease,
+    background 150ms ease;
 }
 
 :global(.dark-mode) .navLink {
-  /* WCAG AA: bark-400 (#8a7565) was ratio 4.01 against dark bark bg;
-     bark-300 lifts to ~7.6 (axe-pass). */
-  color: var(--te-bark-300);
+  /* Dark mode inverts the bark scale: --te-bark-500 (#a08979) is a light
+     muted tan on the dark bg (clears AA). The old --te-bark-300 flipped to
+     #5c4236 — dark-on-dark, ~1.8:1. */
+  color: var(--te-bark-500);
 }
 
 .navLink:hover {
@@ -109,7 +112,9 @@
   padding: 0.45rem 1rem;
   border-radius: 100px;
   margin-left: 0.25rem;
-  transition: background 150ms ease, transform 100ms ease;
+  transition:
+    background 150ms ease,
+    transform 100ms ease;
 }
 
 .donateLink:hover {
@@ -185,11 +190,15 @@
   color: var(--te-bark-600);
   text-decoration: none;
   border-radius: 0.5rem;
-  transition: color 150ms ease, background 150ms ease;
+  transition:
+    color 150ms ease,
+    background 150ms ease;
 }
 
 :global(.dark-mode) .mobileNavLink {
-  color: var(--te-bark-400);
+  /* Match the desktop nav (bark-500 = #a08979 in dark, clears AA);
+     bark-400 (#8a7565) was ~4:1, a hair under AA for normal text. */
+  color: var(--te-bark-500);
 }
 
 .mobileNavLink:hover {

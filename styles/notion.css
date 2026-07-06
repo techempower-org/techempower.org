@@ -463,7 +463,7 @@
 
 .dark-mode .notion-table-of-contents-item,
 .dark-mode .notion-table-of-contents-item-body {
-  color: var(--te-cream, #f0ebe5);
+  color: var(--te-bark-800);
 }
 
 .notion-table-of-contents-active-item {
@@ -1226,7 +1226,7 @@
 }
 
 .dark-mode .resources-page .notion-collection-view-tabs-content-item:hover {
-  color: var(--te-cream, #f0ebe5);
+  color: var(--te-bark-800);
   background: none;
   border-bottom-color: var(--te-bark-500, #78614f);
 }
@@ -1349,7 +1349,7 @@
 }
 
 .dark-mode .resources-search-clear:hover {
-  color: var(--te-cream, #f0ebe5);
+  color: var(--te-bark-800);
 }
 
 .resources-sort-select {
@@ -1457,9 +1457,9 @@
 
 .dark-mode .resources-chip {
   border-color: var(--te-bark-600, #5c4a3d);
-  /* WCAG AA: was --te-bark-400 (#8a7565) at ratio 4.17 on #1a1412;
-     bark-300 (#c4b5a8) lifts to ~9:1. */
-  color: var(--te-bark-300, #c4b5a8);
+  /* Dark mode inverts the bark scale: --te-bark-700 = #c4b5a8 (light tan,
+     ~9:1 on #1a1412). --te-bark-300 flips to #5c4236 — dark, ~1.8:1. */
+  color: var(--te-bark-700);
 }
 
 .dark-mode .resources-chip:hover {
