@@ -86,6 +86,10 @@ export default siteConfig({
   navigationStyle: 'custom',
   navigationLinks: [
     {
+      title: 'Check Eligibility',
+      url: '/qualify'
+    },
+    {
       title: 'Guides',
       pageId: '0959e44599984143acabc80187305001'
     },
