@@ -7,6 +7,7 @@ import { Hero } from '@/components/homepage/Hero'
 import { NewsletterSignup } from '@/components/homepage/NewsletterSignup'
 import { QualifyCallout } from '@/components/homepage/QualifyCallout'
 import { ResourcesPreview } from '@/components/homepage/ResourcesPreview'
+import { ShowCallout } from '@/components/homepage/ShowCallout'
 import { SupportChannels } from '@/components/homepage/SupportChannels'
 import * as config from '@/lib/config'
 
@@ -48,6 +49,7 @@ export default function HomePage() {
         <QualifyCallout />
         <GuideGrid />
         <ResourcesPreview />
+        <ShowCallout />
         <AppsShowcase />
         <SupportChannels />
         <AboutDonate />
