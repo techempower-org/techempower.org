@@ -26,7 +26,7 @@ JEFF:  Three things. It's one benefit per household -- one, total, phone or inte
 
 SHAWNA:  Okay, phones -- handled. What about internet at the house?
 
-JEFF:  In this county, step one is always "check your address." No program matters if the wire doesn't reach your road. But here's what's real. If you're in Grass Valley or Nevada City proper, the cable company's program is called Xfinity Internet Essentials: fourteen ninety-five a month, seventy-five megabits -- that's plenty for streaming and video calls -- free equipment, no contract. One catch: it's for households new to Xfinity. Same easy eligibility: CalFresh, Medi-Cal, school lunch, W-I-C, and more. And the sign-up is genuinely short -- here's the actual screen.
+JEFF:  In this county, step one is always "check your address." No program matters if the wire doesn't reach your road. But here's what's real. If you're in Grass Valley or Nevada City proper, the cable company's program is called Xfinity Internet Essentials: fourteen ninety-five a month, seventy-five megabits -- that's plenty for streaming and video calls -- free equipment, no contract. One catch: it's for households new to Xfinity. Same easy eligibility: CalFresh, Medi-Cal, school lunch, W-I-C, and more. And the sign-up is genuinely short -- here's the actual screen. And if AT&T reaches your address instead of the cable company, they've got their own low-income plan -- AT&T Access. Thirty dollars a month or less, a free modem, and the same easy eligibility as the rest: SNAP, S-S-I, or a veteran's pension. You can even stack that federal Lifeline discount on top. It's at att dot com slash access.
 
 SHAWNA:  And Truckee?
 
@@ -38,7 +38,7 @@ JEFF:  The catch is reach -- they're over a hundred homes around Banner Mountain
 
 SHAWNA:  And if none of them reach you today?
 
-JEFF:  Three real answers. First: if the wire doesn't reach your house, the state has a program that helps pay to EXTEND it -- it's called the Line Extension Program. Same income lines as the phone discount -- or if you're on CARE, the utility discount, you're in. And the practical part: the internet company can file the application for you. So when a provider says "we don't serve your road," your next question is: "will you check the Line Extension Program for me?" Second: Nevada County landed one of the biggest rural broadband allocations in California -- almost seventy-five million dollars set aside by the state -- and so far nearly fifteen million of it has turned into two local fiber projects, with crews already building. Third: since this January, that LifeLine discount we talked about also works on home internet -- up to twenty or thirty dollars a month off -- through participating providers like Xfinity and Spectrum, with more signing on. So if the answer is "no" today, check again in a few months. It's changing fast.
+JEFF:  Three real answers. First: if the wire doesn't reach your house, the state has a program that helps pay to EXTEND it -- it's called the Line Extension Program. Same income lines as the phone discount -- or if you're on CARE, the utility discount, you're in. And the practical part: the internet company can file the application for you. So when a provider says "we don't serve your road," your next question is: "will you check the Line Extension Program for me?" Second: Nevada County landed one of the biggest rural broadband allocations in California -- almost seventy-five million dollars set aside by the state -- and so far nearly fifteen million of it has turned into two local fiber projects, with crews already building. Third: since this January, that LifeLine discount we talked about also works on home internet -- up to twenty or thirty dollars a month off. Which providers offer it depends on your address -- look them up at californialifeline dot com. So if the answer is "no" today, check again in a few months. It's changing fast.
 
 SHAWNA:  And meanwhile?
 
@@ -57,6 +57,12 @@ SHAWNA:  And what else comes with the card?
 JEFF:  Every branch has free WiFi that works from the PARKING LOT, twenty-four hours a day -- the Nevada City lot is a free internet cafe at midnight, no card needed. Free computers inside. Chromebooks you can use in the building. Penn Valley and Bear River even have after-hours access for adults -- sign up once, do a quick orientation, and after that your card unlocks the door when staff have gone home. And -- this one matters -- free one-on-one tech help. A real person will sit down with you and your phone or laptop -- by appointment at the Madelyn Helling and Truckee branches, plus drop-in help. No judgment, no charge.
 
 SHAWNA:  One caution from our homework: branch hours just changed at the start of July -- so check the hours before you drive over. The WiFi in the parking lot, though -- always on.
+
+SHAWNA:  And that library hotspot isn't the only free one.
+
+JEFF:  Not for families with school-age kids. T-Mobile runs a program called Project Ten Million. If you've got a child in kindergarten through twelfth grade, your household can get its OWN hotspot -- free -- with free internet on it: two hundred gigabytes a year, for up to five years. Same doorway as everything else -- if your kid gets free school lunch, you almost certainly qualify. You apply right to T-Mobile, and it ships to your door.
+
+SHAWNA:  So the library lends you one -- and if there's a student in the house, T-Mobile gives you one of your own.
 
 SHAWNA:  That leaves the computer itself. Because a new laptop is five hundred dollars before tax, and that's just not happening for a lot of households.
 
