@@ -423,7 +423,8 @@
         "4": 6187,
         "increment": 1065
       },
-      "flagsAll": ["has-vehicle", "failed-smog"]
+      "flagsAll": ["has-vehicle", "failed-smog"],
+      "specialNotes": ["barcap-repair-waiver"]
     },
     "thresholdsDisplay": { "1": 2992, "4": 6187 },
     "name": {
@@ -783,7 +784,8 @@
         "calworks-earned-disregard",
         "calworks-pregnant",
         "calworks-region",
-        "calworks-assets"
+        "calworks-assets",
+        "calworks-ebt-atms"
       ]
     },
     "thresholdsDisplay": { "1": 1364, "4": 2661 },

@@ -59,6 +59,8 @@
   "reason.income-band": "Sus ingresos están en el rango donde este crédito puede aplicar — el límite exacto depende del estado civil tributario y del número de hijos",
   "reason.own-income": "Este programa cuenta solo los ingresos propios de la persona que solicita (y los de su cónyuge), no los de todo el hogar — pasarse del límite del hogar no lo descarta",
   "note.senior-net-test": "¿Hay alguien de 60+ en casa? Solo cuentan los ingresos netos — pregunte al solicitar.",
+  "note.calworks-ebt-atms": "Su ayuda en efectivo se carga en la tarjeta EBT — retírela sin cargo en cajeros sin recargo (Bank of America, Golden 1, MoneyPass, Allpoint).",
+  "note.barcap-repair-waiver": "Si el presupuesto de reparación de smog supera lo que cubre el tope, pregunte al Árbitro de Smog del estado sobre una exención de costo de reparación — puede cubrir el resto.",
   "note.cf-stretch": "Aproveche su CalFresh: use su tarjeta EBT en línea para entrega (Amazon, Walmart, Instacart), consulte su saldo gratis con la app Propel, y tome los cursos gratuitos de manejo de dinero que vienen con su tarjeta.",
   "note.eitc-free-filing": "Presente gratis y no deje el crédito atrás — AARP Tax-Aide y GetYourRefund dan ayuda gratis, y CalFile del estado declara en línea gratis; la mayoría nunca necesita pagar a un preparador.",
   "note.medi-cal-extras": "Medi-Cal es más que un doctor: dental gratis (encuentre uno en InsureKidsNow.gov), y para necesidades complejas un gestor de cuidado personal gratis a través de Enhanced Care Management — pregunte a su plan.",
