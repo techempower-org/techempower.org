@@ -39,6 +39,8 @@
   "results.likely": "Likely matches — apply, let the program do the math",
   "results.worthAsking": "Worth asking about",
   "results.notNow": "Not right now — but know the move",
+  "results.otherGroup": "Other programs",
+  "results.pgeGroup": "PG&E bill & energy programs",
   "results.empty": "We didn't find a strong match from your answers — but screeners miss things. Call 2-1-1: a real person will go deeper, free.",
   "card.apply": "Apply",
   "card.call": "Call",

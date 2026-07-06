@@ -3,7 +3,8 @@ import type {
   Bucket,
   EvaluationResult,
   Lang,
-  Rule
+  Rule,
+  Verdict
 } from '@/lib/screener/types'
 import { t } from '@/lib/screener/strings'
 import { suggest } from '@/lib/screener/suggest'
@@ -25,6 +26,36 @@ export function ScreenerResults({
   answers: Answers
 }) {
   const ruleById = new Map(rules.map((r) => [r.id, r]))
+
+  // A card belongs to the PG&E cluster when it's a utilities program gated on
+  // being a PG&E customer — CARE/FERA/ESA + the pge-* programs + REACH. This
+  // groups the ~11 PG&E cards a PG&E customer matches so they don't drown the
+  // rest (NID keys on nid-water, LIHEAP has no flag — both correctly excluded).
+  const isPgeProgram = (ruleId: string) => {
+    const rule = ruleById.get(ruleId)
+    return (
+      rule?.category === 'utilities' &&
+      (rule.test.flagsAll?.includes('pge-customer') ?? false)
+    )
+  }
+  const renderCards = (verdicts: Verdict[]) => (
+    <div className={styles.cards}>
+      {verdicts.map((verdict) => {
+        const rule = ruleById.get(verdict.ruleId)
+        // defensive: a verdict for an unknown rule renders nothing
+        if (!rule) return null
+        return (
+          <ProgramCard
+            key={verdict.ruleId}
+            rule={rule}
+            verdict={verdict}
+            lang={lang}
+          />
+        )
+      })}
+    </div>
+  )
+
   const noStrongOrLikely =
     result.strong.length === 0 && result.likely.length === 0
   // Pure + client-side, like evaluate(): pointers to non-screenable
@@ -40,6 +71,11 @@ export function ScreenerResults({
       {BUCKET_ORDER.map((bucket) => {
         const verdicts = result[bucket]
         if (verdicts.length === 0) return null
+        const pge = verdicts.filter((v) => isPgeProgram(v.ruleId))
+        const other = verdicts.filter((v) => !isPgeProgram(v.ruleId))
+        // Only split when the PG&E cluster is big enough to crowd the bucket
+        // AND there are non-PG&E cards to keep visible above it.
+        const grouped = pge.length >= 3 && other.length > 0
         return (
           <section
             className={styles.bucketSection}
@@ -49,21 +85,23 @@ export function ScreenerResults({
             <h2 id={`bucket-${bucket}`} className={styles.bucketHeading}>
               {t(lang, `results.${bucket}`)}
             </h2>
-            <div className={styles.cards}>
-              {verdicts.map((verdict) => {
-                const rule = ruleById.get(verdict.ruleId)
-                // defensive: a verdict for an unknown rule renders nothing
-                if (!rule) return null
-                return (
-                  <ProgramCard
-                    key={verdict.ruleId}
-                    rule={rule}
-                    verdict={verdict}
-                    lang={lang}
-                  />
-                )
-              })}
-            </div>
+            {grouped ? (
+              <>
+                <h3 className={styles.groupHeading}>
+                  {t(lang, 'results.otherGroup')}
+                </h3>
+                {renderCards(other)}
+                <h3 className={styles.groupHeading}>
+                  <span className={styles.groupIcon} aria-hidden='true'>
+                    ⚡
+                  </span>
+                  {t(lang, 'results.pgeGroup')}
+                </h3>
+                {renderCards(pge)}
+              </>
+            ) : (
+              renderCards(verdicts)
+            )}
           </section>
         )
       })}
