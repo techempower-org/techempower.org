@@ -17,7 +17,12 @@
         "increment": 918
       },
       "categoricalUnlocks": ["ssi", "calworks"],
-      "specialNotes": ["senior-net-test", "student-rules", "expedited-3-day"]
+      "specialNotes": [
+        "senior-net-test",
+        "student-rules",
+        "expedited-3-day",
+        "cf-stretch"
+      ]
     },
     "thresholdsDisplay": { "1": 2610, "4": 5360 },
     "noteParams": {
@@ -694,7 +699,8 @@
         "eitc-kid-count-bands",
         "eitc-itin",
         "eitc-investment-cap",
-        "eitc-retro-years"
+        "eitc-retro-years",
+        "eitc-free-filing"
       ]
     },
     "thresholdsDisplay": { "1": 1592, "4": 5369 },
@@ -913,7 +919,8 @@
       "specialNotes": [
         "medi-cal-year-round",
         "medi-cal-65plus-assets-2026",
-        "medi-cal-immigration-2026"
+        "medi-cal-immigration-2026",
+        "medi-cal-extras"
       ]
     },
     "thresholdsDisplay": { "1": 1835, "4": 3795 },
