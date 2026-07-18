@@ -44,6 +44,7 @@ check, Spanish policy, and the optional signup-copy tweak (see
 | **New from us** | Episodes published, new guides, screener/resources updates since last issue | /show page, `site.config.ts` guides, screener changelog |
 | **Program watch** | 2–3 verified benefit-program changes, each with a date and a one-line "what to do about it" | `lib/screener/rules.data.json` provenance churn + show fact-check reports |
 | **Try this** | ONE action for the reader (e.g., the 2-minute /qualify check) | rotates |
+| **Featured resource** | ONE gem from the Resources DB per issue (JP 2026-07-18) — pick seasonal + broadly useful; re-verify its claim at send. #1: kids/teens ride NCC buses free → #2 candidates: free school meals (back-to-school) → #3: LIHEAP season opens | Resources DB (256 rows); claim freshness per rules-DB discipline |
 | **From the workshop** | ONE featured open-source project per issue (JP 2026-07-18). Queue: #1 Star Charts → #2 Minecraft-on-Linux guide (back-to-school) → #3 smol → #4 iTags (holiday stocking-stuffer angle) | project catalog; verify link live at send |
 | **Close** | The standing help channels: 211, findhelp.org, techempower.org, Discord — same close as every episode | fixed |
 
