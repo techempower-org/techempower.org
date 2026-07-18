@@ -76,9 +76,11 @@ issue. Expected use: ≤1–2/year.
 |---|---|---|---|
 | **#1** | ~~Jul 28~~ **SENT Jul 18** (11/11) | **Welcome tour** (per JP 2026-07-18): the newsletter itself, the site + guides, /qualify, /resources + /submit, the two apps (Candela, Forage for All), workshop corner featuring Star Charts, Discord, show + season schedule | Draft: `issues/2026-07-28-issue-01.md` |
 | #2 | Aug 25 | **Program watch debut** (LifeLine broadband pilot, CARE/FERA, Market Match resolution) + Ep4 (home/transport) + Ep5 finale (nonprofits/farmers) | Ep5 publishes ~Aug 20–24 — confirm before locking |
-| #3 | Sep 29 | Ep6 (rural connectivity), CalFresh COLA lands Oct 1, LIHEAP season opens | Strong "program watch" issue |
-| #4 | Dec 15 | Year in review, holiday/winter resources | Last 2026 issue |
-| #5–#8 | 2027: late Mar / late Jun / late Sep / mid Dec | Quarterly steady state | Revisit cadence if the show gets a season 2 |
+| #3 | Sep 29 | Ep6 (rural connectivity) opens the funded year, CalFresh COLA lands Oct 1, LIHEAP season opens | Strong "program watch" issue |
+| #4 | Oct 27 | New-season episodes ×2, LIHEAP open | **Season-2 clause triggered** (JP 2026-07-18: funding for another year of 2 shows/month starting September) → monthly, last Tuesday, through the funded year |
+| #5 | Nov 24 | Episodes + holiday/winter resources preview | Thanksgiving week — consider Nov 17 |
+| #6 | Dec 15 | Year in review, holiday resources | |
+| 2027 | monthly, last Tuesday, through ~Aug 2027 (funded show year) | 2 episodes/month feed "New from us"; program watch + featured resource + workshop rotate | Signup-copy tweak now RECOMMENDED (promise says "a few times a year"; reality is monthly — see open question #2). Revisit cadence when funding year ends |
 
 ## Production workflow (per issue)
 
