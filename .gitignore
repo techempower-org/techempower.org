@@ -51,7 +51,7 @@ yarn-error.log*
 *.jpg
 *.jpeg
 
-# ...but show production assets ARE versioned
+# ...but show production assets and shipped site assets ARE versioned
 !show/**/*.png
 !show/**/*.jpg
 !show/**/*.jpeg
@@ -69,3 +69,4 @@ scripts/all-cover-results.json
 scripts/resource-batches/*.results.json
 scripts/resource-batches/*.failures.json
 scripts/.r2-config
+!public/**/*.png
