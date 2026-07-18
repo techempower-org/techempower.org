@@ -221,15 +221,9 @@
   );
 }
 
-/* Camera icon + reminder text on empty covers */
-.resources-page .notion-collection-card-cover:empty::after {
-  content: '\01F4F7\00a0\00a0 Add cover';
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--te-bark-400, #8c7a6e);
-  opacity: 0.7;
-  letter-spacing: 0.02em;
-}
+/* Empty covers show just the warm gradient — no text. (This used to say
+   "📷 Add cover", an editor affordance that read as broken UI to public
+   visitors; JP bug report 2026-07-18.) */
 
 /* Gradient variations for visual variety — rotate by card index */
 .resources-page
