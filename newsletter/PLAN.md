@@ -74,7 +74,7 @@ issue. Expected use: ≤1–2/year.
 
 | Issue | Send date (Tue) | Anchors | Notes |
 |---|---|---|---|
-| **#1** | **Jul 28** | **Welcome tour** (per JP 2026-07-18): the newsletter itself, the site + guides, /qualify, /resources + /submit, the two apps (Candela, Forage for All), workshop corner featuring Star Charts, Discord, show + season schedule | Draft: `issues/2026-07-28-issue-01.md` |
+| **#1** | ~~Jul 28~~ **SENT Jul 18** (11/11) | **Welcome tour** (per JP 2026-07-18): the newsletter itself, the site + guides, /qualify, /resources + /submit, the two apps (Candela, Forage for All), workshop corner featuring Star Charts, Discord, show + season schedule | Draft: `issues/2026-07-28-issue-01.md` |
 | #2 | Aug 25 | **Program watch debut** (LifeLine broadband pilot, CARE/FERA, Market Match resolution) + Ep4 (home/transport) + Ep5 finale (nonprofits/farmers) | Ep5 publishes ~Aug 20–24 — confirm before locking |
 | #3 | Sep 29 | Ep6 (rural connectivity), CalFresh COLA lands Oct 1, LIHEAP season opens | Strong "program watch" issue |
 | #4 | Dec 15 | Year in review, holiday/winter resources | Last 2026 issue |
