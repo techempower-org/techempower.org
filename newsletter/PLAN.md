@@ -21,9 +21,10 @@ check, Spanish policy, and the optional signup-copy tweak (see
 
 1. **Short.** 300–450 words. One screen on a phone. Every issue passes the
    test: "could a busy person skim this in 90 seconds and still get value?"
-   Images: keep total self-hosted payload ≤ ~350 KB — much of the audience
-   reads on metered mobile data (Luna design review, 2026-07-18). Every
-   image needs strong alt text; the email must still work with images off.
+   Images: keep total self-hosted payload ≤ ~500 KB — much of the audience
+   reads on metered mobile data (Luna design review, 2026-07-18; issue #1
+   ships ~505 KB after JP's adds — treat that as the ceiling). Every image
+   needs strong alt text; the email must still work with images off.
 2. **No fundraising, ever.** Not even a soft "support us" — the signup copy
    rules it out.
 3. **Only verified claims.** Same discipline as the show and the screener:
