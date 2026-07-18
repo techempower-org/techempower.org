@@ -97,11 +97,36 @@ def generate_image(client: object, model_id: str, prompt: str) -> bytes:
     return base64.b64decode(payload["images"][0])
 
 
+def _compress_in_place(path: str) -> None:
+    """Shrink the PNG for web serving before upload. Raw model output was
+    shipping at 3-4 MB per cover — brutal for a metered-data audience
+    (2026-07-18 sweep recompressed the whole bucket). Resize to 1200px
+    wide, then palette-quantize. Fail-open: any missing tool or non-zero
+    exit leaves the best version so far in place (pngquant exits 99 when
+    the quality floor can't be met — the resized original then ships).
+    """
+    for cmd in (
+        ["convert", path, "-resize", "1200x", "-strip", path],
+        ["pngquant", "--quality=55-85", "--speed", "1", "--force",
+         "--output", path, path],
+    ):
+        try:
+            proc = subprocess.run(cmd, capture_output=True, timeout=120)
+            if proc.returncode != 0:
+                sys.stderr.write(
+                    f"[compress] {cmd[0]} exit {proc.returncode} — keeping prior version\n"
+                )
+        except (OSError, subprocess.SubprocessError) as exc:
+            sys.stderr.write(f"[compress] {cmd[0]} unavailable ({exc}) — skipping\n")
+            return
+
+
 def upload_to_r2(png_bytes: bytes, page_id: str) -> str:
     """Upload PNG to R2 via wrangler; return public URL."""
     with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tmp:
         tmp.write(png_bytes)
         tmp_path = tmp.name
+    _compress_in_place(tmp_path)
     try:
         # `--remote` forces upload to the actual remote bucket
         # (default in some wrangler versions writes to local simulation).
