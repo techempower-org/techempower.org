@@ -3,7 +3,7 @@
 
 Nonprofit website for TechEMPOWER (techempower.org) — free technology resources for low-income individuals and families.
 
-**Brand casing (JP, 2026-07-18): it's "TechEMPOWER"** — capital EMPOWER — in ALL user-facing prose (site copy, newsletter, press, Notion content, store listings, alt text). Never "TechEmpower" or "Techempower". Lowercase stays for domains, repos, and package names (techempower.org, techempower-org, org.techempower.candela).
+**Brand casing (JP, 2026-07-18): "TechEMPOWER"** (capital EMPOWER) or all-lowercase "techempower" are both fine — the one WRONG form is mixed-case "TechEmpower"/"Techempower". Prefer TechEMPOWER in user-facing prose (site copy, newsletter, press, Notion content, store listings, alt text); lowercase for domains, repos, and package names (techempower.org, techempower-org, org.techempower.candela).
 
 ## What This Is
 
