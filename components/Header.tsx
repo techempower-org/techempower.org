@@ -41,7 +41,7 @@ export function Header() {
         <Link
           href='/'
           className={styles.logo}
-          aria-label='Techempower.org home'
+          aria-label='TechEMPOWER.org home'
         >
           <span className={styles.logoIcon} aria-hidden='true'>
             ⚡

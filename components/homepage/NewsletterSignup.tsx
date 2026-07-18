@@ -4,7 +4,7 @@ import { trackEvent } from '@/components/GoogleAnalytics'
 
 import styles from './NewsletterSignup.module.css'
 
-// Self-hosted listmonk at list.techempower.org. Public list "TechEmpower News".
+// Self-hosted listmonk at list.techempower.org. Public list "TechEMPOWER News".
 // Double opt-in: listmonk sends a confirmation email; only confirmed addresses
 // receive newsletters. No PII passes through any third party.
 const LISTMONK_ENDPOINT = 'https://list.techempower.org/api/public/subscription'

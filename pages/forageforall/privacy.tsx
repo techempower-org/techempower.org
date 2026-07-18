@@ -6,7 +6,7 @@ export default function ForageforallPrivacy() {
   return (
     <>
       <Head>
-        <title>ForageForAll · Privacy Policy · TechEmpower</title>
+        <title>ForageForAll · Privacy Policy · TechEMPOWER</title>
         <meta
           name='description'
           content={
@@ -32,7 +32,7 @@ export default function ForageforallPrivacy() {
             href='https://techempower.org'
             style={{ color: 'var(--te-teal-600, #0f766e)' }}
           >
-            ← TechEmpower
+            ← TechEMPOWER
           </a>
         </p>
         <article

@@ -6,7 +6,7 @@ export default function CandelaPrivacy() {
   return (
     <>
       <Head>
-        <title>Candela · Privacy Policy · TechEmpower</title>
+        <title>Candela · Privacy Policy · TechEMPOWER</title>
         <meta
           name='description'
           content={
@@ -29,7 +29,7 @@ export default function CandelaPrivacy() {
             href='https://techempower.org'
             style={{ color: 'var(--te-teal-600, #0f766e)' }}
           >
-            ← TechEmpower
+            ← TechEMPOWER
           </a>
         </p>
         <article

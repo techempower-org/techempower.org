@@ -1,7 +1,9 @@
 <!-- claude-md-version: d69cae3 | updated: 2026-03-22 -->
 # CLAUDE.md — techempower
 
-Nonprofit website for TechEmpower (techempower.org) — free technology resources for low-income individuals and families.
+Nonprofit website for TechEMPOWER (techempower.org) — free technology resources for low-income individuals and families.
+
+**Brand casing (JP, 2026-07-18): it's "TechEMPOWER"** — capital EMPOWER — in ALL user-facing prose (site copy, newsletter, press, Notion content, store listings, alt text). Never "TechEmpower" or "Techempower". Lowercase stays for domains, repos, and package names (techempower.org, techempower-org, org.techempower.candela).
 
 ## What This Is
 

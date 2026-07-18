@@ -1,4 +1,4 @@
-# TechEmpower Newsletter — Editorial Plan & Schedule
+# TechEMPOWER Newsletter — Editorial Plan & Schedule
 
 **Status: ADOPTED 2026-07-18** (JP: "finish and push"). Cadence Option A in
 effect. Still open before the first send: sender identity + SPF/DKIM/DMARC
@@ -8,7 +8,7 @@ check, Spanish policy, and the optional signup-copy tweak (see
 ## Ground truth (as of 2026-07-18)
 
 - **Infra:** self-hosted listmonk on ubox0 (`list.techempower.org`), list
-  **"TechEmpower News"** (id 3, double opt-in). **1 confirmed subscriber,
+  **"TechEMPOWER News"** (id 3, double opt-in). **1 confirmed subscriber,
   2 unconfirmed. Zero campaigns ever sent.** This plan launches the program.
 - **The promise already on the homepage signup** (`NewsletterSignup.tsx`):
   *"A short email when we publish a new guide or a program changes. No spam,
@@ -88,7 +88,7 @@ issue. Expected use: ≤1–2/year.
 2. **Verify**: every checklist item confirmed (drain to an agent, JP
    approves — same operating model as the show task drain).
 3. **Stage** in listmonk: new campaign, content type **Markdown** (native
-   support — paste the body verbatim), list "TechEmpower News".
+   support — paste the body verbatim), list "TechEMPOWER News".
 4. **Test-send** to jp@jphein.com; read it on a phone.
 5. **Send** (JP pushes the button), then mark the issue file `SENT` and keep
    it in the repo as the archive.
@@ -110,7 +110,7 @@ own small change — none included in this plan's scope.
    bilingual screener. Full EN/ES parity like the screener is a real
    production cost — when, if ever?
 4. **Sender identity:** propose `news@techempower.org` with a human
-   from-name ("Jeff at TechEmpower"?). Needs a decision + listmonk SMTP
+   from-name ("Jeff at TechEMPOWER"?). Needs a decision + listmonk SMTP
    check before first send (deliverability: SPF/DKIM/DMARC for the sending
    domain should be verified once, before issue #1).
 5. **Issue #1 draft approval** — see `issues/2026-07-28-issue-01.md`.

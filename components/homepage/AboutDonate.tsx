@@ -13,7 +13,7 @@ export function AboutDonate() {
         </h2>
 
         <p className={styles.text}>
-          Techempower.org is a 501(c)(3) nonprofit based in Grass Valley,
+          TechEMPOWER.org is a 501(c)(3) nonprofit based in Grass Valley,
           California. We write free, plain-language guides that explain how to
           use programs like Lifeline, CalFresh, and EV rebates &mdash; help
           that&rsquo;s already out there, just hard to find. We don&rsquo;t take

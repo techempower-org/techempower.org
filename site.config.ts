@@ -5,7 +5,7 @@ export default siteConfig({
   // the site's root Notion page (required)
   rootNotionPageId: '0959e44599984143acabc80187305001',
 
-  // restrict to TechEmpower workspace
+  // restrict to TechEMPOWER workspace
   rootNotionSpaceId: undefined,
 
   // basic site info (required)

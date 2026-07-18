@@ -376,7 +376,7 @@ export function ChatAgent({ onSendMessage, onAuthRequired }: ChatAgentProps) {
         ref={panelRef}
         className={`${styles.panel} ${isOpen ? styles.panelOpen : ''}`}
         role='dialog'
-        aria-label='Chat with Techempower.org Assistant'
+        aria-label='Chat with TechEMPOWER.org Assistant'
         // Use `inert` instead of `aria-hidden` so focusable descendants
         // (input + buttons) are also removed from the tab order when closed.
         // aria-hidden on a container that holds focusable elements creates
