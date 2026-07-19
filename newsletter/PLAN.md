@@ -10,12 +10,14 @@ check, Spanish policy, and the optional signup-copy tweak (see
 - **Infra:** self-hosted listmonk on ubox0 (`list.techempower.org`), list
   **"TechEMPOWER News"** (id 3, double opt-in). **1 confirmed subscriber,
   2 unconfirmed. Zero campaigns ever sent.** This plan launches the program.
-- **The promise already on the homepage signup** (`NewsletterSignup.tsx`):
-  *"A short email when we publish a new guide or a program changes. No spam,
-  no fundraising pitches — just useful resources, a few times a year. You can
-  unsubscribe with one click."*
+- **The promise on the homepage signup** (`NewsletterSignup.tsx`, updated
+  2026-07-19 for the funded season-2 monthly cadence):
+  *"One short email a month — new episodes, program changes, and free
+  resources. No spam, no fundraising pitches, and you can unsubscribe with
+  one click."*
   That copy is the editorial contract. Everything below is designed to honor
-  it — or explicitly asks JP before changing it.
+  it — or explicitly asks JP before changing it. (The original launch promise
+  said "a few times a year"; JP approved the monthly update 2026-07-19.)
 
 ## Editorial contract
 
@@ -105,9 +107,8 @@ own small change — none included in this plan's scope.
 ## Open questions for JP
 
 1. **Cadence:** approve Option A (or pick B/C)?
-2. **Signup copy:** monthly-during-season stretches "a few times a year."
-   Tweak `NewsletterSignup.tsx` copy to "about monthly during our show
-   season, quarterly otherwise"? (One-line code change, honest either way.)
+2. ~~**Signup copy**~~ RESOLVED 2026-07-19: updated to "one short email a
+   month" after JP approved (season-2 funding made monthly the reality).
 3. **Spanish:** issue #1 drafted EN-only with a one-line ES pointer to the
    bilingual screener. Full EN/ES parity like the screener is a real
    production cost — when, if ever?

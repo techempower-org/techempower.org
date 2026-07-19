@@ -60,9 +60,9 @@ export function NewsletterSignup() {
           New guides, sent to your inbox
         </h2>
         <p className={styles.text}>
-          A short email when we publish a new guide or a program changes. No
-          spam, no fundraising pitches &mdash; just useful resources, a few
-          times a year. You can unsubscribe with one click.
+          One short email a month &mdash; new episodes, program changes, and
+          free resources. No spam, no fundraising pitches, and you can
+          unsubscribe with one click.
         </p>
 
         {state === 'success' ? (
