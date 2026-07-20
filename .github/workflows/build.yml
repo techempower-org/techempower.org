@@ -22,7 +22,7 @@ jobs:
           # don't leave the auth token in .git/config for later steps to read.
           persist-credentials: false
       - uses: pnpm/action-setup@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
