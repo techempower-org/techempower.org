@@ -1,5 +1,5 @@
 {
-  "summary": "Adversarial verification of every claim group in the Ep3 'Food' script (draft of 2026-07-01). 12 claim groups, one Fable-max skeptic each, instructed to refute against live primary sources.",
+  "summary": "Adversarial verification of every claim group in the Ep3 'Food' script (draft of 2026-07-01). 12 claim groups, one Fable-max skeptic each, instructed to refute against live primary sources. July 20 amendment: a SUN Bucks (Summer EBT) guest beat (Clay) and the corrected Community Roots summer-meals attribution were added and verified against primary sources -- see the 'sunbucks' and 'communityroots-summermeals' entries.",
   "agentCount": 12,
   "logs": [
     "12/12 verified; 6 accurate, 6 needs_fix; ALL fixes applied to ep3-teleprompter.txt on 2026-07-01",
@@ -31,6 +31,8 @@
   "weekOfRecheck": {
     "note": "Run the standard week-of pass (July 14-18). Every remaining confirm is cued inline in the txt; the one ACTION item is the Market Match call (Sierra Harvest / county DSS).",
     "pending": [
+      "SUN Bucks: $120/child + Aug 31 2026 application deadline still posted on cdss.ca.gov/sun-bucks (added Jul 20)",
+      "Community Roots summer-meal site list + Aug 7 library end date; NOTE Nevada Union HS pickup ends Jul 30 -- drop from the spoken line if airing after (communityrootsnc.org / library 530-265-7050) (added Jul 20)",
       "Market Match 2026-27 funding (ACTION: phone call; restore original beat if confirmed)",
       "CDSS H.R.1 FAQ re-check (work rules + immigrant eligibility)",
       "FBNC July distribution dates + summer-lunch sites/end date + ~2,500 stat still posted",
@@ -41,6 +43,18 @@
     ]
   },
   "result": [
+    {
+      "claimId": "sunbucks",
+      "verdict": "accurate",
+      "notes": "VERIFIED 2026-07-20 vs primary sources for the SUN Bucks (Summer EBT) beat added in the July 20 amendment (guest: Clay). $120 per eligible child for summer 2026 -- the Governor's launch (gov.ca.gov/2026/05/21/california-launches-sun-bucks-for-summer-2026) states '$40 per month for food in June, July, and August ($120 total) per eligible child' and 'More than 3.5 million eligible children in California will be automatically enrolled'; cdss.ca.gov/sun-bucks confirms '$120 per eligible child' and helpline (877) 328-9677. Auto-enroll: free/reduced-price school meals OR CalFresh/CalWORKs/Medi-Cal (<=185% FPL) OR school-identified foster/homeless/migrant; auto cards mailed late May. Not-auto-enrolled families apply via a school-meal application or the Universal Benefits Application to the child's school BY AUGUST 31, 2026. Spends like CalFresh at grocery stores. Script states $120/child, the auto-enroll paths, 'on top of' the summer meal sites, and the Aug 31 deadline -- all match. BURN RISK: do not imply SUN Bucks replaces the summer meal sites; it stacks (script says 'use both'). WEEK-OF RECHECK: re-confirm $120 + the Aug 31 deadline on cdss.ca.gov/sun-bucks before the July 27 record.",
+      "scriptFix": ""
+    },
+    {
+      "claimId": "communityroots-summermeals",
+      "verdict": "accurate",
+      "notes": "VERIFIED 2026-07-20 vs communityrootsnc.org/summer-meals (Community Roots = Nevada County School Food Services JPA) + the county library page. CORRECTS a v1 mis-attribution: the kids' summer MEALS program is run by COMMUNITY ROOTS via the USDA Summer Food Service Program (the library 'Lunch at the Library' is theirs), NOT the food bank as the v1 draft stated -- Shawna flagged this. Verified, all free, any child 18 & under, no sign-up/paperwork/income test: daily lunch 12-1 at Grass Valley Library (207 Mill St) + Madelyn Helling Library (980 Helling Way, Nevada City) + Memorial Park Pool (350 Race St, GV), June 22-Aug 7 (pool from June 15); Scotten School (821 Gilmore Way, times TBD, thru Aug 12); weekly meal bags (7 breakfasts + 7 lunches) Thursdays 10-1 at Nevada Union High School (11761 Ridge Rd, GV, June 18-JULY 30) + Oak Tree Preschool (18847 Oaktree Rd, Nevada City, June 18-Aug 13). Script keeps it evergreen ('right into August' / 'full list at communityrootsnc dot org') -- no stale dates locked in speech. The food bank stays in the script for its GROCERY distributions (accurate). TIMING BURN RISK: Nevada Union HS weekly pickup ENDS July 30 -- drop that one site from the spoken line if the episode airs after July 30. WEEK-OF RECHECK: re-confirm the site list + the Aug 7 library end date before the July 27 record (communityrootsnc.org or library 530-265-7050).",
+      "scriptFix": ""
+    },
     {
       "claimId": "cf-amounts",
       "verdict": "accurate",
