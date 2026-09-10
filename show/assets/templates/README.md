@@ -9,13 +9,27 @@ folder; the Canva copies are imports of the PPTX files in `out/`.
 
 ## What's in the folder
 
-| Canva design | Built from | Pages |
+| Canva design (edit link) | Built from | Pages |
 | --- | --- | --- |
-| WIQ — Series Template Kit | `out/wiq-series-template-kit.pptx` | intro title, lower thirds (Jeff / Shawna / guest), 3 program-card layouts, URL strap, book card, Find Help Today, outro end card, chart frame |
-| WIQ — Ep2 Getting Connected … Ep6 (draft) | `out/wiq-epN-*.pptx` | intro + lower thirds + **every program card pre-filled from the script cues** + end card |
-| WIQ — YouTube thumbnails | `out/wiq-youtube-thumbnails.pptx` | one 16:9 page per episode (Ep1–Ep6), photo placeholder on the right |
-| TechEMPOWER — YouTube banner / avatar | `out/techempower-youtube-*.pptx` | rebuilt from `../youtube/*.src.html` |
-| /qualify poster · flyer · counter cards | `../outreach/posters/*.pdf` | the print pack, imported as-is |
+| [WIQ — Series Template Kit](https://www.canva.com/d/13TBZVBfwQgRmYI) · *Brand Template* | `out/wiq-series-template-kit.pptx` | intro title, lower thirds (Jeff / Shawna / guest), 3 program-card layouts, URL strap, book card, Find Help Today, outro end card, chart frame |
+| [WIQ — Ep2 Getting Connected](https://www.canva.com/d/fd49HBqjaX4Z-Y0) | `out/wiq-ep2-getting-connected.pptx` | intro + lower thirds + **7 program cards pre-filled from the script cues** + end card (with /qualify) |
+| [WIQ — Ep3 Food](https://www.canva.com/d/D5Pdqfns6PQ0Do_) | `out/wiq-ep3-food.pptx` | intro + lower thirds (incl. Clay) + 7 cards + end card |
+| [WIQ — Ep4 Home + Transportation](https://www.canva.com/d/CRaoBoVfy6ZDvh0) | `out/wiq-ep4-home-transportation.pptx` | intro + lower thirds + 11 cards + end card |
+| [WIQ — Ep5 Nonprofits + Farmers](https://www.canva.com/d/Mb1SQmwuKO2nnEe) | `out/wiq-ep5-nonprofits-farmers.pptx` | intro + lower thirds (incl. Lindsey Pratt) + 3 cards + end card (/show) |
+| [WIQ — Ep6 Still Connected (DRAFT)](https://www.canva.com/d/_NTjd_E-2UKrwA_) | `out/wiq-ep6-*-draft.pptx` | **not fact-checked** — 5 cards, hold until the script clears |
+| [WIQ — YouTube Thumbnails](https://www.canva.com/d/MRULNjmIZSpojHm) · *Brand Template* | `out/wiq-youtube-thumbnails.pptx` | one 16:9 page per episode (Ep1–Ep6), photo placeholder on the right |
+| [TechEMPOWER — YouTube Banner](https://www.canva.com/d/qt1DBfEeaHPDYyh) / [Avatar](https://www.canva.com/d/1Dohqb2GfVkXE_r) | `out/techempower-youtube-*.pptx` | rebuilt from `../youtube/*.src.html` |
+| [/qualify Poster](https://www.canva.com/d/ZtxxWgZTuAB9Crl) · [Flyer](https://www.canva.com/d/ANPZAE-YYt3S1_d) · [Counter Cards](https://www.canva.com/d/U92KzHjlhObC34R) | `../outreach/posters/*.pdf` | the print pack, imported as-is |
+
+Imported 2026-09-10 via the Canva MCP connector (`import-design-from-url` from
+this repo's raw GitHub URLs). Canva design IDs, for scripting: kit `DAHU05M8SPU`,
+Ep2 `DAHU00iBZmI`, Ep3 `DAHU02CZjkY`, Ep4 `DAHU0-pQNiU`, Ep5 `DAHU0-yy6V0`,
+Ep6 `DAHU0_CMQw0`, thumbnails `DAHU04_Qr-c`, banner `DAHU0w3m0Bs`, avatar
+`DAHU06R9aA4`, poster `DAHU08ukyWQ`, flyer `DAHU0_LKxnA`, cards `DAHU08U0sJU`.
+
+Brand Templates (start a fresh design from them: *Create → Templates → Brand*):
+[Series Template Kit](https://www.canva.com/brand/brand-templates/EAHU0xAwXwE) ·
+[YouTube Thumbnails](https://www.canva.com/brand/brand-templates/EAHU0-fj2rA).
 
 ## Editor notes
 
