@@ -64,6 +64,22 @@ with one "Relink Media" pointed at the folder root.
   `Z:\02 - PAID PROJECTS - KEEP\Jeff -\Media\7-6-26\Media\Audio\` on your side; it was never on JP's drive.
 - The 128 GB of Ep1 DNxHR transcodes (`Jeff -/Media/6-15-26/DNxHR/`). You have those.
 
+## Editable templates in Canva (added 2026-09-10)
+
+Every graphic above now exists as an **editable Canva design**, in the folder
+**https://www.canva.com/folder/FAHU07wYF-E** (TechEMPOWER's Canva for Nonprofits team):
+
+- **WIQ — Series Template Kit** (Brand Template): intro title, lower thirds, three program-card
+  layouts, URL strap for screencasts, book card, Find Help Today, outro end card, chart frame.
+- **WIQ — Ep2 … Ep6 decks**: one design per episode with **every program card below already
+  filled in** from the script cues, plus intro, lower thirds and the episode's end card.
+  Each card's page notes carry the verbatim `[POST: PROGRAM CARD …]` cue and any verify-note.
+- **WIQ — YouTube Thumbnails** (Brand Template), the channel banner/avatar, and the /qualify
+  poster pack.
+
+Overlay pages have no background: export as PNG with *Transparent background* ticked. Fonts are
+Fraunces + DM Sans (in Canva's library). Source + rebuild instructions: `show/assets/templates/README.md`.
+
 ## Program cards to build
 
 Every card below is a `[POST: PROGRAM CARD …]` cue in the full script; the fact-check JSON has the
