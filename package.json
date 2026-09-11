@@ -43,7 +43,7 @@
     "fathom-client": "^3.4.1",
     "katex": "^0.17.0",
     "ky": "^2.0.2",
-    "next": "^16.2.9",
+    "next": "^16.3.3",
     "notion-client": "^7.10.0",
     "notion-types": "^7.10.0",
     "notion-utils": "^7.10.0",
