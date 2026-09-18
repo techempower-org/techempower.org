@@ -4,10 +4,10 @@ Shared via Box: `Jeff - ep2 ep3 handoff` (JP's TechEmpower Box, 2026-09-03).
 The folder mirrors the portable drive `F:\` layout so DaVinci Resolve relinks
 with one "Relink Media" pointed at the folder root.
 
-| Episode | Recorded | Resolve project | Raw media |
-|---------|----------|-----------------|-----------|
-| Ep2 "Getting Connected" (internet + phone affordability) | Mon Jul 6, 2026 | `Jeff -/Project/Jeff 7-6-26 v1.drp` | `Jeff -/Media/7-6-26/` |
-| Ep3 "Food" (grocery money + no-paperwork help) | Mon Jul 27, 2026 | `Jeff -/Project/Jeff 7-27-26 v1.drp` | `Jeff -/Media/7-27-26/` |
+| Episode                                                  | Recorded         | Resolve project                      | Raw media               |
+| -------------------------------------------------------- | ---------------- | ------------------------------------ | ----------------------- |
+| Ep2 "Getting Connected" (internet + phone affordability) | Mon Jul 6, 2026  | `Jeff -/Project/Jeff 7-6-26 v1.drp`  | `Jeff -/Media/7-6-26/`  |
+| Ep3 "Food" (grocery money + no-paperwork help)           | Mon Jul 27, 2026 | `Jeff -/Project/Jeff 7-27-26 v1.drp` | `Jeff -/Media/7-27-26/` |
 
 ## What's in the folder
 
@@ -70,20 +70,24 @@ Every card below is a `[POST: PROGRAM CARD …]` cue in the full script; the fac
 verified source for each number.
 
 ### Ep2 "Getting Connected"
+
 - California LifeLine free phone plans — apply at assurancewireless.com / safelinkwireless.com; full provider list: californialifeline.com
 - Xfinity Internet Essentials $14.95 / AT&T Access $30 or less / NevCoFiber Community Assist $15 — "check your address"
 - CASF Line Extension Program — state grant to extend the line to unserved homes; LifeLine/CARE income lines; ask your provider to apply for you
 - Nevada County Library — free hotspot lending, 24/7 WiFi, free tech help — 530-265-7050
-- T-Mobile Project 10Million (K-12 student households) — free hotspot + 200 GB a year, up to 5 years — t-mobile.com/project-10-million
+- T-Mobile Project 10Million (K-12 student households) — free hotspot + 200 GB a year, up to 5 years — t-mobile.com/brand/project-10-million (the short URL t-mobile.com/project-10-million 404s as of 2026-09-17; use the long one)
 - Computers for Classrooms (ships in CA) / human-I-T
 - Senior Planet hotline / California Connect (caconnect.org) / TechEmpower Discord
 - Outro end card: TECHEMPOWER.ORG / TECHEMPOWER.ORG/QUALIFY (2-minute check) / 211 / FINDHELP.ORG
 
 Ep2 also has `[POST: SCREENCAST …]` cues (assurancewireless.com sign-up, californialifeline.com provider list,
 Xfinity Internet Essentials page, nevcofiber.com coverage check, library catalog hotspot hold,
-computersforclassrooms.org store, human-I-T shop). Capture these at edit time; durations are in the cues.
+computersforclassrooms.org store, human-I-T shop). Durations are in the cues. Stills for every cue from the library
+beat onward are in `show/ep2/screencasts/` (captured 2026-09-17, README maps file → cue). Note the catalog button is
+labelled **Place Request**, not "Place Hold".
 
 ### Ep3 "Food"
+
 - CalFresh — BenefitsCal.com / statewide 1-877-847-3663 / county offices: 950 Maidu Ave, Suite 120, Nevada City + 10075 Levon Ave, Truckee (Joseph Center) / local 530-265-1340 / or dial 2-1-1
 - WIC — Grass Valley 530-265-1454 / Truckee 530-582-7814 / myfamily.wic.ca.gov
 - Interfaith Food Ministry — 440 Henderson St, Grass Valley / 530-273-8132 / Mon-Wed-Fri 10 to 1 (first hour by reservation) + Saturdays

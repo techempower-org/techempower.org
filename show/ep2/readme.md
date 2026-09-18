@@ -45,9 +45,15 @@ changes; full report: `~/.claude/projects/-home-jp/scratch/ep2-weekof-and-e5/`):
    _(July 2: the "two forms side-by-side" insert was dropped with the two-applications claim — see prompter notes; carrier-first flow per JP)_
 3. Xfinity Internet Essentials page (eligibility checklist + $14.95 tile + address box) — ~7s
 4. nevcofiber.com address/coverage check — ~6s
-5. Library catalog: search "hotspot" → Place Hold — ~6s
+5. Library catalog: search "hotspot" → **Place Request** (the Polaris button label; older notes say "Place Hold") — ~6s
 6. computersforclassrooms.org store page (~$150 desktop bundle, warranty line visible) — ~6s
 7. human-I-T shop page (refurb Chromebook listings) — ~5s
+
+**Stills captured 2026-09-17 for #5–#7 plus the T-Mobile, Senior Planet,
+California Connect and Discord program cards → `screencasts/` (README maps
+file → cue; also mirrored to the Box handoff folder). #1–#4 were captured
+separately. T-Mobile card URL: the short `t-mobile.com/project-10-million`
+404s — use `t-mobile.com/brand/project-10-million`.**
 
 End card: conditional `/qualify` addition if the screener is live by air date — confirm with JP.
 

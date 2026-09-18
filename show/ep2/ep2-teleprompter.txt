@@ -332,7 +332,8 @@ put a hold on one in the catalog, same as a bestseller --
 it looks like this.
 
 [POST: SCREENCAST -- library catalog: search "hotspot",
-result list, cursor hits the Place Hold button. ~6 seconds]
+result list, cursor hits the PLACE REQUEST button (Polaris
+label; the script said "Place Hold"). ~6 seconds]
 
 JEFF (cont):
 Two honest notes: fourteen days means fourteen days -- the
@@ -381,7 +382,9 @@ and it ships to your door.
 
 [POST: PROGRAM CARD -- T-Mobile Project 10Million (K-12
 student households): free hotspot + 200 GB a year, up to
-5 years -- t-mobile.com/project-10-million]
+5 years -- t-mobile.com/brand/project-10-million
+(the short URL t-mobile.com/project-10-million 404s as of
+Sep 17, 2026)]
 
 SHAWNA:
 So the library lends you one -- and if there's a student in
