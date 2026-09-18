@@ -73,6 +73,7 @@ const targets = [
 ]
 
 const only = process.argv[3] ? process.argv[3].split(',') : null
+const failed = []
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
 const browser = await puppeteer.launch({
@@ -145,9 +146,16 @@ for (const t of targets) {
       t.scrollText,
       t.offset ?? 200
     )
-    console.log(
-      `${t.name}: scroll target ${found ? 'found ' + found : 'NOT FOUND'}`
-    )
+    if (!found) {
+      // No screenshot: an unframed viewport would silently pass as the beat.
+      console.log(
+        `${t.name}: FAILED — scroll target "${t.scrollText}" not found`
+      )
+      failed.push(t.name)
+      await page.close()
+      continue
+    }
+    console.log(`${t.name}: scroll target found ${found}`)
     await sleep(1200)
     // Re-hide anything that popped up on scroll (sticky headers we keep; chat widgets we hide)
     if (t.hide?.length)
@@ -168,3 +176,7 @@ for (const t of targets) {
   await page.close()
 }
 await browser.close()
+if (failed.length) {
+  console.log(`FAILED targets: ${failed.join(', ')}`)
+  process.exitCode = 1
+}

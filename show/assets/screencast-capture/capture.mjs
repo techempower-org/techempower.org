@@ -43,6 +43,7 @@ const targets = [
 ]
 
 const only = process.argv[3] ? process.argv[3].split(',') : null
+const failed = []
 
 const browser = await puppeteer.launch({
   executablePath: '/usr/bin/google-chrome',
@@ -80,7 +81,18 @@ for (const t of targets) {
   try {
     await page.goto(t.url, { waitUntil: 'networkidle2', timeout: 60000 })
   } catch (e) {
-    console.log(`${t.name}: goto warning: ${e.message.split('\n')[0]}`)
+    // A networkidle timeout on an ad-heavy page still leaves a usable DOM
+    // (the T-Mobile hero came from one) — keep going. Anything else (DNS,
+    // TLS, HTTP failure before first paint) is a real failure: skip the target.
+    const msg = e.message.split('\n')[0]
+    if (/timeout/i.test(msg)) {
+      console.log(`${t.name}: goto warning: ${msg}`)
+    } else {
+      console.log(`${t.name}: FAILED navigation: ${msg}`)
+      failed.push(t.name)
+      await page.close()
+      continue
+    }
   }
   await new Promise((r) => setTimeout(r, 2500))
   for (const sel of dismissSelectors) {
@@ -139,3 +151,7 @@ for (const t of targets) {
   await page.close()
 }
 await browser.close()
+if (failed.length) {
+  console.log(`FAILED targets: ${failed.join(', ')}`)
+  process.exitCode = 1
+}
